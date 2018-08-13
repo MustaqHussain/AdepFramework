@@ -1,0 +1,73 @@
+﻿<#/*
+//*********************************************************
+//
+//    Copyright (c) Microsoft. All rights reserved.
+//    This code is licensed under the Microsoft Public License.
+//    THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF
+//    ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY
+//    IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR
+//    PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.
+//
+//*********************************************************
+#>
+<#@ template language="C#" debug="false" hostspecific="true"#>
+<#@ include file="EF.Utility.CS.ttinclude"#><#@ 
+ output extension=".cshtml"#><#
+
+CodeGenerationTools code = new CodeGenerationTools(this);
+MetadataLoader loader = new MetadataLoader(this);
+CodeRegion region = new CodeRegion(this, 1);
+MetadataTools ef = new MetadataTools(this);
+
+string inputFile = @"..\..\Dwp.Adep.Framework.Management.DataServices\Models\Model1.edmx";
+EdmItemCollection ItemCollection = loader.CreateEdmItemCollection(inputFile);
+//string namespaceName = code.VsNamespaceSuggestion();
+
+EntityFrameworkTemplateFileManager fileManager = EntityFrameworkTemplateFileManager.Create(this);
+
+// Emit Entity Types
+foreach (EntityType entity in ItemCollection.GetItems<EntityType>().OrderBy(e => e.Name))
+{
+	string outputDir = Path.Combine(Path.GetDirectoryName(Host.TemplateFile), entity.Name);
+
+	if(!Directory.Exists(outputDir))
+	{
+		Directory.CreateDirectory(outputDir);
+	}
+	string fileName = "Delete";
+	fileManager.StartNewFile(outputDir + @"\" + fileName + ".cshtml");
+#>
+@model Dwp.Adep.Framework.Management.Web.Models.<#=entity.Name#>Model
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend><#=entity.Name#>Model</legend>
+<#
+	foreach (EdmProperty edmProperty in entity.Properties.Where(p => p.TypeUsage.EdmType is PrimitiveType && p.DeclaringType == entity))
+	{
+		bool isForeignKey = entity.NavigationProperties.Any(np=>np.GetDependentProperties().Contains(edmProperty));
+		bool isDefaultValueDefinedInModel = (edmProperty.DefaultValue != null);
+#>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.<#=edmProperty.Name#>)
+        </div>
+  <#}#>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}
+<#
+}
+fileManager.Process();
+*/#>
+
+

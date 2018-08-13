@@ -1,0 +1,19 @@
+﻿@model Dwp.Adep.Framework.Management.Web.ViewModels.OrganisationByTypeVM
+    
+     @using (@Html.BeginCollectionItem("OrganisationsByRows"))
+     {
+         @Html.Raw("<script type='text/javascript'>$(document).ready(function () { var UpdateButton = $('input[name=\"ApplicationStaffAdmin::UpdateOrganisation_" + @ViewData.TemplateInfo.HtmlFieldPrefix.Substring(20, 36) + "\"]');UpdateButton.hide();$('#" + @ViewData.TemplateInfo.HtmlFieldPrefix.Replace("[","_").Replace("]","_") + "_SelectedOrganisationCode').change(function (e) {var input = $('<input>').attr('type', 'hidden').attr('name', 'ApplicationStaffAdmin::UpdateOrganisation_" + @ViewData.TemplateInfo.HtmlFieldPrefix.Substring(20, 36) + "').val('');$('#mainForm').append($(input));$('#mainForm')[0].submit();});});</script>")
+         
+        <div class='full-width clearfix'>
+            <div class='editor-label left-40'>
+                <label for='@Model.SelectedOrganisationCode'>@Model.OrganisationTypeItem.Name</label>
+            </div>
+            <div class='editor-field right-60'>
+           @Html.DropDownListFor(model => model.SelectedOrganisationCode, new SelectList(Model.OrganisationList, "Code", "Name"), String.Format(FixedResources.DDL_GENERIC, Model.OrganisationTypeItem.Name))
+           @Html.HiddenFor(model => model.OrganisationTypeItem.Code)
+          
+           @Html.Raw("<input type='submit' name='ApplicationStaffAdmin::UpdateOrganisation_" + @ViewData.TemplateInfo.HtmlFieldPrefix.Substring(20, 36) + "' value='Update' />")
+           
+            </div>
+        </div>
+     }      

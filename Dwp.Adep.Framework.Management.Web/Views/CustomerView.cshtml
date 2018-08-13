@@ -1,0 +1,177 @@
+@model IEnumerable<Dwp.Adep.Framework.Management.Web.Models.CustomerModel>
+
+@{
+    ViewBag.Title = "CustomerView";
+}
+
+<h2>CustomerView</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+      <th>
+            Code
+        </th>
+        <th>
+            DateRaised
+        </th>
+        <th>
+            TitleCode
+        </th>
+        <th>
+            Surname
+        </th>
+        <th>
+            Forenames
+        </th>
+        <th>
+            RequestedSurname
+        </th>
+        <th>
+            MaidenName
+        </th>
+        <th>
+            DOB
+        </th>
+        <th>
+            NI_Number
+        </th>
+        <th>
+            Stagger
+        </th>
+        <th>
+            Address1
+        </th>
+        <th>
+            Address2
+        </th>
+        <th>
+            Address3
+        </th>
+        <th>
+            Address4
+        </th>
+        <th>
+            Address5
+        </th>
+        <th>
+            PostCode
+        </th>
+        <th>
+            CountryOfResidenceCode
+        </th>
+        <th>
+            Telephone
+        </th>
+        <th>
+            DateLastSaved
+        </th>
+        <th>
+            Notes
+        </th>
+        <th>
+            DateWeed
+        </th>
+        <th>
+            LinkedCustomerCode
+        </th>
+        <th>
+            UserTableID
+        </th>
+        <th>
+            IsDeleted
+        </th>
+        <th>
+            RowIdentifier
+        </th>
+          <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+      <td>
+            @Html.DisplayFor(modelItem => item.Code)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateRaised)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TitleCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Surname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Forenames)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RequestedSurname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaidenName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DOB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NI_Number)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Stagger)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PostCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CountryOfResidenceCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telephone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateLastSaved)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Notes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateWeed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LinkedCustomerCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserTableID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsDeleted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RowIdentifier)
+        </td>
+          <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Code }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Code }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Code })
+        </td>
+    </tr>
+}
+
+</table>

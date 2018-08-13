@@ -1,0 +1,45 @@
+/* v2.3 */
+.ui-widget-header{border:1px solid #cccccc;color:#ffffff;}
+.ui-widget{font-family:"Segoe UI",Helvetica,Arial,Sans-Serif;font-size:1em;}
+.ui-widget-content{border:1px solid #cccccc;background-color:#fcfdfd;color:#222222;}
+.ui-widget-content a{color:#222222;text-decoration:none;}
+.ui-widget-header{border:0px solid #4297d7;background:none;background-color:#005db3;color:#ffffff;}
+.ui-widget-content .ui-widget-header a{color:#ffffff;}
+.ui-state-default,.ui-widget-content .ui-state-default,.ui-widget-header .ui-state-default{border:0px solid #77d5f7;background:none;background-color:#005db3;color:#ffffff;}
+.ui-widget input,.ui-widget select,.ui-widget textarea,.ui-widget button{font-family:"Segoe UI",Helvetica,Arial,Sans-Serif;}
+.ui-state-default a{color:#ffffff;}
+a.ui-state-default:visted,a.ui-state-default,a.ui-state-default:hover,a.ui-state-default:link,.ui-state-default{color:#ffffff;}
+.ui-state-active,.ui-widget-content .ui-state-active,.ui-widget-header .ui-state-active{border:0px solid #acdd4a;background:none;background-color:#005db3;color:#ffffff;}
+.ui-state-highlight,.ui-widget-content .ui-state-highlight,.ui-widget-header .ui-state-highlight{border:0px solid #fcd113;background:none;color:#000000;background-color:#5bc236;}
+.ui-state-error,.ui-widget-content .ui-state-error,.ui-widget-header .ui-state-error{border:0x solid #cd0a0a;background:none;background-color:#005db3;color:#ffffff;}
+.ui-state-hover,.ui-widget-content .ui-state-hover,.slide-out-div .ui-state-hover a:hover,.ui-widget-header .ui-state-hover,.ui-state-focus,.ui-widget-content .ui-state-focus,.ui-widget-header .ui-state-focus{background:none;background-color:#0070cc;color:#ffffff;}
+input.ui-button{font-family:"Segoe UI",Helvetica,Arial,Sans-Serif;padding-top:0.25em;padding-bottom:0.3em;white-space:normal;_margin-top:1px;_margin-bottom:1px;}
+.ui-state-hover .ui-icon,.ui-state-focus .ui-icon{background-image:url(themes/start/images/ui-icons_f5e175_256x240.png);}
+.ui-tabs-nav{background-color:#ffffff;border-bottom:1px solid #005db3;border-collapse:collapse;}
+.ui-tabs-nav .ui-widget-header{border-bottom:#cccccc;background-color:#FFF;}
+.ui-tabs-nav .ui-state-default a{background-color:#FFF;color:#000 !important;border:1px solid #BBB;border-bottom:1px solid #005db3;}
+.ui-tabs-nav .ui-state-hover a{background-color:#0070cc;color:#ffffff !important;}
+.ui-tabs-nav .ui-state-active a{background-color:#005db3;color:#ffffff !important;}
+.ui-tabs-nav .ui-state-active a:hover{border:1px solid #BBB;border-bottom:none;color:#ffffff !important;}
+.ui-datepicker select{padding:0px;}
+.ui-datepicker a{color:#ffffff !important;font-weight:bold !important;}
+.ui-datepicker-current-day a{background-color:#003566 !important;}
+.ui-accordion .ui-accordion-header a{padding-left:2.143em;}
+.ui-accordion .ui-accordion-content{overflow:visible;}
+.ui-accordion{width:auto;}
+.slide-out-div .ui-corner-all,.slide-out-div .ui-corner-bottom,.slide-out-div .ui-corner-top{border-radius:0px;}
+* html .ui-selectmenu-menu li{border-color:#cccccc;filter:chroma(color=#cccccc);width:100%;}
+.ui-selectmenu{min-height:1.9em;}
+.ui-selectmenu span{padding-top:3px;}
+.ui-selectmenu-menu li{padding:0;margin:0;display:block;border-top:0px solid #cccccc;border-bottom:1px solid #cccccc;border-right-width:0 !important;border-left-width:0 !important;font-weight:normal !important;}
+.ui-selectmenu-menu-dropdown .ui-state-hover{background-color:#DADADA;border:none;border-bottom:1px solid #cccccc;}
+.ui-selectmenu-menu-dropdown a:hover{color:#005db3;}
+.ui-selectmenu-status{color:#ffffff;}
+* span a:hover{text-decoration:none;}
+.ui-button-text{color:#ffffff;}
+.ui-multiselect{min-height:30px;}
+.ui-multiselect .ui-icon{margin-top:2px;}
+.ui-multiselect-checkboxes .ui-state-hover{color:#000;background-color:#DADADA !important;_background-color:#FFF !important;_border:0px solid #ffffff;}
+.webgrid-footer .ui-state-highlight{padding:3px;background-color:transparent;color:#FFDE00;font-weight:bolder;padding-left:4px;padding-right:3px;}
+.webgrid-footer a{color:#fff;padding-left:3px;padding-right:3px;}
+* tfoot a:hover{color:#fff;}

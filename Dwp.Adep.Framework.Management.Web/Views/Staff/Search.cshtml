@@ -1,0 +1,105 @@
+@model Dwp.Adep.Framework.Management.Web.ViewModels.StaffSearchVM
+
+@{
+    ViewBag.Title = FixedResources.ENTITYNAME_STAFF + " " + FixedResources.LABEL_LISTNAME;
+}
+<h2>
+    @FixedResources.ENTITYNAME_STAFF @FixedResources.LABEL_LISTNAME</h2>
+<script type="text/javascript">
+    $(document).ready(function () {
+        function updateGrid(e) {
+            e.preventDefault();
+            var url = $(this).attr('href');
+            var grid = $(this).parents('.ajaxGrid');
+            var id = grid.attr('id');
+            grid.load(url + ' #' + id, function (response, status, xhr) {
+                jQueryUIStyling();
+            })
+        }
+        $('.ajaxGrid table thead tr a').live('click', updateGrid);
+        $('.ajaxGrid table tfoot tr a').live('click', updateGrid);
+
+
+    });
+
+</script>
+
+@using (Html.BeginForm("Search", "Staff", FormMethod.Post, new { @id = "mainForm" }))
+{
+    @Html.ValidationSummary(true)
+
+    <fieldset class="ui-widget ui-widget-content">
+        <legend class="ui-widget-header ui-corner-all">@FixedResources.LABEL_LEGEND_SEARCH</legend>
+        <div class="full-width clearfix">
+            <div class="left-50">
+                <div class="full-width clearfix">
+                    <div class="editor-label left-40">
+                        @Html.LabelFor(model => model.SearchCriteria.StaffNumber)
+                    </div>
+                    <div class="editor-field right-60">
+                        @Html.EditorFor(model => model.SearchCriteria.StaffNumber)
+                    </div>
+                    <div class="full-width clearfix">
+                        @Html.ValidationMessageFor(model => model.SearchCriteria.StaffNumber)
+                    </div>
+                </div>
+                <div class="full-width clearfix">
+                    <div class="editor-label left-40">
+                        @Html.LabelFor(model => model.SearchCriteria.FirstName)
+                    </div>
+                    <div class="editor-field right-60">
+                        @Html.EditorFor(model => model.SearchCriteria.FirstName)
+                    </div>
+                    <div class="full-width clearfix">
+                        @Html.ValidationMessageFor(model => model.SearchCriteria.FirstName)
+                    </div>
+                </div>
+                <div class="full-width clearfix">
+                    <div class="editor-label left-40">
+                        @Html.LabelFor(model => model.SearchCriteria.LastName)
+                    </div>
+                    <div class="editor-field right-60">
+                        @Html.EditorFor(model => model.SearchCriteria.LastName)
+                    </div>
+                    <div class="full-width clearfix">
+                        @Html.ValidationMessageFor(model => model.SearchCriteria.LastName)
+                    </div>
+                </div>
+            </div>
+        </div>       
+        <div class="full-width clearfix">
+            @Html.Raw("<input id='StaffSearchButton' type='submit' name='Search::SearchPost' value='")@Html.Raw(FixedResources.LABEL_SEARCHBUTTON)@Html.Raw("' />")
+        </div>
+    </fieldset>   
+    <div class="webgrid-wrapper">
+        <div class="webgrid-title">
+            @FixedResources.LABEL_GRIDTITLE</div>
+        <div id="grid" class='ajaxGrid'>
+            @{
+       var grid = new WebGrid(null, canPage: true, rowsPerPage: Model.PageSize, defaultSort: "Code", canSort: false);
+       grid.Bind(Model.MatchList, rowCount: Model.TotalRows, autoSortAndPage: false);
+           
+                @grid.GetHtml(
+                    tableStyle: "webgrid",
+                    headerStyle: "webgrid-header",
+                    footerStyle: "webgrid-footer",
+                    mode: WebGridPagerModes.All, firstText: FixedResources.PAGING_FIRSTPAGE, previousText: FixedResources.PAGING_PREVIOUS, nextText: FixedResources.PAGING_NEXT, lastText: FixedResources.PAGING_LASTPAGE, numericLinksCount: 5,
+                    alternatingRowStyle: "webgrid-alternating-rows",
+                    columns: grid.Columns(
+                    grid.Column("Code", header: "", format: @<text>@Html.Raw("<input id='SelectButton_")@item.Code@Html.Raw("' type='submit' name='Search::SearchSelect_")@item.Code@Html.Raw("' value='")@Html.Raw(FixedResources.LABEL_SELECTBUTTON)@Html.Raw("' />")</text>)
+                    , grid.Column("Code", header: "", format: @<text>@Html.Raw("<input id='ManageButton_")@item.Code@Html.Raw("' type='submit' name='Search::ManageStaff_")@item.Code@Html.Raw("' value='")@Html.Raw(FixedResources.LABEL_MANAGEBUTTON)@Html.Raw("' />")</text>)
+                    , grid.Column("StaffNumber", header: @Resources.LABEL_STAFF_STAFFNUMBER)
+                    , grid.Column("LastName", header: @Resources.LABEL_STAFF_LASTNAME)
+                    , grid.Column("FirstName", header: @Resources.LABEL_STAFF_FIRSTNAME)
+                    , grid.Column("IsActive", header: @Resources.LABEL_STAFF_ISACTIVE)
+                    )
+
+                )
+            }
+            Records Returned: @grid.TotalRowCount
+        </div>
+        @if (HttpContext.Current.User.IsInRole(FrameworkRoles.ADMIN)){ 
+		<input id='NewButton' type='submit' name='Search::NewStaff' value="@FixedResources.LABEL_NEWBUTTON" title='@FixedResources.LABEL_NEWBUTTON @FixedResources.ENTITYNAME_STAFF' />
+           } 
+    </div>
+}

@@ -1,0 +1,611 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:1213/ServiceContracts/AdminService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="CheckerDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsCST" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsOPIT" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RowIdentifier" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="StaffCode" nillable="true" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CheckerDC" nillable="true" type="tns:CheckerDC" />
+  <xs:complexType name="ArrayOfCheckerDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CheckerDC" nillable="true" type="tns:CheckerDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCheckerDC" nillable="true" type="tns:ArrayOfCheckerDC" />
+  <xs:complexType name="BCSNumberDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Number" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RowIdentifier" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="TargetDays" nillable="true" type="xs:short" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BCSNumberDC" nillable="true" type="tns:BCSNumberDC" />
+  <xs:complexType name="ArrayOfBCSNumberDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BCSNumberDC" nillable="true" type="tns:BCSNumberDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBCSNumberDC" nillable="true" type="tns:ArrayOfBCSNumberDC" />
+  <xs:complexType name="ArrayOfCustomerDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CustomerDC" nillable="true" type="tns:CustomerDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCustomerDC" nillable="true" type="tns:ArrayOfCustomerDC" />
+  <xs:complexType name="CustomerDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Address2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Address3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Address4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Address5" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="CountryOfResidenceCode" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="DOB" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DateLastSaved" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DateRaised" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DateWeed" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Forenames" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsDeleted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LinkedCustomerCode" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="MaidenName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NI_Number" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Notes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PostCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RequestedSurname" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RowIdentifier" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="Stagger" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Surname" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Telephone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TitleCode" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="UserTableID" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CustomerDC" nillable="true" type="tns:CustomerDC" />
+  <xs:complexType name="AccuracyCheckDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BCS_Date" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="BCS_NumberCode" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="BCS_TargetDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="BF_Date" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="BenefitCode" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="CheckCompletedDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CheckID" type="xs:int" />
+      <xs:element minOccurs="0" name="CheckSubTypeCode" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="CheckTypeCode" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="CheckerStaffCode" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="ClearanceTargetDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="CommandCode" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="CountryCode" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="CustomerFirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerLastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DaysToClear" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="EndDateOfClaim" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="GeneralNotes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GeneratedDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IOP_OnSchedule" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="IsCST_Check" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsChangeOfCircs" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsClaim" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsMaintenance" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsNewClaim" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsOPIT_Check" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsPostPaymentCheck" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsPrePaymentCheck" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LocationCode" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="NI_Number" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PapersReceivedForChecking" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="PapersReceivedInOps" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="PapersRequestedForChecking" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="PapersReturnedToSection" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="PapersSentForChecking" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="RaisedDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ReasonForDelayCode" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="RequestReceivedByOps" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="RowIdentifier" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="Schedule" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ServerCode" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="StaffCode" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="StartDateOfClaim" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="TeamCode" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="VAT2000_Date" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="VAT2000_NumberCode" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="VAT2000_TargetDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ValidatedOn" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ValidationNotes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ValidatorStaffCode" nillable="true" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AccuracyCheckDC" nillable="true" type="tns:AccuracyCheckDC" />
+  <xs:complexType name="ArrayOfAccuracyCheckDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AccuracyCheckDC" nillable="true" type="tns:AccuracyCheckDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAccuracyCheckDC" nillable="true" type="tns:ArrayOfAccuracyCheckDC" />
+  <xs:complexType name="ErrorTypeDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RowIdentifier" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ErrorTypeDC" nillable="true" type="tns:ErrorTypeDC" />
+  <xs:complexType name="ArrayOfErrorTypeDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ErrorTypeDC" nillable="true" type="tns:ErrorTypeDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfErrorTypeDC" nillable="true" type="tns:ArrayOfErrorTypeDC" />
+  <xs:complexType name="TitleDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RowIdentifier" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TitleDC" nillable="true" type="tns:TitleDC" />
+  <xs:complexType name="ArrayOfTitleDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TitleDC" nillable="true" type="tns:TitleDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTitleDC" nillable="true" type="tns:ArrayOfTitleDC" />
+  <xs:complexType name="CommandDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AmendedCommand" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="Command1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RowIdentifier" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CommandDC" nillable="true" type="tns:CommandDC" />
+  <xs:complexType name="ArrayOfCommandDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CommandDC" nillable="true" type="tns:CommandDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCommandDC" nillable="true" type="tns:ArrayOfCommandDC" />
+  <xs:complexType name="ReportTypeDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsOPIT_Report" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsOpsReport" type="xs:boolean" />
+      <xs:element minOccurs="0" name="RowIdentifier" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReportTypeDC" nillable="true" type="tns:ReportTypeDC" />
+  <xs:complexType name="ArrayOfReportTypeDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ReportTypeDC" nillable="true" type="tns:ReportTypeDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReportTypeDC" nillable="true" type="tns:ArrayOfReportTypeDC" />
+  <xs:complexType name="CheckSubTypeDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CheckTypeCode" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RowIdentifier" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CheckSubTypeDC" nillable="true" type="tns:CheckSubTypeDC" />
+  <xs:complexType name="ArrayOfCheckSubTypeDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CheckSubTypeDC" nillable="true" type="tns:CheckSubTypeDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCheckSubTypeDC" nillable="true" type="tns:ArrayOfCheckSubTypeDC" />
+  <xs:complexType name="StaffDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="CommandCode" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GradeCode" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="IsAdmin" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsChecker" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsNonIPC" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsReport" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsSupport" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsUser" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsValidator" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LeftIPC" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="LocationCode" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="NetworkFirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NetworkLastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RowIdentifier" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="StaffNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TeamCode" nillable="true" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StaffDC" nillable="true" type="tns:StaffDC" />
+  <xs:complexType name="ArrayOfStaffDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StaffDC" nillable="true" type="tns:StaffDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStaffDC" nillable="true" type="tns:ArrayOfStaffDC" />
+  <xs:complexType name="HolidayDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="Date" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Days" nillable="true" type="xs:float" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsNational" type="xs:boolean" />
+      <xs:element minOccurs="0" name="RowIdentifier" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HolidayDC" nillable="true" type="tns:HolidayDC" />
+  <xs:complexType name="ArrayOfHolidayDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HolidayDC" nillable="true" type="tns:HolidayDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHolidayDC" nillable="true" type="tns:ArrayOfHolidayDC" />
+  <xs:complexType name="CountryDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="CountryCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsANZAC" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsEC" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsFrozenRate" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsRA" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Nationality" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Notes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RowIdentifier" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CountryDC" nillable="true" type="tns:CountryDC" />
+  <xs:complexType name="ArrayOfCountryDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CountryDC" nillable="true" type="tns:CountryDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCountryDC" nillable="true" type="tns:ArrayOfCountryDC" />
+  <xs:complexType name="CheckTypeDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RowIdentifier" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CheckTypeDC" nillable="true" type="tns:CheckTypeDC" />
+  <xs:complexType name="ArrayOfCheckTypeDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CheckTypeDC" nillable="true" type="tns:CheckTypeDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCheckTypeDC" nillable="true" type="tns:ArrayOfCheckTypeDC" />
+  <xs:complexType name="ArrayOfErrorDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ErrorDC" nillable="true" type="tns:ErrorDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfErrorDC" nillable="true" type="tns:ArrayOfErrorDC" />
+  <xs:complexType name="ErrorDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccuracyCheckCode" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="CheckID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="CommandCode" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="CorrectiveActionNotes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DateCorrectiveAction" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DateFound" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DateOccurred" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DateReturnedForCorrection" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DaysToDetect" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ErrorChoiceCode" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="ErrorSubChoiceCode" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="ErrorTypeCode" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="IsEO_AgreeNo" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsEO_AgreeYes" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsOverpayment" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsUnderpayment" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LocationCode" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="Notes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OPIT_Notes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RaisedDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="RowIdentifier" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="StaffCode" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="TableID" type="xs:int" />
+      <xs:element minOccurs="0" name="TeamCode" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="TotalOverpayment" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="WeeklyAmount" nillable="true" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ErrorDC" nillable="true" type="tns:ErrorDC" />
+  <xs:complexType name="OrganisationTypeDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RowIdentifier" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OrganisationTypeDC" nillable="true" type="tns:OrganisationTypeDC" />
+  <xs:complexType name="ArrayOfOrganisationTypeDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrganisationTypeDC" nillable="true" type="tns:OrganisationTypeDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOrganisationTypeDC" nillable="true" type="tns:ArrayOfOrganisationTypeDC" />
+  <xs:complexType name="AuditDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="Data" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RowIdentifier" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="UserCode" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AuditDC" nillable="true" type="tns:AuditDC" />
+  <xs:complexType name="ArrayOfAuditDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AuditDC" nillable="true" type="tns:AuditDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAuditDC" nillable="true" type="tns:ArrayOfAuditDC" />
+  <xs:complexType name="ServerDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="Number" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RowIdentifier" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ServerDC" nillable="true" type="tns:ServerDC" />
+  <xs:complexType name="ArrayOfServerDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ServerDC" nillable="true" type="tns:ServerDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfServerDC" nillable="true" type="tns:ArrayOfServerDC" />
+  <xs:complexType name="ReasonForDelayDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RowIdentifier" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReasonForDelayDC" nillable="true" type="tns:ReasonForDelayDC" />
+  <xs:complexType name="ArrayOfReasonForDelayDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ReasonForDelayDC" nillable="true" type="tns:ReasonForDelayDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReasonForDelayDC" nillable="true" type="tns:ArrayOfReasonForDelayDC" />
+  <xs:complexType name="OrganisationDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="DateDeleted" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="HEO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganisationTypeCode" type="ser:guid" />
+      <xs:element minOccurs="0" name="RowIdentifier" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OrganisationDC" nillable="true" type="tns:OrganisationDC" />
+  <xs:complexType name="ArrayOfOrganisationDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrganisationDC" nillable="true" type="tns:OrganisationDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOrganisationDC" nillable="true" type="tns:ArrayOfOrganisationDC" />
+  <xs:complexType name="LastUpdateDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="DateLastUpdate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="RowIdentifier" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LastUpdateDC" nillable="true" type="tns:LastUpdateDC" />
+  <xs:complexType name="GradeDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="DateDeleted" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Grade1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RowIdentifier" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GradeDC" nillable="true" type="tns:GradeDC" />
+  <xs:complexType name="ArrayOfGradeDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GradeDC" nillable="true" type="tns:GradeDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGradeDC" nillable="true" type="tns:ArrayOfGradeDC" />
+  <xs:complexType name="ValidatorDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RowIdentifier" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="StaffCode" nillable="true" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ValidatorDC" nillable="true" type="tns:ValidatorDC" />
+  <xs:complexType name="ArrayOfValidatorDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ValidatorDC" nillable="true" type="tns:ValidatorDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfValidatorDC" nillable="true" type="tns:ArrayOfValidatorDC" />
+  <xs:complexType name="OrganisationHierarchyDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ChildOrganisationCode" type="ser:guid" />
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="ParentOrganisationCode" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OrganisationHierarchyDC" nillable="true" type="tns:OrganisationHierarchyDC" />
+  <xs:complexType name="ArrayOfOrganisationHierarchyDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrganisationHierarchyDC" nillable="true" type="tns:OrganisationHierarchyDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOrganisationHierarchyDC" nillable="true" type="tns:ArrayOfOrganisationHierarchyDC" />
+  <xs:complexType name="ScheduleNumberDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="Number" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RowIdentifier" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ScheduleNumberDC" nillable="true" type="tns:ScheduleNumberDC" />
+  <xs:complexType name="ArrayOfScheduleNumberDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ScheduleNumberDC" nillable="true" type="tns:ScheduleNumberDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfScheduleNumberDC" nillable="true" type="tns:ArrayOfScheduleNumberDC" />
+  <xs:complexType name="ImportStaffDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="CommandID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GradeID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LeftIPC" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="LocationID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="NetworkFirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NetworkLastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NonIPC" type="xs:boolean" />
+      <xs:element minOccurs="0" name="RowIdentifier" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="StaffNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TeamID" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ImportStaffDC" nillable="true" type="tns:ImportStaffDC" />
+  <xs:complexType name="ArrayOfImportStaffDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ImportStaffDC" nillable="true" type="tns:ImportStaffDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfImportStaffDC" nillable="true" type="tns:ArrayOfImportStaffDC" />
+  <xs:complexType name="ReferredDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RowIdentifier" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReferredDC" nillable="true" type="tns:ReferredDC" />
+  <xs:complexType name="ArrayOfReferredDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ReferredDC" nillable="true" type="tns:ReferredDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReferredDC" nillable="true" type="tns:ArrayOfReferredDC" />
+  <xs:complexType name="ErrorSubChoiceDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ErrorChoiceCode" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="RowIdentifier" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ErrorSubChoiceDC" nillable="true" type="tns:ErrorSubChoiceDC" />
+  <xs:complexType name="ArrayOfErrorSubChoiceDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ErrorSubChoiceDC" nillable="true" type="tns:ErrorSubChoiceDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfErrorSubChoiceDC" nillable="true" type="tns:ArrayOfErrorSubChoiceDC" />
+  <xs:complexType name="BenefitDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Benefit1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="RowIdentifier" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BenefitDC" nillable="true" type="tns:BenefitDC" />
+  <xs:complexType name="ArrayOfBenefitDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BenefitDC" nillable="true" type="tns:BenefitDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBenefitDC" nillable="true" type="tns:ArrayOfBenefitDC" />
+  <xs:complexType name="ErrorChoiceDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RowIdentifier" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ErrorChoiceDC" nillable="true" type="tns:ErrorChoiceDC" />
+  <xs:complexType name="ArrayOfErrorChoiceDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ErrorChoiceDC" nillable="true" type="tns:ErrorChoiceDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfErrorChoiceDC" nillable="true" type="tns:ArrayOfErrorChoiceDC" />
+  <xs:complexType name="SecurityCheckDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BF_Notes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CheckerCode" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="Command" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerCode" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="DateAccountDeletion" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DateBF" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DateCheckCompleted" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DateCheckCompletedEntered" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DateCheckGenerated" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DateClearedMonth" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DateEO_Reminder" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DateEvidenceRequested" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DateGeneratedMonth" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DateHEO_Reminder" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DateRaised" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DateReceivedByIST" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DateReceivedBySAT" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DateReceivedInOPS" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DateReferred" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DateRequestReceivedByOps" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DateReturnedBySAT" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DateSentToIST" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DateSentToSAT" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DateValidation" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DaysToClear" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="IsPOD1274" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LiaisonCountryCode" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="Location" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Notes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReasonForDelayCode" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="ReferredCode" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="RowIdentifier" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="SEF_ID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ServerCode" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="Team1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserForename" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserGrade" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserStaffNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserSurname" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VAT2000NumberCode" nillable="true" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SecurityCheckDC" nillable="true" type="tns:SecurityCheckDC" />
+  <xs:complexType name="ArrayOfSecurityCheckDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SecurityCheckDC" nillable="true" type="tns:SecurityCheckDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSecurityCheckDC" nillable="true" type="tns:ArrayOfSecurityCheckDC" />
+  <xs:complexType name="ArrayOfLastUpdateDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LastUpdateDC" nillable="true" type="tns:LastUpdateDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLastUpdateDC" nillable="true" type="tns:ArrayOfLastUpdateDC" />
+</xs:schema>

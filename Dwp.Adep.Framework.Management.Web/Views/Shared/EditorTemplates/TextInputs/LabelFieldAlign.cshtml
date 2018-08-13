@@ -1,0 +1,24 @@
+﻿@model object
+
+<div class="row">
+    <div class="w40">
+        @Html.Label("")
+    </div>
+    <div class="w60">
+    @{
+        string tooltip="";
+        if (ViewData.ModelMetadata.AdditionalValues.ContainsKey("Tooltip"))
+        {
+            tooltip = (string)ViewData.ModelMetadata.AdditionalValues["Tooltip"];
+            @Html.TextBoxFor(x => x, new { Value = (Model == null ? "" :  Model.ToString()), @title = tooltip })
+        }
+        else
+        {
+            @Html.TextBoxFor(x => x, new { Value = (Model == null ? "" : Model.ToString())})
+        }
+    }
+    </div>
+    <div class="row">
+        @Html.ValidationMessage("")
+    </div>
+</div>

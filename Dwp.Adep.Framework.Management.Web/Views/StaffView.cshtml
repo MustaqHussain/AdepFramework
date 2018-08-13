@@ -1,0 +1,141 @@
+@model IEnumerable<Dwp.Adep.Framework.Management.Web.Models.StaffModel>
+
+@{
+    ViewBag.Title = "StaffView";
+}
+
+<h2>StaffView</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+      <th>
+            Code
+        </th>
+        <th>
+            StaffNumber
+        </th>
+        <th>
+            LastName
+        </th>
+        <th>
+            FirstName
+        </th>
+        <th>
+            NetworkLastName
+        </th>
+        <th>
+            NetworkFirstName
+        </th>
+        <th>
+            GradeCode
+        </th>
+        <th>
+            TeamCode
+        </th>
+        <th>
+            CommandCode
+        </th>
+        <th>
+            LocationCode
+        </th>
+        <th>
+            IsUser
+        </th>
+        <th>
+            IsReport
+        </th>
+        <th>
+            IsValidator
+        </th>
+        <th>
+            IsAdmin
+        </th>
+        <th>
+            IsSupport
+        </th>
+        <th>
+            IsNonIPC
+        </th>
+        <th>
+            LeftIPC
+        </th>
+        <th>
+            RowIdentifier
+        </th>
+        <th>
+            IsChecker
+        </th>
+          <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+      <td>
+            @Html.DisplayFor(modelItem => item.Code)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StaffNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NetworkLastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NetworkFirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GradeCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TeamCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CommandCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LocationCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsUser)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsReport)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsValidator)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsAdmin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsSupport)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsNonIPC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LeftIPC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RowIdentifier)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsChecker)
+        </td>
+          <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Code }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Code }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Code })
+        </td>
+    </tr>
+}
+
+</table>

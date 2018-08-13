@@ -1,0 +1,402 @@
+@model Dwp.Adep.Framework.Management.Web.ViewModels.SecurityCheckVM
+@{
+    ViewBag.Title = "";
+}
+<h2>test</h2>
+<script type="text/javascript">
+    /// <reference path="jquery-1.7.1.js" />
+    /// <reference path="jquery-ui.js" />
+    $(document).ready(function () {
+
+        $.validator.setDefaults({
+            ignore: ""
+        });
+
+        var isDirty = false;
+
+        $(':input').change(function () {
+            if (!isDirty) {
+                isDirty = true;
+            }
+        });
+	});
+</script>
+@using (Html.BeginForm("EditSecurityCheck", "SecurityCheck", FormMethod.Post, new { @id = "mainForm" }))
+{
+    @Html.ValidationSummary(true)
+    <div class='message'>@Model.Message</div>
+    @Html.HiddenFor(model => model.SecurityCheckItem.Code)
+    <input type='hidden' id='IsDeleteConfirmed' name='IsDeleteConfirmed' value='@Model.IsDeleteConfirmed' />
+    <input type='hidden' id='IsExitConfirmed' name='IsExitConfirmed' value='@Model.IsExitConfirmed' />
+    <input type='hidden' id='IsNewConfirmed' name='IsNewConfirmed' value='@Model.IsNewConfirmed' />
+    <div class="full-width clearfix">
+        <div class="left-50">
+		    <fieldset class="ui-widget ui-widget-content ui-corner-all">
+                <legend class="ui-widget-header ui-corner-all">@Resources.LEGEND_DETAILS_OF_CUSTOMER</legend>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.SecurityCheckItem.CheckID)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.SecurityCheckItem.CheckID)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.SecurityCheckItem.CheckID)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.SecurityCheckItem.SEF_ID)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.SecurityCheckItem.SEF_ID)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.SecurityCheckItem.SEF_ID)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.SecurityCheckItem.DateRaised)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.SecurityCheckItem.DateRaised)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.SecurityCheckItem.DateRaised)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.SecurityCheckItem.CheckerCode)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.SecurityCheckItem.CheckerCode)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.SecurityCheckItem.CheckerCode)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.SecurityCheckItem.CustomerCode)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.SecurityCheckItem.CustomerCode)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.SecurityCheckItem.CustomerCode)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.SecurityCheckItem.LiaisonCountryCode)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.SecurityCheckItem.LiaisonCountryCode)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.SecurityCheckItem.LiaisonCountryCode)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.SecurityCheckItem.ReasonForDelayCode)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.SecurityCheckItem.ReasonForDelayCode)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.SecurityCheckItem.ReasonForDelayCode)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.SecurityCheckItem.BSCNumberCode)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.SecurityCheckItem.BSCNumberCode)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.SecurityCheckItem.BSCNumberCode)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.SecurityCheckItem.ServerCode)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.SecurityCheckItem.ServerCode)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.SecurityCheckItem.ServerCode)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.SecurityCheckItem.DateAccountDeletion)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.SecurityCheckItem.DateAccountDeletion)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.SecurityCheckItem.DateAccountDeletion)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.SecurityCheckItem.DateBF)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.SecurityCheckItem.DateBF)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.SecurityCheckItem.DateBF)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.SecurityCheckItem.DateCheckGenerated)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.SecurityCheckItem.DateCheckGenerated)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.SecurityCheckItem.DateCheckGenerated)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.SecurityCheckItem.DateCheckCompleted)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.SecurityCheckItem.DateCheckCompleted)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.SecurityCheckItem.DateCheckCompleted)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.SecurityCheckItem.DaysToClear)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.SecurityCheckItem.DaysToClear)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.SecurityCheckItem.DaysToClear)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.SecurityCheckItem.DateCheckCompletedEntered)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.SecurityCheckItem.DateCheckCompletedEntered)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.SecurityCheckItem.DateCheckCompletedEntered)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.SecurityCheckItem.DateReminder)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.SecurityCheckItem.DateReminder)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.SecurityCheckItem.DateReminder)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.SecurityCheckItem.DateEvidenceRequested)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.SecurityCheckItem.DateEvidenceRequested)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.SecurityCheckItem.DateEvidenceRequested)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.SecurityCheckItem.DateSentToSAT)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.SecurityCheckItem.DateSentToSAT)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.SecurityCheckItem.DateSentToSAT)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.SecurityCheckItem.DateReceivedBySAT)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.SecurityCheckItem.DateReceivedBySAT)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.SecurityCheckItem.DateReceivedBySAT)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.SecurityCheckItem.DateReceivedInOPS)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.SecurityCheckItem.DateReceivedInOPS)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.SecurityCheckItem.DateReceivedInOPS)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.SecurityCheckItem.DateRequestReceivedByOps)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.SecurityCheckItem.DateRequestReceivedByOps)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.SecurityCheckItem.DateRequestReceivedByOps)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.SecurityCheckItem.DateReturnedBySAT)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.SecurityCheckItem.DateReturnedBySAT)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.SecurityCheckItem.DateReturnedBySAT)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.SecurityCheckItem.DateValidation)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.SecurityCheckItem.DateValidation)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.SecurityCheckItem.DateValidation)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.SecurityCheckItem.Notes)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.SecurityCheckItem.Notes)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.SecurityCheckItem.Notes)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.SecurityCheckItem.BF_Notes)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.SecurityCheckItem.BF_Notes)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.SecurityCheckItem.BF_Notes)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.SecurityCheckItem.StaffCode)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.SecurityCheckItem.StaffCode)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.SecurityCheckItem.StaffCode)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.SecurityCheckItem.TeamCode)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.SecurityCheckItem.TeamCode)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.SecurityCheckItem.TeamCode)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.SecurityCheckItem.CommandCode)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.SecurityCheckItem.CommandCode)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.SecurityCheckItem.CommandCode)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.SecurityCheckItem.LocationCode)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.SecurityCheckItem.LocationCode)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.SecurityCheckItem.LocationCode)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.SecurityCheckItem.DateGeneratedMonth)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.SecurityCheckItem.DateGeneratedMonth)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.SecurityCheckItem.DateGeneratedMonth)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.SecurityCheckItem.DateClearedMonth)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.SecurityCheckItem.DateClearedMonth)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.SecurityCheckItem.DateClearedMonth)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.SecurityCheckItem.IsActive)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.SecurityCheckItem.IsActive)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.SecurityCheckItem.IsActive)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.SecurityCheckItem.RowIdentifier)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.SecurityCheckItem.RowIdentifier)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.SecurityCheckItem.RowIdentifier)
+					</div>
+				</div>
+			</fieldset>
+		</div>
+	</div>
+}

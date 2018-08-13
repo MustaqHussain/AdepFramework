@@ -1,0 +1,637 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using Dwp.Adep.Framework.Management.Web.ViewModels;
+using Dwp.Adep.Framework.Management.Web.Models;
+using Dwp.Adep.Framework.Management.Web.Helpers;
+using Dwp.Adep.Framework.Management.Web.AdminService;
+<#
+//*********************************************************
+//
+//    Copyright (c) Microsoft. All rights reserved.
+//    This code is licensed under the Microsoft Public License.
+//    THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF
+//    ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY
+//    IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR
+//    PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.
+//
+//*********************************************************
+#>
+<#@ template language="C#" debug="false" hostspecific="true"#>
+<#@ include file="EF.Utility.CS.ttinclude"#>
+<#@ include file="..\..\Dwp.Adep.Framework.Management.DataServices\Models\Global.t4"#><#@ 
+ output extension=".cs"#><#
+
+// List of entities not to generate code for
+string ignoreList = globalIgnoreList + ",Staff,OrganisationHierarchy,Audit,";
+
+CodeGenerationTools code = new CodeGenerationTools(this);
+MetadataLoader loader = new MetadataLoader(this);
+CodeRegion region = new CodeRegion(this, 1);
+MetadataTools ef = new MetadataTools(this);
+
+string inputFile = @"..\..\Dwp.Adep.Framework.Management.DataServices\Models\Model1.edmx";
+EdmItemCollection ItemCollection = loader.CreateEdmItemCollection(inputFile);
+string namespaceName = code.VsNamespaceSuggestion();
+
+EntityFrameworkTemplateFileManager fileManager = EntityFrameworkTemplateFileManager.Create(this);
+
+// Write out support code to primary template output file
+WriteHeader(fileManager, "System.Web.Mvc", "System.ComponentModel.DataAnnotations", "System.ServiceModel", "Dwp.Adep.Framework.Management.ResourceLibrary",
+"AutoMapper", "Dwp.Adep.Framework.Management.Web.Helpers", "Dwp.Adep.Framework.Management.Web.ViewModels", 
+"Dwp.Adep.Framework.Management.Web.Models", "Dwp.Adep.Framework.Management.Web.AdminService");
+BeginNamespace(namespaceName, code);
+EndNamespace(namespaceName);
+
+// Emit Entity Types
+foreach (EntityType entity in ItemCollection.GetItems<EntityType>().OrderBy(e => e.Name))
+{
+	// Do not generate code for entities in the ignore list
+	if (ignoreList.Contains("," + entity.Name + ",")) continue;
+
+	fileManager.StartNewFile(entity.Name + "Controller.cs");
+	bool hasIsActiveField = entity.Properties.Any(p => p.Name == "IsActive");
+    bool entityHasNullableFKs = entity.NavigationProperties.Any(np => np.GetDependentProperties().Any(p=>ef.IsNullable(p)));
+#>
+
+namespace Dwp.Adep.Framework.Management.Web.Controllers
+{
+    public partial class <#=entity.Name + "Controller"#> : BaseController
+    {
+		#region Edit
+		
+        // GET: /<#=entity.Name#>/Edit
+		[CustomAuthorize(Roles = FrameworkRoles.ADMIN)]
+        public ActionResult Edit()
+        {
+			// Retrieve ID from session
+			string code = SessionManager.<#=entity.Name#>Code;
+			
+            <#=entity.Name#>VM model = new <#=entity.Name#>VM();
+			
+            // Not from staff or error
+            if (String.IsNullOrEmpty(code))
+            {
+                //If session has lists then use them
+                RepopulateListsFromCacheSession(model);
+
+                //Assume we are in create mode as no code passed
+                model.<#=entity.Name#>Item = new <#=entity.Name#>Model()<#if (hasIsActiveField) {#>{IsActive = true}<#}#>;
+            }
+            //if we have been passed a code then assume we are in edit situation and we need to retrieve from the database.
+            else
+            {
+				// Create service instance
+				AdminServiceClient sc = new AdminServiceClient();
+				
+                try
+                {
+					// Call service to get <#=entity.Name#> item and any associated lookups    
+                    <#=entity.Name#>VMDC returnedObject = sc.Get<#=entity.Name#>(CurrentUser, CurrentUser, appID, "", code);
+
+					// Close service communication
+					sc.Close();
+
+                    //Get view model from service
+                    model = Convert<#=entity.Name#>DC(returnedObject);
+
+                    ResolveFieldCodesToFieldNamesUsingLists(model);
+
+                    //Store the service version
+                    SessionManager.<#=entity.Name#>ServiceVersion = model.<#=entity.Name#>Item;
+                }
+				catch (Exception e)
+				{
+					// Handle the exception
+					string message = ExceptionManager.HandleException(e, sc);
+					model.Message = message;
+					
+					return View(model);
+				}
+            }
+
+            //Adds current retrieved <#=entity.Name#> to session
+            SessionManager.Current<#=entity.Name#> = model.<#=entity.Name#>Item;
+            SetAccessContext(model);
+            
+            return View(model);
+        }    
+		
+		#endregion
+		
+		#region Create/Update
+
+        // POST: /<#=entity.Name#>/Edit with Create button submitting
+		[CustomAuthorize(Roles = FrameworkRoles.ADMIN)]
+        [HttpParamEdit(Prefix = "Edit::")]
+        [HttpPost]
+        public ActionResult Create<#=entity.Name#>(FormCollection collection)
+        {
+            return Update<#=entity.Name#>();
+        }
+
+        // POST: /<#=entity.Name#>/Edit with Save button submitting
+        [HttpParamEdit(Prefix = "Edit::")]
+        [HttpPost]
+        public ActionResult Save<#=entity.Name#>(FormCollection collection)
+        {
+            return Update<#=entity.Name#>();
+        }
+
+        //This method is shared between create and save
+        private ActionResult Update<#=entity.Name#>()
+        {
+			// Get the updated model
+            var model = GetUpdatedModel();
+
+			// Test to see if there are any errors
+            var errors = ModelState
+                    .Where(x => x.Value.Errors.Count > 0)
+                    .Select(x => new { x.Key, x.Value.Errors[0].ErrorMessage })
+                    .ToArray();
+            
+			//Set flags false
+            SetFlagsFalse(model);
+			
+			// Test to see if the model has validated correctly
+            if (ModelState.IsValid)
+            {
+				// Create service instance
+				AdminServiceClient sc = new AdminServiceClient();
+				
+                //Attempt update
+                try
+                {
+                    // Map model to data contract
+                    <#=entity.Name#>DC <#=entity.Name#>Item = Mapper.Map<<#=entity.Name#>DC>(model.<#=entity.Name#>Item);
+
+					<#=entity.Name#>VMDC returnedObject = null;
+
+                    if (null == model.<#=entity.Name#>Item.Code || model.<#=entity.Name#>Item.Code == Guid.Empty)
+                    {
+						// Call service to create new <#=entity.Name#> item
+                        returnedObject = sc.Create<#=entity.Name#>(CurrentUser, CurrentUser, appID, "", <#=entity.Name#>Item);
+                    }
+                    else
+                    {
+						// Call service to update <#=entity.Name#> item
+                        returnedObject = sc.Update<#=entity.Name#>(CurrentUser, CurrentUser, appID, "", <#=entity.Name#>Item);
+                    }
+
+					// Close service communication
+					sc.Close();
+					
+					// Retrieve item returned by service
+                    var created<#=entity.Name#> = returnedObject.<#=entity.Name#>Item;
+
+					// Map data contract to model
+                    model.<#=entity.Name#>Item = Mapper.Map<<#=entity.Name#>Model>(created<#=entity.Name#>);
+					
+                    //After creation some of the fields are display only so we need the resolved look up nmames
+                    ResolveFieldCodesToFieldNamesUsingLists(model);
+
+					// Set access context to Edit mode
+                    model.AccessContext = <#=entity.Name#>AccessContext.Edit;
+
+					// Save version of item returned by service into session
+                    SessionManager.<#=entity.Name#>ServiceVersion = model.<#=entity.Name#>Item;
+                    SessionManager.Current<#=entity.Name#> = model.<#=entity.Name#>Item;
+                    
+                    // Remove the state from the model as these are being populated by the controller and the HTML helpers are being populated with
+					// the POSTED values and not the changed ones.
+                    ModelState.Clear();
+                    model.Message = FixedResources.MESSAGE_UPDATE_SUCCEEDED;
+                }
+				catch (Exception e)
+				{
+					// Handle the exception
+					string message = ExceptionManager.HandleException(e, sc);
+					model.Message = message;
+					
+					return View(model);
+				}
+            }
+
+            return View(model);
+        }
+
+        #endregion
+		
+		#region Exit
+
+        // POST: /<#=entity.Name#>/Edit with Exit button submitting
+		[CustomAuthorize(Roles = FrameworkRoles.ADMIN)]
+        [HttpParamEdit(Prefix = "Edit::")]
+        [HttpPost]
+        public ActionResult Exit<#=entity.Name#>(FormCollection collection)
+        {
+            var model = GetUpdatedModel();
+            if (model.IsExitConfirmed == "True" || !model.IsViewDirty)
+            {
+                //Set flags false
+                SetFlagsFalse(model);
+
+                model.IsExitConfirmed = "False";
+                
+                //remove the current values from session
+                SessionManager.Current<#=entity.Name#> = null;
+                SessionManager.<#=entity.Name#>ServiceVersion = null;
+
+                return RedirectToAction("Search", "<#=entity.Name#>");
+                
+            }
+            else
+            {
+                //Set flags false
+                SetFlagsFalse(model);
+                model.Message = FixedResources.MESSAGE_EXITCONFIRMATION;
+                model.IsExitConfirmed = "True";
+            }
+            
+            return View(model);
+        }
+		
+		#endregion
+		
+		#region New
+
+        // POST: /<#=entity.Name#>/Edit with New button submitting
+		[CustomAuthorize(Roles = FrameworkRoles.ADMIN)]
+        [HttpParamSearch(Prefix = "Search::")]
+        [HttpPost]
+        public ActionResult New<#=entity.Name#>(FormCollection collection)
+        {
+            var model = GetUpdatedModel();
+            //Set flags false
+            SetFlagsFalse(model);
+            
+            //Clear Down Session
+			SessionManager.<#=entity.Name#>Code = null;
+            SessionManager.Current<#=entity.Name#> = null;
+            SessionManager.<#=entity.Name#>ServiceVersion = null;
+            
+            //Go to the Edit Screen
+            return RedirectToAction("Edit", "<#=entity.Name#>");
+        }
+		
+		#endregion
+
+		#region Search
+
+        // GET: /<#=entity.Name#>/Search
+        //This is called when first entering search <#=entity.Name#> screen or when paging
+		[CustomAuthorize(Roles = FrameworkRoles.ADMIN)]
+        public ActionResult Search(int page = 1)
+        {   
+			// Create service instance
+			AdminServiceClient sc = new AdminServiceClient();
+			
+			// Create model
+			<#=entity.Name#>SearchVM model = new <#=entity.Name#>SearchVM();
+			
+			try
+			{
+<#
+	if (hasIsActiveField)
+	{
+#>
+				<#=entity.Name#>SearchVMDC response = sc.Search<#=entity.Name#>(CurrentUser, CurrentUser, appID, "", null, page, PageSize, true);
+<#
+	}
+	else
+	{
+#>
+				<#=entity.Name#>SearchVMDC response = sc.Search<#=entity.Name#>(CurrentUser, CurrentUser, appID, "", null, page, PageSize);
+<#
+	}
+#>
+
+				// Close service communication
+				sc.Close();
+
+				//Map response back to view model
+				model.MatchList = Mapper.Map<IEnumerable<<#=entity.Name#>SearchMatchDC>, List<<#=entity.Name#>SearchMatchModel>>(response.MatchList);
+
+				// Set paging values
+				model.TotalRows = response.RecordCount;
+				model.PageSize = SessionManager.PageSize;
+				model.PageNumber = page;
+				
+				// Store the page number we were on
+				SessionManager.<#=entity.Name#>PageNumber = model.PageNumber;
+	        
+				return View(model);
+			}
+			catch (Exception e)
+			{
+				// Handle the exception
+				string message = ExceptionManager.HandleException(e, sc);
+				model.Message = message;
+				
+				return View(model);
+			}
+
+        }
+
+        // POST: /<#=entity.Name#>/Search
+        //This is called when clicking search button
+		[CustomAuthorize(Roles = FrameworkRoles.ADMIN)]
+		[HttpParamSearch(Prefix = "Search::")]
+        [HttpPost]
+        public ActionResult SearchPost(<#=entity.Name#>SearchVM model, int page = 1)
+        {
+		
+			// Iterate through form keys
+            foreach (string Key in Request.Form.Keys)
+            {
+				// Test if Select button was clicked...
+                if (Key.StartsWith("Search::SearchPost_"))
+                {
+					// Retrieve ID for entity which was selected
+                    Guid Value = Guid.Parse(Key.Substring(19));
+									
+					// Store ID for Edit screen
+					SessionManager.<#=entity.Name#>Code = Value.ToString();
+					
+					// Call out to Edit screen
+                    return RedirectToAction("Edit", "<#=entity.Name#>", new { code = Value });
+
+                }
+            }
+
+            // Return to the Screen
+            return View(model);
+        }
+
+        #endregion
+		
+		#region Private methods
+		
+        private void SetFlagsFalse(<#=entity.Name#>VM model)
+        {
+            model.IsExitConfirmed = "False";
+            model.IsNewConfirmed = "False";
+
+            //Stop the binder resetting the posted values
+            ModelState.Remove("IsDeleteConfirmed");
+            ModelState.Remove("IsExitConfirmed");
+            ModelState.Remove("IsNewConfirmed");
+        }
+
+        private void ResolveFieldCodesToFieldNamesUsingLists(<#=entity.Name#>VM model)
+        {
+			//TODO:
+        }
+
+        /// <summary>
+        /// Private method to merge in the model 
+        /// </summary>
+        /// <returns></returns>
+        private <#=entity.Name#>VM GetUpdatedModel()
+        {
+            <#=entity.Name#>VM model = new <#=entity.Name#>VM();
+            RepopulateListsFromCacheSession(model);
+            model.Message = "";
+
+            if (SessionManager.Current<#=entity.Name#> != null)
+            {
+                model.<#=entity.Name#>Item = SessionManager.Current<#=entity.Name#>;
+            }
+
+            //***************************************NEED WHITE LIST ---- BLACK LIST ------ TO PREVENT OVERPOSTING **************************
+            bool result = TryUpdateModel(model);//This also validates and sets ModelState
+            //*******************************************************************************************************************************
+            if (SessionManager.Current<#=entity.Name#> != null)
+            {
+                //*****************************************PREVENT OVER POSTING ATTACKS******************************************************
+                //Get the values for read only fields from session
+                MergeNewValuesWithOriginal(model.<#=entity.Name#>Item);
+                //***************************************************************************************************************************
+            }
+
+            SetAccessContext(model);
+
+            return model;
+        }
+		
+        private <#=entity.Name#>VM Convert<#=entity.Name#>DC(<#=entity.Name#>VMDC returnedObject)
+        {
+            <#=entity.Name#>VM model = new <#=entity.Name#>VM();
+            
+			// Map <#=entity.Name#> Item
+			model.<#=entity.Name#>Item = Mapper.Map<<#=entity.Name#>DC, <#=entity.Name#>Model>(returnedObject.<#=entity.Name#>Item);
+            
+			// Map lookup data lists
+<#
+			foreach (EdmProperty edmProperty in entity.Properties.Where(p => p.TypeUsage.EdmType is PrimitiveType && p.DeclaringType == entity))
+			{
+				if (edmProperty.Name == "SecurityLabel") continue;
+
+				foreach (NavigationProperty nav in entity.NavigationProperties.Where(np=>np.GetDependentProperties().Contains(edmProperty)))
+				{
+#>
+			model.<#=edmProperty.Name.Replace("Code", "")#>List = Mapper.Map<IEnumerable<<#=nav.ToEndMember#>DC>, List<<#=nav.ToEndMember#>Model>>(returnedObject.<#=edmProperty.Name.Replace("Code", "")#>List);
+<#
+				}
+			}
+#>        
+            return model;
+        }
+		
+		private void RepopulateListsFromCacheSession(<#=entity.Name#>VM model)
+        {
+			// Populate cached lists if they are empty. Will invoke service call
+            <#=entity.Name#>LookupListsCacheObject CachedLists = CacheManager.<#=entity.Name#>ListCache;
+
+			// Retrieve any cached lists to model
+<#
+			foreach (EdmProperty edmProperty in entity.Properties.Where(p => p.TypeUsage.EdmType is PrimitiveType && p.DeclaringType == entity))
+			{
+				if (edmProperty.Name == "SecurityLabel") continue;
+
+				foreach (NavigationProperty nav in entity.NavigationProperties.Where(np=>np.GetDependentProperties().Contains(edmProperty)))
+				{
+#>
+			model.<#=edmProperty.Name.Replace("Code", "")#>List = CachedLists.<#=edmProperty.Name.Replace("Code", "")#>List;
+<#
+				}
+			}
+#>   
+        }
+
+        private void MergeNewValuesWithOriginal(<#=entity.Name#>Model modelFromView)
+        {
+            //***************************The values that are display only will not be posted back so need to get them from session**************************
+
+            <#=entity.Name#>Model OriginalValuesFromSession = SessionManager.Current<#=entity.Name#>;
+
+        }
+		
+		private void SetAccessContext(<#=entity.Name#>VM model)
+        {
+            //Decide on access context
+            if (null == model.<#=entity.Name#>Item || model.<#=entity.Name#>Item.Code == Guid.Empty)
+            {
+				// Create context
+                model.AccessContext = <#=entity.Name#>AccessContext.Create;
+            }
+            else
+            {
+				// Edit context
+                model.AccessContext = <#=entity.Name#>AccessContext.Edit;
+            }
+        }
+		
+		private void DetermineIsDirty(<#=entity.Name#>VM model)
+        {
+            //Compare the <#=entity.Name#> to the original session
+            if (model.<#=entity.Name#>Item.PublicInstancePropertiesEqual(SessionManager.<#=entity.Name#>ServiceVersion, "RowIdentifier"))
+            {
+                model.IsViewDirty = false;
+            }
+            else
+            {
+                model.IsViewDirty = true;
+            }
+
+        }
+        #endregion
+       
+    }
+}
+<#
+}
+
+fileManager.Process();
+#>
+
+<#+
+void WriteHeader(EntityFrameworkTemplateFileManager thisFileManager, params string[] extraUsings)
+{
+    thisFileManager.StartHeader();
+#>
+//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated from a template.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
+using System.Linq;
+<#=String.Join(String.Empty, extraUsings.Select(u => "using " + u + ";" + Environment.NewLine).ToArray())#>
+<#+
+    thisFileManager.EndBlock();
+}
+
+void BeginNamespace(string namespaceName, CodeGenerationTools code)
+{
+    CodeRegion region = new CodeRegion(this);
+    if (!String.IsNullOrEmpty(namespaceName))
+    {
+#>
+namespace <#=code.EscapeNamespace(namespaceName)#>
+{
+<#+
+        PushIndent(CodeRegion.GetIndent(1));
+    }
+}
+
+
+void EndNamespace(string namespaceName)
+{
+    if (!String.IsNullOrEmpty(namespaceName))
+    {
+        PopIndent();
+#>
+}
+<#+
+    }
+}
+
+bool IsReadWriteAccessibleProperty(EdmMember member)
+{
+    string setter = Accessibility.ForWriteOnlyProperty(member);
+    string getter = Accessibility.ForReadOnlyProperty(member);
+
+    return getter != "private" && getter != "protected" && setter != "private" && setter != "protected";
+}
+
+string PropertyVirtualModifier(string accessibility)
+{
+    return accessibility + (accessibility != "private" ? " virtual" : "");
+}
+
+void WriteCustomObservableCollection()
+{
+#>
+// An System.Collections.ObjectModel.ObservableCollection that raises
+// individual item removal notifications on clear and prevents adding duplicates.
+public class FixupCollection<T> : ObservableCollection<T>
+{
+    protected override void ClearItems()
+    {
+        new List<T>(this).ForEach(t => Remove(t));
+    }
+
+    protected override void InsertItem(int index, T item)
+    {
+        if (!this.Contains(item))
+        {
+            base.InsertItem(index, item);
+        }
+    }
+}
+<#+
+}
+
+bool VerifyTypesAreCaseInsensitiveUnique(EdmItemCollection itemCollection)
+{
+    Dictionary<string, bool> alreadySeen = new Dictionary<string, bool>(StringComparer.OrdinalIgnoreCase);
+    foreach(StructuralType type in itemCollection.GetItems<StructuralType>())
+    {
+        if (!(type is EntityType || type is ComplexType))
+        {
+            continue;
+        }
+
+        if (alreadySeen.ContainsKey(type.FullName))
+        {
+            Error(String.Format(CultureInfo.CurrentCulture, "This template does not support types that differ only by case, the types {0} are not supported", type.FullName));
+            return false;
+        }
+        else
+        {
+            alreadySeen.Add(type.FullName, true);
+        }
+
+    }
+
+    return true;
+
+}
+
+private bool IsNullable(TypeUsage usage)
+{
+	return (bool)usage.Facets.First(facet => facet.Name == "Nullable").Value;
+}
+
+private bool HasMaxLength(TypeUsage usage)
+{
+	return usage.Facets.Any(facet => facet.Name == "MaxLength");
+}
+
+private string MaxLength(TypeUsage usage)
+{
+	return (string)usage.Facets.First(facet => facet.Name == "MaxLength").Value.ToString();
+}
+
+#>

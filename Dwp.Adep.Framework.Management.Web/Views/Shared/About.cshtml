@@ -1,0 +1,147 @@
+﻿@{
+    ViewBag.Title = "About Us";
+}
+<div class="row text-align-centre">
+    <h2>
+        About</h2>
+    <h3>
+        Application details</h3>
+        <center>
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th scope="col">
+                        Item
+                    </th>
+                    <th scope="col">
+                        Version Number
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <strong>Application name</strong>
+                    </td>
+                    <td>
+                       Framework
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Application version number</strong>
+                    </td>
+                    <td>
+                         @{ var version = ViewContext.HttpContext.ApplicationInstance.GetType().BaseType.Assembly.GetName().Version; }
+                         @Html.Raw(string.Format("{0}.{1}.{2}", version.Major, version.Minor, version.Build))
+                    </td>
+                </tr>
+
+               
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+
+        </center>
+
+    <br />
+  
+    <div class="row">
+        <div class="w100">
+            <a href="#" class="show">Show additional versioning information</a>
+        </div>
+    </div>
+ 
+    <div id="additional">
+          <br />
+   
+        <h4>
+            Additional versioning information</h4>
+            <center>
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th scope="col">
+                        Item
+                    </th>
+                    <th scope="col">
+                        Version Number
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        Stylesheet
+                    </td>
+                    <td>
+                        2.3
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        JQuery
+                    </td>
+                    <td>
+                        1.7.1
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        JQuery validator
+                    </td>
+                    <td>
+                        1.9
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        JQuery UI
+                    </td>
+                    <td>
+                        1.8.17
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        JQuery select menu
+                    </td>
+                    <td>
+                        1.2
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Modernizr
+                    </td>
+                    <td>
+                        2.6.2
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+        </center>
+    </div>
+    </div>
+    <script type="text/javascript">
+        $('#additional').hide();
+        $('.show').click(function () {
+            $('#additional').slideToggle();
+
+        });
+    </script>

@@ -1,0 +1,70 @@
+﻿/* Application specific styles */
+.w15{width:15%;*width:14.9%;}
+.w7{width:7%;*width:6.9%;}
+
+
+
+/*Create Alternating Colour effect*/
+.tableColourBorders{background-color: rgb(255, 255, 255); border-bottom: solid 1px rgb(204, 204, 204) ; border-left: solid 1px rgb(204, 204, 204); border-right: solid 1px rgb(204, 204, 204);}
+.tableColourBorders:nth-of-type(odd){background-color: rgb(222, 230, 238);}
+.staffOrgHeader{background-color: rgb(0, 93, 179); color: White; border-radius: 10px 10px 0px 0px; -moz-border-radius: 10px 10px 0px 0px; border: solid 1px rgb(0, 93, 179);}
+/*.bottomleftRightBorder{border-bottom: solid 1px rgb(204, 204, 204) ; border-left: solid 1px rgb(204, 204, 204); border-right: solid 1px rgb(204, 204, 204);}*/
+.rightLeftBorder{border-right: solid 1px rgb(204, 204, 204); border-left: solid 1px rgb(204, 204, 204);}
+
+
+
+.rowStaffOrgTable{width:100%;*zoom:1;}.rowStaffOrgTable:before,.rowStaffOrgTable:after{content:"";display:table;}
+.rowStaffOrgTable:after{clear:both;}
+.rowStaffOrgTable [class*="w1"],.rowStaffOrgTable [class*="w2"],.rowStaffOrgTable [class*="w3"],.rowStaffOrgTable [class*="w4"],.rowStaffOrgTable [class*="w5"],.rowStaffOrgTable [class*="w6"],.rowStaffOrgTable [class*="w7"],.rowStaffOrgTable [class*="w8"],.rowStaffOrgTable [class*="w9"]{display:inline-block;vertical-align: middle;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;margin-left:2%;}
+.rowStaffOrgTable [class*="w1"]:first-child,.rowStaffOrgTable [class*="w2"]:first-child,.rowStaffOrgTable [class*="w3"]:first-child,.rowStaffOrgTable [class*="w4"]:first-child,.rowStaffOrgTable [class*="w5"]:first-child,.rowStaffOrgTable [class*="w6"]:first-child,.rowStaffOrgTable [class*="w7"]:first-child,.rowStaffOrgTable [class*="w8"]:first-child,.rowStaffOrgTable [class*="w9"]:first-child{margin-left:1%;}
+
+@media only screen and (max-width: 1070px){
+    .rowStaffOrgTable [class*="w1"],.rowStaffOrgTable [class*="w2"],.rowStaffOrgTable [class*="w3"],.rowStaffOrgTable [class*="w4"],.rowStaffOrgTable [class*="w5"],.rowStaffOrgTable [class*="w6"],.rowStaffOrgTable [class*="w7"],.rowStaffOrgTable [class*="w8"],.rowStaffOrgTable [class*="w9"]{margin-left:0;}    
+}
+
+.dropdownSmallScreenHolder{ /** nothing to see here - holding div only **/ }
+@media only screen and (max-width: 1070px){
+    .dropdownSmallScreenHolder .ui-selectmenu { width: 210px !important; float:right; }    
+    .dropdownSmallScreenHolder .shiftRight { width:49%; }
+    
+    [id^=OrganisationsByRows] { width: 208px !important; float:right; }
+}
+
+
+/*Start of styling for for loading indicator*/
+.loadingHolder {
+    display:none;
+    position:fixed;
+    z-index:1000;
+    top:0;
+    left:0;
+    height:100%;
+    width:100%;
+    background-color: rgb(255,255,255);
+    background-color: rgba(255,255,255, 0.7);
+    text-align:center;
+    vertical-align:middle;
+    font-size: 3em;
+    color:Blue;
+    line-height:1000px;
+}
+
+.loadingDotsHolder {
+    display: inline-block;
+    width:100px;
+    height:20px;
+    font-size: 1.6em;
+    color:Blue;
+    text-align:left;
+}
+
+body.loading 
+{
+    overflow:hidden;
+}
+
+body.loading .loadingHolder
+{
+   display:block;
+}
+/*End of styling for for loading indicator*/

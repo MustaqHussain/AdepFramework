@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Dwp.Adep.Framework.Management.WebServices.FrameworkService" CodeBehind="FrameworkService.svc.cs" %>

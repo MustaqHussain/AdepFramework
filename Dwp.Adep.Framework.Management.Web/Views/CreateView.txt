@@ -1,0 +1,87 @@
+﻿<#/*
+//*********************************************************
+//
+//    Copyright (c) Microsoft. All rights reserved.
+//    This code is licensed under the Microsoft Public License.
+//    THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF
+//    ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY
+//    IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR
+//    PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.
+//
+//*********************************************************
+#>
+<#@ template language="C#" debug="false" hostspecific="true"#>
+<#@ include file="EF.Utility.CS.ttinclude"#><#@ 
+ output extension=".cshtml"#><#
+
+CodeGenerationTools code = new CodeGenerationTools(this);
+MetadataLoader loader = new MetadataLoader(this);
+CodeRegion region = new CodeRegion(this, 1);
+MetadataTools ef = new MetadataTools(this);
+
+string inputFile = @"..\..\Dwp.Adep.Framework.Management.DataServices\Models\Model1.edmx";
+EdmItemCollection ItemCollection = loader.CreateEdmItemCollection(inputFile);
+//string namespaceName = code.VsNamespaceSuggestion();
+
+EntityFrameworkTemplateFileManager fileManager = EntityFrameworkTemplateFileManager.Create(this);
+
+// Emit Entity Types
+foreach (EntityType entity in ItemCollection.GetItems<EntityType>().OrderBy(e => e.Name))
+{	
+	string outputDir = Path.Combine(Path.GetDirectoryName(Host.TemplateFile), entity.Name);
+
+	if(!Directory.Exists(outputDir))
+	{
+		Directory.CreateDirectory(outputDir);
+	}
+	string fileName = "Create";
+	fileManager.StartNewFile(outputDir + @"\" + fileName + ".cshtml");
+#>
+@model Dwp.Adep.Framework.Management.Web.Models.<#=entity.Name#>Model
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend><#=entity.Name#>Model</legend>
+<#
+	foreach (EdmProperty edmProperty in entity.Properties.Where(p => p.TypeUsage.EdmType is PrimitiveType && p.DeclaringType == entity))
+	{
+		bool isForeignKey = entity.NavigationProperties.Any(np=>np.GetDependentProperties().Contains(edmProperty));
+		bool isDefaultValueDefinedInModel = (edmProperty.DefaultValue != null);
+		if (edmProperty.Name.ToLower() != "code" && edmProperty.Name.ToLower() != "rowidentifier")
+		{
+#>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.<#=edmProperty.Name#>)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.<#=edmProperty.Name#>)
+            @Html.ValidationMessageFor(model => model.<#=edmProperty.Name#>)
+        </div>
+  <#	}
+	}#>
+
+	    <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+
+	<div>
+		@Html.ActionLink("Back to List", "Index")
+	</div>
+}
+<#
+}
+fileManager.Process();
+*/#>
+
+

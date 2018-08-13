@@ -1,0 +1,174 @@
+@model Dwp.Adep.Framework.Management.Web.ViewModels.ApplicationOrganisationAdminVM
+@{
+    ViewBag.Title = FixedResources.ENTITYNAME_ORGANISATION;
+}
+<h2>
+    Maintain @FixedResources.ENTITYNAME_ORGANISATION</h2>
+<script type="text/javascript">
+    /// <reference path="jquery-1.7.1.js" />
+    /// <reference path="jquery-ui.js" />
+    $(document).ready(function () {
+
+        var isDirty = @(Model.IsViewDirty ? Html.Raw("true") : Html.Raw("false"));
+
+        $(':input').change(function () {
+            if (!isDirty) {
+                isDirty = true;
+            }
+        });
+		
+        //Staff member - Display 'other title' options if a title of 'other' is selected
+       $("#UpdateTypeButton").hide();
+
+       $('#OrganisationItem_OrganisationTypeCode').change(function () {
+
+            var form = $('#mainForm')
+                        var input = $("<input>").attr("type", "hidden").attr("name", "Edit::UpdateOrganisationType").val("");
+                        form.append($(input));
+                        $('#mainForm')[0].submit();
+        });
+	
+		var $myDialogExit = $('<div id=\'confirm\'></div>')
+        .html('Are you sure you want to exit?<br/>Click OK to confirm.  Click Cancel to stop this action.')
+        .dialog({
+            autoOpen: false,
+            modal: true,
+            title: 'Confirmation Required',
+            buttons: {
+                "OK": function () {
+                    $(this).dialog("close");
+                    if ($('#IsExitConfirmed').val() == "True") {
+                        var form = $('#mainForm')
+                        var input = $("<input>").attr("type", "hidden").attr("name", "Edit::ExitOrganisation").val("");
+                        form.append($(input));
+                        $('#mainForm')[0].submit();
+                        return true;
+                    }
+                }
+                , "Cancel": function () {
+                    $(this).dialog("close");
+                    return false;
+                }
+            }
+
+        });
+
+        $('#mainForm').submit(function (e) {
+            if ($('#mainForm').find('input[type="submit"]:focus').attr('name') == 'Edit::ExitOrganisation') {
+                if (isDirty == true) {
+                    e.preventDefault();
+                    $('#IsExitConfirmed').val("True");
+                    var returnValue = $myDialogExit.dialog('open');  //replace the div id with the id of the button/form
+                    return returnValue;
+                }
+                else {
+                    $('#IsExitConfirmed').val("True");
+                    return true;
+                }
+        }
+        });
+	});
+	
+</script>
+@using (Html.BeginForm("Edit", "ApplicationOrganisation", FormMethod.Post, new { @id = "mainForm" }))
+{
+    @Html.ValidationSummary(true)
+    <div class='message'>@Model.Message</div>
+    @Html.HiddenFor(model => model.OrganisationItem.Code)
+    <input type='hidden' id='IsExitConfirmed' name='IsExitConfirmed' value='@Model.IsExitConfirmed' />
+    <div class="full-width clearfix">
+        <fieldset class="ui-widget ui-widget-content ui-corner-all">
+            <legend class="ui-widget-header ui-corner-all">@FixedResources.ENTITYNAME_ORGANISATION</legend>
+            @Html.DisplayFor(model => model.OrganisationItem.ID, "LabelFieldAlign")
+            @Html.EditorFor(model => model.OrganisationItem.Name, "LabelFieldAlign")
+
+
+            <div class="row">
+                <div class="w40">
+                    @Html.LabelFor(model => model.OrganisationItem.OrganisationTypeCode)
+                </div>
+                <div class="w60">
+                    @if (Model.AccessContext == Dwp.Adep.Framework.Management.Web.ViewModels.ApplicationOrganisationAccessContext.Create)
+                    {
+                        @Html.DropDownListFor(model => model.OrganisationItem.OrganisationTypeCode, new SelectList(Model.AllTypesForApplication.Where(x => x.LevelNumber > Model.AllTypesForApplication.Single(y => y.Code == Model.RootNodeOrganisation.OrganisationTypeCode).LevelNumber), "Code", "Name"), @String.Format(FixedResources.DDL_GENERIC, @FixedResources.ENTITYNAME_ORGANISATIONTYPE))
+                    }
+                    else
+                    { 
+                        @Html.DropDownListFor(model => model.OrganisationItem.OrganisationTypeCode, new SelectList(Model.AllTypesForApplication.Where(x => x.LevelNumber > Model.AllTypesForApplication.Single(y => y.Code == Model.RootNodeOrganisation.OrganisationTypeCode).LevelNumber), "Code", "Name"), @String.Format(FixedResources.DDL_GENERIC, @FixedResources.ENTITYNAME_ORGANISATIONTYPE), new { @disabled = "disabled" })
+                    }
+                    <input id='UpdateTypeButton' type='submit' class='cancel' name='Edit::UpdateOrganisationType' value='@FixedResources.LABEL_UPDATEBUTTON' title='@FixedResources.TOOLTIP_UPDATEBUTTON @FixedResources.ENTITYNAME_ORGANISATION' />
+                </div>
+            </div>
+            <div class="full-width clearfix">
+                @Html.ValidationMessageFor(model => model.OrganisationItem.OrganisationTypeCode)
+            </div>
+
+
+            
+            <div class="row">
+                <div class="w40">
+                    @Html.LabelFor(model => model.ParentOrganisationCode, FixedResources.LABEL_PARENT_ORGANISATION)
+                </div>
+                <div class="w60">
+                @{   
+                    int levelNumberForRootOrganisation = Model.AllTypesForApplication.Single(x => x.Code == Model.RootNodeOrganisation.OrganisationTypeCode).LevelNumber;
+                    if (Model.AccessContext != Dwp.Adep.Framework.Management.Web.ViewModels.ApplicationOrganisationAccessContext.View && Model.OrganisationItem.OrganisationTypeCode != Guid.Empty && Model.AllTypesForApplication.Single(x => x.Code == Model.OrganisationItem.OrganisationTypeCode).LevelNumber != levelNumberForRootOrganisation)
+                    {
+                        @Html.DropDownListFor(model => model.ParentOrganisationCode, new SelectList(Model.OrganisationsByTypesList[Model.AllTypesForApplication.Single(x => x.Code == Model.OrganisationItem.OrganisationTypeCode).LevelNumber - (levelNumberForRootOrganisation + 1)].OrganisationList, "Code", "Name"), @String.Format(FixedResources.DDL_GENERIC, @FixedResources.ENTITYNAME_ORGANISATION)) 
+                    }
+                    else
+                    {
+
+                        if (Model.ParentOrganisationCode == Guid.Empty)
+                        {
+                         
+                            <span>None</span>
+                        }
+                        else
+                        {
+                            @Html.DisplayFor(model => model.ParentOrganisationCode, "LabelFieldAlign") 
+                        }
+
+                    }
+                }   
+                        
+                </div>
+            </div>
+            <div class="full-width clearfix">
+                @Html.ValidationMessageFor(model => model.ParentOrganisationCode)
+            </div>
+            
+            @Html.HiddenFor(model => model.OrganisationItem.HEO)
+            @Html.HiddenFor(model => model.OrganisationItem.DateDeleted)
+
+
+
+
+
+
+
+                @if (Model.MaximumHopsToChildOrganisation == 0)
+                {
+                    @Html.EditorFor(model => model.OrganisationItem.IsActive, "LabelCheckBoxAlign")
+                }
+                else
+                {
+                    @Html.DisplayFor(model => model.OrganisationItem.IsActive, "LabelCheckBoxAlign")
+                }
+
+
+
+            <div class="full-width clearfix">
+                @if (Model.AccessContext == Dwp.Adep.Framework.Management.Web.ViewModels.ApplicationOrganisationAccessContext.Create)
+                {
+                    <input id='CreateButton' type='submit' name='Edit::CreateOrganisation' value='@FixedResources.LABEL_CREATEBUTTON' title='@FixedResources.TOOLTIP_CREATEBUTTON @FixedResources.ENTITYNAME_ORGANISATION' />
+                }
+                else
+                {
+                    <input id='SaveButton' type='submit' name='Edit::SaveOrganisation' value='@FixedResources.LABEL_SAVEBUTTON' title='@FixedResources.TOOLTIP_SAVEBUTTON @FixedResources.ENTITYNAME_ORGANISATION'/>
+                }
+                <input id='ExitButton' class='cancel' type='submit' name='Edit::ExitOrganisation' value='@FixedResources.LABEL_EXITBUTTON' title='@FixedResources.TOOLTIP_EXITBUTTON'/>
+            </div>
+        </fieldset>
+    </div>
+}

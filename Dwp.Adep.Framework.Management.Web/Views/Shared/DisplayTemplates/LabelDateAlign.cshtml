@@ -1,0 +1,10 @@
+﻿@model Nullable<DateTime>
+
+<div class="row">
+    <div class="w40">
+        @Html.Label("")
+    </div>
+    <div class="w60">
+        @(Model.HasValue ? Model.Value.ToString("dd/MM/yyyy") : "")
+    </div>
+</div>

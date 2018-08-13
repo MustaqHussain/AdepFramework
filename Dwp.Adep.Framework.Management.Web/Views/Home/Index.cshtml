@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Dwp.Adep.Framework.Management.Web.Models.StaffAccessModel>
+<script type="text/javascript">
+
+</script>
+<h2>Please select an application:</h2>
+@using (Html.BeginForm()){
+<fieldset class="ui-widget ui-widget-content">
+    <legend class="ui-widget-header ui-corner-all">Your applications:</legend>
+
+    <div class="full-width clearfix">
+        @foreach (var item in Model)
+        {
+            <div class="full-width clearfix">
+                <div class="left-50">
+                    <div class="editor-field append">
+                        <input @Html.Raw(" type='submit' value='Select' title='Select ")@item.ApplicationName@Html.Raw("' name='SelectButton_")@item.ID@Html.Raw("'") />
+                        <strong>@item.ApplicationName</strong> @(String.IsNullOrEmpty(item.OrganisationName) ? "" : "(" + @item.OrganisationName + ")")
+                    </div>
+                </div>
+             @*   <div class="right-50 clearfix">
+                    <div class="editor-label append">
+                        @item.Description
+                    </div>
+                </div>*@
+            </div>
+        }
+    </div>
+</fieldset>
+}

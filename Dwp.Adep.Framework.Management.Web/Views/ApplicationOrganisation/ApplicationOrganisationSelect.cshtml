@@ -1,0 +1,166 @@
+﻿@model Dwp.Adep.Framework.Management.Web.ViewModels.ApplicationOrganisationSelectVM
+@{
+    ViewBag.Title = FixedResources.LABEL_SCREENTITLE_APPLICATIONORGANISATIONSELECT;
+}
+<h2>
+    @FixedResources.LABEL_SCREENTITLE_APPLICATIONORGANISATIONSELECT</h2>
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<script type="text/javascript">
+    /// <reference path="jquery-1.7.1.js" />
+    /// <reference path="jquery-ui.js" />
+    $(document).ready(function () {
+
+        var isDirty = @(Model.IsViewDirty ? Html.Raw("true") : Html.Raw("false"));
+
+        // remove loading message
+        $('body').removeClass('loading');
+
+        $(':input').change(function () {
+            if (!isDirty) {
+                isDirty = true;
+            }
+        });
+		
+		var $myDialogExit = $('<div id=\'confirm\'></div>')
+        .html('Are you sure you want to exit?<br/>Click OK to confirm.  Click Cancel to stop this action.')
+        .dialog({
+            autoOpen: false,
+            modal: true,
+            title: 'Confirmation Required',
+            buttons: {
+                "OK": function () {
+                    $(this).dialog("close");
+                    if ($('#IsExitConfirmed').val() == "True") {
+                        var form = $('#mainForm')
+                        var input = $("<input>").attr("type", "hidden").attr("name", "ApplicationOrganisationSelect::ExitAdmin").val("");
+                        form.append($(input));
+                        $('#mainForm')[0].submit();
+                        return true;
+                    }
+                }
+                , "Cancel": function () {
+                    $(this).dialog("close");
+                    return false;
+                }
+            }
+
+        });
+
+        $('#mainForm').submit(function (e) {
+
+            if ($('#mainForm').find('input[type="submit"]:focus').attr('name') == 'ApplicationOrganisationSelect::ExitAdmin') {
+                if (isDirty == true) {
+                    e.preventDefault();
+                    $('#IsExitConfirmed').val("True");
+                    var returnValue = $myDialogExit.dialog('open');  //replace the div id with the id of the button/form
+                    return returnValue;
+                }
+                else {
+                    $('#IsExitConfirmed').val("True");
+                    return true;
+                }
+            }
+            else {
+                return true;
+            }
+        });
+
+        $('#UpdateApplicationButton').hide();
+
+        $('#SelectedApplicationCode').change(function (e) {
+            // display Loading message
+            $('body').addClass('loading');
+
+            var input = $("<input>").attr("type", "hidden").attr("name", "ApplicationOrganisationSelect::updateApplication").val("");
+                        $('#mainForm').append($(input));
+                        $('#mainForm')[0].submit();
+                        
+        });
+
+        // animate three dots after Loading message
+        i=0;
+        setInterval(function() {
+            i = ++i % 4;
+            $(".loadingDotsHolder").text(" " + 
+            Array(i+1).join("."));
+        }, 400);
+
+	});
+	
+	//set the validator so that it hits (doesn't ignore) hidden fields NOTE:- This is outside the 'ready' function
+    $.validator.setDefaults({
+        ignore: ""
+    });
+</script>
+@using (Html.BeginForm("ApplicationOrganisationSelect", "ApplicationOrganisation", FormMethod.Post, new { @id = "mainForm" }))
+{
+    @Html.ValidationSummary(true)
+    <h2 class="message">@Html.DisplayFor(model => model.Message)</h2>
+    <input type='hidden' id='IsExitConfirmed' name='IsExitConfirmed' value='@Model.IsExitConfirmed' />
+    <fieldset class="ui-widget ui-widget-content ui-corner-all">
+        <legend class="ui-widget-header ui-corner-all">Application Details</legend>
+        <div class="full-width clearfix">
+            <div class="left-50">
+                <div class="full-width clearfix">
+                    <div class="left-50">
+                        @Html.LabelFor(model => model.SelectedApplicationCode)
+                    </div>
+                    <div class="right-50">
+                        @Html.DropDownListFor(model => model.SelectedApplicationCode, new SelectList(Model.ApplicationList, "Code", "ApplicationName"), FixedResources.DDL_APPLICATION)
+                        <input id='UpdateApplicationButton' type='submit' name='ApplicationOrganisationSelect::updateApplication' value="@Html.Raw(FixedResources.LABEL_UPDATEAPPLICATIONBUTTON)" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+    <div class="full-width clearfix">
+        <div class="left-50">
+            <fieldset class="ui-widget ui-widget-content ui-corner-all">
+                <legend class="ui-widget-header ui-corner-all">Available Organisations</legend>
+                @foreach (var item in Model.OrganisationsByTypesList)
+                {
+                    if (item.OrganisationTypeItem.Code == Model.RootNodeOrganisation.OrganisationTypeCode)
+                    {
+                    <div class='full-width clearfix'>
+                        <div class='editor-label left-40'>
+                            <label for='@item.SelectedOrganisationCode'>@item.OrganisationTypeItem.Name</label>
+                        </div>
+                        <div class='editor-field right-60'>
+                            @Html.Raw(item.OrganisationList[0].NameAndActive)
+                        </div>
+                    </div>
+                        
+                    }
+                    else
+                    {
+                        Html.RenderPartial("OrganisationTypeRow", item);
+                    }
+                }
+                <div class="full-width clearfix">
+                     @if(Model.OrganisationsByTypesList.Count > 0)  
+                     {
+           
+                         <input type='submit' id='ViewButton' name='ApplicationOrganisationSelect::ViewOrganisation' value='View' />
+                     }
+                     else
+                     {
+                         @Html.Label("No Organisations to view");
+                     }
+                </div>
+            </fieldset>
+        </div>
+    </div>
+    <div class="full-width clearfix">
+        @if (Model.SelectedApplicationCode != Guid.Empty && Model.SelectedApplicationCode != null)
+        {
+            if(Model.OrganisationsByTypesList.Count > 0)  
+            {
+           
+                <input id='AddButton' type='submit' name='ApplicationOrganisationSelect::AddOrganisation' value="@Html.Raw(FixedResources.LABEL_CREATEBUTTON)" />
+            }
+        }
+    </div>
+    
+    <div id="loadingFlag" class="loadingHolder">Loading organisations<div class="loadingDotsHolder"> </div></div> 
+}

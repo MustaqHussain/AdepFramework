@@ -1,0 +1,210 @@
+﻿@{
+    ViewBag.Title = "ChangeSite";
+}
+
+
+<div class="ui-widget">
+    <h2 class="ui-widget-header">
+                    Changing the look of this site</h2>
+    <!-- content goes here -->
+    <div class="ui-widget-content">
+ 
+                <!-- content goes here -->
+                <p>
+                    This page tells you how to:</p>
+                <ul>
+                    <li>- change the text font</li>
+                    <li>- change the text colour</li>
+                    <li>- change the background colour</li>
+                    <li>- remove images </li>
+                </ul>
+                <p>
+                    If you just want to increase the text size read <a title="Accessibility document hyperlink.">@Html.ActionLink("Accessibility – help with viewing this site", "Accessibility", "Home", null, new { @class = "ui-state-highlight" })</a>.</p>
+                <p>
+                    The instructions are different, depending on which browser you are using.</p>
+                <ul class="dwp">
+                    <li><a title="Instructions for Microsoft Internet Explorer users hyperlink within this document."
+                        href="#ie" class="ui-state-highlight">Instructions for Microsoft Internet Explorer users</a></li>
+                    <li><a title="Instructions for Firefox users hyperlink within this document."
+                        href="#netscape" class="ui-state-highlight">Instructions for Firefox users</a></li>
+               @*     <li><a title="Instructions for Opera users hyperlink within this document." href="#opera" class="ui-state-highlight">
+                        Instructions for Opera users</a> </li>*@
+                </ul>
+                <p>
+                    If you use an Apple Mac you should visit the <a title="Apple website for accessibility guide."
+                        target="_blank" href="http://www.apple.com/accessibility/" class="ui-state-highlight">Apple website's accessibility
+                        section</a>.</p>
+                <p>
+                    Read the <a title="BBC website for accessibility guide." target="_blank" href="http://www.bbc.co.uk/accessibility/" class="ui-state-highlight">
+                        BBC accessibility guide</a> for more advice.</p>
+                <hr />
+                <a id="ie"></a>
+                <h2>
+                    Instructions for Microsoft Internet Explorer users</h2>
+                <h3>
+                    Changing the text font</h3>
+                <ul>
+                    <li>Select <strong>Internet Options</strong> from the <strong>Tools</strong> menu (on
+                        older versions Internet Options may be in the <strong>View</strong> menu).</li>
+                    <li>Press the <strong>Accessibility</strong> button.</li>
+                    <li>Tick the box next to <strong>Ignore font styles specified on Web pages</strong>.</li>
+                    <li>Press<strong> OK</strong>.</li>
+                    <li>Press the <strong>Fonts</strong> button</li>
+                    <li>Choose your font from the drop-down menu under <strong>Web page font</strong>.</li>
+                    <li>Press <strong>OK</strong>. </li>
+                </ul>
+                <h3>
+                    Changing the text colour or the background colour</h3>
+                <ul>
+                    <li>Select <strong>Internet Options</strong> from the <strong>Tools</strong> menu (on
+                        older versions Internet Options may be in the <strong>View</strong> menu).</li>
+                    <li>Press the <strong>Accessibility</strong> button.</li>
+                    <li>Tick the box for <strong>Ignore colors specified on Web pages</strong>.</li>
+                    <li>Press <strong>OK</strong>.</li>
+                    <li>Press the <strong>Colours</strong> button.</li>
+                    <li>Untick the box for <strong>Use Windows colours</strong>.</li>
+                    <ul>
+                        <li>To change the colour of the text, press the button to the right of <strong>Text</strong>,
+                            choose your colour from the palette and press <strong>OK</strong>.</li>
+                        <li>To change the colour of the background, press the button to the right of <strong>
+                            Background</strong>, choose your colour from the palette and press <strong>OK</strong>.
+                        </li>
+                    </ul>
+                    <li>Press <strong>OK</strong>. </li>
+                </ul>
+                <h3>
+                    Removing the images</h3>
+                <ul>
+                    <li>Select <strong>Internet Options</strong> from the <strong>Tools</strong> menu (on
+                        older versions Internet Options may be in the <strong>View</strong> menu).</li>
+                    <li>Select the <strong>Advanced</strong> tab at the top right corner of the box.</li>
+                    <li>Scroll down to the <strong>Multimedia</strong> heading.</li>
+                    <li>Untick the box next to <strong>Show Pictures</strong>.</li>
+                    <li>Press <strong>OK</strong>. </li>
+                </ul>
+                <h3>
+                    More information</h3>
+                <p>
+                    For more information visit Microsoft's <a title="Microsoft website for Internet Explorer Accessibility Resources."
+                        target="_blank" href="http://www.microsoft.com/enable/products/ie6/" class="ui-state-highlight">Internet Explorer
+                        Accessibility Resources</a>.</p>
+                <a title="Return to the top of the page." href="#top" class="ui-state-highlight">top of page</a><hr />
+                <a id="netscape"></a>
+                <h2>
+                    Instructions for Firefox users</h2>
+                <h3>
+                    Changing the text font</h3>
+                <ul>
+                    <li>Select <strong>Options</strong> from the <strong>Tools</strong> menu (on older versions
+                        you may have to select <strong>Preferences</strong> from the <strong>Edit</strong>
+                        menu).</li>
+                    <li>Press the <strong>Fonts &amp; Colors</strong> button in the <strong>General</strong>
+                        Options (on older versions you may have to select <strong>Fonts</strong> from the
+                        <strong>Appearance</strong> category).</li>
+                    <li>Tick the box for <strong>Always use my Fonts</strong> (on older versions you may
+                        have to untick the box for <strong>Allow documents to use other fonts</strong>).</li>
+                    <li>From the <strong>Proportional</strong> box select whether you want to use a <strong>
+                        Serif</strong> or <strong>Sans Serif</strong> font. (Sans serif is normally clearer.)</li>
+                    <li>Select the font from the Serif or Sans Serif box you want to use.</li>
+                    <li>Press <strong>OK</strong>. </li>
+                </ul>
+                <h3>
+                    Changing the text colour or the background colour</h3>
+                <ul>
+                    <li>Select <strong>Options</strong> from the <strong>Tools</strong> menu (on older versions
+                        you may have to select <strong>Preferences</strong> from the <strong>Edit</strong>
+                        menu).</li>
+                    <li>Press the <strong>Fonts &amp; Colors</strong> button in the <strong>General</strong>
+                        Options (on older versions you may have to select <strong>Colors</strong> from the
+                        <strong>Appearance</strong> category).</li>
+                    <li>Tick the box for <strong>Always use my Colors</strong> (on older versions you may
+                        have to tick the box for <strong>Use my chosen colors...</strong>).</li>
+                    <ul>
+                        <li>To change the colour of the text, press the button to the right of <strong>Text</strong>,
+                            choose your colour from the palette.</li>
+                        <li>To change the colour of the background, press the button to the right of <strong>
+                            Background</strong>, choose your colour from the palette. </li>
+                    </ul>
+                    <li>Press <strong>OK</strong>. </li>
+                </ul>
+                <h3>
+                    Removing the images</h3>
+                <ul class="dwp-circle">
+                    <li>Select <strong>Options</strong> from the <strong>Tools</strong> menu (on older versions
+                        you may have to select <strong>Preferences</strong> from the <strong>Edit</strong>
+                        menu).</li>
+                    <li>Select <strong>Web Features</strong> (on older versions you may have to select <strong>
+                        Advanced</strong>).</li>
+                    <li>Untick the box next to <strong>Load Images</strong> (on older versions Load Images
+                        may be called <strong>Automatically Load Images</strong>).</li>
+                    <li>Press <strong>OK</strong>. </li>
+                </ul>
+                <h3>
+                    More information</h3>
+                <p>
+                    For more information about Firefox Options visit <a title="Mozilla website on Firefox Help."
+                        target="_blank" href="http://www.mozilla.org/support/firefox/options" class="ui-state-highlight">Firefox Help</a>.</p>
+                <p>
+              @*  <a title="Return to the top of the page." href="#top" class="ui-state-highlight">top of page</a><hr />
+                <a id="opera"></a>
+                <h2>
+                    Instructions for Opera users</h2>
+                <h3>
+                    Changing the text font</h3>
+                <ul>
+                    <li>Select <strong>Preferences</strong> from the <strong>File</strong> menu.</li>
+                    <li>Select <strong>Page Style</strong>.</li>
+                    <li>Press <strong>Configure modes</strong> button.</li>
+                    <li>Under <strong>Author mode</strong> tick <strong>My fonts and colors</strong> and
+                        untick <strong>Page fonts and colors</strong>.</li>
+                    <li>Press <strong>OK</strong>.</li>
+                    <li>Select <strong>Fonts</strong>.</li>
+                    <li>Select <strong>Normal</strong> from the list and press <strong>Choose</strong>.</li>
+                    <li>Press the button below <strong>Color</strong>, choose your colour from the palette
+                        and press <strong>OK</strong>.</li>
+                    <li>You might also like to change the colour for Headings 1 to 4 as well.</li>
+                    <li>Press OK. </li>
+                </ul>
+                <h3>
+                    Changing the text colour</h3>
+                <ul>
+                    <li>Select <strong>Preferences</strong> from the <strong>File</strong> menu.</li>
+                    <li>Select <strong>Page Style</strong>.</li>
+                    <li>Press <strong>Configure modes</strong> button.</li>
+                    <li>Under <strong>Author mode</strong> tick <strong>My fonts and colors</strong> and
+                        untick <strong>Page fonts and colors</strong>.</li>
+                    <li>Press <strong>OK</strong>.</li>
+                    <li>Select <strong>Fonts</strong>.</li>
+                    <li>Select <strong>Normal</strong> from the list and press <strong>Choose</strong>.</li>
+                    <li>Choose the font of your choice and press <strong>OK</strong>.</li>
+                    <li>You might also like to change the font for Headings 1 to 4 as well.</li>
+                    <li>Press OK. </li>
+                </ul>
+                <h3>
+                    Changing the background colour</h3>
+                <ul>
+                    <li>Select <strong>Preferences</strong> from the <strong>File</strong> menu.</li>
+                    <li>Select <strong>Page Style</strong>.</li>
+                    <li>Press the button to the right of <strong>Background color</strong>, choose your
+                        colour from the palette and press <strong>OK</strong>.</li>
+                    <li>Press <strong>OK</strong>. </li>
+                </ul>
+                <h3>
+                    Removing the images</h3>
+                <ul class="dwp-circle">
+                    <li>Select <strong>Preferences</strong> from the <strong>File</strong> menu.</li>
+                    <li>Select <strong>Multimedia</strong>.</li>
+                    <li>Select <strong>Show no images</strong> from the <strong>Images</strong> drop-down.</li>
+                    <li>Press <strong>OK</strong>. </li>
+                </ul>
+                <h3>
+                    More information</h3>
+                <p>
+                    For more information visit <a title="Opera website on Opera's special settings for disabled users."
+                        target="_blank" href="http://www.opera.com/support/search/supsearch.dml?index=164" class="ui-state-highlight">
+                        Opera's special settings for disabled users page</a>.</p>*@
+                <a title="Return to the top of the page." href="#top" class="ui-state-highlight">top of page</a>
+ </div>
+                   
+        </div>
+        <!-- content ends here -->

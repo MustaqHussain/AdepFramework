@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/managementconsole/!svn/ver/825/branches/F_R1.0.X_FileUpload/ManagementConsoleCode/ManagementConsole.Server.Ioc/Libs/Unity
+END
+Microsoft.Practices.Unity.dll
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/managementconsole/!svn/ver/825/branches/F_R1.0.X_FileUpload/ManagementConsoleCode/ManagementConsole.Server.Ioc/Libs/Unity/Microsoft.Practices.Unity.dll
+END
+Microsoft.Practices.ServiceLocation.dll
+K 25
+svn:wc:ra_dav:version-url
+V 166
+/svn/managementconsole/!svn/ver/825/branches/F_R1.0.X_FileUpload/ManagementConsoleCode/ManagementConsole.Server.Ioc/Libs/Unity/Microsoft.Practices.ServiceLocation.dll
+END
+Microsoft.Practices.Unity.Interception.dll
+K 25
+svn:wc:ra_dav:version-url
+V 169
+/svn/managementconsole/!svn/ver/825/branches/F_R1.0.X_FileUpload/ManagementConsoleCode/ManagementConsole.Server.Ioc/Libs/Unity/Microsoft.Practices.Unity.Interception.dll
+END

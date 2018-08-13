@@ -1,0 +1,675 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F198EFE5-B11D-4FE6-8250-3E5E7A5C42BC}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Dwp.Adep.Framework.Management.WebServices</RootNamespace>
+    <AssemblyName>Dwp.Adep.Framework.Management.WebServices</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Demo183|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Dwp.Adep.Framework.Management.WebServices.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <DeployIisAppPath>Default Web Site/FrameworkWebServices</DeployIisAppPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'SIT170|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Dwp.Adep.Framework.Management.WebServices.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <DesktopBuildPackageLocation>obj\SIT170\Package\FrameworkWebServices.zip</DesktopBuildPackageLocation>
+    <DeployIisAppPath>Default Web Site/FrameworkWebServices</DeployIisAppPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Accessibility|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Dwp.Adep.Framework.Management.WebServices.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=2.1.265.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dwp.Adep.Framework.Packages\packages\AutoMapper.2.1.265\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="DataAnnotationsExtensions, Version=1.0.1.0, Culture=neutral, PublicKeyToken=358a5681c50fd84c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dwp.Adep.Framework.Packages\packages\DataAnnotationsExtensions.1.0.1\lib\NETFramework40\DataAnnotationsExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="DataAnnotationsExtensions.ClientValidation, Version=1.0.1.0, Culture=neutral, PublicKeyToken=358a5681c50fd84c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dwp.Adep.Framework.Packages\packages\DataAnnotationsExtensions.MVC3.1.0.1\lib\NETFramework40\DataAnnotationsExtensions.ClientValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Main\Source\AdepFramework\packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Main\Source\AdepFramework\packages\EnterpriseLibrary.Data.5.0.505.0\lib\NET35\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.ExceptionHandling, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Main\Source\AdepFramework\packages\EnterpriseLibrary.ExceptionHandling.5.0.505.0\lib\NET35\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Main\Source\AdepFramework\packages\EnterpriseLibrary.ExceptionHandling.Logging.5.0.505.0\lib\NET35\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Logging, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Main\Source\AdepFramework\packages\EnterpriseLibrary.Logging.5.0.505.1\lib\NET35\Microsoft.Practices.EnterpriseLibrary.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Logging.Database, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Main\Source\AdepFramework\packages\EnterpriseLibrary.Logging.Database.5.0.505.0\lib\NET35\Microsoft.Practices.EnterpriseLibrary.Logging.Database.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.2.1.505.0\lib\NET35\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Main\Source\AdepFramework\packages\Unity.2.1.505.0\lib\NET35\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Interception.2.1.505.0\lib\NET35\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception.Configuration, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Main\Source\AdepFramework\packages\Unity.Interception.2.1.505.0\lib\NET35\Microsoft.Practices.Unity.Interception.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.DirectoryServices.Protocols" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebActivator">
+      <HintPath>..\Dwp.Adep.Framework.Packages\packages\WebActivator.1.5\lib\net40\WebActivator.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DataContracts\SearchMatchDataContract.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SearchMatchDataContract1.cs</LastGenOutput>
+    </None>
+    <Content Include="ServiceContracts\AdminService.svc" />
+    <Content Include="ServiceContracts\AuthorisationService.svc" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <None Include="ServiceContracts\ServiceTypeMappings.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ServiceTypeMappings.cs</LastGenOutput>
+    </None>
+    <Content Include="Web.Demo183.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.SIT170.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Accessibility.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BootStrapper.cs" />
+    <Compile Include="DataContracts\ApplicationAttributeDC.cs">
+      <DependentUpon>DataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\ApplicationAttributeSearchCriteriaDC.cs">
+      <DependentUpon>SearchCriteriaDataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\ApplicationAttributeSearchMatchDC.cs">
+      <DependentUpon>SearchMatchDataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\ApplicationAttributeSearchVMDC.cs">
+      <DependentUpon>SearchVMDataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\ApplicationAttributeVMDC.cs">
+      <DependentUpon>MessageContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\ApplicationDC.cs">
+      <DependentUpon>DataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\ApplicationOrganisationAdminVMDC.cs" />
+    <Compile Include="DataContracts\ApplicationOrganisationSelectVMDC.cs" />
+    <Compile Include="DataContracts\ApplicationSearchCriteriaDC.cs">
+      <DependentUpon>SearchCriteriaDataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\ApplicationSearchMatchDC.cs">
+      <DependentUpon>SearchMatchDataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\ApplicationSearchVMDC.cs">
+      <DependentUpon>SearchVMDataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\ApplicationVMDC.cs">
+      <DependentUpon>MessageContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\AuditSearchCriteriaDC.cs">
+      <DependentUpon>SearchCriteriaDataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\AuditSearchMatchDC.cs">
+      <DependentUpon>SearchMatchDataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\AuditSearchVMDC.cs">
+      <DependentUpon>SearchVMDataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\AuditVMDC.cs">
+      <DependentUpon>MessageContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\AuthorisationDC.cs" />
+    <Compile Include="DataContracts\CountrySearchCriteriaDC.cs">
+      <DependentUpon>SearchCriteriaDataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\CountrySearchMatchDC.cs">
+      <DependentUpon>SearchMatchDataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\CountrySearchVMDC.cs">
+      <DependentUpon>SearchVMDataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\CountryVMDC.cs">
+      <DependentUpon>MessageContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\GradeSearchCriteriaDC.cs">
+      <DependentUpon>SearchCriteriaDataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\GradeSearchMatchDC.cs">
+      <DependentUpon>SearchMatchDataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\GradeSearchVMDC.cs">
+      <DependentUpon>SearchVMDataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\GradeVMDC.cs">
+      <DependentUpon>MessageContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\HolidaySearchCriteriaDC.cs">
+      <DependentUpon>SearchCriteriaDataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\HolidaySearchMatchDC.cs">
+      <DependentUpon>SearchMatchDataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\HolidaySearchVMDC.cs">
+      <DependentUpon>SearchVMDataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\HolidayVMDC.cs">
+      <DependentUpon>MessageContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\MessageContract.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MessageContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\NonStandardHolidayDC.cs">
+      <DependentUpon>DataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\NonStandardHolidaySearchCriteriaDC.cs">
+      <DependentUpon>SearchCriteriaDataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\NonStandardHolidaySearchMatchDC.cs">
+      <DependentUpon>SearchMatchDataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\NonStandardHolidaySearchVMDC.cs">
+      <DependentUpon>SearchVMDataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\NonStandardHolidayVMDC.cs">
+      <DependentUpon>MessageContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\OrganisationByTypeVMDC.cs" />
+    <Compile Include="DataContracts\OrganisationDC.Extensions.cs" />
+    <Compile Include="DataContracts\OrganisationSearchCriteriaDC.cs">
+      <DependentUpon>SearchCriteriaDataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\OrganisationSearchMatchDC.cs">
+      <DependentUpon>SearchMatchDataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\OrganisationSearchVMDC.cs">
+      <DependentUpon>SearchVMDataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\OrganisationTypeDC.cs">
+      <DependentUpon>DataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\OrganisationTypeGroupDC.cs">
+      <DependentUpon>DataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\OrganisationTypeGroupSearchCriteriaDC.cs">
+      <DependentUpon>SearchCriteriaDataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\OrganisationTypeGroupSearchMatchDC.cs">
+      <DependentUpon>SearchMatchDataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\OrganisationTypeGroupSearchVMDC.cs">
+      <DependentUpon>SearchVMDataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\OrganisationTypeGroupVMDC.cs">
+      <DependentUpon>MessageContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\OrganisationTypeSearchCriteriaDC.cs">
+      <DependentUpon>SearchCriteriaDataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\OrganisationTypeSearchMatchDC.cs">
+      <DependentUpon>SearchMatchDataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\OrganisationTypeSearchVMDC.cs">
+      <DependentUpon>SearchVMDataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\OrganisationTypeVMDC.cs">
+      <DependentUpon>MessageContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\OrganisationVMDC.cs">
+      <DependentUpon>MessageContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\SearchCriteriaDataContract.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SearchCriteriaDataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\SearchMatchDataContract1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SearchMatchDataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\SearchVMDataContract.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SearchVMDataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\StaffAccessDC.cs" />
+    <Compile Include="DataContracts\StaffAdminChangeSetDC.cs" />
+    <Compile Include="DataContracts\StaffApplicationAdminVMDC.cs" />
+    <Compile Include="DataContracts\StaffApplicationAttributeVMDC.cs" />
+    <Compile Include="DataContracts\StaffAttributesDC.cs">
+      <DependentUpon>DataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\StaffAttributesSearchCriteriaDC.cs">
+      <DependentUpon>SearchCriteriaDataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\StaffAttributesSearchMatchDC.cs">
+      <DependentUpon>SearchMatchDataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\StaffAttributesSearchVMDC.cs">
+      <DependentUpon>SearchVMDataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\StaffAttributesVMDC.cs">
+      <DependentUpon>MessageContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\StaffDetailsDC.cs">
+      <DependentUpon>DataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\StaffDetailsSearchCriteriaDC.cs">
+      <DependentUpon>SearchCriteriaDataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\StaffDetailsSearchMatchDC.cs">
+      <DependentUpon>SearchMatchDataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\StaffDetailsSearchVMDC.cs">
+      <DependentUpon>SearchVMDataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\StaffDetailsVMDC.cs">
+      <DependentUpon>MessageContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\StaffOfficesDC.cs">
+      <DependentUpon>DataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\StaffOfficesSearchCriteriaDC.cs">
+      <DependentUpon>SearchCriteriaDataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\StaffOfficesSearchMatchDC.cs">
+      <DependentUpon>SearchMatchDataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\StaffOfficesSearchVMDC.cs">
+      <DependentUpon>SearchVMDataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\StaffOfficesVMDC.cs">
+      <DependentUpon>MessageContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\StaffOrganisationDC.cs">
+      <DependentUpon>DataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\StaffOrganisationDC.Extensions.cs" />
+    <Compile Include="DataContracts\StaffOrganisationSearchCriteriaDC.cs">
+      <DependentUpon>SearchCriteriaDataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\StaffOrganisationSearchMatchDC.cs">
+      <DependentUpon>SearchMatchDataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\StaffOrganisationSearchVMDC.cs">
+      <DependentUpon>SearchVMDataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\StaffOrganisationVMDC.cs">
+      <DependentUpon>MessageContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\StaffSearchCriteriaDC.cs">
+      <DependentUpon>SearchCriteriaDataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\StaffSearchMatchDC.cs">
+      <DependentUpon>SearchMatchDataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\StaffSearchVMDC.cs">
+      <DependentUpon>SearchVMDataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\StaffVMDC.cs">
+      <DependentUpon>MessageContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EventLogSourceInstaller.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="EventLogSourceInstaller.Designer.cs">
+      <DependentUpon>EventLogSourceInstaller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Exceptions\FailedAuthorisationException.cs" />
+    <Compile Include="FaultContracts\AuthorisationFailureFault.cs" />
+    <Compile Include="FaultContracts\DataConcurrencyFault.cs" />
+    <Compile Include="FaultContracts\DataIntegrityFault.cs" />
+    <Compile Include="FaultContracts\UniqueConstraintFault.cs" />
+    <Compile Include="ServiceContracts\AdminService.Application.cs">
+      <DependentUpon>Service.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceContracts\AdminService.Application.extension.cs" />
+    <Compile Include="ServiceContracts\AdminService.ApplicationAttribute.cs">
+      <DependentUpon>Service.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceContracts\AdminService.Audit.cs">
+      <DependentUpon>Service.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceContracts\AdminService.Country.cs">
+      <DependentUpon>Service.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceContracts\AdminService.Grade.cs">
+      <DependentUpon>Service.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceContracts\AdminService.Holiday.extensions.cs" />
+    <Compile Include="ServiceContracts\AdminService.NonStandardHoliday.extensions.cs" />
+    <Compile Include="ServiceContracts\AdminService.Organisation.cs">
+      <DependentUpon>Service.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceContracts\AdminService.OrganisationType.cs">
+      <DependentUpon>Service.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceContracts\AdminService.OrganisationTypeGroup.cs">
+      <DependentUpon>Service.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceContracts\AdminService.Staff.cs">
+      <DependentUpon>Service.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceContracts\AdminService.StaffAttributes.cs">
+      <DependentUpon>Service.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceContracts\AdminService.StaffDetails.cs">
+      <DependentUpon>Service.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceContracts\AdminService.StaffOffices.cs">
+      <DependentUpon>Service.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceContracts\AdminService.StaffOrganisation.cs">
+      <DependentUpon>Service.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceContracts\AdminService.svc.cs">
+      <DependentUpon>AdminService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Auditing\AuditManager.cs" />
+    <Compile Include="DataContracts\AuditDC.cs">
+      <DependentUpon>DataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\CountryDC.cs">
+      <DependentUpon>DataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\DataContract.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\GradeDC.cs">
+      <DependentUpon>DataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\HolidayDC.cs">
+      <DependentUpon>DataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\OrganisationDC.cs">
+      <DependentUpon>DataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts\StaffDC.cs">
+      <DependentUpon>DataContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Exceptions\ExceptionManager.cs" />
+    <Compile Include="FaultContracts\ServiceErrorFault.cs" />
+    <Compile Include="ServiceContracts\AdminService.TypeMappings.cs">
+      <DependentUpon>ServiceTypeMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceContracts\AD\ActiveDirectoryHelper.cs" />
+    <Compile Include="ServiceContracts\AD\IActiveDirectoryHelper.cs" />
+    <Compile Include="ServiceContracts\AD\IPrincipalManager.cs" />
+    <Compile Include="ServiceContracts\AD\PrincipalManager.cs" />
+    <Compile Include="ServiceContracts\AuthorisationService.svc.cs">
+      <DependentUpon>AuthorisationService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceContracts\IAdminService.Application.cs">
+      <DependentUpon>ServiceContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceContracts\IAdminService.Application.extension.cs" />
+    <Compile Include="ServiceContracts\IAdminService.ApplicationAttribute.cs">
+      <DependentUpon>ServiceContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceContracts\IAdminService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceContracts\IAdminService.Audit.cs">
+      <DependentUpon>ServiceContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceContracts\IAdminService.Country.cs">
+      <DependentUpon>ServiceContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceContracts\IAdminService.Grade.cs">
+      <DependentUpon>ServiceContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceContracts\IAdminService.Holiday.cs">
+      <DependentUpon>ServiceContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceContracts\IAdminService.NonStandardHoliday.cs">
+      <DependentUpon>ServiceContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceContracts\IAdminService.Organisation.cs">
+      <DependentUpon>ServiceContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceContracts\IAdminService.OrganisationType.cs">
+      <DependentUpon>ServiceContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceContracts\IAdminService.OrganisationTypeGroup.cs">
+      <DependentUpon>ServiceContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceContracts\IAdminService.Staff.cs">
+      <DependentUpon>ServiceContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceContracts\IAdminService.StaffAttributes.cs">
+      <DependentUpon>ServiceContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceContracts\IAdminService.StaffDetails.cs">
+      <DependentUpon>ServiceContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceContracts\IAdminService.StaffOffices.cs">
+      <DependentUpon>ServiceContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceContracts\IAdminService.StaffOrganisation.cs">
+      <DependentUpon>ServiceContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceContracts\IAuthorisationService.cs" />
+    <Compile Include="ServiceContracts\Service.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Service.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceContracts\ServiceContract.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ServiceContract.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceContracts\ServiceTypeMappings.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ServiceTypeMappings.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Dwp.Adep.Framework.Management.DataServices\Dwp.Adep.Framework.Management.DataServices.csproj">
+      <Project>{E13D85C2-1A7B-4E96-9856-48A39DF8F9FC}</Project>
+      <Name>Dwp.Adep.Framework.Management.DataServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dwp.Adep.Framework.Management.Ioc\Dwp.Adep.Framework.Management.Ioc.csproj">
+      <Project>{E458F311-5A3E-469F-A985-F5E143196F9E}</Project>
+      <Name>Dwp.Adep.Framework.Management.Ioc</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DataContracts\DataContract.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DataContract.cs</LastGenOutput>
+      <TransformOnBuild>False</TransformOnBuild>
+    </None>
+    <Content Include="packages.config" />
+    <None Include="DataContracts\MessageContract.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>MessageContract.cs</LastGenOutput>
+    </None>
+    <None Include="DataContracts\SearchCriteriaDataContract.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SearchCriteriaDataContract.cs</LastGenOutput>
+    </None>
+    <None Include="DataContracts\SearchVMDataContract.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SearchVMDataContract.cs</LastGenOutput>
+    </None>
+    <None Include="ServiceContracts\Service.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Service.cs</LastGenOutput>
+    </None>
+    <None Include="ServiceContracts\ServiceContract.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ServiceContract.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>4444</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+          <EnableWcfTestClientForSVCDefaultValue>True</EnableWcfTestClientForSVCDefaultValue>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

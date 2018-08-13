@@ -1,0 +1,146 @@
+@model Dwp.Adep.Framework.Management.Web.ViewModels.TitleVM
+@{
+    ViewBag.Title = FixedResources.ENTITYNAME_TITLE;
+}
+<h2>Maintain @FixedResources.ENTITYNAME_TITLE</h2>
+<script type="text/javascript">
+    /// <reference path="jquery-1.7.1.js" />
+    /// <reference path="jquery-ui.js" />
+    $(document).ready(function () {
+
+        var isDirty = @(Model.IsViewDirty?Html.Raw("true"):Html.Raw("false"));
+
+        $(':input').change(function () {
+            if (!isDirty) {
+                isDirty = true;
+            }
+        });
+		
+		var $myDialogDelete = $('<div id=\'confirm\'></div>')
+        .html('Are you sure you want to delete?<br/>Click OK to confirm.  Click Cancel to stop this action.')
+        .dialog({
+            autoOpen: false,
+            modal: true,
+            title: 'Confirmation Required',
+            buttons: {
+                "OK": function () {
+                    $(this).dialog("close");
+                    if ($('#IsDeleteConfirmed').val() == "True") {
+                        var form = $('#mainForm')
+                        var input = $("<input>").attr("type", "hidden").attr("name", "Edit::DeleteTitle").val("");
+                        form.append($(input));
+                        $('#mainForm')[0].submit();
+                        return true;
+                    }
+                }
+                , "Cancel": function () {
+                    $(this).dialog("close");
+                    return false;
+                }
+            }
+
+        });
+		
+		var $myDialogExit = $('<div id=\'confirm\'></div>')
+        .html('Are you sure you want to exit?<br/>Click OK to confirm.  Click Cancel to stop this action.')
+        .dialog({
+            autoOpen: false,
+            modal: true,
+            title: 'Confirmation Required',
+            buttons: {
+                "OK": function () {
+                    $(this).dialog("close");
+                    if ($('#IsExitConfirmed').val() == "True") {
+                        var form = $('#mainForm')
+                        var input = $("<input>").attr("type", "hidden").attr("name", "Edit::ExitTitle").val("");
+                        form.append($(input));
+                        $('#mainForm')[0].submit();
+                        return true;
+                    }
+                }
+                , "Cancel": function () {
+                    $(this).dialog("close");
+                    return false;
+                }
+            }
+
+        });
+
+        $('#mainForm').submit(function (e) {
+
+            if ($('#mainForm').find('input[type="submit"]:focus').attr('name') == 'Edit::DeleteTitle') {
+                e.preventDefault();
+                $('#IsDeleteConfirmed').val("True");
+                var returnValue = $myDialogDelete.dialog('open');  //replace the div id with the id of the button/form
+                return returnValue;
+            }
+            else if ($('#mainForm').find('input[type="submit"]:focus').attr('name') == 'Edit::ExitTitle') {
+                if (isDirty == true) {
+                    e.preventDefault();
+                    $('#IsExitConfirmed').val("True");
+                    var returnValue = $myDialogExit.dialog('open');  //replace the div id with the id of the button/form
+                    return returnValue;
+                }
+                else {
+                    $('#IsExitConfirmed').val("True");
+                    return true;
+                }
+            }
+            else {
+                return true;
+            }
+        });
+	});
+	
+	//set the validator so that it hits (doesn't ignore) hidden fields NOTE:- This is outside the 'ready' function
+    $.validator.setDefaults({
+        ignore: ""
+    });
+</script>
+@using (Html.BeginForm("Edit", "Title", FormMethod.Post, new { @id = "mainForm" }))
+{
+    @Html.ValidationSummary(true)
+    <div class='message'>@Model.Message</div>
+    @Html.HiddenFor(model => model.TitleItem.Code)
+    <input type='hidden' id='IsDeleteConfirmed' name='IsDeleteConfirmed' value='@Model.IsDeleteConfirmed' />
+    <input type='hidden' id='IsExitConfirmed' name='IsExitConfirmed' value='@Model.IsExitConfirmed' />
+    <div class="full-width clearfix">
+		    <fieldset class="ui-widget ui-widget-content ui-corner-all">
+                <legend class="ui-widget-header ui-corner-all">@FixedResources.ENTITYNAME_TITLE</legend>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.TitleItem.Description)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.TitleItem.Description)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.TitleItem.Description)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.TitleItem.IsActive)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.TitleItem.IsActive)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.TitleItem.IsActive)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+		            @if (Model.AccessContext == Dwp.Adep.Framework.Management.Web.ViewModels.TitleAccessContext.Create)
+		            {
+		                <input id='CreateButton' type='submit' name='Edit::CreateTitle' value="@Html.Raw(FixedResources.LABEL_CREATEBUTTON)" />
+		            }
+		            else
+		            {
+		                <input id='SaveButton' type='submit' name='Edit::SaveTitle' value="@Html.Raw(FixedResources.LABEL_SAVEBUTTON)" />
+						<input id='DeleteButton' class='cancel' type='submit' name='Edit::DeleteTitle' value="@Html.Raw(FixedResources.LABEL_DELETEBUTTON)" />	            
+		            }    
+		            <input id='ExitButton' class='cancel' type='submit' name='Edit::ExitTitle' value="@Html.Raw(FixedResources.LABEL_EXITBUTTON)" />
+		        </div>
+			</fieldset>
+	</div>
+}

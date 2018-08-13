@@ -1,0 +1,96 @@
+@model Dwp.Adep.Framework.Management.Web.ViewModels.AccuracyCheckSearchVM
+
+@{
+    ViewBag.Title = FixedResources.ENTITYNAME_ACCURACYCHECK + " " + FixedResources.LABEL_LISTNAME;
+}
+<h2>
+    @FixedResources.ENTITYNAME_ACCURACYCHECK @FixedResources.LABEL_LISTNAME</h2>
+<script type="text/javascript">
+    $(document).ready(function () {
+        function updateGrid(e) {
+            e.preventDefault();
+            var url = $(this).attr('href');
+            var grid = $(this).parents('.ajaxGrid');
+            var id = grid.attr('id');
+            grid.load(url + ' #' + id, function (response, status, xhr) {
+                jQueryUIStyling();
+            })
+        }
+        $('.ajaxGrid table thead tr a').live('click', updateGrid);
+        $('.ajaxGrid table tfoot tr a').live('click', updateGrid);
+
+
+    });
+
+</script>
+
+@using (Html.BeginForm("Search", "AccuracyCheck", FormMethod.Post, new { @id = "mainForm" }))
+{
+    @Html.ValidationSummary(true)
+
+    <div class="webgrid-wrapper">
+        <div class="webgrid-title">
+            @FixedResources.LABEL_GRIDTITLE</div>
+        <div id="grid" class='ajaxGrid'>
+            @{
+                var grid = new WebGrid(null, canPage: true, rowsPerPage: Model.PageSize, defaultSort: "Code", canSort: false);
+                grid.Bind(Model.MatchList, rowCount: Model.TotalRows, autoSortAndPage: false);
+           
+                @grid.GetHtml(
+                    tableStyle: "webgrid",
+                    headerStyle: "webgrid-header",
+                    footerStyle: "webgrid-footer",
+                    mode: WebGridPagerModes.All, firstText: FixedResources.PAGING_FIRSTPAGE, previousText: FixedResources.PAGING_PREVIOUS, nextText: FixedResources.PAGING_NEXT, lastText: FixedResources.PAGING_LASTPAGE, numericLinksCount: 5,
+                    alternatingRowStyle: "webgrid-alternating-rows",
+                    columns: grid.Columns(
+                    grid.Column("Code", header: "", format: @<text>@Html.Raw("<input id='SelectButton_")@item.Code@Html.Raw("' type='submit' name='Search::SearchPost_")@item.Code@Html.Raw("' value='")@Html.Raw(FixedResources.LABEL_SELECTBUTTON)@Html.Raw("' title='")@FixedResources.TOOLTIP_SELECTTOEDITBUTTON @Html.Raw("' />")</text>)
+                    ,grid.Column("CheckID", header: @Resources.LABEL_ACCURACYCHECK_CHECKID)
+                    ,grid.Column("RaisedDate", header: @Resources.LABEL_ACCURACYCHECK_RAISEDDATE)
+                    ,grid.Column("IsNewClaim", header: @Resources.LABEL_ACCURACYCHECK_ISNEWCLAIM)
+                    ,grid.Column("IsChangeOfCircs", header: @Resources.LABEL_ACCURACYCHECK_ISCHANGEOFCIRCS)
+                    ,grid.Column("CheckerStaff", header: @Resources.LABEL_ACCURACYCHECK_CHECKERSTAFFCODE)
+                    ,grid.Column("Benefit", header: @Resources.LABEL_ACCURACYCHECK_BENEFITCODE)
+                    ,grid.Column("GeneratedDate", header: @Resources.LABEL_ACCURACYCHECK_GENERATEDDATE)
+                    ,grid.Column("CheckType", header: @Resources.LABEL_ACCURACYCHECK_CHECKTYPECODE)
+                    ,grid.Column("CheckSubType", header: @Resources.LABEL_ACCURACYCHECK_CHECKSUBTYPECODE)
+                    ,grid.Column("IsPrePaymentCheck", header: @Resources.LABEL_ACCURACYCHECK_ISPREPAYMENTCHECK)
+                    ,grid.Column("IsPostPaymentCheck", header: @Resources.LABEL_ACCURACYCHECK_ISPOSTPAYMENTCHECK)
+                    ,grid.Column("NI_Number", header: @Resources.LABEL_ACCURACYCHECK_NI_NUMBER)
+                    ,grid.Column("CustomerFirstName", header: @Resources.LABEL_ACCURACYCHECK_CUSTOMERFIRSTNAME)
+                    ,grid.Column("CustomerLastName", header: @Resources.LABEL_ACCURACYCHECK_CUSTOMERLASTNAME)
+                    ,grid.Column("Country", header: @Resources.LABEL_ACCURACYCHECK_COUNTRYCODE)
+                    ,grid.Column("IsClaim", header: @Resources.LABEL_ACCURACYCHECK_ISCLAIM)
+                    ,grid.Column("DaysToClear", header: @Resources.LABEL_ACCURACYCHECK_DAYSTOCLEAR)
+                    ,grid.Column("BCS_Number", header: @Resources.LABEL_ACCURACYCHECK_BCS_NUMBERCODE)
+                    ,grid.Column("BCS_Date", header: @Resources.LABEL_ACCURACYCHECK_BCS_DATE)
+                    ,grid.Column("BCS_TargetDate", header: @Resources.LABEL_ACCURACYCHECK_BCS_TARGETDATE)
+                    ,grid.Column("ScheduleNumber", header: @Resources.LABEL_ACCURACYCHECK_SCHEDULENUMBERCODE)
+                    ,grid.Column("IOP_OnSchedule", header: @Resources.LABEL_ACCURACYCHECK_IOP_ONSCHEDULE)
+                    ,grid.Column("Server", header: @Resources.LABEL_ACCURACYCHECK_SERVERCODE)
+                    ,grid.Column("PapersRequestedForChecking", header: @Resources.LABEL_ACCURACYCHECK_PAPERSREQUESTEDFORCHECKING)
+                    ,grid.Column("RequestReceivedByOps", header: @Resources.LABEL_ACCURACYCHECK_REQUESTRECEIVEDBYOPS)
+                    ,grid.Column("PapersSentForChecking", header: @Resources.LABEL_ACCURACYCHECK_PAPERSSENTFORCHECKING)
+                    ,grid.Column("PapersReceivedForChecking", header: @Resources.LABEL_ACCURACYCHECK_PAPERSRECEIVEDFORCHECKING)
+                    ,grid.Column("Staff", header: @Resources.LABEL_ACCURACYCHECK_STAFFCODE)
+                    ,grid.Column("Team", header: @Resources.LABEL_ACCURACYCHECK_TEAMCODE)
+                    ,grid.Column("Command", header: @Resources.LABEL_ACCURACYCHECK_COMMANDCODE)
+                    ,grid.Column("Location", header: @Resources.LABEL_ACCURACYCHECK_LOCATIONCODE)
+                    ,grid.Column("BF_Date", header: @Resources.LABEL_ACCURACYCHECK_BF_DATE)
+                    ,grid.Column("CheckCompletedDate", header: @Resources.LABEL_ACCURACYCHECK_CHECKCOMPLETEDDATE)
+                    ,grid.Column("ValidatorStaff", header: @Resources.LABEL_ACCURACYCHECK_VALIDATORSTAFFCODE)
+                    ,grid.Column("ValidatedOn", header: @Resources.LABEL_ACCURACYCHECK_VALIDATEDON)
+                    ,grid.Column("PapersReturnedToSection", header: @Resources.LABEL_ACCURACYCHECK_PAPERSRETURNEDTOSECTION)
+                    ,grid.Column("PapersReceivedInOps", header: @Resources.LABEL_ACCURACYCHECK_PAPERSRECEIVEDINOPS)
+                    ,grid.Column("ValidationNotes", header: @Resources.LABEL_ACCURACYCHECK_VALIDATIONNOTES)
+                    ,grid.Column("GeneralNotes", header: @Resources.LABEL_ACCURACYCHECK_GENERALNOTES)
+                    ,grid.Column("DateLastUpdated", header: @Resources.LABEL_ACCURACYCHECK_DATELASTUPDATED)
+                    ,grid.Column("IsActive", header: @Resources.LABEL_ACCURACYCHECK_ISACTIVE)
+                    )
+                    
+                )
+            }
+            Records Returned: @grid.TotalRowCount
+        </div>
+		<input id='NewButton' type='submit' name='Search::NewAccuracyCheck' value="@FixedResources.LABEL_NEWBUTTON" title='@FixedResources.LABEL_NEWBUTTON @FixedResources.ENTITYNAME_ACCURACYCHECK' />
+    </div>
+}

@@ -1,0 +1,87 @@
+@model IEnumerable<Dwp.Adep.Framework.Management.Web.Models.CountryModel>
+
+@{
+    ViewBag.Title = "CountryView";
+}
+
+<h2>CountryView</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+      <th>
+            Code
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            IsFrozenRate
+        </th>
+        <th>
+            IsEC
+        </th>
+        <th>
+            IsRA
+        </th>
+        <th>
+            IsANZAC
+        </th>
+        <th>
+            Nationality
+        </th>
+        <th>
+            CountryCode
+        </th>
+        <th>
+            Notes
+        </th>
+        <th>
+            RowIdentifier
+        </th>
+          <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+      <td>
+            @Html.DisplayFor(modelItem => item.Code)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsFrozenRate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsEC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsRA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsANZAC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nationality)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CountryCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Notes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RowIdentifier)
+        </td>
+          <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Code }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Code }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Code })
+        </td>
+    </tr>
+}
+
+</table>

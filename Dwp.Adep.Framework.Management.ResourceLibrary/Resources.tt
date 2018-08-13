@@ -1,0 +1,182 @@
+﻿<#
+//*********************************************************
+//
+//    Copyright (c) Microsoft. All rights reserved.
+//    This code is licensed under the Microsoft Public License.
+//    THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF
+//    ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY
+//    IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR
+//    PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.
+//
+//*********************************************************
+#>
+<#@ template language="C#" debug="false" hostspecific="true"#>
+<#@ include file="EF.Utility.CS.ttinclude"#><#@ 
+ output extension=".resx"#><#
+
+// List of entities not to generate code for
+string ignoreList = ",StaffOrganisation,OrganisationHierarchy,Audit,StaffAttributes,";
+
+CodeGenerationTools code = new CodeGenerationTools(this);
+MetadataLoader loader = new MetadataLoader(this);
+CodeRegion region = new CodeRegion(this, 1);
+MetadataTools ef = new MetadataTools(this);
+
+string inputFile = @"..\Dwp.Adep.Framework.Management.DataServices\Models\Model1.edmx";
+EdmItemCollection ItemCollection = loader.CreateEdmItemCollection(inputFile);
+string namespaceName = code.VsNamespaceSuggestion();
+
+EntityFrameworkTemplateFileManager fileManager = EntityFrameworkTemplateFileManager.Create(this);
+
+fileManager.StartNewFile("ResourcesTemplate.resx");
+#>
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<!-- 
+		Microsoft ResX Schema
+
+		Version 1.3
+
+		The primary goals of this format is to allow a simple XML format 
+		that is mostly human readable. The generation and parsing of the 
+		various data types are done through the TypeConverter classes 
+		associated with the data types.
+
+		Example:
+
+		... ado.net/XML headers & schema ...
+		<resheader name="resmimetype">text/microsoft-resx</resheader>
+		<resheader name="version">1.3</resheader>
+		<resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+		<resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+		<data name="Name1">this is my long string</data>
+		<data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+		<data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+			[base64 mime encoded serialized .NET Framework object]
+		</data>
+		<data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+			[base64 mime encoded string representing a byte array form of the .NET Framework object]
+		</data>
+
+		There are any number of "resheader" rows that contain simple 
+		name/value pairs.
+
+		Each data row contains a name, and value. The row also contains a 
+		type or mimetype. Type corresponds to a .NET class that support 
+		text/value conversion through the TypeConverter architecture. 
+		Classes that don't support this are serialized and stored with the 
+		mimetype set.
+
+		The mimetype is used for serialized objects, and tells the 
+		ResXResourceReader how to depersist the object. This is currently not 
+		extensible. For a given mimetype the value must be set accordingly:
+
+		Note - application/x-microsoft.net.object.binary.base64 is the format 
+		that the ResXResourceWriter will generate, however the reader can 
+		read any of the formats listed below.
+
+		mimetype: application/x-microsoft.net.object.binary.base64
+		value   : The object must be serialized with 
+			: System.Serialization.Formatters.Binary.BinaryFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.soap.base64
+		value   : The object must be serialized with 
+			: System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.bytearray.base64
+		value   : The object must be serialized into a byte array 
+			: using a System.ComponentModel.TypeConverter
+			: and then encoded with base64 encoding.
+	-->
+	
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>1.3</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+<#
+// Emit Entity Types
+foreach (EntityType entity in ItemCollection.GetItems<EntityType>().OrderBy(e => e.Name))
+{
+	// Do not generate code for entities in the ignore list
+	if (ignoreList.Contains("," + entity.Name + ",")) continue;
+#>
+<data name="LABEL_GRIDTITLE_<#=entity.Name.ToUpper()#>LIST" xml:space="preserve">
+	<value>Please select</value>
+</data>
+<#
+	foreach (EdmProperty edmProperty in entity.Properties.Where(p => p.TypeUsage.EdmType is PrimitiveType && p.DeclaringType == entity))
+	{
+		bool isForeignKey = entity.NavigationProperties.Any(np=>np.GetDependentProperties().Contains(edmProperty));
+		bool isDefaultValueDefinedInModel = (edmProperty.DefaultValue != null);
+		if (edmProperty.Name == "SecurityLabel") continue;
+		string propValue = edmProperty.Name.Replace("1", "");
+		propValue = System.Text.RegularExpressions.Regex.Replace(propValue, @"[A-Z]Code",  m => m.ToString().Replace("Code", ""));
+		propValue = System.Text.RegularExpressions.Regex.Replace(propValue, @"[A-Z][A-Z][a-z]", m => m.ToString().ToCharArray()[0] + " " + m.ToString().Substring(1,2));
+		propValue = System.Text.RegularExpressions.Regex.Replace(propValue, @"[a-z][A-Z]", m => m.ToString().ToCharArray()[0] + " " + m.ToString().ToCharArray()[1]);
+		propValue = System.Text.RegularExpressions.Regex.Replace(propValue, @"[a-z][A-Z]", m => m.ToString().ToCharArray()[0] + " " + m.ToString().ToCharArray()[1]);
+		propValue = System.Text.RegularExpressions.Regex.Replace(propValue, @"[a-z][A-Z]", m => m.ToString().ToCharArray()[0] + " " + m.ToString().ToCharArray()[1]);
+		
+		if (isForeignKey)
+		{
+#>
+<data name="LABEL_<#=entity.Name.ToUpper()#>_<#=edmProperty.Name.ToUpper()#>" xml:space="preserve">
+	<value><#=propValue.Replace("Code","")#></value>
+</data>
+<data name="TOOLTIP_<#=entity.Name.ToUpper()#>_<#=edmProperty.Name.ToUpper()#>" xml:space="preserve">
+	<value>Please enter a value for <#=propValue.Replace("Code","")#></value>
+</data>	
+<#
+		}
+		else
+		{
+#>
+<data name="LABEL_<#=entity.Name.ToUpper()#>_<#=edmProperty.Name.ToUpper()#>" xml:space="preserve">
+	<value><#=propValue#></value>
+</data>
+<data name="TOOLTIP_<#=entity.Name.ToUpper()#>_<#=edmProperty.Name.ToUpper()#>" xml:space="preserve">
+	<value>Please enter a value for <#=propValue#></value>
+</data>
+<#
+		}
+	}
+}
+#>
+
+</root>

@@ -1,0 +1,246 @@
+﻿<#
+//*********************************************************
+//
+//    Copyright (c) Microsoft. All rights reserved.
+//    This code is licensed under the Microsoft Public License.
+//    THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF
+//    ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY
+//    IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR
+//    PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.
+//
+//*********************************************************
+#>
+<#@ template language="C#" debug="false" hostspecific="true"#>
+<#@ include file="EF.Utility.CS.ttinclude"#>
+<#@ include file="..\..\Dwp.Adep.Framework.Management.DataServices\Models\Global.t4"#><#@ 
+ output extension=".cshtml"#><#
+
+// List of entities not to generate code for
+string ignoreList = globalIgnoreList + ",Staff,StaffOrganisation,OrganisationHierarchy,Audit,StaffAttributes,NonStandardHoliday,Holiday,";
+
+CodeGenerationTools code = new CodeGenerationTools(this);
+MetadataLoader loader = new MetadataLoader(this);
+CodeRegion region = new CodeRegion(this, 1);
+MetadataTools ef = new MetadataTools(this);
+
+string inputFile = @"..\..\Dwp.Adep.Framework.Management.DataServices\Models\Model1.edmx";
+EdmItemCollection ItemCollection = loader.CreateEdmItemCollection(inputFile);
+string namespaceName = code.VsNamespaceSuggestion();
+
+EntityFrameworkTemplateFileManager fileManager = EntityFrameworkTemplateFileManager.Create(this);
+
+// Emit Entity Types
+foreach (EntityType entity in ItemCollection.GetItems<EntityType>().OrderBy(e => e.Name))
+{
+	// Do not generate code for entities in the ignore list
+	if (ignoreList.Contains("," + entity.Name + ",")) continue;
+
+	string outputDir = Path.Combine(Path.GetDirectoryName(Host.TemplateFile), entity.Name);
+
+	if(!Directory.Exists(outputDir))
+	{
+		Directory.CreateDirectory(outputDir);
+	}
+	string fileName = "Search";
+	fileManager.StartNewFile(outputDir + @"\" + fileName + ".cshtml");
+    bool entityHasNullableFKs = entity.NavigationProperties.Any(np => np.GetDependentProperties().Any(p=>ef.IsNullable(p)));
+#>
+@model Dwp.Adep.Framework.Management.Web.ViewModels.<#=entity.Name#>SearchVM
+
+@{
+    ViewBag.Title = FixedResources.ENTITYNAME_<#=entity.Name.ToUpper()#> + " " + FixedResources.LABEL_LISTNAME;
+}
+<h2>
+    @FixedResources.ENTITYNAME_<#=entity.Name.ToUpper()#> @FixedResources.LABEL_LISTNAME</h2>
+<script type="text/javascript">
+    $(document).ready(function () {
+        function updateGrid(e) {
+            e.preventDefault();
+            var url = $(this).attr('href');
+            var grid = $(this).parents('.ajaxGrid');
+            var id = grid.attr('id');
+            grid.load(url + ' #' + id, function (response, status, xhr) {
+                jQueryUIStyling();
+            })
+        }
+        $('.ajaxGrid table thead tr a').live('click', updateGrid);
+        $('.ajaxGrid table tfoot tr a').live('click', updateGrid);
+
+
+    });
+
+</script>
+
+@using (Html.BeginForm("Search", "<#=entity.Name#>", FormMethod.Post, new { @id = "mainForm" }))
+{
+    @Html.ValidationSummary(true)
+
+    <div class="webgrid-wrapper">
+        <div class="webgrid-title">
+            @FixedResources.LABEL_GRIDTITLE</div>
+        <div id="grid" class='ajaxGrid'>
+            @{
+                var grid = new WebGrid(null, canPage: true, rowsPerPage: Model.PageSize, defaultSort: "Code", canSort: false);
+                grid.Bind(Model.MatchList, rowCount: Model.TotalRows, autoSortAndPage: false);
+           
+                @grid.GetHtml(
+                    tableStyle: "webgrid",
+                    headerStyle: "webgrid-header",
+                    footerStyle: "webgrid-footer",
+                    mode: WebGridPagerModes.All, firstText: FixedResources.PAGING_FIRSTPAGE, previousText: FixedResources.PAGING_PREVIOUS, nextText: FixedResources.PAGING_NEXT, lastText: FixedResources.PAGING_LASTPAGE, numericLinksCount: 5,
+                    alternatingRowStyle: "webgrid-alternating-rows",
+                    columns: grid.Columns(
+                    grid.Column("Code", header: "", format: @<text>@Html.Raw("<input id='SelectButton_")@item.Code@Html.Raw("' type='submit' name='Search::SearchPost_")@item.Code@Html.Raw("' value='")@Html.Raw(FixedResources.LABEL_SELECTBUTTON)@Html.Raw("' title='")@FixedResources.TOOLTIP_SELECTTOEDITBUTTON @Html.Raw("' />")</text>)
+<#
+	foreach (EdmProperty edmProperty in entity.Properties.Where(p => p.TypeUsage.EdmType is PrimitiveType && p.DeclaringType == entity))
+    {
+		if (edmProperty.Name == "SecurityLabel" || edmProperty.Name == "Code" || edmProperty.Name == "RowIdentifier") continue;
+		
+		bool isForeignKey = entity.NavigationProperties.Any(np=>np.GetDependentProperties().Contains(edmProperty));
+		if (isForeignKey) continue;
+#>
+                    ,grid.Column("<#=edmProperty.Name#>", header: @Resources.LABEL_<#=entity.Name.ToUpper()#>_<#=edmProperty.Name.ToUpper()#>)
+<#
+	}
+#>
+                    )
+                    
+                )
+            }
+            Records Returned: @grid.TotalRowCount
+        </div>
+		<input id='NewButton' type='submit' name='Search::New<#=entity.Name#>' value="@FixedResources.LABEL_NEWBUTTON" title='@FixedResources.LABEL_NEWBUTTON @FixedResources.ENTITYNAME_<#=entity.Name.ToUpper()#>' />
+    </div>
+}
+<#
+}
+fileManager.Process();
+
+#>
+<#+
+void WriteHeader(EntityFrameworkTemplateFileManager thisFileManager, params string[] extraUsings)
+{
+    thisFileManager.StartHeader();
+#>
+//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated from a template.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
+<#=String.Join(String.Empty, extraUsings.Select(u => "using " + u + ";" + Environment.NewLine).ToArray())#>
+<#+
+    thisFileManager.EndBlock();
+}
+
+void BeginNamespace(string namespaceName, CodeGenerationTools code)
+{
+    CodeRegion region = new CodeRegion(this);
+    if (!String.IsNullOrEmpty(namespaceName))
+    {
+#>
+namespace <#=code.EscapeNamespace(namespaceName)#>
+{
+<#+
+        PushIndent(CodeRegion.GetIndent(1));
+    }
+}
+
+
+void EndNamespace(string namespaceName)
+{
+    if (!String.IsNullOrEmpty(namespaceName))
+    {
+        PopIndent();
+#>
+}
+<#+
+    }
+}
+
+bool IsReadWriteAccessibleProperty(EdmMember member)
+{
+    string setter = Accessibility.ForWriteOnlyProperty(member);
+    string getter = Accessibility.ForReadOnlyProperty(member);
+
+    return getter != "private" && getter != "protected" && setter != "private" && setter != "protected";
+}
+
+string PropertyVirtualModifier(string accessibility)
+{
+    return accessibility + (accessibility != "private" ? " virtual" : "");
+}
+
+void WriteCustomObservableCollection()
+{
+#>
+// An System.Collections.ObjectModel.ObservableCollection that raises
+// individual item removal notifications on clear and prevents adding duplicates.
+public class FixupCollection<T> : ObservableCollection<T>
+{
+    protected override void ClearItems()
+    {
+        new List<T>(this).ForEach(t => Remove(t));
+    }
+
+    protected override void InsertItem(int index, T item)
+    {
+        if (!this.Contains(item))
+        {
+            base.InsertItem(index, item);
+        }
+    }
+}
+<#+
+}
+
+bool VerifyTypesAreCaseInsensitiveUnique(EdmItemCollection itemCollection)
+{
+    Dictionary<string, bool> alreadySeen = new Dictionary<string, bool>(StringComparer.OrdinalIgnoreCase);
+    foreach(StructuralType type in itemCollection.GetItems<StructuralType>())
+    {
+        if (!(type is EntityType || type is ComplexType))
+        {
+            continue;
+        }
+
+        if (alreadySeen.ContainsKey(type.FullName))
+        {
+            Error(String.Format(CultureInfo.CurrentCulture, "This template does not support types that differ only by case, the types {0} are not supported", type.FullName));
+            return false;
+        }
+        else
+        {
+            alreadySeen.Add(type.FullName, true);
+        }
+
+    }
+
+    return true;
+
+}
+
+private bool IsNullable(TypeUsage usage)
+{
+	return (bool)usage.Facets.First(facet => facet.Name == "Nullable").Value;
+}
+
+private bool HasMaxLength(TypeUsage usage)
+{
+	return usage.Facets.Any(facet => facet.Name == "MaxLength");
+}
+
+private string MaxLength(TypeUsage usage)
+{
+	return (string)usage.Facets.First(facet => facet.Name == "MaxLength").Value.ToString();
+}
+
+#>

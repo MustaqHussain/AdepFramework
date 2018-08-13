@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Session Expired";
+}
+
+<div class="ui-widget">
+<h2>Your current session has expired</h2>
+
+	<p>Information about your current session on the system has expired. This normally 
+		happens after there has been no activity for 20 minutes in order to protect the 
+		integrity of your data.</p>
+	<p>You will need to start the application again by clicking the following link: @Html.ActionLink("Restart Application", "Index", "Home")</p>
+
+</div>

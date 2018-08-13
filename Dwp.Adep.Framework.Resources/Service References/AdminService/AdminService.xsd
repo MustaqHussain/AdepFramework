@@ -1,0 +1,1352 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:4444/ServiceContracts/AdminService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost:4444/ServiceContracts/AdminService.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="StaffDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GradeCode" type="ser:guid" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RowIdentifier" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="StaffNumber" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StaffDC" nillable="true" type="tns:StaffDC" />
+  <xs:complexType name="StaffVMDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GradeList" nillable="true" type="tns:ArrayOfGradeDC" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StaffItem" nillable="true" type="tns:StaffDC" />
+      <xs:element minOccurs="0" name="StaffList" nillable="true" type="tns:ArrayOfStaffDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StaffVMDC" nillable="true" type="tns:StaffVMDC" />
+  <xs:complexType name="ArrayOfGradeDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GradeDC" nillable="true" type="tns:GradeDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGradeDC" nillable="true" type="tns:ArrayOfGradeDC" />
+  <xs:complexType name="GradeDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="Grade1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="RowIdentifier" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GradeDC" nillable="true" type="tns:GradeDC" />
+  <xs:complexType name="ArrayOfStaffDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StaffDC" nillable="true" type="tns:StaffDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStaffDC" nillable="true" type="tns:ArrayOfStaffDC" />
+  <xs:complexType name="StaffApplicationAdminVMDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApplicationList" nillable="true" type="tns:ArrayOfApplicationDC" />
+      <xs:element minOccurs="0" name="OrganisationsByTypesList" nillable="true" type="tns:ArrayOfOrganisationByTypeVMDC" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="RoleList" nillable="true" type="q1:ArrayOfstring" />
+      <xs:element minOccurs="0" name="RootNodeOrganisation" nillable="true" type="tns:OrganisationDC" />
+      <xs:element minOccurs="0" name="SelectedApplicationCode" type="ser:guid" />
+      <xs:element minOccurs="0" name="StaffApplicationAttributeList" nillable="true" type="tns:ArrayOfStaffApplicationAttributeVMDC" />
+      <xs:element minOccurs="0" name="StaffItem" nillable="true" type="tns:StaffDC" />
+      <xs:element minOccurs="0" name="StaffOrganisationList" nillable="true" type="tns:ArrayOfStaffOrganisationDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StaffApplicationAdminVMDC" nillable="true" type="tns:StaffApplicationAdminVMDC" />
+  <xs:complexType name="ArrayOfApplicationDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ApplicationDC" nillable="true" type="tns:ApplicationDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfApplicationDC" nillable="true" type="tns:ArrayOfApplicationDC" />
+  <xs:complexType name="ApplicationDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApplicationName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsSpecificOrganisationAccessRequired" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Location" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RowIdentifier" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApplicationDC" nillable="true" type="tns:ApplicationDC" />
+  <xs:complexType name="ArrayOfOrganisationByTypeVMDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrganisationByTypeVMDC" nillable="true" type="tns:OrganisationByTypeVMDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOrganisationByTypeVMDC" nillable="true" type="tns:ArrayOfOrganisationByTypeVMDC" />
+  <xs:complexType name="OrganisationByTypeVMDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="OrganisationList" nillable="true" type="tns:ArrayOfOrganisationDC" />
+      <xs:element minOccurs="0" name="OrganisationTypeItem" nillable="true" type="tns:OrganisationTypeDC" />
+      <xs:element minOccurs="0" name="SelectedOrganisationCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OrganisationByTypeVMDC" nillable="true" type="tns:OrganisationByTypeVMDC" />
+  <xs:complexType name="ArrayOfOrganisationDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrganisationDC" nillable="true" type="tns:OrganisationDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOrganisationDC" nillable="true" type="tns:ArrayOfOrganisationDC" />
+  <xs:complexType name="OrganisationDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="DateDeleted" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="HEO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganisationTypeCode" type="ser:guid" />
+      <xs:element minOccurs="0" name="ParentID" type="ser:guid" />
+      <xs:element minOccurs="0" name="RowIdentifier" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OrganisationDC" nillable="true" type="tns:OrganisationDC" />
+  <xs:complexType name="OrganisationTypeDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LevelNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganisationTypeGroupCode" type="ser:guid" />
+      <xs:element minOccurs="0" name="ParentOrganisationTypeCode" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="RowIdentifier" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OrganisationTypeDC" nillable="true" type="tns:OrganisationTypeDC" />
+  <xs:complexType name="ArrayOfStaffApplicationAttributeVMDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StaffApplicationAttributeVMDC" nillable="true" type="tns:StaffApplicationAttributeVMDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStaffApplicationAttributeVMDC" nillable="true" type="tns:ArrayOfStaffApplicationAttributeVMDC" />
+  <xs:complexType name="StaffApplicationAttributeVMDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApplicationAttributeItem" nillable="true" type="tns:ApplicationAttributeDC" />
+      <xs:element minOccurs="0" name="StaffAttributeItem" nillable="true" type="tns:StaffAttributesDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StaffApplicationAttributeVMDC" nillable="true" type="tns:StaffApplicationAttributeVMDC" />
+  <xs:complexType name="ApplicationAttributeDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApplicationCode" type="ser:guid" />
+      <xs:element minOccurs="0" name="AttributeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AttributeType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsDataSecurity" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsRole" type="xs:boolean" />
+      <xs:element minOccurs="0" name="RowIdentifier" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApplicationAttributeDC" nillable="true" type="tns:ApplicationAttributeDC" />
+  <xs:complexType name="StaffAttributesDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApplicationAttributeCode" type="ser:guid" />
+      <xs:element minOccurs="0" name="ApplicationCode" type="ser:guid" />
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LookupValue" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RowIdentifier" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="StaffCode" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StaffAttributesDC" nillable="true" type="tns:StaffAttributesDC" />
+  <xs:complexType name="ArrayOfStaffOrganisationDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StaffOrganisationDC" nillable="true" type="tns:StaffOrganisationDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStaffOrganisationDC" nillable="true" type="tns:ArrayOfStaffOrganisationDC" />
+  <xs:complexType name="StaffOrganisationDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApplicationCode" type="ser:guid" />
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="IsCurrent" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsDefault" type="xs:boolean" />
+      <xs:element minOccurs="0" name="OrganisationCode" type="ser:guid" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="OrganisationPath" nillable="true" type="q2:ArrayOfstring" />
+      <xs:element minOccurs="0" name="RowIdentifier" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="StaffCode" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StaffOrganisationDC" nillable="true" type="tns:StaffOrganisationDC" />
+  <xs:complexType name="ApplicationOrganisationSelectVMDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApplicationList" nillable="true" type="tns:ArrayOfApplicationDC" />
+      <xs:element minOccurs="0" name="OrganisationsByTypesList" nillable="true" type="tns:ArrayOfOrganisationByTypeVMDC" />
+      <xs:element minOccurs="0" name="RootNodeOrganisation" nillable="true" type="tns:OrganisationDC" />
+      <xs:element minOccurs="0" name="SelectedApplicationCode" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApplicationOrganisationSelectVMDC" nillable="true" type="tns:ApplicationOrganisationSelectVMDC" />
+  <xs:complexType name="ApplicationOrganisationAdminVMDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AllTypesForApplication" nillable="true" type="tns:ArrayOfOrganisationTypeDC" />
+      <xs:element minOccurs="0" name="MaximumHopsToChildOrganisation" type="xs:int" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganisationItem" nillable="true" type="tns:OrganisationDC" />
+      <xs:element minOccurs="0" name="OrganisationsByTypesList" nillable="true" type="tns:ArrayOfOrganisationByTypeVMDC" />
+      <xs:element minOccurs="0" name="ParentOrganisation" nillable="true" type="tns:OrganisationDC" />
+      <xs:element minOccurs="0" name="RootNodeOrganisation" nillable="true" type="tns:OrganisationDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApplicationOrganisationAdminVMDC" nillable="true" type="tns:ApplicationOrganisationAdminVMDC" />
+  <xs:complexType name="ArrayOfOrganisationTypeDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrganisationTypeDC" nillable="true" type="tns:OrganisationTypeDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOrganisationTypeDC" nillable="true" type="tns:ArrayOfOrganisationTypeDC" />
+  <xs:complexType name="StaffAdminChangeSetDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DeletedStaffAttributes" nillable="true" type="tns:ArrayOfStaffAttributesDC" />
+      <xs:element minOccurs="0" name="DeletedStaffOrganisations" nillable="true" type="tns:ArrayOfStaffOrganisationDC" />
+      <xs:element minOccurs="0" name="InsertedStaffAttributes" nillable="true" type="tns:ArrayOfStaffAttributesDC" />
+      <xs:element minOccurs="0" name="InsertedStaffOrganisations" nillable="true" type="tns:ArrayOfStaffOrganisationDC" />
+      <xs:element minOccurs="0" name="UpdatedStaffAttributes" nillable="true" type="tns:ArrayOfStaffAttributesDC" />
+      <xs:element minOccurs="0" name="UpdatedStaffOrganisations" nillable="true" type="tns:ArrayOfStaffOrganisationDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StaffAdminChangeSetDC" nillable="true" type="tns:StaffAdminChangeSetDC" />
+  <xs:complexType name="ArrayOfStaffAttributesDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StaffAttributesDC" nillable="true" type="tns:StaffAttributesDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStaffAttributesDC" nillable="true" type="tns:ArrayOfStaffAttributesDC" />
+  <xs:complexType name="UploadErrorLogDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="RowIdentifier" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="UploadCode" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UploadErrorLogDC" nillable="true" type="tns:UploadErrorLogDC" />
+  <xs:complexType name="UploadErrorLogVMDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UploadErrorLogItem" nillable="true" type="tns:UploadErrorLogDC" />
+      <xs:element minOccurs="0" name="UploadErrorLogList" nillable="true" type="tns:ArrayOfUploadErrorLogDC" />
+      <xs:element minOccurs="0" name="UploadList" nillable="true" type="tns:ArrayOfUploadQueueDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UploadErrorLogVMDC" nillable="true" type="tns:UploadErrorLogVMDC" />
+  <xs:complexType name="ArrayOfUploadErrorLogDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UploadErrorLogDC" nillable="true" type="tns:UploadErrorLogDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUploadErrorLogDC" nillable="true" type="tns:ArrayOfUploadErrorLogDC" />
+  <xs:complexType name="ArrayOfUploadQueueDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UploadQueueDC" nillable="true" type="tns:UploadQueueDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUploadQueueDC" nillable="true" type="tns:ArrayOfUploadQueueDC" />
+  <xs:complexType name="UploadQueueDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApplicationCode" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="ConnectionString" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="RowIdentifier" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StoredProcedure" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TempTableName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UploadFileName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UploadQueueDC" nillable="true" type="tns:UploadQueueDC" />
+  <xs:complexType name="UploadErrorLogSearchCriteriaDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Upload" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UploadCode" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UploadErrorLogSearchCriteriaDC" nillable="true" type="tns:UploadErrorLogSearchCriteriaDC" />
+  <xs:complexType name="UploadErrorLogSearchVMDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MatchList" nillable="true" type="tns:ArrayOfUploadErrorLogSearchMatchDC" />
+      <xs:element minOccurs="0" name="RecordCount" type="xs:int" />
+      <xs:element minOccurs="0" name="SearchCriteria" nillable="true" type="tns:UploadErrorLogSearchCriteriaDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UploadErrorLogSearchVMDC" nillable="true" type="tns:UploadErrorLogSearchVMDC" />
+  <xs:complexType name="ArrayOfUploadErrorLogSearchMatchDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UploadErrorLogSearchMatchDC" nillable="true" type="tns:UploadErrorLogSearchMatchDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUploadErrorLogSearchMatchDC" nillable="true" type="tns:ArrayOfUploadErrorLogSearchMatchDC" />
+  <xs:complexType name="UploadErrorLogSearchMatchDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Upload" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UploadCode" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UploadErrorLogSearchMatchDC" nillable="true" type="tns:UploadErrorLogSearchMatchDC" />
+  <xs:complexType name="CountryDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="CountryCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsANZAC" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsEC" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsFrozenRate" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsRA" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Nationality" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Notes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RowIdentifier" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CountryDC" nillable="true" type="tns:CountryDC" />
+  <xs:complexType name="CountryVMDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CountryItem" nillable="true" type="tns:CountryDC" />
+      <xs:element minOccurs="0" name="CountryList" nillable="true" type="tns:ArrayOfCountryDC" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CountryVMDC" nillable="true" type="tns:CountryVMDC" />
+  <xs:complexType name="ArrayOfCountryDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CountryDC" nillable="true" type="tns:CountryDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCountryDC" nillable="true" type="tns:ArrayOfCountryDC" />
+  <xs:complexType name="CountrySearchCriteriaDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CountryCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsANZAC" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsEC" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsFrozenRate" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsRA" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Nationality" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Notes" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CountrySearchCriteriaDC" nillable="true" type="tns:CountrySearchCriteriaDC" />
+  <xs:complexType name="CountrySearchVMDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MatchList" nillable="true" type="tns:ArrayOfCountrySearchMatchDC" />
+      <xs:element minOccurs="0" name="RecordCount" type="xs:int" />
+      <xs:element minOccurs="0" name="SearchCriteria" nillable="true" type="tns:CountrySearchCriteriaDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CountrySearchVMDC" nillable="true" type="tns:CountrySearchVMDC" />
+  <xs:complexType name="ArrayOfCountrySearchMatchDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CountrySearchMatchDC" nillable="true" type="tns:CountrySearchMatchDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCountrySearchMatchDC" nillable="true" type="tns:ArrayOfCountrySearchMatchDC" />
+  <xs:complexType name="CountrySearchMatchDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="CountryCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsANZAC" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsEC" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsFrozenRate" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsRA" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Nationality" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Notes" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CountrySearchMatchDC" nillable="true" type="tns:CountrySearchMatchDC" />
+  <xs:complexType name="StaffAttributesVMDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApplicationAttributeList" nillable="true" type="tns:ArrayOfApplicationAttributeDC" />
+      <xs:element minOccurs="0" name="ApplicationList" nillable="true" type="tns:ArrayOfApplicationDC" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StaffAttributesItem" nillable="true" type="tns:StaffAttributesDC" />
+      <xs:element minOccurs="0" name="StaffAttributesList" nillable="true" type="tns:ArrayOfStaffAttributesDC" />
+      <xs:element minOccurs="0" name="StaffList" nillable="true" type="tns:ArrayOfStaffDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StaffAttributesVMDC" nillable="true" type="tns:StaffAttributesVMDC" />
+  <xs:complexType name="ArrayOfApplicationAttributeDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ApplicationAttributeDC" nillable="true" type="tns:ApplicationAttributeDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfApplicationAttributeDC" nillable="true" type="tns:ArrayOfApplicationAttributeDC" />
+  <xs:complexType name="StaffAttributesSearchCriteriaDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Application" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ApplicationAttribute" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ApplicationAttributeCode" type="ser:guid" />
+      <xs:element minOccurs="0" name="ApplicationCode" type="ser:guid" />
+      <xs:element minOccurs="0" name="LookupValue" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Staff" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StaffCode" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StaffAttributesSearchCriteriaDC" nillable="true" type="tns:StaffAttributesSearchCriteriaDC" />
+  <xs:complexType name="StaffAttributesSearchVMDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MatchList" nillable="true" type="tns:ArrayOfStaffAttributesSearchMatchDC" />
+      <xs:element minOccurs="0" name="RecordCount" type="xs:int" />
+      <xs:element minOccurs="0" name="SearchCriteria" nillable="true" type="tns:StaffAttributesSearchCriteriaDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StaffAttributesSearchVMDC" nillable="true" type="tns:StaffAttributesSearchVMDC" />
+  <xs:complexType name="ArrayOfStaffAttributesSearchMatchDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StaffAttributesSearchMatchDC" nillable="true" type="tns:StaffAttributesSearchMatchDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStaffAttributesSearchMatchDC" nillable="true" type="tns:ArrayOfStaffAttributesSearchMatchDC" />
+  <xs:complexType name="StaffAttributesSearchMatchDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Application" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ApplicationAttribute" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ApplicationAttributeCode" type="ser:guid" />
+      <xs:element minOccurs="0" name="ApplicationCode" type="ser:guid" />
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LookupValue" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Staff" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StaffCode" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StaffAttributesSearchMatchDC" nillable="true" type="tns:StaffAttributesSearchMatchDC" />
+  <xs:complexType name="AuditDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AuditAction" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AuditText" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ChangedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="DateUpdated" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ObjectCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RowIdentifier" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="TypeOfObject" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AuditDC" nillable="true" type="tns:AuditDC" />
+  <xs:complexType name="AuditVMDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AuditItem" nillable="true" type="tns:AuditDC" />
+      <xs:element minOccurs="0" name="AuditList" nillable="true" type="tns:ArrayOfAuditDC" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AuditVMDC" nillable="true" type="tns:AuditVMDC" />
+  <xs:complexType name="ArrayOfAuditDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AuditDC" nillable="true" type="tns:AuditDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAuditDC" nillable="true" type="tns:ArrayOfAuditDC" />
+  <xs:complexType name="AuditSearchCriteriaDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AuditAction" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AuditText" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ChangedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DateUpdated" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ObjectCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TypeOfObject" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AuditSearchCriteriaDC" nillable="true" type="tns:AuditSearchCriteriaDC" />
+  <xs:complexType name="AuditSearchVMDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MatchList" nillable="true" type="tns:ArrayOfAuditSearchMatchDC" />
+      <xs:element minOccurs="0" name="RecordCount" type="xs:int" />
+      <xs:element minOccurs="0" name="SearchCriteria" nillable="true" type="tns:AuditSearchCriteriaDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AuditSearchVMDC" nillable="true" type="tns:AuditSearchVMDC" />
+  <xs:complexType name="ArrayOfAuditSearchMatchDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AuditSearchMatchDC" nillable="true" type="tns:AuditSearchMatchDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAuditSearchMatchDC" nillable="true" type="tns:ArrayOfAuditSearchMatchDC" />
+  <xs:complexType name="AuditSearchMatchDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AuditAction" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AuditText" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ChangedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="DateUpdated" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ObjectCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TypeOfObject" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AuditSearchMatchDC" nillable="true" type="tns:AuditSearchMatchDC" />
+  <xs:complexType name="StaffOfficesDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Address2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Address3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Address4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Address5" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OpeningTimes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Postcode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RowIdentifier" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="Telephone" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StaffOfficesDC" nillable="true" type="tns:StaffOfficesDC" />
+  <xs:complexType name="StaffOfficesVMDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StaffOfficesItem" nillable="true" type="tns:StaffOfficesDC" />
+      <xs:element minOccurs="0" name="StaffOfficesList" nillable="true" type="tns:ArrayOfStaffOfficesDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StaffOfficesVMDC" nillable="true" type="tns:StaffOfficesVMDC" />
+  <xs:complexType name="ArrayOfStaffOfficesDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StaffOfficesDC" nillable="true" type="tns:StaffOfficesDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStaffOfficesDC" nillable="true" type="tns:ArrayOfStaffOfficesDC" />
+  <xs:complexType name="StaffOfficesSearchCriteriaDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Address2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Address3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Address4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Address5" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OpeningTimes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Postcode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Telephone" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StaffOfficesSearchCriteriaDC" nillable="true" type="tns:StaffOfficesSearchCriteriaDC" />
+  <xs:complexType name="StaffOfficesSearchVMDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MatchList" nillable="true" type="tns:ArrayOfStaffOfficesSearchMatchDC" />
+      <xs:element minOccurs="0" name="RecordCount" type="xs:int" />
+      <xs:element minOccurs="0" name="SearchCriteria" nillable="true" type="tns:StaffOfficesSearchCriteriaDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StaffOfficesSearchVMDC" nillable="true" type="tns:StaffOfficesSearchVMDC" />
+  <xs:complexType name="ArrayOfStaffOfficesSearchMatchDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StaffOfficesSearchMatchDC" nillable="true" type="tns:StaffOfficesSearchMatchDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStaffOfficesSearchMatchDC" nillable="true" type="tns:ArrayOfStaffOfficesSearchMatchDC" />
+  <xs:complexType name="StaffOfficesSearchMatchDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Address2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Address3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Address4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Address5" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OpeningTimes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Postcode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Telephone" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StaffOfficesSearchMatchDC" nillable="true" type="tns:StaffOfficesSearchMatchDC" />
+  <xs:complexType name="StaffSearchCriteriaDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Grade" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GradeCode" type="ser:guid" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StaffNumber" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StaffSearchCriteriaDC" nillable="true" type="tns:StaffSearchCriteriaDC" />
+  <xs:complexType name="StaffSearchVMDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MatchList" nillable="true" type="tns:ArrayOfStaffSearchMatchDC" />
+      <xs:element minOccurs="0" name="RecordCount" type="xs:int" />
+      <xs:element minOccurs="0" name="SearchCriteria" nillable="true" type="tns:StaffSearchCriteriaDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StaffSearchVMDC" nillable="true" type="tns:StaffSearchVMDC" />
+  <xs:complexType name="ArrayOfStaffSearchMatchDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StaffSearchMatchDC" nillable="true" type="tns:StaffSearchMatchDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStaffSearchMatchDC" nillable="true" type="tns:ArrayOfStaffSearchMatchDC" />
+  <xs:complexType name="StaffSearchMatchDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Grade" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GradeCode" type="ser:guid" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StaffNumber" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StaffSearchMatchDC" nillable="true" type="tns:StaffSearchMatchDC" />
+  <xs:complexType name="StaffOrganisationSearchCriteriaDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Application" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ApplicationCode" type="ser:guid" />
+      <xs:element minOccurs="0" name="IsCurrent" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsDefault" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Organisation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganisationCode" type="ser:guid" />
+      <xs:element minOccurs="0" name="Staff" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StaffCode" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StaffOrganisationSearchCriteriaDC" nillable="true" type="tns:StaffOrganisationSearchCriteriaDC" />
+  <xs:complexType name="StaffOrganisationSearchVMDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MatchList" nillable="true" type="tns:ArrayOfStaffOrganisationSearchMatchDC" />
+      <xs:element minOccurs="0" name="RecordCount" type="xs:int" />
+      <xs:element minOccurs="0" name="SearchCriteria" nillable="true" type="tns:StaffOrganisationSearchCriteriaDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StaffOrganisationSearchVMDC" nillable="true" type="tns:StaffOrganisationSearchVMDC" />
+  <xs:complexType name="ArrayOfStaffOrganisationSearchMatchDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StaffOrganisationSearchMatchDC" nillable="true" type="tns:StaffOrganisationSearchMatchDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStaffOrganisationSearchMatchDC" nillable="true" type="tns:ArrayOfStaffOrganisationSearchMatchDC" />
+  <xs:complexType name="StaffOrganisationSearchMatchDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Application" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ApplicationCode" type="ser:guid" />
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="IsCurrent" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsDefault" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Organisation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganisationCode" type="ser:guid" />
+      <xs:element minOccurs="0" name="Staff" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StaffCode" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StaffOrganisationSearchMatchDC" nillable="true" type="tns:StaffOrganisationSearchMatchDC" />
+  <xs:complexType name="StaffOrganisationVMDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApplicationList" nillable="true" type="tns:ArrayOfApplicationDC" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganisationList" nillable="true" type="tns:ArrayOfOrganisationDC" />
+      <xs:element minOccurs="0" name="StaffList" nillable="true" type="tns:ArrayOfStaffDC" />
+      <xs:element minOccurs="0" name="StaffOrganisationItem" nillable="true" type="tns:StaffOrganisationDC" />
+      <xs:element minOccurs="0" name="StaffOrganisationList" nillable="true" type="tns:ArrayOfStaffOrganisationDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StaffOrganisationVMDC" nillable="true" type="tns:StaffOrganisationVMDC" />
+  <xs:complexType name="RoleDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApplicationCode" type="ser:guid" />
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="RoleName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RowIdentifier" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RoleDC" nillable="true" type="tns:RoleDC" />
+  <xs:complexType name="RoleVMDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApplicationList" nillable="true" type="tns:ArrayOfApplicationDC" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RoleItem" nillable="true" type="tns:RoleDC" />
+      <xs:element minOccurs="0" name="RoleList" nillable="true" type="tns:ArrayOfRoleDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RoleVMDC" nillable="true" type="tns:RoleVMDC" />
+  <xs:complexType name="ArrayOfRoleDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RoleDC" nillable="true" type="tns:RoleDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRoleDC" nillable="true" type="tns:ArrayOfRoleDC" />
+  <xs:complexType name="RoleSearchCriteriaDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Application" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ApplicationCode" type="ser:guid" />
+      <xs:element minOccurs="0" name="RoleName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RoleSearchCriteriaDC" nillable="true" type="tns:RoleSearchCriteriaDC" />
+  <xs:complexType name="RoleSearchVMDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MatchList" nillable="true" type="tns:ArrayOfRoleSearchMatchDC" />
+      <xs:element minOccurs="0" name="RecordCount" type="xs:int" />
+      <xs:element minOccurs="0" name="SearchCriteria" nillable="true" type="tns:RoleSearchCriteriaDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RoleSearchVMDC" nillable="true" type="tns:RoleSearchVMDC" />
+  <xs:complexType name="ArrayOfRoleSearchMatchDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RoleSearchMatchDC" nillable="true" type="tns:RoleSearchMatchDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRoleSearchMatchDC" nillable="true" type="tns:ArrayOfRoleSearchMatchDC" />
+  <xs:complexType name="RoleSearchMatchDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Application" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ApplicationCode" type="ser:guid" />
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="RoleName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RoleSearchMatchDC" nillable="true" type="tns:RoleSearchMatchDC" />
+  <xs:complexType name="GradeVMDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GradeItem" nillable="true" type="tns:GradeDC" />
+      <xs:element minOccurs="0" name="GradeList" nillable="true" type="tns:ArrayOfGradeDC" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GradeVMDC" nillable="true" type="tns:GradeVMDC" />
+  <xs:complexType name="GradeSearchCriteriaDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Grade1" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GradeSearchCriteriaDC" nillable="true" type="tns:GradeSearchCriteriaDC" />
+  <xs:complexType name="GradeSearchVMDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MatchList" nillable="true" type="tns:ArrayOfGradeSearchMatchDC" />
+      <xs:element minOccurs="0" name="RecordCount" type="xs:int" />
+      <xs:element minOccurs="0" name="SearchCriteria" nillable="true" type="tns:GradeSearchCriteriaDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GradeSearchVMDC" nillable="true" type="tns:GradeSearchVMDC" />
+  <xs:complexType name="ArrayOfGradeSearchMatchDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GradeSearchMatchDC" nillable="true" type="tns:GradeSearchMatchDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGradeSearchMatchDC" nillable="true" type="tns:ArrayOfGradeSearchMatchDC" />
+  <xs:complexType name="GradeSearchMatchDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="Grade1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GradeSearchMatchDC" nillable="true" type="tns:GradeSearchMatchDC" />
+  <xs:complexType name="ApplicationOrganisationTypeGroupDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApplicationCode" type="ser:guid" />
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="OrganisationTypeGroupCode" type="ser:guid" />
+      <xs:element minOccurs="0" name="RootOrganisationForApplicationCode" type="ser:guid" />
+      <xs:element minOccurs="0" name="RowIdentifier" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApplicationOrganisationTypeGroupDC" nillable="true" type="tns:ApplicationOrganisationTypeGroupDC" />
+  <xs:complexType name="ApplicationOrganisationTypeGroupVMDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApplicationList" nillable="true" type="tns:ArrayOfApplicationDC" />
+      <xs:element minOccurs="0" name="ApplicationOrganisationTypeGroupItem" nillable="true" type="tns:ApplicationOrganisationTypeGroupDC" />
+      <xs:element minOccurs="0" name="ApplicationOrganisationTypeGroupList" nillable="true" type="tns:ArrayOfApplicationOrganisationTypeGroupDC" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganisationTypeGroupList" nillable="true" type="tns:ArrayOfOrganisationTypeGroupDC" />
+      <xs:element minOccurs="0" name="RootOrganisationForApplicationList" nillable="true" type="tns:ArrayOfOrganisationDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApplicationOrganisationTypeGroupVMDC" nillable="true" type="tns:ApplicationOrganisationTypeGroupVMDC" />
+  <xs:complexType name="ArrayOfApplicationOrganisationTypeGroupDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ApplicationOrganisationTypeGroupDC" nillable="true" type="tns:ApplicationOrganisationTypeGroupDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfApplicationOrganisationTypeGroupDC" nillable="true" type="tns:ArrayOfApplicationOrganisationTypeGroupDC" />
+  <xs:complexType name="ArrayOfOrganisationTypeGroupDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrganisationTypeGroupDC" nillable="true" type="tns:OrganisationTypeGroupDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOrganisationTypeGroupDC" nillable="true" type="tns:ArrayOfOrganisationTypeGroupDC" />
+  <xs:complexType name="OrganisationTypeGroupDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RowIdentifier" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OrganisationTypeGroupDC" nillable="true" type="tns:OrganisationTypeGroupDC" />
+  <xs:complexType name="ApplicationOrganisationTypeGroupSearchCriteriaDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Application" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ApplicationCode" type="ser:guid" />
+      <xs:element minOccurs="0" name="OrganisationTypeGroup" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganisationTypeGroupCode" type="ser:guid" />
+      <xs:element minOccurs="0" name="RootOrganisationForApplication" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RootOrganisationForApplicationCode" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApplicationOrganisationTypeGroupSearchCriteriaDC" nillable="true" type="tns:ApplicationOrganisationTypeGroupSearchCriteriaDC" />
+  <xs:complexType name="ApplicationOrganisationTypeGroupSearchVMDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MatchList" nillable="true" type="tns:ArrayOfApplicationOrganisationTypeGroupSearchMatchDC" />
+      <xs:element minOccurs="0" name="RecordCount" type="xs:int" />
+      <xs:element minOccurs="0" name="SearchCriteria" nillable="true" type="tns:ApplicationOrganisationTypeGroupSearchCriteriaDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApplicationOrganisationTypeGroupSearchVMDC" nillable="true" type="tns:ApplicationOrganisationTypeGroupSearchVMDC" />
+  <xs:complexType name="ArrayOfApplicationOrganisationTypeGroupSearchMatchDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ApplicationOrganisationTypeGroupSearchMatchDC" nillable="true" type="tns:ApplicationOrganisationTypeGroupSearchMatchDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfApplicationOrganisationTypeGroupSearchMatchDC" nillable="true" type="tns:ArrayOfApplicationOrganisationTypeGroupSearchMatchDC" />
+  <xs:complexType name="ApplicationOrganisationTypeGroupSearchMatchDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Application" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ApplicationCode" type="ser:guid" />
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="OrganisationTypeGroup" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganisationTypeGroupCode" type="ser:guid" />
+      <xs:element minOccurs="0" name="RootOrganisationForApplication" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RootOrganisationForApplicationCode" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApplicationOrganisationTypeGroupSearchMatchDC" nillable="true" type="tns:ApplicationOrganisationTypeGroupSearchMatchDC" />
+  <xs:complexType name="HolidayDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsNational" type="xs:boolean" />
+      <xs:element minOccurs="0" name="RowIdentifier" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HolidayDC" nillable="true" type="tns:HolidayDC" />
+  <xs:complexType name="HolidayVMDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="HolidayItem" nillable="true" type="tns:HolidayDC" />
+      <xs:element minOccurs="0" name="HolidayList" nillable="true" type="tns:ArrayOfHolidayDC" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HolidayVMDC" nillable="true" type="tns:HolidayVMDC" />
+  <xs:complexType name="ArrayOfHolidayDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HolidayDC" nillable="true" type="tns:HolidayDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHolidayDC" nillable="true" type="tns:ArrayOfHolidayDC" />
+  <xs:complexType name="HolidaySearchCriteriaDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsNational" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HolidaySearchCriteriaDC" nillable="true" type="tns:HolidaySearchCriteriaDC" />
+  <xs:complexType name="HolidaySearchVMDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MatchList" nillable="true" type="tns:ArrayOfHolidaySearchMatchDC" />
+      <xs:element minOccurs="0" name="RecordCount" type="xs:int" />
+      <xs:element minOccurs="0" name="SearchCriteria" nillable="true" type="tns:HolidaySearchCriteriaDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HolidaySearchVMDC" nillable="true" type="tns:HolidaySearchVMDC" />
+  <xs:complexType name="ArrayOfHolidaySearchMatchDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HolidaySearchMatchDC" nillable="true" type="tns:HolidaySearchMatchDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHolidaySearchMatchDC" nillable="true" type="tns:ArrayOfHolidaySearchMatchDC" />
+  <xs:complexType name="HolidaySearchMatchDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsNational" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HolidaySearchMatchDC" nillable="true" type="tns:HolidaySearchMatchDC" />
+  <xs:complexType name="ADRoleLookupDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ADGroup" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="RoleCode" type="ser:guid" />
+      <xs:element minOccurs="0" name="RowIdentifier" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ADRoleLookupDC" nillable="true" type="tns:ADRoleLookupDC" />
+  <xs:complexType name="ADRoleLookupVMDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ADRoleLookupItem" nillable="true" type="tns:ADRoleLookupDC" />
+      <xs:element minOccurs="0" name="ADRoleLookupList" nillable="true" type="tns:ArrayOfADRoleLookupDC" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RoleList" nillable="true" type="tns:ArrayOfRoleDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ADRoleLookupVMDC" nillable="true" type="tns:ADRoleLookupVMDC" />
+  <xs:complexType name="ArrayOfADRoleLookupDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ADRoleLookupDC" nillable="true" type="tns:ADRoleLookupDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfADRoleLookupDC" nillable="true" type="tns:ArrayOfADRoleLookupDC" />
+  <xs:complexType name="StaffDetailsDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="DirectDialNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Extension" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Room" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RowIdentifier" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="Section" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StaffCode" type="ser:guid" />
+      <xs:element minOccurs="0" name="StaffOfficeCode" nillable="true" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StaffDetailsDC" nillable="true" type="tns:StaffDetailsDC" />
+  <xs:complexType name="StaffDetailsVMDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StaffDetailsItem" nillable="true" type="tns:StaffDetailsDC" />
+      <xs:element minOccurs="0" name="StaffDetailsList" nillable="true" type="tns:ArrayOfStaffDetailsDC" />
+      <xs:element minOccurs="0" name="StaffList" nillable="true" type="tns:ArrayOfStaffDC" />
+      <xs:element minOccurs="0" name="StaffOfficeList" nillable="true" type="tns:ArrayOfStaffOfficesDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StaffDetailsVMDC" nillable="true" type="tns:StaffDetailsVMDC" />
+  <xs:complexType name="ArrayOfStaffDetailsDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StaffDetailsDC" nillable="true" type="tns:StaffDetailsDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStaffDetailsDC" nillable="true" type="tns:ArrayOfStaffDetailsDC" />
+  <xs:complexType name="StaffDetailsSearchCriteriaDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DirectDialNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Extension" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Room" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Section" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Staff" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StaffCode" type="ser:guid" />
+      <xs:element minOccurs="0" name="StaffOffice" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StaffOfficeCode" nillable="true" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StaffDetailsSearchCriteriaDC" nillable="true" type="tns:StaffDetailsSearchCriteriaDC" />
+  <xs:complexType name="StaffDetailsSearchVMDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MatchList" nillable="true" type="tns:ArrayOfStaffDetailsSearchMatchDC" />
+      <xs:element minOccurs="0" name="RecordCount" type="xs:int" />
+      <xs:element minOccurs="0" name="SearchCriteria" nillable="true" type="tns:StaffDetailsSearchCriteriaDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StaffDetailsSearchVMDC" nillable="true" type="tns:StaffDetailsSearchVMDC" />
+  <xs:complexType name="ArrayOfStaffDetailsSearchMatchDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StaffDetailsSearchMatchDC" nillable="true" type="tns:StaffDetailsSearchMatchDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStaffDetailsSearchMatchDC" nillable="true" type="tns:ArrayOfStaffDetailsSearchMatchDC" />
+  <xs:complexType name="StaffDetailsSearchMatchDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="DirectDialNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Extension" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Room" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Section" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Staff" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StaffCode" type="ser:guid" />
+      <xs:element minOccurs="0" name="StaffOffice" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StaffOfficeCode" nillable="true" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StaffDetailsSearchMatchDC" nillable="true" type="tns:StaffDetailsSearchMatchDC" />
+  <xs:complexType name="OrganisationTypeVMDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganisationTypeGroupList" nillable="true" type="tns:ArrayOfOrganisationTypeGroupDC" />
+      <xs:element minOccurs="0" name="OrganisationTypeItem" nillable="true" type="tns:OrganisationTypeDC" />
+      <xs:element minOccurs="0" name="OrganisationTypeList" nillable="true" type="tns:ArrayOfOrganisationTypeDC" />
+      <xs:element minOccurs="0" name="ParentOrganisationTypeList" nillable="true" type="tns:ArrayOfOrganisationTypeDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OrganisationTypeVMDC" nillable="true" type="tns:OrganisationTypeVMDC" />
+  <xs:complexType name="OrganisationTypeSearchCriteriaDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="LevelNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganisationTypeGroup" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganisationTypeGroupCode" type="ser:guid" />
+      <xs:element minOccurs="0" name="ParentOrganisationType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ParentOrganisationTypeCode" nillable="true" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OrganisationTypeSearchCriteriaDC" nillable="true" type="tns:OrganisationTypeSearchCriteriaDC" />
+  <xs:complexType name="OrganisationTypeSearchVMDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MatchList" nillable="true" type="tns:ArrayOfOrganisationTypeSearchMatchDC" />
+      <xs:element minOccurs="0" name="RecordCount" type="xs:int" />
+      <xs:element minOccurs="0" name="SearchCriteria" nillable="true" type="tns:OrganisationTypeSearchCriteriaDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OrganisationTypeSearchVMDC" nillable="true" type="tns:OrganisationTypeSearchVMDC" />
+  <xs:complexType name="ArrayOfOrganisationTypeSearchMatchDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrganisationTypeSearchMatchDC" nillable="true" type="tns:OrganisationTypeSearchMatchDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOrganisationTypeSearchMatchDC" nillable="true" type="tns:ArrayOfOrganisationTypeSearchMatchDC" />
+  <xs:complexType name="OrganisationTypeSearchMatchDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LevelNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganisationTypeGroup" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganisationTypeGroupCode" type="ser:guid" />
+      <xs:element minOccurs="0" name="ParentOrganisationType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ParentOrganisationTypeCode" nillable="true" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OrganisationTypeSearchMatchDC" nillable="true" type="tns:OrganisationTypeSearchMatchDC" />
+  <xs:complexType name="OrganisationHierarchyDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AncestorOrganisationCode" type="ser:guid" />
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="HopsBetweenOrgAndAncestor" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ImmediateParent" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="OrganisationCode" type="ser:guid" />
+      <xs:element minOccurs="0" name="RowIdentifier" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OrganisationHierarchyDC" nillable="true" type="tns:OrganisationHierarchyDC" />
+  <xs:complexType name="OrganisationHierarchyVMDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AncestorOrganisationList" nillable="true" type="tns:ArrayOfOrganisationDC" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganisationHierarchyItem" nillable="true" type="tns:OrganisationHierarchyDC" />
+      <xs:element minOccurs="0" name="OrganisationHierarchyList" nillable="true" type="tns:ArrayOfOrganisationHierarchyDC" />
+      <xs:element minOccurs="0" name="OrganisationList" nillable="true" type="tns:ArrayOfOrganisationDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OrganisationHierarchyVMDC" nillable="true" type="tns:OrganisationHierarchyVMDC" />
+  <xs:complexType name="ArrayOfOrganisationHierarchyDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrganisationHierarchyDC" nillable="true" type="tns:OrganisationHierarchyDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOrganisationHierarchyDC" nillable="true" type="tns:ArrayOfOrganisationHierarchyDC" />
+  <xs:complexType name="OrganisationHierarchySearchCriteriaDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AncestorOrganisation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AncestorOrganisationCode" type="ser:guid" />
+      <xs:element minOccurs="0" name="HopsBetweenOrgAndAncestor" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ImmediateParent" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Organisation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganisationCode" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OrganisationHierarchySearchCriteriaDC" nillable="true" type="tns:OrganisationHierarchySearchCriteriaDC" />
+  <xs:complexType name="OrganisationHierarchySearchVMDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MatchList" nillable="true" type="tns:ArrayOfOrganisationHierarchySearchMatchDC" />
+      <xs:element minOccurs="0" name="RecordCount" type="xs:int" />
+      <xs:element minOccurs="0" name="SearchCriteria" nillable="true" type="tns:OrganisationHierarchySearchCriteriaDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OrganisationHierarchySearchVMDC" nillable="true" type="tns:OrganisationHierarchySearchVMDC" />
+  <xs:complexType name="ArrayOfOrganisationHierarchySearchMatchDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrganisationHierarchySearchMatchDC" nillable="true" type="tns:OrganisationHierarchySearchMatchDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOrganisationHierarchySearchMatchDC" nillable="true" type="tns:ArrayOfOrganisationHierarchySearchMatchDC" />
+  <xs:complexType name="OrganisationHierarchySearchMatchDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AncestorOrganisation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AncestorOrganisationCode" type="ser:guid" />
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="HopsBetweenOrgAndAncestor" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ImmediateParent" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Organisation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganisationCode" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OrganisationHierarchySearchMatchDC" nillable="true" type="tns:OrganisationHierarchySearchMatchDC" />
+  <xs:complexType name="OrganisationVMDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganisationItem" nillable="true" type="tns:OrganisationDC" />
+      <xs:element minOccurs="0" name="OrganisationList" nillable="true" type="tns:ArrayOfOrganisationDC" />
+      <xs:element minOccurs="0" name="OrganisationTypeList" nillable="true" type="tns:ArrayOfOrganisationTypeDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OrganisationVMDC" nillable="true" type="tns:OrganisationVMDC" />
+  <xs:complexType name="OrganisationSearchCriteriaDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DateDeleted" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="HEO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganisationType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganisationTypeCode" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OrganisationSearchCriteriaDC" nillable="true" type="tns:OrganisationSearchCriteriaDC" />
+  <xs:complexType name="OrganisationSearchVMDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MatchList" nillable="true" type="tns:ArrayOfOrganisationSearchMatchDC" />
+      <xs:element minOccurs="0" name="RecordCount" type="xs:int" />
+      <xs:element minOccurs="0" name="SearchCriteria" nillable="true" type="tns:OrganisationSearchCriteriaDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OrganisationSearchVMDC" nillable="true" type="tns:OrganisationSearchVMDC" />
+  <xs:complexType name="ArrayOfOrganisationSearchMatchDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrganisationSearchMatchDC" nillable="true" type="tns:OrganisationSearchMatchDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOrganisationSearchMatchDC" nillable="true" type="tns:ArrayOfOrganisationSearchMatchDC" />
+  <xs:complexType name="OrganisationSearchMatchDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="DateDeleted" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="HEO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganisationType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganisationTypeCode" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OrganisationSearchMatchDC" nillable="true" type="tns:OrganisationSearchMatchDC" />
+  <xs:complexType name="OrganisationTypeGroupVMDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganisationTypeGroupItem" nillable="true" type="tns:OrganisationTypeGroupDC" />
+      <xs:element minOccurs="0" name="OrganisationTypeGroupList" nillable="true" type="tns:ArrayOfOrganisationTypeGroupDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OrganisationTypeGroupVMDC" nillable="true" type="tns:OrganisationTypeGroupVMDC" />
+  <xs:complexType name="OrganisationTypeGroupSearchCriteriaDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OrganisationTypeGroupSearchCriteriaDC" nillable="true" type="tns:OrganisationTypeGroupSearchCriteriaDC" />
+  <xs:complexType name="OrganisationTypeGroupSearchVMDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MatchList" nillable="true" type="tns:ArrayOfOrganisationTypeGroupSearchMatchDC" />
+      <xs:element minOccurs="0" name="RecordCount" type="xs:int" />
+      <xs:element minOccurs="0" name="SearchCriteria" nillable="true" type="tns:OrganisationTypeGroupSearchCriteriaDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OrganisationTypeGroupSearchVMDC" nillable="true" type="tns:OrganisationTypeGroupSearchVMDC" />
+  <xs:complexType name="ArrayOfOrganisationTypeGroupSearchMatchDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrganisationTypeGroupSearchMatchDC" nillable="true" type="tns:OrganisationTypeGroupSearchMatchDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOrganisationTypeGroupSearchMatchDC" nillable="true" type="tns:ArrayOfOrganisationTypeGroupSearchMatchDC" />
+  <xs:complexType name="OrganisationTypeGroupSearchMatchDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OrganisationTypeGroupSearchMatchDC" nillable="true" type="tns:OrganisationTypeGroupSearchMatchDC" />
+  <xs:complexType name="ApplicationVMDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApplicationItem" nillable="true" type="tns:ApplicationDC" />
+      <xs:element minOccurs="0" name="ApplicationList" nillable="true" type="tns:ArrayOfApplicationDC" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApplicationVMDC" nillable="true" type="tns:ApplicationVMDC" />
+  <xs:complexType name="ApplicationSearchCriteriaDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApplicationName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsSpecificOrganisationAccessRequired" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Location" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApplicationSearchCriteriaDC" nillable="true" type="tns:ApplicationSearchCriteriaDC" />
+  <xs:complexType name="ApplicationSearchVMDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MatchList" nillable="true" type="tns:ArrayOfApplicationSearchMatchDC" />
+      <xs:element minOccurs="0" name="RecordCount" type="xs:int" />
+      <xs:element minOccurs="0" name="SearchCriteria" nillable="true" type="tns:ApplicationSearchCriteriaDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApplicationSearchVMDC" nillable="true" type="tns:ApplicationSearchVMDC" />
+  <xs:complexType name="ArrayOfApplicationSearchMatchDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ApplicationSearchMatchDC" nillable="true" type="tns:ApplicationSearchMatchDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfApplicationSearchMatchDC" nillable="true" type="tns:ArrayOfApplicationSearchMatchDC" />
+  <xs:complexType name="ApplicationSearchMatchDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApplicationName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsSpecificOrganisationAccessRequired" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Location" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApplicationSearchMatchDC" nillable="true" type="tns:ApplicationSearchMatchDC" />
+  <xs:complexType name="ApplicationAttributeVMDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApplicationAttributeItem" nillable="true" type="tns:ApplicationAttributeDC" />
+      <xs:element minOccurs="0" name="ApplicationAttributeList" nillable="true" type="tns:ArrayOfApplicationAttributeDC" />
+      <xs:element minOccurs="0" name="ApplicationList" nillable="true" type="tns:ArrayOfApplicationDC" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApplicationAttributeVMDC" nillable="true" type="tns:ApplicationAttributeVMDC" />
+  <xs:complexType name="ApplicationAttributeSearchCriteriaDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Application" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ApplicationCode" type="ser:guid" />
+      <xs:element minOccurs="0" name="AttributeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AttributeType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsDataSecurity" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsRole" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApplicationAttributeSearchCriteriaDC" nillable="true" type="tns:ApplicationAttributeSearchCriteriaDC" />
+  <xs:complexType name="ApplicationAttributeSearchVMDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MatchList" nillable="true" type="tns:ArrayOfApplicationAttributeSearchMatchDC" />
+      <xs:element minOccurs="0" name="RecordCount" type="xs:int" />
+      <xs:element minOccurs="0" name="SearchCriteria" nillable="true" type="tns:ApplicationAttributeSearchCriteriaDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApplicationAttributeSearchVMDC" nillable="true" type="tns:ApplicationAttributeSearchVMDC" />
+  <xs:complexType name="ArrayOfApplicationAttributeSearchMatchDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ApplicationAttributeSearchMatchDC" nillable="true" type="tns:ApplicationAttributeSearchMatchDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfApplicationAttributeSearchMatchDC" nillable="true" type="tns:ArrayOfApplicationAttributeSearchMatchDC" />
+  <xs:complexType name="ApplicationAttributeSearchMatchDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Application" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ApplicationCode" type="ser:guid" />
+      <xs:element minOccurs="0" name="AttributeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AttributeType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsDataSecurity" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsRole" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApplicationAttributeSearchMatchDC" nillable="true" type="tns:ApplicationAttributeSearchMatchDC" />
+  <xs:complexType name="UploadQueueVMDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApplicationList" nillable="true" type="tns:ArrayOfApplicationDC" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UploadQueueItem" nillable="true" type="tns:UploadQueueDC" />
+      <xs:element minOccurs="0" name="UploadQueueList" nillable="true" type="tns:ArrayOfUploadQueueDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UploadQueueVMDC" nillable="true" type="tns:UploadQueueVMDC" />
+  <xs:complexType name="UploadQueueSearchCriteriaDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Application" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ApplicationCode" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="ConnectionString" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StoredProcedure" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TempTableName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UploadFileName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UploadQueueSearchCriteriaDC" nillable="true" type="tns:UploadQueueSearchCriteriaDC" />
+  <xs:complexType name="UploadQueueSearchVMDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MatchList" nillable="true" type="tns:ArrayOfUploadQueueSearchMatchDC" />
+      <xs:element minOccurs="0" name="RecordCount" type="xs:int" />
+      <xs:element minOccurs="0" name="SearchCriteria" nillable="true" type="tns:UploadQueueSearchCriteriaDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UploadQueueSearchVMDC" nillable="true" type="tns:UploadQueueSearchVMDC" />
+  <xs:complexType name="ArrayOfUploadQueueSearchMatchDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UploadQueueSearchMatchDC" nillable="true" type="tns:UploadQueueSearchMatchDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUploadQueueSearchMatchDC" nillable="true" type="tns:ArrayOfUploadQueueSearchMatchDC" />
+  <xs:complexType name="UploadQueueSearchMatchDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Application" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ApplicationCode" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="ConnectionString" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StoredProcedure" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TempTableName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UploadFileName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UploadQueueSearchMatchDC" nillable="true" type="tns:UploadQueueSearchMatchDC" />
+  <xs:complexType name="ADRoleLookupSearchCriteriaDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ADGroup" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Role" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RoleCode" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ADRoleLookupSearchCriteriaDC" nillable="true" type="tns:ADRoleLookupSearchCriteriaDC" />
+  <xs:complexType name="ADRoleLookupSearchVMDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MatchList" nillable="true" type="tns:ArrayOfADRoleLookupSearchMatchDC" />
+      <xs:element minOccurs="0" name="RecordCount" type="xs:int" />
+      <xs:element minOccurs="0" name="SearchCriteria" nillable="true" type="tns:ADRoleLookupSearchCriteriaDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ADRoleLookupSearchVMDC" nillable="true" type="tns:ADRoleLookupSearchVMDC" />
+  <xs:complexType name="ArrayOfADRoleLookupSearchMatchDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ADRoleLookupSearchMatchDC" nillable="true" type="tns:ADRoleLookupSearchMatchDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfADRoleLookupSearchMatchDC" nillable="true" type="tns:ArrayOfADRoleLookupSearchMatchDC" />
+  <xs:complexType name="ADRoleLookupSearchMatchDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ADGroup" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Code" type="ser:guid" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Role" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RoleCode" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ADRoleLookupSearchMatchDC" nillable="true" type="tns:ADRoleLookupSearchMatchDC" />
+</xs:schema>

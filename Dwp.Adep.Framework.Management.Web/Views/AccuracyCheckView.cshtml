@@ -1,0 +1,279 @@
+@model IEnumerable<Dwp.Adep.Framework.Management.Web.Models.AccuracyCheckModel>
+
+@{
+    ViewBag.Title = "AccuracyCheckView";
+}
+
+<h2>AccuracyCheckView</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+      <th>
+            Code
+        </th>
+        <th>
+            CheckID
+        </th>
+        <th>
+            RaisedDate
+        </th>
+        <th>
+            IsNewClaim
+        </th>
+        <th>
+            IsChangeOfCircs
+        </th>
+        <th>
+            CheckerStaffCode
+        </th>
+        <th>
+            BenefitCode
+        </th>
+        <th>
+            GeneratedDate
+        </th>
+        <th>
+            CheckTypeCode
+        </th>
+        <th>
+            CheckSubTypeCode
+        </th>
+        <th>
+            IsPrePaymentCheck
+        </th>
+        <th>
+            IsPostPaymentCheck
+        </th>
+        <th>
+            NI_Number
+        </th>
+        <th>
+            CustomerFirstName
+        </th>
+        <th>
+            CustomerLastName
+        </th>
+        <th>
+            CountryCode
+        </th>
+        <th>
+            IsClaim
+        </th>
+        <th>
+            IsMaintenance
+        </th>
+        <th>
+            DaysToClear
+        </th>
+        <th>
+            BCS_NumberCode
+        </th>
+        <th>
+            BCS_Date
+        </th>
+        <th>
+            BCS_TargetDate
+        </th>
+        <th>
+            Schedule
+        </th>
+        <th>
+            IOP_OnSchedule
+        </th>
+        <th>
+            ServerCode
+        </th>
+        <th>
+            PapersRequestedForChecking
+        </th>
+        <th>
+            RequestReceivedByOps
+        </th>
+        <th>
+            PapersSentForChecking
+        </th>
+        <th>
+            PapersReceivedForChecking
+        </th>
+        <th>
+            StaffCode
+        </th>
+        <th>
+            TeamCode
+        </th>
+        <th>
+            CommandCode
+        </th>
+        <th>
+            LocationCode
+        </th>
+        <th>
+            BF_Date
+        </th>
+        <th>
+            CheckCompletedDate
+        </th>
+        <th>
+            ValidatorStaffCode
+        </th>
+        <th>
+            ValidatedOn
+        </th>
+        <th>
+            PapersReturnedToSection
+        </th>
+        <th>
+            PapersReceivedInOps
+        </th>
+        <th>
+            ValidationNotes
+        </th>
+        <th>
+            GeneralNotes
+        </th>
+        <th>
+            RowIdentifier
+        </th>
+          <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+      <td>
+            @Html.DisplayFor(modelItem => item.Code)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CheckID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RaisedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsNewClaim)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsChangeOfCircs)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CheckerStaffCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BenefitCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GeneratedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CheckTypeCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CheckSubTypeCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsPrePaymentCheck)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsPostPaymentCheck)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NI_Number)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomerFirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomerLastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CountryCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsClaim)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsMaintenance)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DaysToClear)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BCS_NumberCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BCS_Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BCS_TargetDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Schedule)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IOP_OnSchedule)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ServerCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PapersRequestedForChecking)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RequestReceivedByOps)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PapersSentForChecking)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PapersReceivedForChecking)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StaffCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TeamCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CommandCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LocationCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BF_Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CheckCompletedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ValidatorStaffCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ValidatedOn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PapersReturnedToSection)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PapersReceivedInOps)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ValidationNotes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GeneralNotes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RowIdentifier)
+        </td>
+          <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Code }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Code }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Code })
+        </td>
+    </tr>
+}
+
+</table>

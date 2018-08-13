@@ -1,0 +1,55 @@
+﻿@model Dwp.Adep.Framework.Management.Web.Models.CountryModel
+
+@{
+    ViewBag.Title = "CountryDetailsView";
+}
+
+<h2>CountryDetailsView</h2>
+
+<fieldset>
+    <legend>CountryModel</legend>
+
+    <div class="display-label">Description</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+
+    <div class="display-label">FrozenRate</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FrozenRate)
+    </div>
+
+    <div class="display-label">EC</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EC)
+    </div>
+
+    <div class="display-label">RA</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RA)
+    </div>
+
+    <div class="display-label">Anzac</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Anzac)
+    </div>
+
+    <div class="display-label">Nationality</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Nationality)
+    </div>
+
+    <div class="display-label">Code</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Code)
+    </div>
+
+    <div class="display-label">Notes</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Notes)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

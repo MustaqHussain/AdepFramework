@@ -1,0 +1,93 @@
+@model Dwp.Adep.Framework.Management.Web.ViewModels.CountryVM
+@{
+    ViewBag.Title = FixedResources.ENTITYNAME_COUNTRY;
+}
+<h2>Maintain @FixedResources.ENTITYNAME_COUNTRY</h2>
+<script type="text/javascript">
+    /// <reference path="jquery-1.7.1.js" />
+    /// <reference path="jquery-ui.js" />
+    $(document).ready(function () {
+
+        var isDirty = @(Model.IsViewDirty?Html.Raw("true"):Html.Raw("false"));
+
+        $(':input').change(function () {
+            if (!isDirty) {
+                isDirty = true;
+            }
+        });
+
+		var $myDialogExit = $('<div id=\'confirm\'></div>')
+        .html('Are you sure you want to exit?<br/>Click OK to confirm.  Click Cancel to stop this action.')
+        .dialog({
+            autoOpen: false,
+            modal: true,
+            title: 'Confirmation Required',
+            buttons: {
+                "OK": function () {
+                    $(this).dialog("close");
+                    if ($('#IsExitConfirmed').val() == "True") {
+                        var form = $('#mainForm')
+                        var input = $("<input>").attr("type", "hidden").attr("name", "Edit::ExitCountry").val("");
+                        form.append($(input));
+                        $('#mainForm')[0].submit();
+                        return true;
+                    }
+                }
+                , "Cancel": function () {
+                    $(this).dialog("close");
+                    return false;
+                }
+            }
+
+        });
+
+        $('#mainForm').submit(function (e) {
+
+			if ($('#mainForm').find('input[type="submit"]:focus').attr('name') == 'Edit::ExitCountry') {
+                if (isDirty == true) {
+                    e.preventDefault();
+                    $('#IsExitConfirmed').val("True");
+                    var returnValue = $myDialogExit.dialog('open');  //replace the div id with the id of the button/form
+                    return returnValue;
+                }
+                else {
+                    $('#IsExitConfirmed').val("True");
+                    return true;
+                }
+            }           
+        });
+	});
+	
+</script>
+@using (Html.BeginForm("Edit", "Country", FormMethod.Post, new { @id = "mainForm" }))
+{
+    @Html.ValidationSummary(true)
+    <div class='message'>@Model.Message</div>
+    @Html.HiddenFor(model => model.CountryItem.Code)    
+    <input type='hidden' id='IsExitConfirmed' name='IsExitConfirmed' value='@Model.IsExitConfirmed' />
+    <div class="full-width clearfix">
+		    <fieldset class="ui-widget ui-widget-content ui-corner-all">
+                <legend class="ui-widget-header ui-corner-all">@FixedResources.ENTITYNAME_COUNTRY</legend>
+				@Html.EditorFor(model => model.CountryItem.Description,"LabelMultiLineTextAlign")
+				@Html.EditorFor(model => model.CountryItem.IsFrozenRate,"LabelCheckBoxAlign")
+				@Html.EditorFor(model => model.CountryItem.IsEC,"LabelCheckBoxAlign")
+				@Html.EditorFor(model => model.CountryItem.IsRA,"LabelCheckBoxAlign")
+				@Html.EditorFor(model => model.CountryItem.IsANZAC,"LabelCheckBoxAlign")
+				@Html.EditorFor(model => model.CountryItem.Nationality,"LabelFieldAlign")
+				@Html.EditorFor(model => model.CountryItem.CountryCode,"LabelFieldAlign")
+				@Html.EditorFor(model => model.CountryItem.Notes,"LabelFieldAlign")
+				@Html.EditorFor(model => model.CountryItem.IsActive,"LabelCheckBoxAlign")
+				<div class="full-width clearfix">
+		            @if (Model.AccessContext == Dwp.Adep.Framework.Management.Web.ViewModels.CountryAccessContext.Create)
+		            {
+		                <input id='CreateButton' type='submit' name='Edit::CreateCountry' value='@FixedResources.LABEL_CREATEBUTTON' title='@FixedResources.TOOLTIP_CREATEBUTTON @FixedResources.ENTITYNAME_COUNTRY' />
+		            }
+		            else
+		            {
+		                <input id='SaveButton' type='submit' name='Edit::SaveCountry' value='@FixedResources.LABEL_SAVEBUTTON' title='@FixedResources.TOOLTIP_SAVEBUTTON @FixedResources.ENTITYNAME_COUNTRY'/>						
+		            }    
+		            <input id='ExitButton' class='cancel' type='submit' name='Edit::ExitCountry' value='@FixedResources.LABEL_EXITBUTTON' title='@FixedResources.TOOLTIP_EXITBUTTON'/>
+		        </div>
+			</fieldset>
+	</div>
+}

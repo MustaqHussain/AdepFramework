@@ -1,0 +1,84 @@
+﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.Xml" #>
+<#@ assembly name="System.Xml.Linq" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Xml" #>
+<#@ import namespace="System.Xml.Linq" #>
+
+<#
+
+
+string edmxPath = @"Model1.edmx";
+edmxPath = Host.ResolvePath("Model1.edmx");
+
+string edmxNS = @"http://schemas.microsoft.com/ado/2008/10/edmx";
+string ssdlNS = @"http://schemas.microsoft.com/ado/2009/02/edm/ssdl";
+string csdlNS = @"http://schemas.microsoft.com/ado/2008/09/edm";
+string mapNS = @"http://schemas.microsoft.com/ado/2008/09/mapping/cs";
+
+XElement root = XElement.Load(edmxPath);
+//Storage Model
+XElement ssdl = root.Descendants(XName.Get("StorageModels", edmxNS)).FirstOrDefault();
+//Conceptual
+XElement csdl = root.Descendants(XName.Get("ConceptualModels", edmxNS)).FirstOrDefault();
+//Mapping
+XElement map = root.Descendants(XName.Get("Mappings", edmxNS)).FirstOrDefault();
+
+IEnumerable<XElement> storageEntities =
+    from el in ssdl.Descendants(XName.Get("EntityType",ssdlNS))
+    where (from prop in el.Elements(XName.Get("Property",ssdlNS)) where prop.Attribute("Type").Value == "timestamp" select prop).Count()>0
+    select el;
+
+//for each timestamp column, find the mapping then find the conceptual model property and establish the concurrency mode
+foreach(XElement storageEntity in storageEntities) 
+{
+    //Get the mapping
+    XElement mapping = (from el in map.Descendants(XName.Get("EntityTypeMapping",mapNS)) where el.Element(XName.Get("MappingFragment",mapNS)).Attribute("StoreEntitySet").Value == storageEntity.Attribute("Name").Value select el).FirstOrDefault();
+
+    if (mapping != null)
+    {
+        //Get the column mapping
+        XElement column = (from el in storageEntity.Descendants(XName.Get("Property",ssdlNS)) where el.Attribute("Type").Value == "timestamp" select el).FirstOrDefault();
+        string columnName = column.Attribute("Name").Value;
+        XElement columnMapping = (from el in mapping.Descendants(XName.Get("ScalarProperty",mapNS)) where el.Attribute("ColumnName").Value == columnName select el).FirstOrDefault();
+        string propertyName = columnMapping.Attribute("Name").Value;
+
+        //Get the conceptual schema namespace and type name
+        string[] split = mapping.Attribute("TypeName").Value.Split('.');
+
+        string ns="", typeName =split[split.Length-1];
+
+        for (int i = 0; i < split.Length-1; i++)
+        {
+            if (i>0)
+                ns+=".";
+
+            ns += split[i];
+        }
+
+        //Find the entry in the conceptual model
+        XElement schema = (from el in csdl.Elements(XName.Get("Schema",csdlNS)) where el.Attribute("Namespace").Value == ns select el).FirstOrDefault();
+
+        if (schema != null)
+        {
+            //Find the entity type
+            XElement entity = (from el in schema.Descendants(XName.Get("EntityType",csdlNS)) where el.Attribute("Name").Value == typeName select el).FirstOrDefault();
+
+            //Find the property
+            XElement concurrencyProperty = (from el in entity.Elements(XName.Get("Property",csdlNS)) where el.Attribute("Name").Value == propertyName select el).FirstOrDefault();
+
+            //Set concurrency mode to fixed
+            concurrencyProperty.SetAttributeValue("ConcurrencyMode", "Fixed");
+        }
+    }
+}
+
+//Save the modifications
+root.Save(edmxPath);
+
+#>

@@ -1,0 +1,2278 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AdepDatabaseModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="AdepDatabaseModelStoreContainer">
+          <EntitySet Name="ADRoleLookup" EntityType="AdepDatabaseModel.Store.ADRoleLookup" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Application" EntityType="AdepDatabaseModel.Store.Application" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ApplicationAttribute" EntityType="AdepDatabaseModel.Store.ApplicationAttribute" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ApplicationAttributeExtension" EntityType="AdepDatabaseModel.Store.ApplicationAttributeExtension" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ApplicationOrganisationTypeGroup" EntityType="AdepDatabaseModel.Store.ApplicationOrganisationTypeGroup" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Audit" EntityType="AdepDatabaseModel.Store.Audit" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Country" EntityType="AdepDatabaseModel.Store.Country" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Grade" EntityType="AdepDatabaseModel.Store.Grade" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Holiday" EntityType="AdepDatabaseModel.Store.Holiday" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="NonStandardHoliday" EntityType="AdepDatabaseModel.Store.NonStandardHoliday" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Organisation" EntityType="AdepDatabaseModel.Store.Organisation" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="OrganisationHierarchy" EntityType="AdepDatabaseModel.Store.OrganisationHierarchy" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="OrganisationType" EntityType="AdepDatabaseModel.Store.OrganisationType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="OrganisationTypeGroup" EntityType="AdepDatabaseModel.Store.OrganisationTypeGroup" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Role" EntityType="AdepDatabaseModel.Store.Role" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Staff" EntityType="AdepDatabaseModel.Store.Staff" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="StaffAttributes" EntityType="AdepDatabaseModel.Store.StaffAttributes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="StaffDetails" EntityType="AdepDatabaseModel.Store.StaffDetails" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="StaffOffices" EntityType="AdepDatabaseModel.Store.StaffOffices" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="StaffOrganisation" EntityType="AdepDatabaseModel.Store.StaffOrganisation" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UploadErrorLog" EntityType="AdepDatabaseModel.Store.UploadErrorLog" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UploadQueue" EntityType="AdepDatabaseModel.Store.UploadQueue" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_ADRoleLookup_Organisation_Security" Association="AdepDatabaseModel.Store.FK_ADRoleLookup_Organisation_Security">
+            <End Role="Organisation" EntitySet="Organisation" />
+            <End Role="ADRoleLookup" EntitySet="ADRoleLookup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ADRoleLookup_Role" Association="AdepDatabaseModel.Store.FK_ADRoleLookup_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="ADRoleLookup" EntitySet="ADRoleLookup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Application_Organisation_Security" Association="AdepDatabaseModel.Store.FK_Application_Organisation_Security">
+            <End Role="Organisation" EntitySet="Organisation" />
+            <End Role="Application" EntitySet="Application" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ApplicationAttribute_Application" Association="AdepDatabaseModel.Store.FK_ApplicationAttribute_Application">
+            <End Role="Application" EntitySet="Application" />
+            <End Role="ApplicationAttribute" EntitySet="ApplicationAttribute" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ApplicationAttributeExtension_ApplicationAttribute1" Association="AdepDatabaseModel.Store.FK_ApplicationAttributeExtension_ApplicationAttribute1">
+            <End Role="ApplicationAttribute" EntitySet="ApplicationAttribute" />
+            <End Role="ApplicationAttributeExtension" EntitySet="ApplicationAttributeExtension" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ApplicationOrganisationTypeGroup_Application" Association="AdepDatabaseModel.Store.FK_ApplicationOrganisationTypeGroup_Application">
+            <End Role="Application" EntitySet="Application" />
+            <End Role="ApplicationOrganisationTypeGroup" EntitySet="ApplicationOrganisationTypeGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ApplicationOrganisationTypeGroup_Organisation" Association="AdepDatabaseModel.Store.FK_ApplicationOrganisationTypeGroup_Organisation">
+            <End Role="Organisation" EntitySet="Organisation" />
+            <End Role="ApplicationOrganisationTypeGroup" EntitySet="ApplicationOrganisationTypeGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ApplicationOrganisationTypeGroup_OrganisationTypeGroup" Association="AdepDatabaseModel.Store.FK_ApplicationOrganisationTypeGroup_OrganisationTypeGroup">
+            <End Role="OrganisationTypeGroup" EntitySet="OrganisationTypeGroup" />
+            <End Role="ApplicationOrganisationTypeGroup" EntitySet="ApplicationOrganisationTypeGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Country_Organisation_Security" Association="AdepDatabaseModel.Store.FK_Country_Organisation_Security">
+            <End Role="Organisation" EntitySet="Organisation" />
+            <End Role="Country" EntitySet="Country" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Grade_Organisation" Association="AdepDatabaseModel.Store.FK_Grade_Organisation">
+            <End Role="Organisation" EntitySet="Organisation" />
+            <End Role="Grade" EntitySet="Grade" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Holiday_Organisation_Security" Association="AdepDatabaseModel.Store.FK_Holiday_Organisation_Security">
+            <End Role="Organisation" EntitySet="Organisation" />
+            <End Role="Holiday" EntitySet="Holiday" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Organisation_OrganisationType" Association="AdepDatabaseModel.Store.FK_Organisation_OrganisationType">
+            <End Role="OrganisationType" EntitySet="OrganisationType" />
+            <End Role="Organisation" EntitySet="Organisation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrganisationHierarchy_Organisation" Association="AdepDatabaseModel.Store.FK_OrganisationHierarchy_Organisation">
+            <End Role="Organisation" EntitySet="Organisation" />
+            <End Role="OrganisationHierarchy" EntitySet="OrganisationHierarchy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrganisationHierarchyAncestor_Organisation" Association="AdepDatabaseModel.Store.FK_OrganisationHierarchyAncestor_Organisation">
+            <End Role="Organisation" EntitySet="Organisation" />
+            <End Role="OrganisationHierarchy" EntitySet="OrganisationHierarchy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrganisationType_OrganisationTypeGroup" Association="AdepDatabaseModel.Store.FK_OrganisationType_OrganisationTypeGroup">
+            <End Role="OrganisationTypeGroup" EntitySet="OrganisationTypeGroup" />
+            <End Role="OrganisationType" EntitySet="OrganisationType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrganisationType_ParentOrganisationType" Association="AdepDatabaseModel.Store.FK_OrganisationType_ParentOrganisationType">
+            <End Role="OrganisationType" EntitySet="OrganisationType" />
+            <End Role="OrganisationType1" EntitySet="OrganisationType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Role_Application" Association="AdepDatabaseModel.Store.FK_Role_Application">
+            <End Role="Application" EntitySet="Application" />
+            <End Role="Role" EntitySet="Role" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Role_Organisation" Association="AdepDatabaseModel.Store.FK_Role_Organisation">
+            <End Role="Organisation" EntitySet="Organisation" />
+            <End Role="Role" EntitySet="Role" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Role_Organisation_Security" Association="AdepDatabaseModel.Store.FK_Role_Organisation_Security">
+            <End Role="Organisation" EntitySet="Organisation" />
+            <End Role="Role" EntitySet="Role" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Staff_Grade" Association="AdepDatabaseModel.Store.FK_Staff_Grade">
+            <End Role="Grade" EntitySet="Grade" />
+            <End Role="Staff" EntitySet="Staff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Staff_Organisation" Association="AdepDatabaseModel.Store.FK_Staff_Organisation">
+            <End Role="Organisation" EntitySet="Organisation" />
+            <End Role="Staff" EntitySet="Staff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StaffAttributes_Application" Association="AdepDatabaseModel.Store.FK_StaffAttributes_Application">
+            <End Role="Application" EntitySet="Application" />
+            <End Role="StaffAttributes" EntitySet="StaffAttributes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StaffAttributes_ApplicationAttribute" Association="AdepDatabaseModel.Store.FK_StaffAttributes_ApplicationAttribute">
+            <End Role="ApplicationAttribute" EntitySet="ApplicationAttribute" />
+            <End Role="StaffAttributes" EntitySet="StaffAttributes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StaffAttributes_Organisation_Security" Association="AdepDatabaseModel.Store.FK_StaffAttributes_Organisation_Security">
+            <End Role="Organisation" EntitySet="Organisation" />
+            <End Role="StaffAttributes" EntitySet="StaffAttributes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StaffAttributes_Staff" Association="AdepDatabaseModel.Store.FK_StaffAttributes_Staff">
+            <End Role="Staff" EntitySet="Staff" />
+            <End Role="StaffAttributes" EntitySet="StaffAttributes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StaffDetails_Staff" Association="AdepDatabaseModel.Store.FK_StaffDetails_Staff">
+            <End Role="Staff" EntitySet="Staff" />
+            <End Role="StaffDetails" EntitySet="StaffDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StaffOrganisation_Application" Association="AdepDatabaseModel.Store.FK_StaffOrganisation_Application">
+            <End Role="Application" EntitySet="Application" />
+            <End Role="StaffOrganisation" EntitySet="StaffOrganisation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StaffOrganisation_Organisation" Association="AdepDatabaseModel.Store.FK_StaffOrganisation_Organisation">
+            <End Role="Organisation" EntitySet="Organisation" />
+            <End Role="StaffOrganisation" EntitySet="StaffOrganisation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StaffOrganisation_Staff" Association="AdepDatabaseModel.Store.FK_StaffOrganisation_Staff">
+            <End Role="Staff" EntitySet="Staff" />
+            <End Role="StaffOrganisation" EntitySet="StaffOrganisation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UploadErrorLog_UploadQueue" Association="AdepDatabaseModel.Store.FK_UploadErrorLog_UploadQueue">
+            <End Role="UploadQueue" EntitySet="UploadQueue" />
+            <End Role="UploadErrorLog" EntitySet="UploadErrorLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UploadQueue_Application" Association="AdepDatabaseModel.Store.FK_UploadQueue_Application">
+            <End Role="Application" EntitySet="Application" />
+            <End Role="UploadQueue" EntitySet="UploadQueue" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ADRoleLookup">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SecurityLabel" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ADGroup" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="RoleCode" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="RowIdentifier" Type="timestamp" Nullable="false" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="Application">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SecurityLabel" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ApplicationName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Location" Type="nvarchar" Nullable="false" MaxLength="300" />
+          <Property Name="Description" Type="nvarchar" MaxLength="1000" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="IsSpecificOrganisationAccessRequired" Type="bit" Nullable="false" />
+          <Property Name="RowIdentifier" Type="timestamp" Nullable="false" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="ApplicationAttribute">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ApplicationCode" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AttributeName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="AttributeType" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="IsDataSecurity" Type="bit" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="IsRole" Type="bit" Nullable="false" />
+          <Property Name="RowIdentifier" Type="timestamp" Nullable="false" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="ApplicationAttributeExtension">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ApplicationAttributeCode" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IsStaffAdmin" Type="bit" Nullable="false" />
+          <Property Name="RowIdentifier" Type="timestamp" Nullable="false" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="ApplicationOrganisationTypeGroup">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ApplicationCode" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="OrganisationTypeGroupCode" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RootOrganisationForApplicationCode" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="RowIdentifier" Type="timestamp" Nullable="false" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="Audit">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TypeOfObject" Type="varchar" MaxLength="150" />
+          <Property Name="AuditAction" Type="varchar" MaxLength="50" />
+          <Property Name="ObjectCode" Type="varchar" MaxLength="50" />
+          <Property Name="DateUpdated" Type="datetime" />
+          <Property Name="ChangedBy" Type="varchar" MaxLength="100" />
+          <Property Name="AuditText" Type="varchar(max)" />
+          <Property Name="RowIdentifier" Type="timestamp" Nullable="false" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SecurityLabel" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="60" />
+          <Property Name="IsFrozenRate" Type="bit" Nullable="false" />
+          <Property Name="IsEC" Type="bit" Nullable="false" />
+          <Property Name="IsRA" Type="bit" Nullable="false" />
+          <Property Name="IsANZAC" Type="bit" Nullable="false" />
+          <Property Name="Nationality" Type="nvarchar" MaxLength="50" />
+          <Property Name="CountryCode" Type="nvarchar" Nullable="false" MaxLength="4" />
+          <Property Name="Notes" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="RowIdentifier" Type="timestamp" Nullable="false" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="Grade">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SecurityLabel" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Grade" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="RowIdentifier" Type="timestamp" Nullable="false" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="Holiday">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SecurityLabel" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="IsNational" Type="bit" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="30" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="RowIdentifier" Type="timestamp" Nullable="false" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="NonStandardHoliday">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="Country" Type="nvarchar" MaxLength="100" />
+          <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="30" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="RowIdentifier" Type="timestamp" Nullable="false" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="Organisation">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="1000" />
+          <Property Name="OrganisationTypeCode" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="HEO" Type="nvarchar" MaxLength="35" />
+          <Property Name="DateDeleted" Type="datetime" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="RowIdentifier" Type="timestamp" Nullable="false" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="OrganisationHierarchy">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AncestorOrganisationCode" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="OrganisationCode" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ImmediateParent" Type="bit" Nullable="false" />
+          <Property Name="HopsBetweenOrgAndAncestor" Type="int" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="RowIdentifier" Type="timestamp" Nullable="false" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="OrganisationType">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="LevelNumber" Type="int" Nullable="false" />
+          <Property Name="OrganisationTypeGroupCode" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ParentOrganisationTypeCode" Type="uniqueidentifier" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="RowIdentifier" Type="timestamp" Nullable="false" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="OrganisationTypeGroup">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="RowIdentifier" Type="timestamp" Nullable="false" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SecurityLabel" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ApplicationCode" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="RowIdentifier" Type="timestamp" Nullable="false" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="Staff">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SecurityLabel" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="StaffNumber" Type="nvarchar" Nullable="false" MaxLength="8" />
+          <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="35" />
+          <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="35" />
+          <Property Name="GradeCode" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="RowIdentifier" Type="timestamp" Nullable="false" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="StaffAttributes">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SecurityLabel" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="StaffCode" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ApplicationCode" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ApplicationAttributeCode" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LookupValue" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="RowIdentifier" Type="timestamp" Nullable="false" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="StaffDetails">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="StaffCode" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="StaffOfficeCode" Type="uniqueidentifier" />
+          <Property Name="Section" Type="nvarchar" MaxLength="35" />
+          <Property Name="Room" Type="nvarchar" MaxLength="35" />
+          <Property Name="DirectDialNo" Type="nvarchar" MaxLength="20" />
+          <Property Name="Extension" Type="nvarchar" MaxLength="35" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="RowIdentifier" Type="timestamp" Nullable="false" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="StaffOffices">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="70" />
+          <Property Name="Address1" Type="nvarchar" Nullable="false" MaxLength="35" />
+          <Property Name="Address2" Type="nvarchar" Nullable="false" MaxLength="35" />
+          <Property Name="Address3" Type="nvarchar" MaxLength="35" />
+          <Property Name="Address4" Type="nvarchar" MaxLength="35" />
+          <Property Name="Address5" Type="nvarchar" MaxLength="35" />
+          <Property Name="Postcode" Type="nvarchar" MaxLength="10" />
+          <Property Name="Telephone" Type="nvarchar" MaxLength="20" />
+          <Property Name="OpeningTimes" Type="nvarchar(max)" />
+          <Property Name="RowIdentifier" Type="timestamp" Nullable="false" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="StaffOrganisation">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="StaffCode" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="OrganisationCode" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ApplicationCode" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IsDefault" Type="bit" Nullable="false" />
+          <Property Name="IsCurrent" Type="bit" Nullable="false" />
+          <Property Name="RowIdentifier" Type="timestamp" Nullable="false" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="UploadErrorLog">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UploadCode" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ErrorMessage" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="RowIdentifier" Type="timestamp" Nullable="false" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="UploadQueue">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ApplicationCode" Type="uniqueidentifier" />
+          <Property Name="TempTableName" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="StoredProcedure" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="ConnectionString" Type="nvarchar" Nullable="false" MaxLength="300" />
+          <Property Name="UploadFileName" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="Status" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="RowIdentifier" Type="timestamp" Nullable="false" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <Association Name="FK_ADRoleLookup_Organisation_Security">
+          <End Role="Organisation" Type="AdepDatabaseModel.Store.Organisation" Multiplicity="1" />
+          <End Role="ADRoleLookup" Type="AdepDatabaseModel.Store.ADRoleLookup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organisation">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="ADRoleLookup">
+              <PropertyRef Name="SecurityLabel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ADRoleLookup_Role">
+          <End Role="Role" Type="AdepDatabaseModel.Store.Role" Multiplicity="1" />
+          <End Role="ADRoleLookup" Type="AdepDatabaseModel.Store.ADRoleLookup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="ADRoleLookup">
+              <PropertyRef Name="RoleCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Application_Organisation_Security">
+          <End Role="Organisation" Type="AdepDatabaseModel.Store.Organisation" Multiplicity="1" />
+          <End Role="Application" Type="AdepDatabaseModel.Store.Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organisation">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="SecurityLabel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ApplicationAttribute_Application">
+          <End Role="Application" Type="AdepDatabaseModel.Store.Application" Multiplicity="1" />
+          <End Role="ApplicationAttribute" Type="AdepDatabaseModel.Store.ApplicationAttribute" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Application">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="ApplicationAttribute">
+              <PropertyRef Name="ApplicationCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ApplicationAttributeExtension_ApplicationAttribute1">
+          <End Role="ApplicationAttribute" Type="AdepDatabaseModel.Store.ApplicationAttribute" Multiplicity="1" />
+          <End Role="ApplicationAttributeExtension" Type="AdepDatabaseModel.Store.ApplicationAttributeExtension" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ApplicationAttribute">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="ApplicationAttributeExtension">
+              <PropertyRef Name="ApplicationAttributeCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ApplicationOrganisationTypeGroup_Application">
+          <End Role="Application" Type="AdepDatabaseModel.Store.Application" Multiplicity="1" />
+          <End Role="ApplicationOrganisationTypeGroup" Type="AdepDatabaseModel.Store.ApplicationOrganisationTypeGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Application">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="ApplicationOrganisationTypeGroup">
+              <PropertyRef Name="ApplicationCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ApplicationOrganisationTypeGroup_Organisation">
+          <End Role="Organisation" Type="AdepDatabaseModel.Store.Organisation" Multiplicity="1" />
+          <End Role="ApplicationOrganisationTypeGroup" Type="AdepDatabaseModel.Store.ApplicationOrganisationTypeGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organisation">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="ApplicationOrganisationTypeGroup">
+              <PropertyRef Name="RootOrganisationForApplicationCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ApplicationOrganisationTypeGroup_OrganisationTypeGroup">
+          <End Role="OrganisationTypeGroup" Type="AdepDatabaseModel.Store.OrganisationTypeGroup" Multiplicity="1" />
+          <End Role="ApplicationOrganisationTypeGroup" Type="AdepDatabaseModel.Store.ApplicationOrganisationTypeGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrganisationTypeGroup">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="ApplicationOrganisationTypeGroup">
+              <PropertyRef Name="OrganisationTypeGroupCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Country_Organisation_Security">
+          <End Role="Organisation" Type="AdepDatabaseModel.Store.Organisation" Multiplicity="1" />
+          <End Role="Country" Type="AdepDatabaseModel.Store.Country" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organisation">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="Country">
+              <PropertyRef Name="SecurityLabel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Grade_Organisation">
+          <End Role="Organisation" Type="AdepDatabaseModel.Store.Organisation" Multiplicity="1" />
+          <End Role="Grade" Type="AdepDatabaseModel.Store.Grade" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organisation">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="Grade">
+              <PropertyRef Name="SecurityLabel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Holiday_Organisation_Security">
+          <End Role="Organisation" Type="AdepDatabaseModel.Store.Organisation" Multiplicity="1" />
+          <End Role="Holiday" Type="AdepDatabaseModel.Store.Holiday" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organisation">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="Holiday">
+              <PropertyRef Name="SecurityLabel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Organisation_OrganisationType">
+          <End Role="OrganisationType" Type="AdepDatabaseModel.Store.OrganisationType" Multiplicity="1" />
+          <End Role="Organisation" Type="AdepDatabaseModel.Store.Organisation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrganisationType">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="Organisation">
+              <PropertyRef Name="OrganisationTypeCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrganisationHierarchy_Organisation">
+          <End Role="Organisation" Type="AdepDatabaseModel.Store.Organisation" Multiplicity="1" />
+          <End Role="OrganisationHierarchy" Type="AdepDatabaseModel.Store.OrganisationHierarchy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organisation">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="OrganisationHierarchy">
+              <PropertyRef Name="OrganisationCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrganisationHierarchyAncestor_Organisation">
+          <End Role="Organisation" Type="AdepDatabaseModel.Store.Organisation" Multiplicity="1" />
+          <End Role="OrganisationHierarchy" Type="AdepDatabaseModel.Store.OrganisationHierarchy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organisation">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="OrganisationHierarchy">
+              <PropertyRef Name="AncestorOrganisationCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrganisationType_OrganisationTypeGroup">
+          <End Role="OrganisationTypeGroup" Type="AdepDatabaseModel.Store.OrganisationTypeGroup" Multiplicity="1" />
+          <End Role="OrganisationType" Type="AdepDatabaseModel.Store.OrganisationType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrganisationTypeGroup">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="OrganisationType">
+              <PropertyRef Name="OrganisationTypeGroupCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrganisationType_ParentOrganisationType">
+          <End Role="OrganisationType" Type="AdepDatabaseModel.Store.OrganisationType" Multiplicity="0..1" />
+          <End Role="OrganisationType1" Type="AdepDatabaseModel.Store.OrganisationType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrganisationType">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="OrganisationType1">
+              <PropertyRef Name="ParentOrganisationTypeCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Role_Application">
+          <End Role="Application" Type="AdepDatabaseModel.Store.Application" Multiplicity="1" />
+          <End Role="Role" Type="AdepDatabaseModel.Store.Role" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Application">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="Role">
+              <PropertyRef Name="ApplicationCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Role_Organisation">
+          <End Role="Organisation" Type="AdepDatabaseModel.Store.Organisation" Multiplicity="1" />
+          <End Role="Role" Type="AdepDatabaseModel.Store.Role" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organisation">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="Role">
+              <PropertyRef Name="SecurityLabel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Role_Organisation_Security">
+          <End Role="Organisation" Type="AdepDatabaseModel.Store.Organisation" Multiplicity="1" />
+          <End Role="Role" Type="AdepDatabaseModel.Store.Role" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organisation">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="Role">
+              <PropertyRef Name="SecurityLabel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Staff_Grade">
+          <End Role="Grade" Type="AdepDatabaseModel.Store.Grade" Multiplicity="1" />
+          <End Role="Staff" Type="AdepDatabaseModel.Store.Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Grade">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="GradeCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Staff_Organisation">
+          <End Role="Organisation" Type="AdepDatabaseModel.Store.Organisation" Multiplicity="1" />
+          <End Role="Staff" Type="AdepDatabaseModel.Store.Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organisation">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="SecurityLabel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StaffAttributes_Application">
+          <End Role="Application" Type="AdepDatabaseModel.Store.Application" Multiplicity="1" />
+          <End Role="StaffAttributes" Type="AdepDatabaseModel.Store.StaffAttributes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Application">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="StaffAttributes">
+              <PropertyRef Name="ApplicationCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StaffAttributes_ApplicationAttribute">
+          <End Role="ApplicationAttribute" Type="AdepDatabaseModel.Store.ApplicationAttribute" Multiplicity="1" />
+          <End Role="StaffAttributes" Type="AdepDatabaseModel.Store.StaffAttributes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ApplicationAttribute">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="StaffAttributes">
+              <PropertyRef Name="ApplicationAttributeCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StaffAttributes_Organisation_Security">
+          <End Role="Organisation" Type="AdepDatabaseModel.Store.Organisation" Multiplicity="1" />
+          <End Role="StaffAttributes" Type="AdepDatabaseModel.Store.StaffAttributes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organisation">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="StaffAttributes">
+              <PropertyRef Name="SecurityLabel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StaffAttributes_Staff">
+          <End Role="Staff" Type="AdepDatabaseModel.Store.Staff" Multiplicity="1" />
+          <End Role="StaffAttributes" Type="AdepDatabaseModel.Store.StaffAttributes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="StaffAttributes">
+              <PropertyRef Name="StaffCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StaffDetails_Staff">
+          <End Role="Staff" Type="AdepDatabaseModel.Store.Staff" Multiplicity="1" />
+          <End Role="StaffDetails" Type="AdepDatabaseModel.Store.StaffDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="StaffDetails">
+              <PropertyRef Name="StaffCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StaffOrganisation_Application">
+          <End Role="Application" Type="AdepDatabaseModel.Store.Application" Multiplicity="1" />
+          <End Role="StaffOrganisation" Type="AdepDatabaseModel.Store.StaffOrganisation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Application">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="StaffOrganisation">
+              <PropertyRef Name="ApplicationCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StaffOrganisation_Organisation">
+          <End Role="Organisation" Type="AdepDatabaseModel.Store.Organisation" Multiplicity="1" />
+          <End Role="StaffOrganisation" Type="AdepDatabaseModel.Store.StaffOrganisation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organisation">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="StaffOrganisation">
+              <PropertyRef Name="OrganisationCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StaffOrganisation_Staff">
+          <End Role="Staff" Type="AdepDatabaseModel.Store.Staff" Multiplicity="1" />
+          <End Role="StaffOrganisation" Type="AdepDatabaseModel.Store.StaffOrganisation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="StaffOrganisation">
+              <PropertyRef Name="StaffCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UploadErrorLog_UploadQueue">
+          <End Role="UploadQueue" Type="AdepDatabaseModel.Store.UploadQueue" Multiplicity="1" />
+          <End Role="UploadErrorLog" Type="AdepDatabaseModel.Store.UploadErrorLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UploadQueue">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="UploadErrorLog">
+              <PropertyRef Name="UploadCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UploadQueue_Application">
+          <End Role="Application" Type="AdepDatabaseModel.Store.Application" Multiplicity="0..1" />
+          <End Role="UploadQueue" Type="AdepDatabaseModel.Store.UploadQueue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Application">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="UploadQueue">
+              <PropertyRef Name="ApplicationCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AdepDatabaseModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="AdepDatabaseEntities" annotation:LazyLoadingEnabled="false">
+          <EntitySet Name="ADRoleLookup" EntityType="AdepDatabaseModel.ADRoleLookup" />
+          <EntitySet Name="Application" EntityType="AdepDatabaseModel.Application" />
+          <EntitySet Name="ApplicationAttribute" EntityType="AdepDatabaseModel.ApplicationAttribute" />
+          <EntitySet Name="ApplicationOrganisationTypeGroup" EntityType="AdepDatabaseModel.ApplicationOrganisationTypeGroup" />
+          <EntitySet Name="Audit" EntityType="AdepDatabaseModel.Audit" />
+          <EntitySet Name="Country" EntityType="AdepDatabaseModel.Country" />
+          <EntitySet Name="Grade" EntityType="AdepDatabaseModel.Grade" />
+          <EntitySet Name="Holiday" EntityType="AdepDatabaseModel.Holiday" />
+          <EntitySet Name="Organisation" EntityType="AdepDatabaseModel.Organisation" />
+          <EntitySet Name="OrganisationHierarchy" EntityType="AdepDatabaseModel.OrganisationHierarchy" />
+          <EntitySet Name="OrganisationType" EntityType="AdepDatabaseModel.OrganisationType" />
+          <EntitySet Name="OrganisationTypeGroup" EntityType="AdepDatabaseModel.OrganisationTypeGroup" />
+          <EntitySet Name="Role" EntityType="AdepDatabaseModel.Role" />
+          <EntitySet Name="Staff" EntityType="AdepDatabaseModel.Staff" />
+          <EntitySet Name="StaffAttributes" EntityType="AdepDatabaseModel.StaffAttributes" />
+          <EntitySet Name="StaffDetails" EntityType="AdepDatabaseModel.StaffDetails" />
+          <EntitySet Name="StaffOffices" EntityType="AdepDatabaseModel.StaffOffices" />
+          <EntitySet Name="StaffOrganisation" EntityType="AdepDatabaseModel.StaffOrganisation" />
+          <AssociationSet Name="FK_ADRoleLookup_Organisation_Security" Association="AdepDatabaseModel.FK_ADRoleLookup_Organisation_Security">
+            <End Role="Organisation" EntitySet="Organisation" />
+            <End Role="ADRoleLookup" EntitySet="ADRoleLookup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ADRoleLookup_Role" Association="AdepDatabaseModel.FK_ADRoleLookup_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="ADRoleLookup" EntitySet="ADRoleLookup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Application_Organisation_Security" Association="AdepDatabaseModel.FK_Application_Organisation_Security">
+            <End Role="Organisation" EntitySet="Organisation" />
+            <End Role="Application" EntitySet="Application" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ApplicationAttribute_Application" Association="AdepDatabaseModel.FK_ApplicationAttribute_Application">
+            <End Role="Application" EntitySet="Application" />
+            <End Role="ApplicationAttribute" EntitySet="ApplicationAttribute" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ApplicationOrganisationTypeGroup_Application" Association="AdepDatabaseModel.FK_ApplicationOrganisationTypeGroup_Application">
+            <End Role="Application" EntitySet="Application" />
+            <End Role="ApplicationOrganisationTypeGroup" EntitySet="ApplicationOrganisationTypeGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Role_Application" Association="AdepDatabaseModel.FK_Role_Application">
+            <End Role="Application" EntitySet="Application" />
+            <End Role="Role" EntitySet="Role" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StaffAttributes_Application" Association="AdepDatabaseModel.FK_StaffAttributes_Application">
+            <End Role="Application" EntitySet="Application" />
+            <End Role="StaffAttributes" EntitySet="StaffAttributes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StaffOrganisation_Application" Association="AdepDatabaseModel.FK_StaffOrganisation_Application">
+            <End Role="Application" EntitySet="Application" />
+            <End Role="StaffOrganisation" EntitySet="StaffOrganisation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StaffAttributes_ApplicationAttribute" Association="AdepDatabaseModel.FK_StaffAttributes_ApplicationAttribute">
+            <End Role="ApplicationAttribute" EntitySet="ApplicationAttribute" />
+            <End Role="StaffAttributes" EntitySet="StaffAttributes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ApplicationOrganisationTypeGroup_Organisation" Association="AdepDatabaseModel.FK_ApplicationOrganisationTypeGroup_Organisation">
+            <End Role="Organisation" EntitySet="Organisation" />
+            <End Role="ApplicationOrganisationTypeGroup" EntitySet="ApplicationOrganisationTypeGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ApplicationOrganisationTypeGroup_OrganisationTypeGroup" Association="AdepDatabaseModel.FK_ApplicationOrganisationTypeGroup_OrganisationTypeGroup">
+            <End Role="OrganisationTypeGroup" EntitySet="OrganisationTypeGroup" />
+            <End Role="ApplicationOrganisationTypeGroup" EntitySet="ApplicationOrganisationTypeGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Country_Organisation_Security" Association="AdepDatabaseModel.FK_Country_Organisation_Security">
+            <End Role="Organisation" EntitySet="Organisation" />
+            <End Role="Country" EntitySet="Country" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Grade_Organisation" Association="AdepDatabaseModel.FK_Grade_Organisation">
+            <End Role="Organisation" EntitySet="Organisation" />
+            <End Role="Grade" EntitySet="Grade" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Staff_Grade" Association="AdepDatabaseModel.FK_Staff_Grade">
+            <End Role="Grade" EntitySet="Grade" />
+            <End Role="Staff" EntitySet="Staff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Holiday_Organisation_Security" Association="AdepDatabaseModel.FK_Holiday_Organisation_Security">
+            <End Role="Organisation" EntitySet="Organisation" />
+            <End Role="Holiday" EntitySet="Holiday" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Organisation_OrganisationType" Association="AdepDatabaseModel.FK_Organisation_OrganisationType">
+            <End Role="OrganisationType" EntitySet="OrganisationType" />
+            <End Role="Organisation" EntitySet="Organisation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrganisationHierarchy_Organisation" Association="AdepDatabaseModel.FK_OrganisationHierarchy_Organisation">
+            <End Role="Organisation" EntitySet="Organisation" />
+            <End Role="OrganisationHierarchy" EntitySet="OrganisationHierarchy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrganisationHierarchyAncestor_Organisation" Association="AdepDatabaseModel.FK_OrganisationHierarchyAncestor_Organisation">
+            <End Role="Organisation" EntitySet="Organisation" />
+            <End Role="OrganisationHierarchy" EntitySet="OrganisationHierarchy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Role_Organisation" Association="AdepDatabaseModel.FK_Role_Organisation">
+            <End Role="Organisation" EntitySet="Organisation" />
+            <End Role="Role" EntitySet="Role" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Role_Organisation_Security" Association="AdepDatabaseModel.FK_Role_Organisation_Security">
+            <End Role="Organisation" EntitySet="Organisation" />
+            <End Role="Role" EntitySet="Role" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Staff_Organisation" Association="AdepDatabaseModel.FK_Staff_Organisation">
+            <End Role="Organisation" EntitySet="Organisation" />
+            <End Role="Staff" EntitySet="Staff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StaffAttributes_Organisation_Security" Association="AdepDatabaseModel.FK_StaffAttributes_Organisation_Security">
+            <End Role="Organisation" EntitySet="Organisation" />
+            <End Role="StaffAttributes" EntitySet="StaffAttributes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StaffOrganisation_Organisation" Association="AdepDatabaseModel.FK_StaffOrganisation_Organisation">
+            <End Role="Organisation" EntitySet="Organisation" />
+            <End Role="StaffOrganisation" EntitySet="StaffOrganisation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrganisationType_OrganisationTypeGroup" Association="AdepDatabaseModel.FK_OrganisationType_OrganisationTypeGroup">
+            <End Role="OrganisationTypeGroup" EntitySet="OrganisationTypeGroup" />
+            <End Role="OrganisationType" EntitySet="OrganisationType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrganisationType_ParentOrganisationType" Association="AdepDatabaseModel.FK_OrganisationType_ParentOrganisationType">
+            <End Role="OrganisationType" EntitySet="OrganisationType" />
+            <End Role="OrganisationType1" EntitySet="OrganisationType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StaffAttributes_Staff" Association="AdepDatabaseModel.FK_StaffAttributes_Staff">
+            <End Role="Staff" EntitySet="Staff" />
+            <End Role="StaffAttributes" EntitySet="StaffAttributes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StaffDetails_Staff" Association="AdepDatabaseModel.FK_StaffDetails_Staff">
+            <End Role="Staff" EntitySet="Staff" />
+            <End Role="StaffDetails" EntitySet="StaffDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StaffOrganisation_Staff" Association="AdepDatabaseModel.FK_StaffOrganisation_Staff">
+            <End Role="Staff" EntitySet="Staff" />
+            <End Role="StaffOrganisation" EntitySet="StaffOrganisation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StaffDetails_StaffOffices" Association="AdepDatabaseModel.FK_StaffDetails_StaffOffices">
+            <End Role="StaffOffices" EntitySet="StaffOffices" />
+            <End Role="StaffDetails" EntitySet="StaffDetails" />
+          </AssociationSet>
+          <EntitySet Name="UploadErrorLog" EntityType="AdepDatabaseModel.UploadErrorLog" />
+          <EntitySet Name="UploadQueue" EntityType="AdepDatabaseModel.UploadQueue" />
+          <AssociationSet Name="FK_UploadQueue_Application" Association="AdepDatabaseModel.FK_UploadQueue_Application">
+            <End Role="Application" EntitySet="Application" />
+            <End Role="UploadQueue" EntitySet="UploadQueue" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UploadErrorLog_UploadQueue" Association="AdepDatabaseModel.FK_UploadErrorLog_UploadQueue">
+            <End Role="UploadQueue" EntitySet="UploadQueue" />
+            <End Role="UploadErrorLog" EntitySet="UploadErrorLog" />
+          </AssociationSet>
+          <EntitySet Name="ApplicationAttributeExtension" EntityType="AdepDatabaseModel.ApplicationAttributeExtension" />
+          <AssociationSet Name="FK_ApplicationAttributeExtension_ApplicationAttribute1" Association="AdepDatabaseModel.FK_ApplicationAttributeExtension_ApplicationAttribute1">
+            <End Role="ApplicationAttribute" EntitySet="ApplicationAttribute" />
+            <End Role="ApplicationAttributeExtension" EntitySet="ApplicationAttributeExtension" />
+          </AssociationSet>
+          <EntitySet Name="NonStandardHoliday" EntityType="AdepDatabaseModel.NonStandardHoliday" />
+        </EntityContainer>
+        <EntityType Name="ADRoleLookup">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Type="Guid" Name="Code" Nullable="false" />
+          <Property Type="Guid" Name="SecurityLabel" Nullable="false" />
+          <Property Type="String" Name="ADGroup" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Guid" Name="RoleCode" Nullable="false" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="Binary" Name="RowIdentifier" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="Organisation" Relationship="AdepDatabaseModel.FK_ADRoleLookup_Organisation_Security" FromRole="ADRoleLookup" ToRole="Organisation" />
+          <NavigationProperty Name="Role" Relationship="AdepDatabaseModel.FK_ADRoleLookup_Role" FromRole="ADRoleLookup" ToRole="Role" />
+        </EntityType>
+        <EntityType Name="Application">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Type="Guid" Name="Code" Nullable="false" />
+          <Property Type="Guid" Name="SecurityLabel" Nullable="false" />
+          <Property Type="String" Name="ApplicationName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Location" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="Boolean" Name="IsSpecificOrganisationAccessRequired" Nullable="false" />
+          <Property Type="Binary" Name="RowIdentifier" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="Organisation" Relationship="AdepDatabaseModel.FK_Application_Organisation_Security" FromRole="Application" ToRole="Organisation" />
+          <NavigationProperty Name="ApplicationAttribute" Relationship="AdepDatabaseModel.FK_ApplicationAttribute_Application" FromRole="Application" ToRole="ApplicationAttribute" />
+          <NavigationProperty Name="ApplicationOrganisationTypeGroup" Relationship="AdepDatabaseModel.FK_ApplicationOrganisationTypeGroup_Application" FromRole="Application" ToRole="ApplicationOrganisationTypeGroup" />
+          <NavigationProperty Name="Role" Relationship="AdepDatabaseModel.FK_Role_Application" FromRole="Application" ToRole="Role" />
+          <NavigationProperty Name="StaffAttributes" Relationship="AdepDatabaseModel.FK_StaffAttributes_Application" FromRole="Application" ToRole="StaffAttributes" />
+          <NavigationProperty Name="StaffOrganisation" Relationship="AdepDatabaseModel.FK_StaffOrganisation_Application" FromRole="Application" ToRole="StaffOrganisation" />
+          <NavigationProperty Name="UploadQueue" Relationship="AdepDatabaseModel.FK_UploadQueue_Application" FromRole="Application" ToRole="UploadQueue" />
+        </EntityType>
+        <EntityType Name="ApplicationAttribute">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Type="Guid" Name="Code" Nullable="false" />
+          <Property Type="Guid" Name="ApplicationCode" Nullable="false" />
+          <Property Type="String" Name="AttributeName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AttributeType" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsDataSecurity" Nullable="false" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="Boolean" Name="IsRole" Nullable="false" />
+          <Property Type="Binary" Name="RowIdentifier" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="Application" Relationship="AdepDatabaseModel.FK_ApplicationAttribute_Application" FromRole="ApplicationAttribute" ToRole="Application" />
+          <NavigationProperty Name="StaffAttributes" Relationship="AdepDatabaseModel.FK_StaffAttributes_ApplicationAttribute" FromRole="ApplicationAttribute" ToRole="StaffAttributes" />
+          <NavigationProperty Name="ApplicationAttributeExtension" Relationship="AdepDatabaseModel.FK_ApplicationAttributeExtension_ApplicationAttribute1" FromRole="ApplicationAttribute" ToRole="ApplicationAttributeExtension" />
+        </EntityType>
+        <EntityType Name="ApplicationOrganisationTypeGroup">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Type="Guid" Name="Code" Nullable="false" />
+          <Property Type="Guid" Name="ApplicationCode" Nullable="false" />
+          <Property Type="Guid" Name="OrganisationTypeGroupCode" Nullable="false" />
+          <Property Type="Guid" Name="RootOrganisationForApplicationCode" Nullable="false" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="Binary" Name="RowIdentifier" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="Application" Relationship="AdepDatabaseModel.FK_ApplicationOrganisationTypeGroup_Application" FromRole="ApplicationOrganisationTypeGroup" ToRole="Application" />
+          <NavigationProperty Name="Organisation" Relationship="AdepDatabaseModel.FK_ApplicationOrganisationTypeGroup_Organisation" FromRole="ApplicationOrganisationTypeGroup" ToRole="Organisation" />
+          <NavigationProperty Name="OrganisationTypeGroup" Relationship="AdepDatabaseModel.FK_ApplicationOrganisationTypeGroup_OrganisationTypeGroup" FromRole="ApplicationOrganisationTypeGroup" ToRole="OrganisationTypeGroup" />
+        </EntityType>
+        <EntityType Name="Audit">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Type="Guid" Name="Code" Nullable="false" />
+          <Property Type="String" Name="TypeOfObject" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="AuditAction" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ObjectCode" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="DateUpdated" />
+          <Property Type="String" Name="ChangedBy" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="AuditText" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Binary" Name="RowIdentifier" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Type="Guid" Name="Code" Nullable="false" />
+          <Property Type="Guid" Name="SecurityLabel" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsFrozenRate" Nullable="false" />
+          <Property Type="Boolean" Name="IsEC" Nullable="false" />
+          <Property Type="Boolean" Name="IsRA" Nullable="false" />
+          <Property Type="Boolean" Name="IsANZAC" Nullable="false" />
+          <Property Type="String" Name="Nationality" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CountryCode" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Notes" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="Binary" Name="RowIdentifier" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="Organisation" Relationship="AdepDatabaseModel.FK_Country_Organisation_Security" FromRole="Country" ToRole="Organisation" />
+        </EntityType>
+        <EntityType Name="Grade">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Type="Guid" Name="Code" Nullable="false" />
+          <Property Type="Guid" Name="SecurityLabel" Nullable="false" />
+          <Property Type="String" Name="Grade1" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="Binary" Name="RowIdentifier" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="Organisation" Relationship="AdepDatabaseModel.FK_Grade_Organisation" FromRole="Grade" ToRole="Organisation" />
+          <NavigationProperty Name="Staff" Relationship="AdepDatabaseModel.FK_Staff_Grade" FromRole="Grade" ToRole="Staff" />
+        </EntityType>
+        <EntityType Name="Holiday">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Type="Guid" Name="Code" Nullable="false" />
+          <Property Type="Guid" Name="SecurityLabel" Nullable="false" />
+          <Property Type="DateTime" Name="Date" Nullable="false" />
+          <Property Type="Boolean" Name="IsNational" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="Binary" Name="RowIdentifier" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="Organisation" Relationship="AdepDatabaseModel.FK_Holiday_Organisation_Security" FromRole="Holiday" ToRole="Organisation" />
+        </EntityType>
+        <EntityType Name="Organisation">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Type="Guid" Name="Code" Nullable="false" />
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Type="Guid" Name="OrganisationTypeCode" Nullable="false" />
+          <Property Type="String" Name="HEO" MaxLength="35" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DateDeleted" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="Binary" Name="RowIdentifier" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="ADRoleLookup" Relationship="AdepDatabaseModel.FK_ADRoleLookup_Organisation_Security" FromRole="Organisation" ToRole="ADRoleLookup" />
+          <NavigationProperty Name="Application" Relationship="AdepDatabaseModel.FK_Application_Organisation_Security" FromRole="Organisation" ToRole="Application" />
+          <NavigationProperty Name="ApplicationOrganisationTypeGroup" Relationship="AdepDatabaseModel.FK_ApplicationOrganisationTypeGroup_Organisation" FromRole="Organisation" ToRole="ApplicationOrganisationTypeGroup" />
+          <NavigationProperty Name="Country" Relationship="AdepDatabaseModel.FK_Country_Organisation_Security" FromRole="Organisation" ToRole="Country" />
+          <NavigationProperty Name="Grade" Relationship="AdepDatabaseModel.FK_Grade_Organisation" FromRole="Organisation" ToRole="Grade" />
+          <NavigationProperty Name="Holiday" Relationship="AdepDatabaseModel.FK_Holiday_Organisation_Security" FromRole="Organisation" ToRole="Holiday" />
+          <NavigationProperty Name="OrganisationType" Relationship="AdepDatabaseModel.FK_Organisation_OrganisationType" FromRole="Organisation" ToRole="OrganisationType" />
+          <NavigationProperty Name="OrganisationHierarchy" Relationship="AdepDatabaseModel.FK_OrganisationHierarchy_Organisation" FromRole="Organisation" ToRole="OrganisationHierarchy" />
+          <NavigationProperty Name="OrganisationHierarchy1" Relationship="AdepDatabaseModel.FK_OrganisationHierarchyAncestor_Organisation" FromRole="Organisation" ToRole="OrganisationHierarchy" />
+          <NavigationProperty Name="Role" Relationship="AdepDatabaseModel.FK_Role_Organisation" FromRole="Organisation" ToRole="Role" />
+          <NavigationProperty Name="Role1" Relationship="AdepDatabaseModel.FK_Role_Organisation_Security" FromRole="Organisation" ToRole="Role" />
+          <NavigationProperty Name="Staff" Relationship="AdepDatabaseModel.FK_Staff_Organisation" FromRole="Organisation" ToRole="Staff" />
+          <NavigationProperty Name="StaffAttributes" Relationship="AdepDatabaseModel.FK_StaffAttributes_Organisation_Security" FromRole="Organisation" ToRole="StaffAttributes" />
+          <NavigationProperty Name="StaffOrganisation" Relationship="AdepDatabaseModel.FK_StaffOrganisation_Organisation" FromRole="Organisation" ToRole="StaffOrganisation" />
+        </EntityType>
+        <EntityType Name="OrganisationHierarchy">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Type="Guid" Name="Code" Nullable="false" />
+          <Property Type="Guid" Name="AncestorOrganisationCode" Nullable="false" />
+          <Property Type="Guid" Name="OrganisationCode" Nullable="false" />
+          <Property Type="Boolean" Name="ImmediateParent" Nullable="false" />
+          <Property Type="Int32" Name="HopsBetweenOrgAndAncestor" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="Binary" Name="RowIdentifier" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="Organisation" Relationship="AdepDatabaseModel.FK_OrganisationHierarchy_Organisation" FromRole="OrganisationHierarchy" ToRole="Organisation" />
+          <NavigationProperty Name="Organisation1" Relationship="AdepDatabaseModel.FK_OrganisationHierarchyAncestor_Organisation" FromRole="OrganisationHierarchy" ToRole="Organisation" />
+        </EntityType>
+        <EntityType Name="OrganisationType">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Type="Guid" Name="Code" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="LevelNumber" Nullable="false" />
+          <Property Type="Guid" Name="OrganisationTypeGroupCode" Nullable="false" />
+          <Property Type="Guid" Name="ParentOrganisationTypeCode" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="Binary" Name="RowIdentifier" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="Organisation" Relationship="AdepDatabaseModel.FK_Organisation_OrganisationType" FromRole="OrganisationType" ToRole="Organisation" />
+          <NavigationProperty Name="OrganisationTypeGroup" Relationship="AdepDatabaseModel.FK_OrganisationType_OrganisationTypeGroup" FromRole="OrganisationType" ToRole="OrganisationTypeGroup" />
+          <NavigationProperty Name="OrganisationType1" Relationship="AdepDatabaseModel.FK_OrganisationType_ParentOrganisationType" FromRole="OrganisationType" ToRole="OrganisationType1" />
+          <NavigationProperty Name="OrganisationType2" Relationship="AdepDatabaseModel.FK_OrganisationType_ParentOrganisationType" FromRole="OrganisationType1" ToRole="OrganisationType" />
+        </EntityType>
+        <EntityType Name="OrganisationTypeGroup">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Type="Guid" Name="Code" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="Binary" Name="RowIdentifier" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="ApplicationOrganisationTypeGroup" Relationship="AdepDatabaseModel.FK_ApplicationOrganisationTypeGroup_OrganisationTypeGroup" FromRole="OrganisationTypeGroup" ToRole="ApplicationOrganisationTypeGroup" />
+          <NavigationProperty Name="OrganisationType" Relationship="AdepDatabaseModel.FK_OrganisationType_OrganisationTypeGroup" FromRole="OrganisationTypeGroup" ToRole="OrganisationType" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Type="Guid" Name="Code" Nullable="false" />
+          <Property Type="Guid" Name="SecurityLabel" Nullable="false" />
+          <Property Type="Guid" Name="ApplicationCode" Nullable="false" />
+          <Property Type="String" Name="RoleName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="Binary" Name="RowIdentifier" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="ADRoleLookup" Relationship="AdepDatabaseModel.FK_ADRoleLookup_Role" FromRole="Role" ToRole="ADRoleLookup" />
+          <NavigationProperty Name="Application" Relationship="AdepDatabaseModel.FK_Role_Application" FromRole="Role" ToRole="Application" />
+          <NavigationProperty Name="Organisation" Relationship="AdepDatabaseModel.FK_Role_Organisation" FromRole="Role" ToRole="Organisation" />
+          <NavigationProperty Name="Organisation1" Relationship="AdepDatabaseModel.FK_Role_Organisation_Security" FromRole="Role" ToRole="Organisation" />
+        </EntityType>
+        <EntityType Name="Staff">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Type="Guid" Name="Code" Nullable="false" />
+          <Property Type="Guid" Name="SecurityLabel" Nullable="false" />
+          <Property Type="String" Name="StaffNumber" Nullable="false" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LastName" Nullable="false" MaxLength="35" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="35" FixedLength="false" Unicode="true" />
+          <Property Type="Guid" Name="GradeCode" Nullable="false" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="Binary" Name="RowIdentifier" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="Grade" Relationship="AdepDatabaseModel.FK_Staff_Grade" FromRole="Staff" ToRole="Grade" />
+          <NavigationProperty Name="Organisation" Relationship="AdepDatabaseModel.FK_Staff_Organisation" FromRole="Staff" ToRole="Organisation" />
+          <NavigationProperty Name="StaffAttributes" Relationship="AdepDatabaseModel.FK_StaffAttributes_Staff" FromRole="Staff" ToRole="StaffAttributes" />
+          <NavigationProperty Name="StaffDetails" Relationship="AdepDatabaseModel.FK_StaffDetails_Staff" FromRole="Staff" ToRole="StaffDetails" />
+          <NavigationProperty Name="StaffOrganisation" Relationship="AdepDatabaseModel.FK_StaffOrganisation_Staff" FromRole="Staff" ToRole="StaffOrganisation" />
+        </EntityType>
+        <EntityType Name="StaffAttributes">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Type="Guid" Name="Code" Nullable="false" />
+          <Property Type="Guid" Name="SecurityLabel" Nullable="false" />
+          <Property Type="Guid" Name="StaffCode" Nullable="false" />
+          <Property Type="Guid" Name="ApplicationCode" Nullable="false" />
+          <Property Type="Guid" Name="ApplicationAttributeCode" Nullable="false" />
+          <Property Type="String" Name="LookupValue" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="Binary" Name="RowIdentifier" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="Application" Relationship="AdepDatabaseModel.FK_StaffAttributes_Application" FromRole="StaffAttributes" ToRole="Application" />
+          <NavigationProperty Name="ApplicationAttribute" Relationship="AdepDatabaseModel.FK_StaffAttributes_ApplicationAttribute" FromRole="StaffAttributes" ToRole="ApplicationAttribute" />
+          <NavigationProperty Name="Organisation" Relationship="AdepDatabaseModel.FK_StaffAttributes_Organisation_Security" FromRole="StaffAttributes" ToRole="Organisation" />
+          <NavigationProperty Name="Staff" Relationship="AdepDatabaseModel.FK_StaffAttributes_Staff" FromRole="StaffAttributes" ToRole="Staff" />
+        </EntityType>
+        <EntityType Name="StaffDetails">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Type="Guid" Name="Code" Nullable="false" />
+          <Property Type="Guid" Name="StaffCode" Nullable="false" />
+          <Property Type="Guid" Name="StaffOfficeCode" />
+          <Property Type="String" Name="Section" MaxLength="35" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Room" MaxLength="35" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DirectDialNo" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Extension" MaxLength="35" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Binary" Name="RowIdentifier" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="Staff" Relationship="AdepDatabaseModel.FK_StaffDetails_Staff" FromRole="StaffDetails" ToRole="Staff" />
+          <NavigationProperty Name="StaffOffices" Relationship="AdepDatabaseModel.FK_StaffDetails_StaffOffices" FromRole="StaffDetails" ToRole="StaffOffices" />
+        </EntityType>
+        <EntityType Name="StaffOffices">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Type="Guid" Name="Code" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Address1" Nullable="false" MaxLength="35" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Address2" Nullable="false" MaxLength="35" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Address3" MaxLength="35" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Address4" MaxLength="35" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Address5" MaxLength="35" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Postcode" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Telephone" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="OpeningTimes" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Binary" Name="RowIdentifier" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="StaffDetails" Relationship="AdepDatabaseModel.FK_StaffDetails_StaffOffices" FromRole="StaffOffices" ToRole="StaffDetails" />
+        </EntityType>
+        <EntityType Name="StaffOrganisation">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Type="Guid" Name="Code" Nullable="false" />
+          <Property Type="Guid" Name="StaffCode" Nullable="false" />
+          <Property Type="Guid" Name="OrganisationCode" Nullable="false" />
+          <Property Type="Guid" Name="ApplicationCode" Nullable="false" />
+          <Property Type="Boolean" Name="IsDefault" Nullable="false" />
+          <Property Type="Boolean" Name="IsCurrent" Nullable="false" />
+          <Property Type="Binary" Name="RowIdentifier" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="Application" Relationship="AdepDatabaseModel.FK_StaffOrganisation_Application" FromRole="StaffOrganisation" ToRole="Application" />
+          <NavigationProperty Name="Organisation" Relationship="AdepDatabaseModel.FK_StaffOrganisation_Organisation" FromRole="StaffOrganisation" ToRole="Organisation" />
+          <NavigationProperty Name="Staff" Relationship="AdepDatabaseModel.FK_StaffOrganisation_Staff" FromRole="StaffOrganisation" ToRole="Staff" />
+        </EntityType>
+        <Association Name="FK_ADRoleLookup_Organisation_Security">
+          <End Type="AdepDatabaseModel.Organisation" Role="Organisation" Multiplicity="1" />
+          <End Type="AdepDatabaseModel.ADRoleLookup" Role="ADRoleLookup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organisation">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="ADRoleLookup">
+              <PropertyRef Name="SecurityLabel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ADRoleLookup_Role">
+          <End Type="AdepDatabaseModel.Role" Role="Role" Multiplicity="1" />
+          <End Type="AdepDatabaseModel.ADRoleLookup" Role="ADRoleLookup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="ADRoleLookup">
+              <PropertyRef Name="RoleCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Application_Organisation_Security">
+          <End Type="AdepDatabaseModel.Organisation" Role="Organisation" Multiplicity="1" />
+          <End Type="AdepDatabaseModel.Application" Role="Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organisation">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="SecurityLabel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ApplicationAttribute_Application">
+          <End Type="AdepDatabaseModel.Application" Role="Application" Multiplicity="1" />
+          <End Type="AdepDatabaseModel.ApplicationAttribute" Role="ApplicationAttribute" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Application">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="ApplicationAttribute">
+              <PropertyRef Name="ApplicationCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ApplicationOrganisationTypeGroup_Application">
+          <End Type="AdepDatabaseModel.Application" Role="Application" Multiplicity="1" />
+          <End Type="AdepDatabaseModel.ApplicationOrganisationTypeGroup" Role="ApplicationOrganisationTypeGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Application">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="ApplicationOrganisationTypeGroup">
+              <PropertyRef Name="ApplicationCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Role_Application">
+          <End Type="AdepDatabaseModel.Application" Role="Application" Multiplicity="1" />
+          <End Type="AdepDatabaseModel.Role" Role="Role" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Application">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="Role">
+              <PropertyRef Name="ApplicationCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StaffAttributes_Application">
+          <End Type="AdepDatabaseModel.Application" Role="Application" Multiplicity="1" />
+          <End Type="AdepDatabaseModel.StaffAttributes" Role="StaffAttributes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Application">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="StaffAttributes">
+              <PropertyRef Name="ApplicationCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StaffOrganisation_Application">
+          <End Type="AdepDatabaseModel.Application" Role="Application" Multiplicity="1" />
+          <End Type="AdepDatabaseModel.StaffOrganisation" Role="StaffOrganisation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Application">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="StaffOrganisation">
+              <PropertyRef Name="ApplicationCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StaffAttributes_ApplicationAttribute">
+          <End Type="AdepDatabaseModel.ApplicationAttribute" Role="ApplicationAttribute" Multiplicity="1" />
+          <End Type="AdepDatabaseModel.StaffAttributes" Role="StaffAttributes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ApplicationAttribute">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="StaffAttributes">
+              <PropertyRef Name="ApplicationAttributeCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ApplicationOrganisationTypeGroup_Organisation">
+          <End Type="AdepDatabaseModel.Organisation" Role="Organisation" Multiplicity="1" />
+          <End Type="AdepDatabaseModel.ApplicationOrganisationTypeGroup" Role="ApplicationOrganisationTypeGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organisation">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="ApplicationOrganisationTypeGroup">
+              <PropertyRef Name="RootOrganisationForApplicationCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ApplicationOrganisationTypeGroup_OrganisationTypeGroup">
+          <End Type="AdepDatabaseModel.OrganisationTypeGroup" Role="OrganisationTypeGroup" Multiplicity="1" />
+          <End Type="AdepDatabaseModel.ApplicationOrganisationTypeGroup" Role="ApplicationOrganisationTypeGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrganisationTypeGroup">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="ApplicationOrganisationTypeGroup">
+              <PropertyRef Name="OrganisationTypeGroupCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Country_Organisation_Security">
+          <End Type="AdepDatabaseModel.Organisation" Role="Organisation" Multiplicity="1" />
+          <End Type="AdepDatabaseModel.Country" Role="Country" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organisation">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="Country">
+              <PropertyRef Name="SecurityLabel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Grade_Organisation">
+          <End Type="AdepDatabaseModel.Organisation" Role="Organisation" Multiplicity="1" />
+          <End Type="AdepDatabaseModel.Grade" Role="Grade" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organisation">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="Grade">
+              <PropertyRef Name="SecurityLabel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Staff_Grade">
+          <End Type="AdepDatabaseModel.Grade" Role="Grade" Multiplicity="1" />
+          <End Type="AdepDatabaseModel.Staff" Role="Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Grade">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="GradeCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Holiday_Organisation_Security">
+          <End Type="AdepDatabaseModel.Organisation" Role="Organisation" Multiplicity="1" />
+          <End Type="AdepDatabaseModel.Holiday" Role="Holiday" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organisation">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="Holiday">
+              <PropertyRef Name="SecurityLabel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Organisation_OrganisationType">
+          <End Type="AdepDatabaseModel.OrganisationType" Role="OrganisationType" Multiplicity="1" />
+          <End Type="AdepDatabaseModel.Organisation" Role="Organisation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrganisationType">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="Organisation">
+              <PropertyRef Name="OrganisationTypeCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrganisationHierarchy_Organisation">
+          <End Type="AdepDatabaseModel.Organisation" Role="Organisation" Multiplicity="1" />
+          <End Type="AdepDatabaseModel.OrganisationHierarchy" Role="OrganisationHierarchy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organisation">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="OrganisationHierarchy">
+              <PropertyRef Name="OrganisationCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrganisationHierarchyAncestor_Organisation">
+          <End Type="AdepDatabaseModel.Organisation" Role="Organisation" Multiplicity="1" />
+          <End Type="AdepDatabaseModel.OrganisationHierarchy" Role="OrganisationHierarchy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organisation">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="OrganisationHierarchy">
+              <PropertyRef Name="AncestorOrganisationCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Role_Organisation">
+          <End Type="AdepDatabaseModel.Organisation" Role="Organisation" Multiplicity="1" />
+          <End Type="AdepDatabaseModel.Role" Role="Role" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organisation">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="Role">
+              <PropertyRef Name="SecurityLabel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Role_Organisation_Security">
+          <End Type="AdepDatabaseModel.Organisation" Role="Organisation" Multiplicity="1" />
+          <End Type="AdepDatabaseModel.Role" Role="Role" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organisation">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="Role">
+              <PropertyRef Name="SecurityLabel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Staff_Organisation">
+          <End Type="AdepDatabaseModel.Organisation" Role="Organisation" Multiplicity="1" />
+          <End Type="AdepDatabaseModel.Staff" Role="Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organisation">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="SecurityLabel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StaffAttributes_Organisation_Security">
+          <End Type="AdepDatabaseModel.Organisation" Role="Organisation" Multiplicity="1" />
+          <End Type="AdepDatabaseModel.StaffAttributes" Role="StaffAttributes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organisation">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="StaffAttributes">
+              <PropertyRef Name="SecurityLabel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StaffOrganisation_Organisation">
+          <End Type="AdepDatabaseModel.Organisation" Role="Organisation" Multiplicity="1" />
+          <End Type="AdepDatabaseModel.StaffOrganisation" Role="StaffOrganisation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organisation">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="StaffOrganisation">
+              <PropertyRef Name="OrganisationCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrganisationType_OrganisationTypeGroup">
+          <End Type="AdepDatabaseModel.OrganisationTypeGroup" Role="OrganisationTypeGroup" Multiplicity="1" />
+          <End Type="AdepDatabaseModel.OrganisationType" Role="OrganisationType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrganisationTypeGroup">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="OrganisationType">
+              <PropertyRef Name="OrganisationTypeGroupCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrganisationType_ParentOrganisationType">
+          <End Type="AdepDatabaseModel.OrganisationType" Role="OrganisationType" Multiplicity="0..1" />
+          <End Type="AdepDatabaseModel.OrganisationType" Role="OrganisationType1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrganisationType">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="OrganisationType1">
+              <PropertyRef Name="ParentOrganisationTypeCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StaffAttributes_Staff">
+          <End Type="AdepDatabaseModel.Staff" Role="Staff" Multiplicity="1" />
+          <End Type="AdepDatabaseModel.StaffAttributes" Role="StaffAttributes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="StaffAttributes">
+              <PropertyRef Name="StaffCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StaffDetails_Staff">
+          <End Type="AdepDatabaseModel.Staff" Role="Staff" Multiplicity="1" />
+          <End Type="AdepDatabaseModel.StaffDetails" Role="StaffDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="StaffDetails">
+              <PropertyRef Name="StaffCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StaffOrganisation_Staff">
+          <End Type="AdepDatabaseModel.Staff" Role="Staff" Multiplicity="1" />
+          <End Type="AdepDatabaseModel.StaffOrganisation" Role="StaffOrganisation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="StaffOrganisation">
+              <PropertyRef Name="StaffCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StaffDetails_StaffOffices">
+          <End Type="AdepDatabaseModel.StaffOffices" Role="StaffOffices" Multiplicity="0..1" />
+          <End Type="AdepDatabaseModel.StaffDetails" Role="StaffDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StaffOffices">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="StaffDetails">
+              <PropertyRef Name="StaffOfficeCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="UploadErrorLog">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Type="Guid" Name="Code" Nullable="false" />
+          <Property Type="Guid" Name="UploadCode" Nullable="false" />
+          <Property Type="String" Name="ErrorMessage" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="Binary" Name="RowIdentifier" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="UploadQueue" Relationship="AdepDatabaseModel.FK_UploadErrorLog_UploadQueue" FromRole="UploadErrorLog" ToRole="UploadQueue" />
+        </EntityType>
+        <EntityType Name="UploadQueue">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Type="Guid" Name="Code" Nullable="false" />
+          <Property Type="Guid" Name="ApplicationCode" />
+          <Property Type="String" Name="TempTableName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="StoredProcedure" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ConnectionString" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="UploadFileName" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="Binary" Name="RowIdentifier" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="Application" Relationship="AdepDatabaseModel.FK_UploadQueue_Application" FromRole="UploadQueue" ToRole="Application" />
+          <NavigationProperty Name="UploadErrorLog" Relationship="AdepDatabaseModel.FK_UploadErrorLog_UploadQueue" FromRole="UploadQueue" ToRole="UploadErrorLog" />
+        </EntityType>
+        <Association Name="FK_UploadQueue_Application">
+          <End Type="AdepDatabaseModel.Application" Role="Application" Multiplicity="0..1" />
+          <End Type="AdepDatabaseModel.UploadQueue" Role="UploadQueue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Application">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="UploadQueue">
+              <PropertyRef Name="ApplicationCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UploadErrorLog_UploadQueue">
+          <End Type="AdepDatabaseModel.UploadQueue" Role="UploadQueue" Multiplicity="1" />
+          <End Type="AdepDatabaseModel.UploadErrorLog" Role="UploadErrorLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UploadQueue">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="UploadErrorLog">
+              <PropertyRef Name="UploadCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ApplicationAttributeExtension">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Type="Guid" Name="Code" Nullable="false" />
+          <Property Type="Guid" Name="ApplicationAttributeCode" Nullable="false" />
+          <Property Type="Boolean" Name="IsStaffAdmin" Nullable="false" />
+          <Property Type="Binary" Name="RowIdentifier" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="ApplicationAttribute" Relationship="AdepDatabaseModel.FK_ApplicationAttributeExtension_ApplicationAttribute1" FromRole="ApplicationAttributeExtension" ToRole="ApplicationAttribute" />
+        </EntityType>
+        <Association Name="FK_ApplicationAttributeExtension_ApplicationAttribute1">
+          <End Type="AdepDatabaseModel.ApplicationAttribute" Role="ApplicationAttribute" Multiplicity="1" />
+          <End Type="AdepDatabaseModel.ApplicationAttributeExtension" Role="ApplicationAttributeExtension" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ApplicationAttribute">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="ApplicationAttributeExtension">
+              <PropertyRef Name="ApplicationAttributeCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="NonStandardHoliday">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Type="Guid" Name="Code" Nullable="false" />
+          <Property Type="DateTime" Name="Date" Nullable="false" />
+          <Property Type="String" Name="Country" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="Binary" Name="RowIdentifier" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AdepDatabaseModelStoreContainer" CdmEntityContainer="AdepDatabaseEntities">
+          <EntitySetMapping Name="ADRoleLookup">
+            <EntityTypeMapping TypeName="AdepDatabaseModel.ADRoleLookup">
+              <MappingFragment StoreEntitySet="ADRoleLookup">
+                <ScalarProperty Name="RowIdentifier" ColumnName="RowIdentifier" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="RoleCode" ColumnName="RoleCode" />
+                <ScalarProperty Name="ADGroup" ColumnName="ADGroup" />
+                <ScalarProperty Name="SecurityLabel" ColumnName="SecurityLabel" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Application">
+            <EntityTypeMapping TypeName="AdepDatabaseModel.Application">
+              <MappingFragment StoreEntitySet="Application">
+                <ScalarProperty Name="RowIdentifier" ColumnName="RowIdentifier" />
+                <ScalarProperty Name="IsSpecificOrganisationAccessRequired" ColumnName="IsSpecificOrganisationAccessRequired" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="ApplicationName" ColumnName="ApplicationName" />
+                <ScalarProperty Name="SecurityLabel" ColumnName="SecurityLabel" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ApplicationAttribute">
+            <EntityTypeMapping TypeName="AdepDatabaseModel.ApplicationAttribute">
+              <MappingFragment StoreEntitySet="ApplicationAttribute">
+                <ScalarProperty Name="RowIdentifier" ColumnName="RowIdentifier" />
+                <ScalarProperty Name="IsRole" ColumnName="IsRole" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDataSecurity" ColumnName="IsDataSecurity" />
+                <ScalarProperty Name="AttributeType" ColumnName="AttributeType" />
+                <ScalarProperty Name="AttributeName" ColumnName="AttributeName" />
+                <ScalarProperty Name="ApplicationCode" ColumnName="ApplicationCode" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ApplicationOrganisationTypeGroup">
+            <EntityTypeMapping TypeName="AdepDatabaseModel.ApplicationOrganisationTypeGroup">
+              <MappingFragment StoreEntitySet="ApplicationOrganisationTypeGroup">
+                <ScalarProperty Name="RowIdentifier" ColumnName="RowIdentifier" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="RootOrganisationForApplicationCode" ColumnName="RootOrganisationForApplicationCode" />
+                <ScalarProperty Name="OrganisationTypeGroupCode" ColumnName="OrganisationTypeGroupCode" />
+                <ScalarProperty Name="ApplicationCode" ColumnName="ApplicationCode" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Audit">
+            <EntityTypeMapping TypeName="AdepDatabaseModel.Audit">
+              <MappingFragment StoreEntitySet="Audit">
+                <ScalarProperty Name="RowIdentifier" ColumnName="RowIdentifier" />
+                <ScalarProperty Name="AuditText" ColumnName="AuditText" />
+                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+                <ScalarProperty Name="ObjectCode" ColumnName="ObjectCode" />
+                <ScalarProperty Name="AuditAction" ColumnName="AuditAction" />
+                <ScalarProperty Name="TypeOfObject" ColumnName="TypeOfObject" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Country">
+            <EntityTypeMapping TypeName="AdepDatabaseModel.Country">
+              <MappingFragment StoreEntitySet="Country">
+                <ScalarProperty Name="RowIdentifier" ColumnName="RowIdentifier" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+                <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+                <ScalarProperty Name="IsANZAC" ColumnName="IsANZAC" />
+                <ScalarProperty Name="IsRA" ColumnName="IsRA" />
+                <ScalarProperty Name="IsEC" ColumnName="IsEC" />
+                <ScalarProperty Name="IsFrozenRate" ColumnName="IsFrozenRate" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="SecurityLabel" ColumnName="SecurityLabel" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Grade">
+            <EntityTypeMapping TypeName="AdepDatabaseModel.Grade">
+              <MappingFragment StoreEntitySet="Grade">
+                <ScalarProperty Name="RowIdentifier" ColumnName="RowIdentifier" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Grade1" ColumnName="Grade" />
+                <ScalarProperty Name="SecurityLabel" ColumnName="SecurityLabel" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Holiday">
+            <EntityTypeMapping TypeName="AdepDatabaseModel.Holiday">
+              <MappingFragment StoreEntitySet="Holiday">
+                <ScalarProperty Name="RowIdentifier" ColumnName="RowIdentifier" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="IsNational" ColumnName="IsNational" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="SecurityLabel" ColumnName="SecurityLabel" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Organisation">
+            <EntityTypeMapping TypeName="AdepDatabaseModel.Organisation">
+              <MappingFragment StoreEntitySet="Organisation">
+                <ScalarProperty Name="RowIdentifier" ColumnName="RowIdentifier" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="DateDeleted" ColumnName="DateDeleted" />
+                <ScalarProperty Name="HEO" ColumnName="HEO" />
+                <ScalarProperty Name="OrganisationTypeCode" ColumnName="OrganisationTypeCode" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrganisationHierarchy">
+            <EntityTypeMapping TypeName="AdepDatabaseModel.OrganisationHierarchy">
+              <MappingFragment StoreEntitySet="OrganisationHierarchy">
+                <ScalarProperty Name="RowIdentifier" ColumnName="RowIdentifier" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="HopsBetweenOrgAndAncestor" ColumnName="HopsBetweenOrgAndAncestor" />
+                <ScalarProperty Name="ImmediateParent" ColumnName="ImmediateParent" />
+                <ScalarProperty Name="OrganisationCode" ColumnName="OrganisationCode" />
+                <ScalarProperty Name="AncestorOrganisationCode" ColumnName="AncestorOrganisationCode" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrganisationType">
+            <EntityTypeMapping TypeName="AdepDatabaseModel.OrganisationType">
+              <MappingFragment StoreEntitySet="OrganisationType">
+                <ScalarProperty Name="RowIdentifier" ColumnName="RowIdentifier" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ParentOrganisationTypeCode" ColumnName="ParentOrganisationTypeCode" />
+                <ScalarProperty Name="OrganisationTypeGroupCode" ColumnName="OrganisationTypeGroupCode" />
+                <ScalarProperty Name="LevelNumber" ColumnName="LevelNumber" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrganisationTypeGroup">
+            <EntityTypeMapping TypeName="AdepDatabaseModel.OrganisationTypeGroup">
+              <MappingFragment StoreEntitySet="OrganisationTypeGroup">
+                <ScalarProperty Name="RowIdentifier" ColumnName="RowIdentifier" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Role">
+            <EntityTypeMapping TypeName="AdepDatabaseModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="RowIdentifier" ColumnName="RowIdentifier" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="ApplicationCode" ColumnName="ApplicationCode" />
+                <ScalarProperty Name="SecurityLabel" ColumnName="SecurityLabel" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Staff">
+            <EntityTypeMapping TypeName="AdepDatabaseModel.Staff">
+              <MappingFragment StoreEntitySet="Staff">
+                <ScalarProperty Name="RowIdentifier" ColumnName="RowIdentifier" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="GradeCode" ColumnName="GradeCode" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="StaffNumber" ColumnName="StaffNumber" />
+                <ScalarProperty Name="SecurityLabel" ColumnName="SecurityLabel" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StaffAttributes">
+            <EntityTypeMapping TypeName="AdepDatabaseModel.StaffAttributes">
+              <MappingFragment StoreEntitySet="StaffAttributes">
+                <ScalarProperty Name="RowIdentifier" ColumnName="RowIdentifier" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="LookupValue" ColumnName="LookupValue" />
+                <ScalarProperty Name="ApplicationAttributeCode" ColumnName="ApplicationAttributeCode" />
+                <ScalarProperty Name="ApplicationCode" ColumnName="ApplicationCode" />
+                <ScalarProperty Name="StaffCode" ColumnName="StaffCode" />
+                <ScalarProperty Name="SecurityLabel" ColumnName="SecurityLabel" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StaffDetails">
+            <EntityTypeMapping TypeName="AdepDatabaseModel.StaffDetails">
+              <MappingFragment StoreEntitySet="StaffDetails">
+                <ScalarProperty Name="RowIdentifier" ColumnName="RowIdentifier" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Extension" ColumnName="Extension" />
+                <ScalarProperty Name="DirectDialNo" ColumnName="DirectDialNo" />
+                <ScalarProperty Name="Room" ColumnName="Room" />
+                <ScalarProperty Name="Section" ColumnName="Section" />
+                <ScalarProperty Name="StaffOfficeCode" ColumnName="StaffOfficeCode" />
+                <ScalarProperty Name="StaffCode" ColumnName="StaffCode" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StaffOffices">
+            <EntityTypeMapping TypeName="AdepDatabaseModel.StaffOffices">
+              <MappingFragment StoreEntitySet="StaffOffices">
+                <ScalarProperty Name="RowIdentifier" ColumnName="RowIdentifier" />
+                <ScalarProperty Name="OpeningTimes" ColumnName="OpeningTimes" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="Postcode" ColumnName="Postcode" />
+                <ScalarProperty Name="Address5" ColumnName="Address5" />
+                <ScalarProperty Name="Address4" ColumnName="Address4" />
+                <ScalarProperty Name="Address3" ColumnName="Address3" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StaffOrganisation">
+            <EntityTypeMapping TypeName="AdepDatabaseModel.StaffOrganisation">
+              <MappingFragment StoreEntitySet="StaffOrganisation">
+                <ScalarProperty Name="RowIdentifier" ColumnName="RowIdentifier" />
+                <ScalarProperty Name="IsCurrent" ColumnName="IsCurrent" />
+                <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+                <ScalarProperty Name="ApplicationCode" ColumnName="ApplicationCode" />
+                <ScalarProperty Name="OrganisationCode" ColumnName="OrganisationCode" />
+                <ScalarProperty Name="StaffCode" ColumnName="StaffCode" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UploadErrorLog">
+            <EntityTypeMapping TypeName="AdepDatabaseModel.UploadErrorLog">
+              <MappingFragment StoreEntitySet="UploadErrorLog">
+                <ScalarProperty Name="RowIdentifier" ColumnName="RowIdentifier" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ErrorMessage" ColumnName="ErrorMessage" />
+                <ScalarProperty Name="UploadCode" ColumnName="UploadCode" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UploadQueue">
+            <EntityTypeMapping TypeName="AdepDatabaseModel.UploadQueue">
+              <MappingFragment StoreEntitySet="UploadQueue">
+                <ScalarProperty Name="RowIdentifier" ColumnName="RowIdentifier" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="UploadFileName" ColumnName="UploadFileName" />
+                <ScalarProperty Name="ConnectionString" ColumnName="ConnectionString" />
+                <ScalarProperty Name="StoredProcedure" ColumnName="StoredProcedure" />
+                <ScalarProperty Name="TempTableName" ColumnName="TempTableName" />
+                <ScalarProperty Name="ApplicationCode" ColumnName="ApplicationCode" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ApplicationAttributeExtension">
+            <EntityTypeMapping TypeName="AdepDatabaseModel.ApplicationAttributeExtension">
+              <MappingFragment StoreEntitySet="ApplicationAttributeExtension">
+                <ScalarProperty Name="RowIdentifier" ColumnName="RowIdentifier" />
+                <ScalarProperty Name="IsStaffAdmin" ColumnName="IsStaffAdmin" />
+                <ScalarProperty Name="ApplicationAttributeCode" ColumnName="ApplicationAttributeCode" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NonStandardHoliday">
+            <EntityTypeMapping TypeName="AdepDatabaseModel.NonStandardHoliday">
+              <MappingFragment StoreEntitySet="NonStandardHoliday">
+                <ScalarProperty Name="RowIdentifier" ColumnName="RowIdentifier" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Model1" ZoomLevel="85">
+        <AssociationConnector Association="AdepDatabaseModel.FK_ApplicationOrganisationTypeGroup_OrganisationType" >
+          <ConnectorPoint PointX="3.75" PointY="62.375" />
+          <ConnectorPoint PointX="3.75" PointY="52.682079011859834" />
+          <ConnectorPoint PointX="5.459632604166667" PointY="52.682079011859834" />
+          <ConnectorPoint PointX="5.626299270833333" PointY="52.682079011859834" />
+          <ConnectorPoint PointX="5.8151035416666668" PointY="52.682079011859834" />
+          <ConnectorPoint PointX="5.9817702083333328" PointY="52.682079011859834" />
+          <ConnectorPoint PointX="6.5260454166666664" PointY="52.682079011859834" />
+          <ConnectorPoint PointX="6.6927120833333325" PointY="52.682079011859834" />
+          <ConnectorPoint PointX="7.7604146666666667" PointY="52.682079011859834" />
+          <ConnectorPoint PointX="7.9270813333333328" PointY="52.682079011859834" />
+          <ConnectorPoint PointX="8.7760454166666673" PointY="52.682079011859834" />
+          <ConnectorPoint PointX="8.9427120833333351" PointY="52.682079011859834" />
+          <ConnectorPoint PointX="9.2916666666666661" PointY="52.682079011859834" />
+          <ConnectorPoint PointX="9.4583333333333339" PointY="52.682079011859834" />
+          <ConnectorPoint PointX="9.75" PointY="52.682079011859834" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="AdepDatabaseModel.ADRoleLookup" Width="1.5" PointX="10.5" PointY="25.125" Height="2.5571907552083388" />
+        <EntityTypeShape EntityType="AdepDatabaseModel.Application" Width="1.5" PointX="7.5" PointY="16.75" Height="3.7109993489583246" />
+        <EntityTypeShape EntityType="AdepDatabaseModel.ApplicationAttribute" Width="1.5" PointX="9.75" PointY="17.125" Height="2.9417936197916674" />
+        <EntityTypeShape EntityType="AdepDatabaseModel.ApplicationOrganisationTypeGroup" Width="1.5" PointX="9.75" PointY="21.5" Height="2.7494921875000102" />
+        <EntityTypeShape EntityType="AdepDatabaseModel.Audit" Width="1.5" PointX="0.75" PointY="0.75" Height="2.5571907552083246" />
+        <EntityTypeShape EntityType="AdepDatabaseModel.Country" Width="1.5" PointX="7.5" PointY="21.25" Height="3.5186979166666674" />
+        <EntityTypeShape EntityType="AdepDatabaseModel.Grade" Width="1.5" PointX="7.5" PointY="25.5" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="AdepDatabaseModel.Holiday" Width="1.5" PointX="7.5" PointY="28.625" Height="2.5571907552083246" />
+        <EntityTypeShape EntityType="AdepDatabaseModel.Organisation" Width="1.5" PointX="5.25" PointY="19.75" Height="5.2494108072916674" />
+        <EntityTypeShape EntityType="AdepDatabaseModel.OrganisationHierarchy" Width="1.5" PointX="7.5" PointY="31.875" Height="2.7494921875000102" />
+        <EntityTypeShape EntityType="AdepDatabaseModel.OrganisationType" Width="1.5" PointX="3" PointY="20.875" Height="3.1340950520833246" />
+        <EntityTypeShape EntityType="AdepDatabaseModel.OrganisationTypeGroup" Width="1.5" PointX="0.75" PointY="17.75" Height="2.1725878906250102" />
+        <EntityTypeShape EntityType="AdepDatabaseModel.Role" Width="1.5" PointX="12.75" PointY="15.375" Height="2.9417936197916674" />
+        <EntityTypeShape EntityType="AdepDatabaseModel.Staff" Width="1.5" PointX="12.75" PointY="28" Height="3.5186979166666674" />
+        <EntityTypeShape EntityType="AdepDatabaseModel.StaffAttributes" Width="1.5" PointX="12" PointY="19.25" Height="3.3263964843749818" />
+        <EntityTypeShape EntityType="AdepDatabaseModel.StaffDetails" Width="1.5" PointX="15" PointY="28.25" Height="3.1340950520833246" />
+        <EntityTypeShape EntityType="AdepDatabaseModel.StaffOffices" Width="1.5" PointX="12.75" PointY="33.125" Height="3.3263964843749818" />
+        <EntityTypeShape EntityType="AdepDatabaseModel.StaffOrganisation" Width="1.5" PointX="12.75" PointY="23.375" Height="2.9417936197916674" />
+        <AssociationConnector Association="AdepDatabaseModel.FK_ADRoleLookup_Organisation_Security" >
+          <ConnectorPoint PointX="6.75" PointY="20.903577532552085" />
+          <ConnectorPoint PointX="6.979166666666667" PointY="20.903577532552085" />
+          <ConnectorPoint PointX="7.145833333333333" PointY="20.903577532552085" />
+          <ConnectorPoint PointX="9.1427126487379784" PointY="20.903577532552085" />
+          <ConnectorPoint PointX="9.3589957000200332" PointY="20.903577532552085" />
+          <ConnectorPoint PointX="10.416666666666666" PointY="20.903577532552085" />
+          <ConnectorPoint PointX="10.583333333333334" PointY="20.903577532552085" />
+          <ConnectorPoint PointX="11.53124875" PointY="20.903577532552085" />
+          <ConnectorPoint PointX="11.53124875" PointY="25.125" />
+        </AssociationConnector>
+        <AssociationConnector Association="AdepDatabaseModel.FK_ADRoleLookup_Role" >
+          <ConnectorPoint PointX="12.75" PointY="16.51536859375" />
+          <ConnectorPoint PointX="11.8125025" PointY="16.51536859375" />
+          <ConnectorPoint PointX="11.8125025" PointY="25.125" />
+        </AssociationConnector>
+        <AssociationConnector Association="AdepDatabaseModel.FK_Application_Organisation_Security" >
+          <ConnectorPoint PointX="6.75" PointY="20.201650390625" />
+          <ConnectorPoint PointX="6.979166666666667" PointY="20.201650390625" />
+          <ConnectorPoint PointX="7.145833333333333" PointY="20.201650390625" />
+          <ConnectorPoint PointX="7.166666666666667" PointY="20.201650390625" />
+          <ConnectorPoint PointX="7.333333333333333" PointY="20.201650390625" />
+          <ConnectorPoint PointX="7.5" PointY="20.201650390625" />
+        </AssociationConnector>
+        <AssociationConnector Association="AdepDatabaseModel.FK_ApplicationAttribute_Application" >
+          <ConnectorPoint PointX="9" PointY="18.692047526041669" />
+          <ConnectorPoint PointX="9.75" PointY="18.692047526041669" />
+        </AssociationConnector>
+        <AssociationConnector Association="AdepDatabaseModel.FK_ApplicationOrganisationTypeGroup_Application" >
+          <ConnectorPoint PointX="9" PointY="20.627915165865385" />
+          <ConnectorPoint PointX="9.4375" PointY="21.065415165865385" />
+          <ConnectorPoint PointX="9.4375" PointY="22.874746093750005" />
+          <ConnectorPoint PointX="9.75" PointY="22.874746093750005" />
+        </AssociationConnector>
+        <AssociationConnector Association="AdepDatabaseModel.FK_Role_Application" >
+          <ConnectorPoint PointX="9" PointY="16.90625" />
+          <ConnectorPoint PointX="11.385416666666666" PointY="16.90625" />
+          <ConnectorPoint PointX="11.552083333333334" PointY="16.90625" />
+          <ConnectorPoint PointX="11.729169166666667" PointY="16.90625" />
+          <ConnectorPoint PointX="11.895835833333335" PointY="16.90625" />
+          <ConnectorPoint PointX="12.75" PointY="16.90625" />
+        </AssociationConnector>
+        <AssociationConnector Association="AdepDatabaseModel.FK_StaffAttributes_Application" >
+          <ConnectorPoint PointX="9" PointY="20.32889035436699" />
+          <ConnectorPoint PointX="11.729169166666667" PointY="20.32889035436699" />
+          <ConnectorPoint PointX="11.895835833333335" PointY="20.32889035436699" />
+          <ConnectorPoint PointX="12" PointY="20.32889035436699" />
+        </AssociationConnector>
+        <AssociationConnector Association="AdepDatabaseModel.FK_StaffOrganisation_Application" >
+          <ConnectorPoint PointX="8.9757692307692309" PointY="20.653300781250003" />
+          <ConnectorPoint PointX="9.375" PointY="21.052531550480772" />
+          <ConnectorPoint PointX="9.375" PointY="24.613648274739589" />
+          <ConnectorPoint PointX="10.166666666666666" PointY="24.613648274739589" />
+          <ConnectorPoint PointX="10.333333333333334" PointY="24.613648274739589" />
+          <ConnectorPoint PointX="10.416666666666666" PointY="24.613648274739589" />
+          <ConnectorPoint PointX="10.583333333333334" PointY="24.613648274739589" />
+          <ConnectorPoint PointX="11.447915416666666" PointY="24.613648274739589" />
+          <ConnectorPoint PointX="11.614582083333334" PointY="24.613648274739589" />
+          <ConnectorPoint PointX="11.729169166666667" PointY="24.613648274739589" />
+          <ConnectorPoint PointX="11.895835833333335" PointY="24.613648274739589" />
+          <ConnectorPoint PointX="12.291664166666665" PointY="24.613648274739589" />
+          <ConnectorPoint PointX="12.458330833333333" PointY="24.613648274739589" />
+          <ConnectorPoint PointX="12.75" PointY="24.613648274739589" />
+        </AssociationConnector>
+        <AssociationConnector Association="AdepDatabaseModel.FK_StaffAttributes_ApplicationAttribute" >
+          <ConnectorPoint PointX="11.25" PointY="19.754547526041669" />
+          <ConnectorPoint PointX="11.729169166666667" PointY="19.754547526041669" />
+          <ConnectorPoint PointX="11.895835833333335" PointY="19.754547526041669" />
+          <ConnectorPoint PointX="12" PointY="19.754547526041669" />
+        </AssociationConnector>
+        <AssociationConnector Association="AdepDatabaseModel.FK_ApplicationOrganisationTypeGroup_Organisation" >
+          <ConnectorPoint PointX="6.75" PointY="24.915304361979167" />
+          <ConnectorPoint PointX="6.979166666666667" PointY="24.915304361979167" />
+          <ConnectorPoint PointX="7.145833333333333" PointY="24.915304361979167" />
+          <ConnectorPoint PointX="10.166666666666666" PointY="24.915304361979167" />
+          <ConnectorPoint PointX="10.333333333333334" PointY="24.915304361979167" />
+          <ConnectorPoint PointX="10.5" PointY="24.915304361979167" />
+          <ConnectorPoint PointX="10.5" PointY="24.24949218750001" />
+        </AssociationConnector>
+        <AssociationConnector Association="AdepDatabaseModel.FK_ApplicationOrganisationTypeGroup_OrganisationTypeGroup" >
+          <ConnectorPoint PointX="2.25" PointY="18.7187505" />
+          <ConnectorPoint PointX="5.5358051041666672" PointY="18.7187505" />
+          <ConnectorPoint PointX="5.7024717708333332" PointY="18.7187505" />
+          <ConnectorPoint PointX="5.9674485416666672" PointY="18.7187505" />
+          <ConnectorPoint PointX="6.1341152083333332" PointY="18.7187505" />
+          <ConnectorPoint PointX="7.25" PointY="18.7187505" />
+          <ConnectorPoint PointX="7.25" PointY="20.710999348958339" />
+          <ConnectorPoint PointX="8.99975084975962" PointY="20.710999348958339" />
+          <ConnectorPoint PointX="9.1664175164262875" PointY="20.710999348958339" />
+          <ConnectorPoint PointX="10.5" PointY="20.710999348958339" />
+          <ConnectorPoint PointX="10.5" PointY="21.5" />
+        </AssociationConnector>
+        <AssociationConnector Association="AdepDatabaseModel.FK_Country_Organisation_Security" >
+          <ConnectorPoint PointX="6.75" PointY="23.009348958333334" />
+          <ConnectorPoint PointX="6.979166666666667" PointY="23.009348958333334" />
+          <ConnectorPoint PointX="7.145833333333333" PointY="23.009348958333334" />
+          <ConnectorPoint PointX="7.5" PointY="23.009348958333334" />
+        </AssociationConnector>
+        <AssociationConnector Association="AdepDatabaseModel.FK_Grade_Organisation" >
+          <ConnectorPoint PointX="6" PointY="24.999410807291667" />
+          <ConnectorPoint PointX="6" PointY="26.682444661458334" />
+          <ConnectorPoint PointX="6.1197929166666674" PointY="26.682444661458334" />
+          <ConnectorPoint PointX="6.2864595833333334" PointY="26.682444661458334" />
+          <ConnectorPoint PointX="6.3229191666666669" PointY="26.682444661458334" />
+          <ConnectorPoint PointX="6.4895858333333329" PointY="26.682444661458334" />
+          <ConnectorPoint PointX="6.5260454166666664" PointY="26.682444661458334" />
+          <ConnectorPoint PointX="6.6927120833333325" PointY="26.682444661458334" />
+          <ConnectorPoint PointX="7.5" PointY="26.682444661458334" />
+        </AssociationConnector>
+        <AssociationConnector Association="AdepDatabaseModel.FK_Staff_Grade" >
+          <ConnectorPoint PointX="8.25" PointY="27.864889322916667" />
+          <ConnectorPoint PointX="8.25" PointY="28.375" />
+          <ConnectorPoint PointX="9.25" PointY="28.375" />
+          <ConnectorPoint PointX="9.25" PointY="29.759348958333334" />
+          <ConnectorPoint PointX="12.291664166666665" PointY="29.759348958333334" />
+          <ConnectorPoint PointX="12.458330833333333" PointY="29.759348958333334" />
+          <ConnectorPoint PointX="12.75" PointY="29.759348958333334" />
+        </AssociationConnector>
+        <AssociationConnector Association="AdepDatabaseModel.FK_Holiday_Organisation_Security" >
+          <ConnectorPoint PointX="6.4062525" PointY="24.999410807291667" />
+          <ConnectorPoint PointX="6.4062525" PointY="29.903595377604162" />
+          <ConnectorPoint PointX="6.5260454166666664" PointY="29.903595377604162" />
+          <ConnectorPoint PointX="6.6927120833333325" PointY="29.903595377604162" />
+          <ConnectorPoint PointX="7.5" PointY="29.903595377604162" />
+        </AssociationConnector>
+        <AssociationConnector Association="AdepDatabaseModel.FK_Organisation_OrganisationType" >
+          <ConnectorPoint PointX="4.5" PointY="22.442047526041662" />
+          <ConnectorPoint PointX="5.25" PointY="22.442047526041662" />
+        </AssociationConnector>
+        <AssociationConnector Association="AdepDatabaseModel.FK_OrganisationHierarchy_Organisation" >
+          <ConnectorPoint PointX="5.5937475" PointY="24.999410807291667" />
+          <ConnectorPoint PointX="5.5937475" PointY="33.249746093750005" />
+          <ConnectorPoint PointX="7.5" PointY="33.249746093750005" />
+        </AssociationConnector>
+        <AssociationConnector Association="AdepDatabaseModel.FK_OrganisationHierarchyAncestor_Organisation" >
+          <ConnectorPoint PointX="6.6093787499999994" PointY="24.999410807291667" />
+          <ConnectorPoint PointX="6.6093787499999994" PointY="32.531120546875009" />
+          <ConnectorPoint PointX="7.5" PointY="32.531120546875009" />
+        </AssociationConnector>
+        <AssociationConnector Association="AdepDatabaseModel.FK_Role_Organisation" >
+          <ConnectorPoint PointX="6.2158212187499995" PointY="19.75" />
+          <ConnectorPoint PointX="6.2158212187499995" PointY="15.913931796875" />
+          <ConnectorPoint PointX="8.1666666666666661" PointY="15.913931796875" />
+          <ConnectorPoint PointX="8.3333333333333339" PointY="15.913931796875" />
+          <ConnectorPoint PointX="11.541666666666666" PointY="15.913931796875" />
+          <ConnectorPoint PointX="11.708333333333334" PointY="15.913931796875" />
+          <ConnectorPoint PointX="12.75" PointY="15.913931796875" />
+        </AssociationConnector>
+        <AssociationConnector Association="AdepDatabaseModel.FK_Role_Organisation_Security" >
+          <ConnectorPoint PointX="5.6191384375" PointY="19.75" />
+          <ConnectorPoint PointX="5.6191384375" PointY="16.2146501953125" />
+          <ConnectorPoint PointX="6.1324878854166665" PointY="16.2146501953125" />
+          <ConnectorPoint PointX="6.2991545520833325" PointY="16.2146501953125" />
+          <ConnectorPoint PointX="8.1666666666666661" PointY="16.2146501953125" />
+          <ConnectorPoint PointX="8.3333333333333339" PointY="16.2146501953125" />
+          <ConnectorPoint PointX="11.541666666666666" PointY="16.2146501953125" />
+          <ConnectorPoint PointX="11.708333333333334" PointY="16.2146501953125" />
+          <ConnectorPoint PointX="12.75" PointY="16.2146501953125" />
+        </AssociationConnector>
+        <AssociationConnector Association="AdepDatabaseModel.FK_Staff_Organisation" >
+          <ConnectorPoint PointX="6.20312625" PointY="24.999410807291667" />
+          <ConnectorPoint PointX="6.20312625" PointY="28.1875" />
+          <ConnectorPoint PointX="6.3229191666666669" PointY="28.1875" />
+          <ConnectorPoint PointX="6.4895858333333329" PointY="28.1875" />
+          <ConnectorPoint PointX="6.5260454166666664" PointY="28.1875" />
+          <ConnectorPoint PointX="6.6927120833333325" PointY="28.1875" />
+          <ConnectorPoint PointX="8.1666666666666661" PointY="28.1875" />
+          <ConnectorPoint PointX="8.3333333333333339" PointY="28.1875" />
+          <ConnectorPoint PointX="12.291664166666665" PointY="28.1875" />
+          <ConnectorPoint PointX="12.458330833333333" PointY="28.1875" />
+          <ConnectorPoint PointX="12.75" PointY="28.1875" />
+        </AssociationConnector>
+        <AssociationConnector Association="AdepDatabaseModel.FK_StaffAttributes_Organisation_Security" >
+          <ConnectorPoint PointX="6.75" PointY="21.108038766276042" />
+          <ConnectorPoint PointX="6.979166666666667" PointY="21.108038766276042" />
+          <ConnectorPoint PointX="7.145833333333333" PointY="21.108038766276042" />
+          <ConnectorPoint PointX="10.416666666666666" PointY="21.108038766276042" />
+          <ConnectorPoint PointX="10.583333333333334" PointY="21.108038766276042" />
+          <ConnectorPoint PointX="11.447915416666666" PointY="21.108038766276042" />
+          <ConnectorPoint PointX="11.614582083333334" PointY="21.108038766276042" />
+          <ConnectorPoint PointX="11.729169166666667" PointY="21.108038766276042" />
+          <ConnectorPoint PointX="11.895835833333335" PointY="21.108038766276042" />
+          <ConnectorPoint PointX="12" PointY="21.108038766276042" />
+        </AssociationConnector>
+        <AssociationConnector Association="AdepDatabaseModel.FK_StaffOrganisation_Organisation" >
+          <ConnectorPoint PointX="6.4316429374999995" PointY="19.75" />
+          <ConnectorPoint PointX="6.4316429374999995" PointY="19.5" />
+          <ConnectorPoint PointX="7.0625" PointY="19.5" />
+          <ConnectorPoint PointX="7.0625" PointY="25.143697916666667" />
+          <ConnectorPoint PointX="10.25" PointY="25.143697916666667" />
+          <ConnectorPoint PointX="10.25" PointY="24.394914763621795" />
+          <ConnectorPoint PointX="10.416666666666666" PointY="24.394914763621795" />
+          <ConnectorPoint PointX="10.583333333333334" PointY="24.394914763621795" />
+          <ConnectorPoint PointX="11.447915416666666" PointY="24.394914763621795" />
+          <ConnectorPoint PointX="11.614582083333334" PointY="24.394914763621795" />
+          <ConnectorPoint PointX="11.729169166666667" PointY="24.394914763621795" />
+          <ConnectorPoint PointX="11.895835833333335" PointY="24.394914763621795" />
+          <ConnectorPoint PointX="12.291664166666665" PointY="24.394914763621795" />
+          <ConnectorPoint PointX="12.458330833333333" PointY="24.394914763621795" />
+          <ConnectorPoint PointX="12.75" PointY="24.394914763621795" />
+        </AssociationConnector>
+        <AssociationConnector Association="AdepDatabaseModel.FK_OrganisationType_OrganisationTypeGroup" >
+          <ConnectorPoint PointX="1.5" PointY="19.92258789062501" />
+          <ConnectorPoint PointX="1.5" PointY="22.442047526041662" />
+          <ConnectorPoint PointX="3" PointY="22.442047526041662" />
+        </AssociationConnector>
+        <AssociationConnector Association="AdepDatabaseModel.FK_OrganisationType_ParentOrganisationType" >
+          <ConnectorPoint PointX="3.5319230769230767" PointY="24.009095052083325" />
+          <ConnectorPoint PointX="3.5319230769230767" PointY="24.259095052083325" />
+          <ConnectorPoint PointX="3.9784615384615383" PointY="24.259095052083325" />
+          <ConnectorPoint PointX="3.9784615384615383" PointY="24.009095052083325" />
+        </AssociationConnector>
+        <AssociationConnector Association="AdepDatabaseModel.FK_StaffAttributes_Staff" >
+          <ConnectorPoint PointX="12.75" PointY="30.670275937499994" />
+          <ConnectorPoint PointX="12.3749975" PointY="30.670275937499994" />
+          <ConnectorPoint PointX="12.3749975" PointY="22.576396484374982" />
+        </AssociationConnector>
+        <AssociationConnector Association="AdepDatabaseModel.FK_StaffDetails_Staff" >
+          <ConnectorPoint PointX="14.25" PointY="29.817047526041662" />
+          <ConnectorPoint PointX="15" PointY="29.817047526041662" />
+        </AssociationConnector>
+        <AssociationConnector Association="AdepDatabaseModel.FK_StaffOrganisation_Staff" >
+          <ConnectorPoint PointX="13.5" PointY="28" />
+          <ConnectorPoint PointX="13.5" PointY="26.316793619791667" />
+        </AssociationConnector>
+        <AssociationConnector Association="AdepDatabaseModel.FK_StaffDetails_StaffOffices" >
+          <ConnectorPoint PointX="14.25" PointY="34.788198242187491" />
+          <ConnectorPoint PointX="15.75" PointY="34.788198242187491" />
+          <ConnectorPoint PointX="15.75" PointY="31.384095052083325" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="AdepDatabaseModel.UploadErrorLog" Width="1.5" PointX="12" PointY="11.625" Height="2.1725878906250031" />
+        <EntityTypeShape EntityType="AdepDatabaseModel.UploadQueue" Width="1.5" PointX="9.75" PointY="11.125" Height="3.1340950520833388" />
+        <AssociationConnector Association="AdepDatabaseModel.FK_UploadQueue_Application" >
+          <ConnectorPoint PointX="8.25" PointY="16.75" />
+          <ConnectorPoint PointX="8.25" PointY="12.692047526041669" />
+          <ConnectorPoint PointX="9.75" PointY="12.692047526041669" />
+        </AssociationConnector>
+        <AssociationConnector Association="AdepDatabaseModel.FK_UploadErrorLog_UploadQueue" >
+          <ConnectorPoint PointX="11.25" PointY="12.711293945312502" />
+          <ConnectorPoint PointX="11.541666666666666" PointY="12.711293945312502" />
+          <ConnectorPoint PointX="11.708333333333334" PointY="12.711293945312502" />
+          <ConnectorPoint PointX="12" PointY="12.711293945312502" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="AdepDatabaseModel.ApplicationAttributeExtension" Width="1.5" PointX="12" PointY="8.75" Height="1.9802864583333388" />
+        <AssociationConnector Association="AdepDatabaseModel.FK_ApplicationAttributeExtension_ApplicationAttribute1" >
+          <ConnectorPoint PointX="11.25" PointY="17.125" />
+          <ConnectorPoint PointX="11.625" PointY="16.75" />
+          <ConnectorPoint PointX="11.625" PointY="9.74014322916667" />
+          <ConnectorPoint PointX="12" PointY="9.74014322916667" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="AdepDatabaseModel.NonStandardHoliday" Width="1.5" PointX="3.375" PointY="0.75" Height="2.1725878906250102" />
+        </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

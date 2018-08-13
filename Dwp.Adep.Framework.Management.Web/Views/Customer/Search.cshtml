@@ -1,0 +1,76 @@
+@model Dwp.Adep.Framework.Management.Web.ViewModels.CustomerSearchVM
+
+@{
+    ViewBag.Title = FixedResources.ENTITYNAME_CUSTOMER + " " + FixedResources.LABEL_LISTNAME;
+}
+<h2>
+    @FixedResources.ENTITYNAME_CUSTOMER @FixedResources.LABEL_LISTNAME</h2>
+<script type="text/javascript">
+    $(document).ready(function () {
+        function updateGrid(e) {
+            e.preventDefault();
+            var url = $(this).attr('href');
+            var grid = $(this).parents('.ajaxGrid');
+            var id = grid.attr('id');
+            grid.load(url + ' #' + id, function (response, status, xhr) {
+                jQueryUIStyling();
+            })
+        }
+        $('.ajaxGrid table thead tr a').live('click', updateGrid);
+        $('.ajaxGrid table tfoot tr a').live('click', updateGrid);
+
+
+    });
+
+</script>
+
+@using (Html.BeginForm("Search", "Customer", FormMethod.Post, new { @id = "mainForm" }))
+{
+    @Html.ValidationSummary(true)
+
+    <div class="webgrid-wrapper">
+        <div class="webgrid-title">
+            @FixedResources.LABEL_GRIDTITLE</div>
+        <div id="grid" class='ajaxGrid'>
+            @{
+                var grid = new WebGrid(null, canPage: true, rowsPerPage: Model.PageSize, defaultSort: "Code", canSort: false);
+                grid.Bind(Model.MatchList, rowCount: Model.TotalRows, autoSortAndPage: false);
+           
+                @grid.GetHtml(
+                    tableStyle: "webgrid",
+                    headerStyle: "webgrid-header",
+                    footerStyle: "webgrid-footer",
+                    mode: WebGridPagerModes.All, firstText: FixedResources.PAGING_FIRSTPAGE, previousText: FixedResources.PAGING_PREVIOUS, nextText: FixedResources.PAGING_NEXT, lastText: FixedResources.PAGING_LASTPAGE, numericLinksCount: 5,
+                    alternatingRowStyle: "webgrid-alternating-rows",
+                    columns: grid.Columns(
+                    grid.Column("Code", header: "", format: @<text>@Html.Raw("<input id='SelectButton_")@item.Code@Html.Raw("' type='submit' name='Search::SearchPost_")@item.Code@Html.Raw("' value='")@Html.Raw(FixedResources.LABEL_SELECTBUTTON)@Html.Raw("' title='")@FixedResources.TOOLTIP_SELECTTOEDITBUTTON @Html.Raw("' />")</text>)
+                    ,grid.Column("DateRaised", header: @Resources.LABEL_CUSTOMER_DATERAISED)
+                    ,grid.Column("Surname", header: @Resources.LABEL_CUSTOMER_SURNAME)
+                    ,grid.Column("Forenames", header: @Resources.LABEL_CUSTOMER_FORENAMES)
+                    ,grid.Column("RequestedSurname", header: @Resources.LABEL_CUSTOMER_REQUESTEDSURNAME)
+                    ,grid.Column("MaidenName", header: @Resources.LABEL_CUSTOMER_MAIDENNAME)
+                    ,grid.Column("DOB", header: @Resources.LABEL_CUSTOMER_DOB)
+                    ,grid.Column("NI_Number", header: @Resources.LABEL_CUSTOMER_NI_NUMBER)
+                    ,grid.Column("Stagger", header: @Resources.LABEL_CUSTOMER_STAGGER)
+                    ,grid.Column("Address1", header: @Resources.LABEL_CUSTOMER_ADDRESS1)
+                    ,grid.Column("Address2", header: @Resources.LABEL_CUSTOMER_ADDRESS2)
+                    ,grid.Column("Address3", header: @Resources.LABEL_CUSTOMER_ADDRESS3)
+                    ,grid.Column("Address4", header: @Resources.LABEL_CUSTOMER_ADDRESS4)
+                    ,grid.Column("Address5", header: @Resources.LABEL_CUSTOMER_ADDRESS5)
+                    ,grid.Column("Post", header: @Resources.LABEL_CUSTOMER_POSTCODE)
+                    ,grid.Column("Telephone", header: @Resources.LABEL_CUSTOMER_TELEPHONE)
+                    ,grid.Column("DateLastSaved", header: @Resources.LABEL_CUSTOMER_DATELASTSAVED)
+                    ,grid.Column("Notes", header: @Resources.LABEL_CUSTOMER_NOTES)
+                    ,grid.Column("DateWeed", header: @Resources.LABEL_CUSTOMER_DATEWEED)
+                    ,grid.Column("UserTableID", header: @Resources.LABEL_CUSTOMER_USERTABLEID)
+                    ,grid.Column("IsDeleted", header: @Resources.LABEL_CUSTOMER_ISDELETED)
+                    ,grid.Column("IsActive", header: @Resources.LABEL_CUSTOMER_ISACTIVE)
+                    )
+                    
+                )
+            }
+            Records Returned: @grid.TotalRowCount
+        </div>
+		<input id='NewButton' type='submit' name='Search::NewCustomer' value="@FixedResources.LABEL_NEWBUTTON" title='@FixedResources.LABEL_NEWBUTTON @FixedResources.ENTITYNAME_CUSTOMER' />
+    </div>
+}

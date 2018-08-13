@@ -1,0 +1,138 @@
+@model Dwp.Adep.Framework.Management.Web.ViewModels.ErrorVM
+@{
+    ViewBag.Title = FixedResources.ENTITYNAME_ERROR;
+}
+<h2>Maintain @FixedResources.ENTITYNAME_ERROR</h2>
+<script type="text/javascript">
+    /// <reference path="jquery-1.7.1.js" />
+    /// <reference path="jquery-ui.js" />
+    $(document).ready(function () {
+
+        var isDirty = @(Model.IsViewDirty?Html.Raw("true"):Html.Raw("false"));
+
+        $(':input').change(function () {
+            if (!isDirty) {
+                isDirty = true;
+            }
+        });
+		
+		var $myDialogDelete = $('<div id=\'confirm\'></div>')
+        .html('Are you sure you want to delete?<br/>Click OK to confirm.  Click Cancel to stop this action.')
+        .dialog({
+            autoOpen: false,
+            modal: true,
+            title: 'Confirmation Required',
+            buttons: {
+                "OK": function () {
+                    $(this).dialog("close");
+                    if ($('#IsDeleteConfirmed').val() == "True") {
+                        var form = $('#mainForm')
+                        var input = $("<input>").attr("type", "hidden").attr("name", "Edit::DeleteError").val("");
+                        form.append($(input));
+                        $('#mainForm')[0].submit();
+                        return true;
+                    }
+                }
+                , "Cancel": function () {
+                    $(this).dialog("close");
+                    return false;
+                }
+            }
+
+        });
+		
+		var $myDialogExit = $('<div id=\'confirm\'></div>')
+        .html('Are you sure you want to exit?<br/>Click OK to confirm.  Click Cancel to stop this action.')
+        .dialog({
+            autoOpen: false,
+            modal: true,
+            title: 'Confirmation Required',
+            buttons: {
+                "OK": function () {
+                    $(this).dialog("close");
+                    if ($('#IsExitConfirmed').val() == "True") {
+                        var form = $('#mainForm')
+                        var input = $("<input>").attr("type", "hidden").attr("name", "Edit::ExitError").val("");
+                        form.append($(input));
+                        $('#mainForm')[0].submit();
+                        return true;
+                    }
+                }
+                , "Cancel": function () {
+                    $(this).dialog("close");
+                    return false;
+                }
+            }
+
+        });
+
+        $('#mainForm').submit(function (e) {
+
+            if ($('#mainForm').find('input[type="submit"]:focus').attr('name') == 'Edit::DeleteError') {
+                e.preventDefault();
+                $('#IsDeleteConfirmed').val("True");
+                var returnValue = $myDialogDelete.dialog('open');  //replace the div id with the id of the button/form
+                return returnValue;
+            }
+            else if ($('#mainForm').find('input[type="submit"]:focus').attr('name') == 'Edit::ExitError') {
+                if (isDirty == true) {
+                    e.preventDefault();
+                    $('#IsExitConfirmed').val("True");
+                    var returnValue = $myDialogExit.dialog('open');  //replace the div id with the id of the button/form
+                    return returnValue;
+                }
+                else {
+                    $('#IsExitConfirmed').val("True");
+                    return true;
+                }
+            }
+            else {
+                return true;
+            }
+        });
+	});
+	
+</script>
+@using (Html.BeginForm("Edit", "Error", FormMethod.Post, new { @id = "mainForm" }))
+{
+    @Html.ValidationSummary(true)
+    <div class='message'>@Model.Message</div>
+    @Html.HiddenFor(model => model.ErrorItem.Code)
+    <input type='hidden' id='IsDeleteConfirmed' name='IsDeleteConfirmed' value='@Model.IsDeleteConfirmed' />
+    <input type='hidden' id='IsExitConfirmed' name='IsExitConfirmed' value='@Model.IsExitConfirmed' />
+    <div class="full-width clearfix">
+		    <fieldset class="ui-widget ui-widget-content ui-corner-all">
+                <legend class="ui-widget-header ui-corner-all">@FixedResources.ENTITYNAME_ERROR</legend>
+				@Html.EditorFor(model => model.ErrorItem.TableID,"LabelFieldAlign")
+				@Html.EditorFor(model => model.ErrorItem.AccuracyCheckCode,"LabelFieldAlign")
+				@Html.EditorFor(model => model.ErrorItem.RaisedDate,"LabelDateAlign") 
+				@Html.EditorFor(model => model.ErrorItem.DateOccurred,"LabelDateAlign") 
+				@Html.EditorFor(model => model.ErrorItem.DateFound,"LabelDateAlign") 
+				@Html.EditorFor(model => model.ErrorItem.DaysToDetect,"LabelFieldAlign")
+				@Html.EditorFor(model => model.ErrorItem.ErrorTypeCode,"LabelFieldAlign")
+				@Html.EditorFor(model => model.ErrorItem.IsOverpayment,"LabelCheckBoxAlign")
+				@Html.EditorFor(model => model.ErrorItem.ErrorChoiceCode,"LabelFieldAlign")
+				@Html.EditorFor(model => model.ErrorItem.ErrorSubChoiceCode,"LabelFieldAlign")
+				@Html.EditorFor(model => model.ErrorItem.WeeklyAmount,"LabelFieldAlign")
+				@Html.EditorFor(model => model.ErrorItem.TotalAmount,"LabelFieldAlign")
+				@Html.EditorFor(model => model.ErrorItem.StaffCode,"LabelFieldAlign")
+				@Html.EditorFor(model => model.ErrorItem.TeamCode,"LabelFieldAlign")
+				@Html.EditorFor(model => model.ErrorItem.CommandCode,"LabelFieldAlign")
+				@Html.EditorFor(model => model.ErrorItem.LocationCode,"LabelFieldAlign")
+				@Html.EditorFor(model => model.ErrorItem.Notes,"LabelFieldAlign")
+				@Html.EditorFor(model => model.ErrorItem.IsActive,"LabelCheckBoxAlign")
+				<div class="full-width clearfix">
+		            @if (Model.AccessContext == Dwp.Adep.Framework.Management.Web.ViewModels.ErrorAccessContext.Create)
+		            {
+		                <input id='CreateButton' type='submit' name='Edit::CreateError' value='@FixedResources.LABEL_CREATEBUTTON' title='@FixedResources.TOOLTIP_CREATEBUTTON @FixedResources.ENTITYNAME_ERROR' />
+		            }
+		            else
+		            {
+		                <input id='SaveButton' type='submit' name='Edit::SaveError' value='@FixedResources.LABEL_SAVEBUTTON' title='@FixedResources.TOOLTIP_SAVEBUTTON @FixedResources.ENTITYNAME_ERROR'/>
+						<input id='DeleteButton' class='cancel' type='submit' name='Edit::DeleteError' value='@FixedResources.LABEL_DELETEBUTTON' title='@FixedResources.TOOLTIP_DELETEBUTTON @FixedResources.ENTITYNAME_ERROR'/>	            
+		            }    
+		            <input id='ExitButton' class='cancel' type='submit' name='Edit::ExitError' value='@FixedResources.LABEL_EXITBUTTON' title='@FixedResources.TOOLTIP_EXITBUTTON'/>
+		        </div>
+			</fieldset>
+	</div>
+}

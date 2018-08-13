@@ -1,0 +1,88 @@
+﻿@model Dwp.Adep.Framework.Management.Web.ViewModels.NonStandardHolidayVM
+@{
+    ViewBag.Title = FixedResources.ENTITYNAME_NONSTANDARDHOLIDAY;
+}
+<h2>Maintain @FixedResources.ENTITYNAME_NONSTANDARDHOLIDAY</h2>
+<script type="text/javascript">
+    /// <reference path="jquery-1.7.1.js" />
+    /// <reference path="jquery-ui.js" />
+    $(document).ready(function () {
+
+        var isDirty = @(Model.IsViewDirty?Html.Raw("true"):Html.Raw("false"));
+
+        $(':input').change(function () {
+            if (!isDirty) {
+                isDirty = true;
+            }
+        });
+
+		var $myDialogExit = $('<div id=\'confirm\'></div>')
+        .html('Are you sure you want to exit?<br/>Click OK to confirm.  Click Cancel to stop this action.')
+        .dialog({
+            autoOpen: false,
+            modal: true,
+            title: 'Confirmation Required',
+            buttons: {
+                "OK": function () {
+                    $(this).dialog("close");
+                    if ($('#IsExitConfirmed').val() == "True") {
+                        var form = $('#mainForm')
+                        var input = $("<input>").attr("type", "hidden").attr("name", "Edit::ExitNonStandardHoliday").val("");
+                        form.append($(input));
+                        $('#mainForm')[0].submit();
+                        return true;
+                    }
+                }
+                , "Cancel": function () {
+                    $(this).dialog("close");
+                    return false;
+                }
+            }
+
+        });
+
+        $('#mainForm').submit(function (e) {
+
+			if ($('#mainForm').find('input[type="submit"]:focus').attr('name') == 'Edit::ExitNonStandardHoliday') {
+                if (isDirty == true) {
+                    e.preventDefault();
+                    $('#IsExitConfirmed').val("True");
+                    var returnValue = $myDialogExit.dialog('open');  //replace the div id with the id of the button/form
+                    return returnValue;
+                }
+                else {
+                    $('#IsExitConfirmed').val("True");
+                    return true;
+                }
+            }           
+        });
+	});
+	
+</script>
+@using (Html.BeginForm("Edit", "NonStandardHoliday", FormMethod.Post, new { @id = "mainForm" }))
+{
+    @Html.ValidationSummary(true)
+    <div class='message'>@Model.Message</div>
+    @Html.HiddenFor(model => model.NonStandardHolidayItem.Code)    
+    <input type='hidden' id='IsExitConfirmed' name='IsExitConfirmed' value='@Model.IsExitConfirmed' />
+    <div class="full-width clearfix">
+		    <fieldset class="ui-widget ui-widget-content ui-corner-all">
+                <legend class="ui-widget-header ui-corner-all">@FixedResources.ENTITYNAME_NONSTANDARDHOLIDAY</legend>
+				@Html.EditorFor(model => model.NonStandardHolidayItem.Date,"DatePickers/LabelDateMYSelectorAlign") 
+				@Html.EditorFor(model => model.NonStandardHolidayItem.Country,"LabelFieldAlign")
+				@Html.EditorFor(model => model.NonStandardHolidayItem.Description,"LabelMultiLineTextAlign")
+				@Html.EditorFor(model => model.NonStandardHolidayItem.IsActive,"LabelCheckBoxAlign")
+				<div class="full-width clearfix">
+		            @if (Model.AccessContext == Dwp.Adep.Framework.Management.Web.ViewModels.NonStandardHolidayAccessContext.Create)
+		            {
+		                <input id='CreateButton' type='submit' name='Edit::CreateNonStandardHoliday' value='@FixedResources.LABEL_CREATEBUTTON' title='@FixedResources.TOOLTIP_CREATEBUTTON @FixedResources.ENTITYNAME_NONSTANDARDHOLIDAY' />
+		            }
+		            else
+		            {
+		                <input id='SaveButton' type='submit' name='Edit::SaveNonStandardHoliday' value='@FixedResources.LABEL_SAVEBUTTON' title='@FixedResources.TOOLTIP_SAVEBUTTON @FixedResources.ENTITYNAME_NONSTANDARDHOLIDAY'/>						
+		            }    
+		            <input id='ExitButton' class='cancel' type='submit' name='Edit::ExitNonStandardHoliday' value='@FixedResources.LABEL_EXITBUTTON' title='@FixedResources.TOOLTIP_EXITBUTTON'/>
+		        </div>
+			</fieldset>
+	</div>
+}

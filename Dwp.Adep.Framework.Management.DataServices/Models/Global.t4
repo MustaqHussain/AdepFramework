@@ -1,0 +1,4 @@
+﻿<#+
+	string globalIgnoreList = ",ADRoleLookup,ApplicationAttributeExtension,ApplicationOrganisationTypeGroup,OrganisationHierarchy,Role,UploadErrorLog,UploadQueue,";
+	string noScreenList = @",,";
+#>

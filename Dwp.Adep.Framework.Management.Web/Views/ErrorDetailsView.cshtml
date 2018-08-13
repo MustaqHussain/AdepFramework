@@ -1,0 +1,248 @@
+@model Dwp.Adep.Framework.Management.Web.ViewModels.ErrorVM
+@{
+    ViewBag.Title = "";
+}
+<h2>test</h2>
+<script type="text/javascript">
+    /// <reference path="jquery-1.7.1.js" />
+    /// <reference path="jquery-ui.js" />
+    $(document).ready(function () {
+
+        $.validator.setDefaults({
+            ignore: ""
+        });
+
+        var isDirty = false;
+
+        $(':input').change(function () {
+            if (!isDirty) {
+                isDirty = true;
+            }
+        });
+	});
+</script>
+@using (Html.BeginForm("EditError", "Error", FormMethod.Post, new { @id = "mainForm" }))
+{
+    @Html.ValidationSummary(true)
+    <div class='message'>@Model.Message</div>
+    @Html.HiddenFor(model => model.ErrorItem.Code)
+    <input type='hidden' id='IsDeleteConfirmed' name='IsDeleteConfirmed' value='@Model.IsDeleteConfirmed' />
+    <input type='hidden' id='IsExitConfirmed' name='IsExitConfirmed' value='@Model.IsExitConfirmed' />
+    <input type='hidden' id='IsNewConfirmed' name='IsNewConfirmed' value='@Model.IsNewConfirmed' />
+    <div class="full-width clearfix">
+        <div class="left-50">
+		    <fieldset class="ui-widget ui-widget-content ui-corner-all">
+                <legend class="ui-widget-header ui-corner-all">@Resources.LEGEND_DETAILS_OF_CUSTOMER</legend>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.ErrorItem.TableID)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.ErrorItem.TableID)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.ErrorItem.TableID)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.ErrorItem.AccuracyCheckCode)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.ErrorItem.AccuracyCheckCode)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.ErrorItem.AccuracyCheckCode)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.ErrorItem.RaisedDate)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.ErrorItem.RaisedDate)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.ErrorItem.RaisedDate)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.ErrorItem.DateOccurred)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.ErrorItem.DateOccurred)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.ErrorItem.DateOccurred)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.ErrorItem.DateFound)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.ErrorItem.DateFound)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.ErrorItem.DateFound)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.ErrorItem.DaysToDetect)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.ErrorItem.DaysToDetect)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.ErrorItem.DaysToDetect)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.ErrorItem.ErrorTypeCode)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.ErrorItem.ErrorTypeCode)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.ErrorItem.ErrorTypeCode)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.ErrorItem.IsOverpayment)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.ErrorItem.IsOverpayment)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.ErrorItem.IsOverpayment)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.ErrorItem.ErrorChoiceCode)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.ErrorItem.ErrorChoiceCode)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.ErrorItem.ErrorChoiceCode)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.ErrorItem.ErrorSubChoiceCode)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.ErrorItem.ErrorSubChoiceCode)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.ErrorItem.ErrorSubChoiceCode)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.ErrorItem.WeeklyAmount)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.ErrorItem.WeeklyAmount)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.ErrorItem.WeeklyAmount)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.ErrorItem.TotalAmount)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.ErrorItem.TotalAmount)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.ErrorItem.TotalAmount)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.ErrorItem.StaffCode)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.ErrorItem.StaffCode)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.ErrorItem.StaffCode)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.ErrorItem.TeamCode)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.ErrorItem.TeamCode)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.ErrorItem.TeamCode)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.ErrorItem.CommandCode)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.ErrorItem.CommandCode)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.ErrorItem.CommandCode)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.ErrorItem.LocationCode)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.ErrorItem.LocationCode)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.ErrorItem.LocationCode)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.ErrorItem.Notes)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.ErrorItem.Notes)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.ErrorItem.Notes)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.ErrorItem.IsActive)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.ErrorItem.IsActive)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.ErrorItem.IsActive)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.ErrorItem.RowIdentifier)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.ErrorItem.RowIdentifier)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.ErrorItem.RowIdentifier)
+					</div>
+				</div>
+			</fieldset>
+		</div>
+	</div>
+}

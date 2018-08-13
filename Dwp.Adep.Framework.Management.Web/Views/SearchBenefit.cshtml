@@ -1,0 +1,57 @@
+﻿@model Dwp.Adep.Framework.Management.Web.ViewModels.BenefitSearchVM
+
+@{
+    ViewBag.Title = Resources.TEMPORARY_LABEL;
+}
+<h2>
+    @Resources.TEMPORARY_LABEL</h2>
+<script type="text/javascript">
+    $(document).ready(function () {
+        function updateGrid(e) {
+            e.preventDefault();
+            var url = $(this).attr('href');
+            var grid = $(this).parents('.ajaxGrid');
+            var id = grid.attr('id');
+            grid.load(url + ' #' + id, function (response, status, xhr) {
+                jQueryUIStyling();
+            })
+        }
+        $('.ajaxGrid table thead tr a').live('click', updateGrid);
+        $('.ajaxGrid table tfoot tr a').live('click', updateGrid);
+
+
+    });
+
+</script>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+    <div class="webgrid-wrapper">
+        <div class="webgrid-title">
+            @Resources.TEMPORARY_LABEL</div>
+        <div id="grid" class='ajaxGrid'>
+            @{
+                var grid = new WebGrid(null, canPage: true, rowsPerPage: Model.PageSize, defaultSort: "Code", canSort: false);
+                grid.Bind(Model.MatchList, rowCount: Model.TotalRows, autoSortAndPage: false);
+           
+                @grid.GetHtml(
+                    tableStyle: "webgrid",
+                    headerStyle: "webgrid-header",
+                    footerStyle: "webgrid-footer",
+                    mode: WebGridPagerModes.All, firstText: Resources.PAGING_FIRSTPAGE, previousText: Resources.PAGING_PREVIOUS, nextText: Resources.PAGING_NEXT, lastText: Resources.PAGING_LASTPAGE, numericLinksCount: 5,
+                    alternatingRowStyle: "webgrid-alternating-rows",
+                    columns: grid.Columns(
+                    grid.Column("Code", header: "", format: @<text>@Html.Raw("<input id='SelectButton_")@item.Code@Html.Raw("' type='submit' name='SelectButton_")@item.Code@Html.Raw("' value='")@Html.Raw(Resources.TEMPORARY_LABEL)@Html.Raw("' />")</text>),
+                    grid.Column("Benefit1", header: Resources.TEMPORARY_LABEL)
+                    )
+                    
+                )
+            }
+            Records Returned: @grid.TotalRowCount
+        </div>
+    </div>
+}
+
+

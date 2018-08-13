@@ -1,0 +1,54 @@
+﻿@model Dwp.Adep.Framework.Management.Web.ViewModels.AdminMenuVM
+
+@{
+    ViewBag.Title = FixedResources.LABEL_SCREENTITLE_ADMINMENU;
+}
+<h2>
+    @FixedResources.LABEL_SCREENTITLE_ADMINMENU</h2>
+<script type="text/javascript">
+    $(document).ready(function () {
+        function updateGrid(e) {
+            e.preventDefault();
+            var url = $(this).attr('href');
+            var grid = $(this).parents('.ajaxGrid');
+            var id = grid.attr('id');
+            grid.load(url + ' #' + id, function (response, status, xhr) {
+                jQueryUIStyling();
+            })
+        }
+        $('.ajaxGrid table thead tr a').live('click', updateGrid);
+        $('.ajaxGrid table tfoot tr a').live('click', updateGrid);
+
+
+    });
+
+</script>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+    <div class="webgrid-wrapper">
+        <div class="webgrid-title">
+            @FixedResources.LABEL_GRIDTITLE_ADMINMENU</div>
+        <div id="grid" class='ajaxGrid'>
+            @{
+                var grid = new WebGrid(null, canPage: false, defaultSort: "Name", canSort: false);
+                grid.Bind(Model.AdminList, autoSortAndPage: false);
+           
+                @grid.GetHtml(
+                    tableStyle: "webgrid",
+                    headerStyle: "webgrid-header",
+                    footerStyle: "webgrid-footer",
+                    mode: WebGridPagerModes.All, firstText: FixedResources.PAGING_FIRSTPAGE, previousText: FixedResources.PAGING_PREVIOUS, nextText: FixedResources.PAGING_NEXT, lastText: FixedResources.PAGING_LASTPAGE, numericLinksCount: 5,
+                    alternatingRowStyle: "webgrid-alternating-rows",
+                    columns: grid.Columns(
+                    grid.Column("ID", header: "", format: @<text>@Html.Raw("<input id='SelectButton_")@item.ID@Html.Raw("' type='submit' name='SelectButton_")@item.ID@Html.Raw("' value='")@Html.Raw(FixedResources.LABEL_SELECTBUTTON)@Html.Raw("' title='")@FixedResources.TOOLTIP_MAINTAIN@item.Name@Html.Raw("' />")</text>),
+                    grid.Column("Name", header: "Name")
+                    )
+                    
+                )
+            }
+        </div>
+    </div>
+}

@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Dwp.Adep.Framework.Resources.Email.SmtpEmailService" CodeBehind="SmtpEmailService.svc.cs" %>

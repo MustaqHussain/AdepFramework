@@ -1,0 +1,340 @@
+﻿@model Dwp.Adep.Framework.Management.Web.ViewModels.StaffApplicationAdminVM
+@{
+    ViewBag.Title = "Application Staff Administration";
+}
+<h2>
+    Application Staff Administration</h2>
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<script type="text/javascript">
+    /// <reference path="jquery-1.7.1.js" />
+    /// <reference path="jquery-ui.js" />
+    $(document).ready(function () {
+
+        var isDirty = @(Model.IsViewDirty?Html.Raw("true"):Html.Raw("false"));
+        
+        // remove loading message
+        $('body').removeClass('loading');
+
+        $(':input').change(function () {
+            if (!isDirty) {
+                isDirty = true;
+            }
+        });
+		var $myDialogExit = $('<div id=\'confirm\'></div>')
+        .html('Are you sure you want to exit?<br/>Click OK to confirm.  Click Cancel to stop this action.')
+        .dialog({
+            autoOpen: false,
+            modal: true,
+            title: 'Confirmation Required',
+            buttons: {
+                "OK": function () {
+                    $(this).dialog("close");
+                    if ($('#IsExitConfirmed').val() == "True") {
+                        var form = $('#mainForm')
+                        var input = $("<input>").attr("type", "hidden").attr("name", "ApplicationStaffAdmin::ExitAdmin").val("");
+                        form.append($(input));
+                        $('#mainForm')[0].submit();
+                        return true;
+                    }
+                }
+                , "Cancel": function () {
+                    $(this).dialog("close");
+                    return false;
+                }
+            }
+
+        });
+
+        $('#mainForm').submit(function (e) {
+
+            if ($('#mainForm').find('input[type="submit"]:focus').attr('name') == 'ApplicationStaffAdmin::ExitAdmin') {
+                if (isDirty == true) {
+                    e.preventDefault();
+                    $('#IsExitConfirmed').val("True");
+                    var returnValue = $myDialogExit.dialog('open');  //replace the div id with the id of the button/form
+                    return returnValue;
+                }
+                else {
+                    $('#IsExitConfirmed').val("True");
+                    return true;
+                }
+            }
+            else {
+                return true;
+            }
+        });
+
+        $('#UpdateApplicationButton').hide();
+
+        $('#SelectedApplicationCode').change(function (e) {
+        // display Loading message
+            $('body').addClass('loading');
+
+            var input = $("<input>").attr("type", "hidden").attr("name", "ApplicationStaffAdmin::updateApplication").val("");
+                        $('#mainForm').append($(input));
+                        $('#mainForm')[0].submit();
+        });
+
+
+        // Unable to find user in AD - display message as error!
+        var errorMsg = $('.message').html();
+        if (errorMsg == 'Failed to find User ID in Active Directory')
+        {
+            $('.message').addClass('errorMessage');
+
+        }
+        else if (errorMsg == 'This application requires a default staff organisation, please select a default.') 
+        {
+            $('.message').addClass('errorMessage');
+        }
+
+
+        //Function to hide the 'IsDefaultOrgRequired' entry from the webgrid in the html.
+        function removeIsOrgRequired(){
+    
+            var storeHidden = $('#AppAttCode').val();
+            var storeIDtoHide = '#StaffAttributeValue_' + storeHidden;
+            $(storeIDtoHide).closest('tr').hide();  
+            
+        } 
+        
+        //Call function on page load, that allows for hiding the 'IsDefaultOrgRequired' entry from the application attribute list on the right hand side.
+        removeIsOrgRequired();
+
+        
+        //$("#mainForm select not:.dropdownchecklist").selectmenu('destroy').selectmenu({width: "350px", menuWidth: "350px"});
+        
+
+
+        // animate three dots after Loading message
+        i=0;
+        setInterval(function() {
+            i = ++i % 4;
+            $(".loadingDotsHolder").text(" " + 
+            Array(i+1).join("."));
+        }, 400);
+     
+//     function operationRemoveSelect(){
+//       var a = $('.dropdownSmallScreenHolder').closest('select');
+//       var b = $(a).closest('option[selected="selected"]');
+//       $(dropdownSmallScreenHolder).find('option[selected="selected"]').prop("selected", false);
+//     }
+
+     //finish
+     $('#SaveButton').on('click', function(){
+        $('.dropdownSmallScreenHolder select option[selected="selected"]').prop("selected", false);
+     });
+    
+
+     //operationRemoveSelect();
+
+	});
+	
+	//set the validator so that it hits (doesn't ignore) hidden fields NOTE:- This is outside the 'ready' function
+    $.validator.setDefaults({
+        ignore: ""
+    });
+
+      
+
+</script>
+@using (Html.BeginForm("ApplicationStaffAdmin", "Admin", FormMethod.Post, new { @id = "mainForm" }))
+{
+    @Html.ValidationSummary(true)
+    <h2 class="message">@Html.DisplayFor(model => model.Message)</h2>
+    <input type='hidden' id='IsExitConfirmed' name='IsExitConfirmed' value='@Model.IsExitConfirmed' />
+    
+    //Foreach loop to create a hidden input in HTML, that contains the code of the Application attribute.
+    foreach (var item in Model.StaffApplicationAttributeList)
+    {
+        if (item.ApplicationAttributeItem.AttributeName == "IsDefaultOrgRequired")
+        {
+              <input type='hidden' id='AppAttCode' name='AppAttCode' value='@item.ApplicationAttributeItem.Code' />                                 
+        }
+    }
+    
+    <fieldset class="ui-widget ui-widget-content ui-corner-all">
+        <legend class="ui-widget-header ui-corner-all">@FixedResources.ENTITYNAME_STAFFAPPLICATIONDETAILS</legend>
+        <div class="row">
+            <div class="w50">
+                <div class="row">
+                    <div class="w40">
+                        @Html.LabelFor(model => model.SelectedApplicationCode)
+                    </div>
+                    <div class="w60">
+                        @Html.DropDownListFor(model => model.SelectedApplicationCode, new SelectList(Model.ApplicationList, "Code", "ApplicationName"), FixedResources.DDL_APPLICATION)
+                        <input id='UpdateApplicationButton' type='submit' name='ApplicationStaffAdmin::updateApplication' value="@Html.Raw(FixedResources.LABEL_UPDATEAPPLICATIONBUTTON)" />
+                    </div>
+                </div>
+            </div>
+            <div class="w50">
+                @Html.DisplayFor(model => model.StaffItem.FullName, "LabelFieldAlign")
+                @Html.DisplayFor(model => model.StaffItem.StaffNumber, "LabelFieldAlign")
+            </div>
+        </div>
+    </fieldset>
+    
+    <div class="full-width clearfix">
+        <div class="left-50">
+            <fieldset class="ui-widget ui-widget-content ui-corner-all">
+                <legend class="ui-widget-header ui-corner-all">@FixedResources.LEGEND_AVAILABLEORGANISATIONS</legend>
+                <div class='dropdownSmallScreenHolder'>
+                @foreach (var item in Model.OrganisationsByTypesList)
+                {
+                    if (item.OrganisationTypeItem.Code == Model.RootNodeOrganisation.OrganisationTypeCode)
+                    {
+                        <div class='full-width clearfix'>
+                            <div class='editor-label left-40'>
+                                <label for='@item.SelectedOrganisationCode'>@item.OrganisationTypeItem.Name</label>
+                            </div>
+                            <div class='editor-field right-60 shiftRight'>
+                               @Html.Raw(item.OrganisationList[0].Name)
+                            </div>
+                        </div>
+                        
+                    }
+                    else
+                    {
+                        
+                        Html.RenderPartial("OrganisationTypeRow", item);
+                        
+                    }
+                }
+                <div class="full-width clearfix">
+                    <input type='submit' id='AddButton' name='ApplicationStaffAdmin::AddOrganisation'
+                        value='Add' />
+                </div>
+                </div>
+            </fieldset>
+            <fieldset class="ui-widget ui-widget-content ui-corner-all">
+                <legend class="ui-widget-header ui-corner-all">@FixedResources.LEGEND_STAFF_ORGANISATIONS_FOR_APPLICATION</legend>
+                <div class="rowStaffOrgTable staffOrgHeader">
+                    <div class="w7 textAlignCentre bold">Select Default</div>
+                    <div class="w66 textAlignCentre bold">Organisation</div>
+                    <div class="w20 textAlignCentre bold">Delete Organisation</div>
+                </div>
+                @foreach (var item in Model.StaffOrganisationList)
+                {
+                    <div class="rowStaffOrgTable tableColourBorders">
+                        <div class="w7 textAlignCentre">
+                        @if (item.IsDefault)
+                        {
+                                @Html.Raw("<input id='StaffOrganisationList_IsDefault_")@item.Code@Html.Raw("' name='defaultradio' type='radio' checked='checked' value='StaffOrganisationList_IsDefault_")@item.Code@Html.Raw("' />")
+                        }
+                        else
+                        {
+                                @Html.Raw("<input id='StaffOrganisationList_IsDefault_")@item.Code@Html.Raw("' name='defaultradio' type='radio' value='StaffOrganisationList_IsDefault_")@item.Code@Html.Raw("' />")
+                        }
+                        </div>
+                        <div class="w66 rightLeftBorder" >
+                            @if (item.OrganisationPath.Count > 0)
+                            {
+                                @item.OrganisationPath.Aggregate((Current, Next) => Current + "/ " + Next)
+                            }
+                            else
+                            {
+                               @Html.Raw("/")
+                            }
+                            </div>
+                        <div class="w20 textAlignCentre">
+                            @Html.Raw("<input id='DeleteButton_")@item.Code@Html.Raw("'  type='submit' value='Remove' name='ApplicationStaffAdmin::DeleteStaffOrganisation_")@item.Code@Html.Raw("' />")
+                            
+                        </div>
+                    </div>
+                }
+            </fieldset>
+        </div>
+        <div class="right-50">
+            <fieldset class="ui-widget ui-widget-content ui-corner-all">
+                <legend class="ui-widget-header ui-corner-all">@FixedResources.LEGEND_APPLICATION_ROLES</legend>
+                @if (Model.RoleList.Count == 0)
+                {
+                    <h2>@FixedResources.MESSAGE_STAFF_MEMBER_NOT_USER_OF_APPLICATION
+                        </h2>
+                }
+                else
+                {
+                    <div>
+                        @FixedResources.MESSAGE_STAFF_MEMBER_HAS_FOLLOWING_AD_ROLES
+                    </div>
+                    <div class="full-width clearfix">
+                        @foreach (var item in Model.RoleList)
+                        {
+                            <div class="full-width clearfix">
+                                @item
+                            </div>
+                        }
+                    </div>
+                }
+            </fieldset>
+            <fieldset class="ui-widget ui-widget-content ui-corner-all">
+                <legend class="ui-widget-header ui-corner-all">@FixedResources.LEGEND_APPLICATION_ATTRIBUTES</legend>
+                <div class="webgrid-wrapper">
+                    <div class="webgrid-title">
+                        @FixedResources.LEGEND_APPLICATION_ATTRIBUTES</div>
+                    <div id="grid" class='ajaxGrid height200'>
+                        @{
+                var grid = new WebGrid(null, canPage: false, defaultSort: "Name");
+                grid.Bind(Model.StaffApplicationAttributeList, autoSortAndPage: false);
+           
+                            @grid.GetHtml(
+                                            tableStyle: "webgrid ",
+                                            headerStyle: "webgrid-header",
+                                            footerStyle: "webgrid-footer",
+                                            alternatingRowStyle: "webgrid-alternating-rows",
+                                            columns: grid.Columns(
+                                                                  grid.Column("ApplicationAttributeItem.AttributeName", header: "Name"),
+                                                                  grid.Column("StaffAttributeItem", header: "Value", format: (item) =>
+                                                                  {
+
+                                                                      if (item.ApplicationAttributeItem.AttributeType == "Bool")
+                                                                      {
+
+                                                                          var text = Html.Raw("<input id='StaffAttributeValue_").ToString();
+                                                                          text += item.ApplicationAttributeItem.Code;
+                                                                          text += Html.Raw("' type='checkbox'");
+                                                                          text += Html.Raw(" name='StaffAttributeValue_");
+                                                                          text += item.ApplicationAttributeItem.Code + "'";
+                                                                          if (item.StaffAttributeItem != null && item.StaffAttributeItem.LookupValue == "Yes")
+                                                                          {
+                                                                              text += Html.Raw(" checked='checked'");
+                                                                          }
+                                                                          text += Html.Raw(" />");
+                                                                          return Html.Raw(text);
+
+                                                                      }
+                                                                      else
+                                                                      {
+                                                                          var text = Html.Raw("<input id='StaffAttributeValue_").ToString();
+                                                                          text += item.ApplicationAttributeItem.Code;
+                                                                          text += Html.Raw("' type='text'");
+                                                                          text += Html.Raw(" name='StaffAttributeValue_");
+                                                                          text += item.ApplicationAttributeItem.Code;
+                                                                          text += Html.Raw("' value='");
+                                                                          text += item.StaffAttributeItem != null ? item.StaffAttributeItem.LookupValue : "";
+                                                                          text += Html.Raw("' />");
+                                                                          return Html.Raw(text);
+                                                                      }
+
+
+                                                                  }
+                                                                          )
+                                                                  )
+                                        )
+                                  
+                        }
+                    </div>
+                </div>
+                
+            </fieldset>
+        </div>
+        <div class="full-width clearfix">
+            <input id='SaveButton' type='submit' name='ApplicationStaffAdmin::SaveStaffAdmin' value="@Html.Raw(FixedResources.LABEL_SAVEBUTTON)" />
+            <input id='ExitButton' type='submit' name='ApplicationStaffAdmin::ExitAdmin' value="@Html.Raw(FixedResources.LABEL_EXITBUTTON)" />
+        </div>
+    </div> 
+     <div id="loadingFlag" class="loadingHolder">Loading organisations<div class="loadingDotsHolder"> </div></div> 
+     
+}
+

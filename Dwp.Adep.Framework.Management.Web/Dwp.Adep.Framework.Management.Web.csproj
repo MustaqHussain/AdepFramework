@@ -1,0 +1,1320 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7C6D3DC4-227F-4F13-9648-540361F76D8A}</ProjectGuid>
+    <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Dwp.Adep.Framework.Management.Web</RootNamespace>
+    <AssemblyName>Dwp.Adep.Framework.Management.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DeployIisAppPath>Default Web Site/FrameworkWeb</DeployIisAppPath>
+    <DesktopBuildPackageLocation>obj\Release\Package\FrameworkWeb.zip</DesktopBuildPackageLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Demo183|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Dwp.Adep.Framework.Management.Web.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <DeployIisAppPath>Default Web Site/FrameworkWeb</DeployIisAppPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'SIT170|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Dwp.Adep.Framework.Management.Web.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <DesktopBuildPackageLocation>obj\SIT170\Package\FrameworkWeb.zip</DesktopBuildPackageLocation>
+    <DeployIisAppPath>Default Web Site/FrameworkWeb</DeployIisAppPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Accessibility|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Dwp.Adep.Framework.Management.Web.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=2.1.265.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dwp.Adep.Framework.Packages\packages\AutoMapper.2.1.265\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="DataAnnotationsExtensions">
+      <HintPath>..\Dwp.Adep.Framework.Packages\packages\DataAnnotationsExtensions.1.0.1\lib\NETFramework40\DataAnnotationsExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="DataAnnotationsExtensions.ClientValidation">
+      <HintPath>..\Dwp.Adep.Framework.Packages\packages\DataAnnotationsExtensions.MVC3.1.0.1\lib\NETFramework40\DataAnnotationsExtensions.ClientValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\EntityFramework.4.1.10331.0\lib\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Main\Source\AdepFramework\Dwp.Adep.Framework.Packages\packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Main\Source\AdepFramework\Dwp.Adep.Framework.Packages\packages\EnterpriseLibrary.Data.5.0.505.0\lib\NET35\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.ExceptionHandling, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Main\Source\AdepFramework\Dwp.Adep.Framework.Packages\packages\EnterpriseLibrary.ExceptionHandling.5.0.505.0\lib\NET35\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Main\Source\AdepFramework\Dwp.Adep.Framework.Packages\packages\EnterpriseLibrary.ExceptionHandling.Logging.5.0.505.0\lib\NET35\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Logging, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Main\Source\AdepFramework\Dwp.Adep.Framework.Packages\packages\EnterpriseLibrary.Logging.5.0.505.1\lib\NET35\Microsoft.Practices.EnterpriseLibrary.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Logging.Database, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Main\Source\AdepFramework\Dwp.Adep.Framework.Packages\packages\EnterpriseLibrary.Logging.Database.5.0.505.0\lib\NET35\Microsoft.Practices.EnterpriseLibrary.Logging.Database.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.2.1.505.0\lib\NET35\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Main\Source\AdepFramework\Dwp.Adep.Framework.Packages\packages\Unity.2.1.505.0\lib\NET35\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Interception.2.1.505.0\lib\NET35\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception.Configuration, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Main\Source\AdepFramework\Dwp.Adep.Framework.Packages\packages\Unity.Interception.2.1.505.0\lib\NET35\Microsoft.Practices.Unity.Interception.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="WebActivator, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dwp.Adep.Framework.Packages\packages\WebActivator.1.5\lib\net40\WebActivator.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RegisterClientValidationExtensions.cs" />
+    <Compile Include="Controllers\ApplicationAttributeController.cs">
+      <DependentUpon>Controller.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\ApplicationController.cs">
+      <DependentUpon>Controller.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\CountryController.cs">
+      <DependentUpon>Controller.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\GradeController.cs">
+      <DependentUpon>Controller.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\NonStandardHolidayController.cs">
+      <DependentUpon>Controller.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\OrganisationTypeController.cs">
+      <DependentUpon>Controller.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\OrganisationTypeGroupController.cs">
+      <DependentUpon>Controller.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\StaffAttributesController.cs">
+      <DependentUpon>Controller.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\StaffOrganisationController.cs">
+      <DependentUpon>Controller.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Exceptions\SessionExpiredException.cs" />
+    <Compile Include="Helpers\CacheManager1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CacheManager.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\SessionManager1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SessionManager.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ApplicationAttributeModel.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ApplicationAttributeSearchCriteriaModel.cs">
+      <DependentUpon>SearchCriteriaModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ApplicationAttributeSearchMatchModel.cs">
+      <DependentUpon>SearchMatchModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ApplicationModel.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ApplicationSearchCriteriaModel.cs">
+      <DependentUpon>SearchCriteriaModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ApplicationSearchMatchModel.cs">
+      <DependentUpon>SearchMatchModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MetaData\ApplicationAttributeModel.metadata.cs">
+      <DependentUpon>ModelMetaData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MetaData\ApplicationAttributeSearchCriteriaModel.metadata.cs">
+      <DependentUpon>SearchCriteriaModelMetaData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MetaData\ApplicationModel.metadata.cs">
+      <DependentUpon>ModelMetaData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MetaData\ApplicationSearchCriteriaModel.metadata.cs">
+      <DependentUpon>SearchCriteriaModelMetaData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MetaData\NonStandardHolidayModel.metadata.cs">
+      <DependentUpon>ModelMetaData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MetaData\NonStandardHolidaySearchCriteriaModel.metadata.cs">
+      <DependentUpon>SearchCriteriaModelMetaData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MetaData\OrganisationTypeGroupModel.metadata.cs">
+      <DependentUpon>ModelMetaData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MetaData\OrganisationTypeGroupSearchCriteriaModel.metadata.cs">
+      <DependentUpon>SearchCriteriaModelMetaData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MetaData\OrganisationTypeModel.metadata.cs">
+      <DependentUpon>ModelMetaData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MetaData\OrganisationTypeSearchCriteriaModel.metadata.cs">
+      <DependentUpon>SearchCriteriaModelMetaData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MetaData\StaffAttributesModel.metadata.cs">
+      <DependentUpon>ModelMetaData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MetaData\StaffOrganisationModel.metadata.cs">
+      <DependentUpon>ModelMetaData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MetaData\StaffOrganisationSearchCriteriaModel.metadata.cs">
+      <DependentUpon>SearchCriteriaModelMetaData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NonStandardHolidayModel.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NonStandardHolidaySearchCriteriaModel.cs">
+      <DependentUpon>SearchCriteriaModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NonStandardHolidaySearchMatchModel.cs">
+      <DependentUpon>SearchMatchModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OrganisationTypeGroupModel.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OrganisationTypeGroupSearchCriteriaModel.cs">
+      <DependentUpon>SearchCriteriaModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OrganisationTypeGroupSearchMatchModel.cs">
+      <DependentUpon>SearchMatchModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OrganisationTypeModel.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OrganisationTypeSearchCriteriaModel.cs">
+      <DependentUpon>SearchCriteriaModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OrganisationTypeSearchMatchModel.cs">
+      <DependentUpon>SearchMatchModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StaffAttributesModel.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StaffAttributesSearchCriteriaModel.cs">
+      <DependentUpon>SearchCriteriaModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StaffAttributesSearchMatchModel.cs">
+      <DependentUpon>SearchMatchModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StaffOrganisationModel.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StaffOrganisationSearchCriteriaModel.cs">
+      <DependentUpon>SearchCriteriaModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StaffOrganisationSearchMatchModel.cs">
+      <DependentUpon>SearchMatchModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SessionExpiryAttribute.cs" />
+    <Compile Include="TypeMappings1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TypeMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\ApplicationAttributeSearchVM.cs">
+      <DependentUpon>SearchVM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\ApplicationAttributeVM.cs">
+      <DependentUpon>ViewModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\ApplicationSearchVM.cs">
+      <DependentUpon>SearchVM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\ApplicationVM.cs">
+      <DependentUpon>ViewModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\NonStandardHolidaySearchVM.cs">
+      <DependentUpon>SearchVM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\NonStandardHolidayVM.cs">
+      <DependentUpon>ViewModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\OrganisationTypeGroupSearchVM.cs">
+      <DependentUpon>SearchVM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\OrganisationTypeGroupVM.cs">
+      <DependentUpon>ViewModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\OrganisationTypeSearchVM.cs">
+      <DependentUpon>SearchVM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\OrganisationTypeVM.cs">
+      <DependentUpon>ViewModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\StaffAttributesSearchVM.cs">
+      <DependentUpon>SearchVM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\StaffAttributesVM.cs">
+      <DependentUpon>ViewModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\StaffOrganisationSearchVM.cs">
+      <DependentUpon>SearchVM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\StaffOrganisationVM.cs">
+      <DependentUpon>ViewModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\ViewModels.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ViewModels.tt</DependentUpon>
+    </Compile>
+    <Content Include="Views\NonStandardHoliday\Edit.cshtml" />
+    <Content Include="Views\NonStandardHoliday\Search.cshtml" />
+    <Content Include="Content\IE6.css" />
+    <Content Include="Content\images\delete_icon.jpg" />
+    <Content Include="Content\images\dwp_logo.png" />
+    <Content Include="Content\images\file_icon.jpg" />
+    <Content Include="Content\images\glyphicons-halflings.png" />
+    <Content Include="Content\JQueryOverwrite.css" />
+    <Content Include="Content\Legacy.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\Site.extension.css" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\ApplicationOrganisationController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\Controller.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Controller.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\HolidayController.cs">
+      <DependentUpon>Controller.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrganisationController.cs">
+      <DependentUpon>Controller.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\StaffController.Manage.cs" />
+    <Compile Include="Controllers\StaffController.cs" />
+    <Compile Include="Controllers\StaffDetailsController.cs">
+      <DependentUpon>Controller.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\StaffOfficesController.cs">
+      <DependentUpon>Controller.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustomAuthorizeAttribute.cs" />
+    <Compile Include="DataAnnotation\LabelForHelper.cs" />
+    <Compile Include="DataAnnotation\TooltipAttribute.cs" />
+    <Compile Include="DataAnnotation\TooltipHelper.cs" />
+    <Compile Include="EventLogSourceInstaller.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="EventLogSourceInstaller.Designer.cs">
+      <DependentUpon>EventLogSourceInstaller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\AuthorisationManager.cs" />
+    <Compile Include="Helpers\CacheManager.cs" />
+    <Compile Include="Helpers\CustomBinder.cs" />
+    <Compile Include="Helpers\CacheManager.Generated.cs">
+      <DependentUpon>CacheManager.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\HttpParamAdminAttribute.cs" />
+    <Compile Include="Helpers\ExceptionManager.cs" />
+    <Compile Include="Helpers\HtmlPrefixScopeExtensions.cs" />
+    <Compile Include="Helpers\HttpParamApplicationOrganisationSelectAttribute.cs" />
+    <Compile Include="Helpers\HttpParamEditAttribute.cs" />
+    <Compile Include="Helpers\HttpParamEditCheckAttribute.cs" />
+    <Compile Include="Helpers\HttpParamSearchAttribute.cs" />
+    <Compile Include="Helpers\SessionManager.cs" />
+    <Compile Include="Helpers\SessionManager.Generated.cs">
+      <DependentUpon>SessionManager.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\UserManager.cs" />
+    <Compile Include="Models\AuditSearchCriteriaModel.cs">
+      <DependentUpon>SearchCriteriaModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CountryModel.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CountrySearchCriteriaModel.cs">
+      <DependentUpon>SearchCriteriaModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GradeModel.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GradeModel.Extensions.cs" />
+    <Compile Include="Models\GradeSearchCriteriaModel.cs">
+      <DependentUpon>SearchCriteriaModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HolidayModel.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HolidaySearchCriteriaModel.cs">
+      <DependentUpon>SearchCriteriaModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AdminMenuModel.cs" />
+    <Compile Include="Models\AuditSearchMatchModel.cs">
+      <DependentUpon>SearchMatchModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BaseModel.cs" />
+    <Compile Include="Models\MetaData\AuditModel.metadata.cs">
+      <DependentUpon>ModelMetaData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MetaData\AuditSearchCriteriaModel.metadata.cs">
+      <DependentUpon>SearchCriteriaModelMetaData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CountrySearchMatchModel.cs">
+      <DependentUpon>SearchMatchModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MetaData\CountryModel.metadata.cs">
+      <DependentUpon>ModelMetaData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MetaData\CountrySearchCriteriaModel.metadata.cs">
+      <DependentUpon>SearchCriteriaModelMetaData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FrameworkRoles.cs" />
+    <Compile Include="Models\GradeSearchMatchModel.cs">
+      <DependentUpon>SearchMatchModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MetaData\GradeModel.metadata.cs">
+      <DependentUpon>ModelMetaData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MetaData\GradeSearchCriteriaModel.metadata.cs">
+      <DependentUpon>SearchCriteriaModelMetaData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HolidaySearchMatchModel.cs">
+      <DependentUpon>SearchMatchModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MetaData\HolidayModel.metadata.cs">
+      <DependentUpon>ModelMetaData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MetaData\HolidaySearchCriteriaModel.metadata.cs">
+      <DependentUpon>SearchCriteriaModelMetaData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MetaData\ModelMetaData.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelMetaData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MetaData\OrganisationModel.metadata.cs">
+      <DependentUpon>ModelMetaData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MetaData\OrganisationSearchCriteriaModel.metadata.cs">
+      <DependentUpon>SearchCriteriaModelMetaData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MetaData\SearchCriteriaModelMetaData.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SearchCriteriaModelMetaData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MetaData\StaffDetailsModel.metadata.cs">
+      <DependentUpon>ModelMetaData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MetaData\StaffDetailsSearchCriteriaModel.metadata.cs">
+      <DependentUpon>SearchCriteriaModelMetaData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MetaData\StaffModel.metadata.cs" />
+    <Compile Include="Models\MetaData\StaffOfficesModel.metadata.cs">
+      <DependentUpon>ModelMetaData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MetaData\StaffOfficesSearchCriteriaModel.metadata.cs">
+      <DependentUpon>SearchCriteriaModelMetaData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MetaData\StaffSearchCriteriaModelMetaData.cs" />
+    <Compile Include="Models\Models.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OrganisationModel.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OrganisationModel.Extensions.cs" />
+    <Compile Include="Models\OrganisationSearchCriteriaModel.cs">
+      <DependentUpon>SearchCriteriaModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OrganisationSearchMatchModel.cs">
+      <DependentUpon>SearchMatchModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SearchCriteriaModels.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SearchCriteriaModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SearchMatchModels.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SearchMatchModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Staff.Extensions.cs" />
+    <Compile Include="Models\StaffAccessModel.cs" />
+    <Compile Include="Models\StaffAttributesModel.Extensions.cs" />
+    <Compile Include="Models\StaffDetailsModel.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StaffDetailsSearchCriteriaModel.cs">
+      <DependentUpon>SearchCriteriaModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StaffDetailsSearchMatchModel.cs">
+      <DependentUpon>SearchMatchModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StaffModel.cs" />
+    <Compile Include="Models\StaffOfficesModel.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StaffOfficesSearchCriteriaModel.cs">
+      <DependentUpon>SearchCriteriaModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StaffOfficesSearchMatchModel.cs">
+      <DependentUpon>SearchMatchModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StaffOrganisationModel.Extensions.cs" />
+    <Compile Include="Models\StaffSearchCriteriaModel.cs">
+      <DependentUpon>SearchCriteriaModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StaffSearchMatchModel.cs">
+      <DependentUpon>SearchMatchModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WebContext.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\AdminService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\AuthorisationService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="TypeMappings.cs" />
+    <Compile Include="TypeMappings.Generated.cs">
+      <DependentUpon>TypeMappings.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\AdminMenuVM.cs" />
+    <Compile Include="ViewModels\ApplicationOrganisationAdminVM.cs" />
+    <Compile Include="ViewModels\ApplicationOrganisationSelectVM.cs" />
+    <Compile Include="ViewModels\CountryVM.cs">
+      <DependentUpon>ViewModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\GradeVM.cs">
+      <DependentUpon>ViewModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\HolidayVM.cs">
+      <DependentUpon>ViewModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\OrganisationVM.cs">
+      <DependentUpon>ViewModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\StaffApplicationAttributeVM.cs" />
+    <Compile Include="ViewModels\StaffDetailsSearchVM.cs">
+      <DependentUpon>SearchVM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\StaffDetailsVM.cs">
+      <DependentUpon>ViewModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\StaffOfficesSearchVM.cs">
+      <DependentUpon>SearchVM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\StaffOfficesVM.cs">
+      <DependentUpon>ViewModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\StaffVM.cs">
+      <DependentUpon>ViewModels.tt</DependentUpon>
+    </Compile>
+    <Content Include="Content\images\getacro.gif" />
+    <Content Include="Content\images\pdf_icon.gif" />
+    <Content Include="Content\Site_dev.css" />
+    <Content Include="Content\themes\additionalWidgets\dropdownchecklist\ui.dropdownchecklist.css" />
+    <Content Include="Content\themes\additionalWidgets\selectmenu\jquery.ui.selectmenu.css" />
+    <Content Include="Content\themes\base\dropdownchecklist\ui.dropdownchecklist.css" />
+    <Content Include="Content\themes\base\selectmenu\jquery.ui.selectmenu.css" />
+    <Content Include="Content\themes\start\images\ui-bg_flat_55_999999_40x100.png" />
+    <Content Include="Content\themes\start\images\ui-bg_flat_75_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\start\images\ui-bg_glass_45_0078ae_1x400.png" />
+    <Content Include="Content\themes\start\images\ui-bg_glass_55_f8da4e_1x400.png" />
+    <Content Include="Content\themes\start\images\ui-bg_glass_75_79c9ec_1x400.png" />
+    <Content Include="Content\themes\start\images\ui-bg_gloss-wave_45_e14f1c_500x100.png" />
+    <Content Include="Content\themes\start\images\ui-bg_gloss-wave_50_6eac2c_500x100.png" />
+    <Content Include="Content\themes\start\images\ui-bg_gloss-wave_75_2191c0_500x100.png" />
+    <Content Include="Content\themes\start\images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="Content\themes\start\images\ui-icons_0078ae_256x240.png" />
+    <Content Include="Content\themes\start\images\ui-icons_056b93_256x240.png" />
+    <Content Include="Content\themes\start\images\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="Content\themes\start\images\ui-icons_e0fdff_256x240.png" />
+    <Content Include="Content\themes\start\images\ui-icons_f5e175_256x240.png" />
+    <Content Include="Content\themes\start\images\ui-icons_f7a50d_256x240.png" />
+    <Content Include="Content\themes\start\images\ui-icons_fcd113_256x240.png" />
+    <Content Include="Content\themes\start\jquery-ui-1.8.18.custom.css" />
+    <Content Include="Scripts\custom\general.extension.js" />
+    <Content Include="Scripts\custom\general.js" />
+    <Content Include="Scripts\custom\general_debug.js" />
+    <Content Include="Scripts\custom\IE6.js" />
+    <Content Include="Scripts\debugVersions\jquery-1.7.1-vsdoc.js" />
+    <Content Include="Scripts\debugVersions\jquery-1.7.1.js" />
+    <Content Include="Scripts\debugVersions\jquery-ui-1.8.17.js" />
+    <Content Include="Scripts\debugVersions\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\debugVersions\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\debugVersions\jquery.validate.js" />
+    <Content Include="Scripts\debugVersions\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\debugVersions\MicrosoftAjax.debug.js" />
+    <Content Include="Scripts\debugVersions\MicrosoftMvcAjax.debug.js" />
+    <Content Include="Scripts\debugVersions\MicrosoftMvcValidation.debug.js" />
+    <Content Include="Scripts\dropdownchecklist\ui.dropdownchecklist.js" />
+    <Content Include="Scripts\jquery-1.7.1.min.js" />
+    <Content Include="Scripts\jquery-ui-1.8.17.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\MenuSlider\tabSlideOut.v1.3.js" />
+    <Content Include="Scripts\MicrosoftAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.js" />
+    <Content Include="Scripts\modernizr.js" />
+    <Content Include="Scripts\selectmenu\jquery.ui.core.js" />
+    <Content Include="Scripts\selectmenu\jquery.ui.position.js" />
+    <Content Include="Scripts\selectmenu\jquery.ui.selectmenu.js" />
+    <Content Include="Scripts\selectmenu\jquery.ui.widget.js" />
+    <Content Include="Scripts\validation\CompareDate.js" />
+    <Content Include="Scripts\validation\conditional-validation.js" />
+    <Content Include="Scripts\validation\validation-groups.js" />
+    <Content Include="Views\SearchView.cshtml">
+      <DependentUpon>SearchView.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Content>
+    <Content Include="Views\Shared\About.cshtml" />
+    <Content Include="Views\Shared\About_CY.cshtml" />
+    <Content Include="Views\Shared\Accessibility.cshtml" />
+    <Content Include="Views\Shared\Accessibility_CY.cshtml" />
+    <Content Include="Views\Shared\ChangeSite.cshtml" />
+    <Content Include="Views\Shared\ChangeSite_CY.cshtml" />
+    <Content Include="Views\ApplicationOrganisation\ApplicationOrganisationSelect.cshtml" />
+    <None Include="Service References\AdminService\Dwp.Adep.Framework.Management.Web.AdminService.ApplicationOrganisationAdminVMDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdminService\Dwp.Adep.Framework.Management.Web.AdminService.ApplicationOrganisationSelectVMDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <Content Include="Views\ApplicationOrganisation\OrganisationTypeRow.cshtml" />
+    <Content Include="Views\ApplicationOrganisation\Edit.cshtml" />
+    <None Include="Service References\AdminService\Dwp.Adep.Framework.Management.Web.AdminService.NonStandardHolidayDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdminService\Dwp.Adep.Framework.Management.Web.AdminService.NonStandardHolidaySearchVMDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdminService\Dwp.Adep.Framework.Management.Web.AdminService.NonStandardHolidayVMDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdminService\Dwp.Adep.Framework.Management.Web.AdminService.StaffDetailsDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdminService\Dwp.Adep.Framework.Management.Web.AdminService.StaffDetailsSearchVMDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdminService\Dwp.Adep.Framework.Management.Web.AdminService.StaffDetailsVMDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdminService\Dwp.Adep.Framework.Management.Web.AdminService.StaffOfficesDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdminService\Dwp.Adep.Framework.Management.Web.AdminService.StaffOfficesSearchVMDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdminService\Dwp.Adep.Framework.Management.Web.AdminService.StaffOfficesVMDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <Content Include="Views\Shared\EditorTemplates\LabelLargeFieldAlign.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\TextInputs\Vertical_LabelFieldAlign.cshtml" />
+    <Content Include="Views\Shared\Feedback.cshtml" />
+    <Content Include="Views\Shared\Feedback_CY.cshtml" />
+    <Content Include="Views\Shared\Help.cshtml" />
+    <Content Include="Views\Shared\Help_CY.cshtml" />
+    <Content Include="Views\StaffDetails\Edit.cshtml">
+      <DependentUpon>EditView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\StaffOffices\Edit.cshtml">
+      <DependentUpon>EditView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\StaffDetails\Search.cshtml">
+      <DependentUpon>SearchView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\StaffOffices\Search.cshtml">
+      <DependentUpon>SearchView.tt</DependentUpon>
+    </Content>
+    <Content Include="Web.Demo183.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Shared\EditorTemplates\DatePickers\Date.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DatePickers\DateMonthYearSelector.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DatePickers\LabelDateAlign.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DatePickers\LabelDateMYSelectorAlign.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\TextInputs\FullWidth_LabelFieldAlign.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\TextInputs\LabelFieldAlign.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\TextInputs\MediumSmallWidth_LabelFieldAlign.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\TextInputs\MediumWidth_LabelFieldAlign.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\TextInputs\SmallWidth_LabelFieldAlign.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\TextInputs\Vertical_LabelFieldAlign.cshtml" />
+    <Content Include="Views\SearchView1.cshtml" />
+    <None Include="Views\SearchView.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SearchView.cshtml</LastGenOutput>
+    </None>
+    <Content Include="Web.SIT170.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Accessibility.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Shared\SessionExpired.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\custom\CompareDate.js" />
+    <None Include="Controllers\Controller.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Controller.cs</LastGenOutput>
+    </None>
+    <None Include="Helpers\CacheManager.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CacheManager1.cs</LastGenOutput>
+    </None>
+    <None Include="Models\MetaData\ModelMetaData.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ModelMetaData.cs</LastGenOutput>
+    </None>
+    <None Include="Models\MetaData\SearchCriteriaModelMetaData.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SearchCriteriaModelMetaData.cs</LastGenOutput>
+    </None>
+    <None Include="Models\SearchMatchModels.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SearchMatchModels.cs</LastGenOutput>
+    </None>
+    <None Include="Helpers\SessionManager.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SessionManager1.cs</LastGenOutput>
+    </None>
+    <None Include="Models\SearchCriteriaModels.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SearchCriteriaModels.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\AdminService\AdminService.wsdl" />
+    <None Include="Service References\AdminService\AdminService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AdminService\AdminService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AdminService\AdminService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AdminService\AdminService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AdminService\AdminService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AdminService\Dwp.Adep.Framework.Management.Web.AdminService.ApplicationAttributeDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdminService\Dwp.Adep.Framework.Management.Web.AdminService.ApplicationAttributeSearchVMDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdminService\Dwp.Adep.Framework.Management.Web.AdminService.ApplicationAttributeVMDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdminService\Dwp.Adep.Framework.Management.Web.AdminService.ApplicationDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdminService\Dwp.Adep.Framework.Management.Web.AdminService.ApplicationSearchVMDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdminService\Dwp.Adep.Framework.Management.Web.AdminService.ApplicationVMDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdminService\Dwp.Adep.Framework.Management.Web.AdminService.AuditDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdminService\Dwp.Adep.Framework.Management.Web.AdminService.AuditSearchVMDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdminService\Dwp.Adep.Framework.Management.Web.AdminService.AuditVMDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdminService\Dwp.Adep.Framework.Management.Web.AdminService.CountryDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdminService\Dwp.Adep.Framework.Management.Web.AdminService.CountrySearchVMDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdminService\Dwp.Adep.Framework.Management.Web.AdminService.CountryVMDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdminService\Dwp.Adep.Framework.Management.Web.AdminService.GradeDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdminService\Dwp.Adep.Framework.Management.Web.AdminService.GradeSearchVMDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdminService\Dwp.Adep.Framework.Management.Web.AdminService.GradeVMDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdminService\Dwp.Adep.Framework.Management.Web.AdminService.HolidayDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdminService\Dwp.Adep.Framework.Management.Web.AdminService.HolidaySearchVMDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdminService\Dwp.Adep.Framework.Management.Web.AdminService.HolidayVMDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdminService\Dwp.Adep.Framework.Management.Web.AdminService.OrganisationDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdminService\Dwp.Adep.Framework.Management.Web.AdminService.OrganisationSearchVMDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdminService\Dwp.Adep.Framework.Management.Web.AdminService.OrganisationTypeDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdminService\Dwp.Adep.Framework.Management.Web.AdminService.OrganisationTypeGroupDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdminService\Dwp.Adep.Framework.Management.Web.AdminService.OrganisationTypeGroupSearchVMDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdminService\Dwp.Adep.Framework.Management.Web.AdminService.OrganisationTypeGroupVMDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdminService\Dwp.Adep.Framework.Management.Web.AdminService.OrganisationTypeSearchVMDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdminService\Dwp.Adep.Framework.Management.Web.AdminService.OrganisationTypeVMDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdminService\Dwp.Adep.Framework.Management.Web.AdminService.OrganisationVMDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdminService\Dwp.Adep.Framework.Management.Web.AdminService.StaffApplicationAdminVMDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdminService\Dwp.Adep.Framework.Management.Web.AdminService.StaffAttributesDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdminService\Dwp.Adep.Framework.Management.Web.AdminService.StaffAttributesSearchVMDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdminService\Dwp.Adep.Framework.Management.Web.AdminService.StaffAttributesVMDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdminService\Dwp.Adep.Framework.Management.Web.AdminService.StaffDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdminService\Dwp.Adep.Framework.Management.Web.AdminService.StaffOrganisationDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdminService\Dwp.Adep.Framework.Management.Web.AdminService.StaffOrganisationSearchVMDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdminService\Dwp.Adep.Framework.Management.Web.AdminService.StaffOrganisationVMDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdminService\Dwp.Adep.Framework.Management.Web.AdminService.StaffSearchVMDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdminService\Dwp.Adep.Framework.Management.Web.AdminService.StaffVMDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AuthorisationService\AuthorisationService.disco" />
+    <None Include="Service References\AuthorisationService\AuthorisationService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AuthorisationService\configuration91.svcinfo" />
+    <None Include="Service References\AuthorisationService\configuration.svcinfo" />
+    <None Include="Service References\AuthorisationService\Dwp.Adep.Framework.Management.Web.AuthorisationService.AuthorisationDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AuthorisationService\Dwp.Adep.Framework.Management.Web.AuthorisationService.StaffAccessDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AuthorisationService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\AdminService\AdminService.disco" />
+    <None Include="Service References\AdminService\configuration91.svcinfo" />
+    <None Include="Service References\AdminService\configuration.svcinfo" />
+    <None Include="Service References\AdminService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Web.config" />
+    <Content Include="packages.config" />
+    <None Include="Models\Models.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Models.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\AuthorisationService\AuthorisationService.wsdl" />
+    <None Include="Service References\AuthorisationService\AuthorisationService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AuthorisationService\AuthorisationService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AuthorisationService\AuthorisationService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AuthorisationService\AuthorisationService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Compile Include="ViewModels\AuditSearchVM.cs">
+      <DependentUpon>SearchVM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\CountrySearchVM.cs">
+      <DependentUpon>SearchVM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\GradeSearchVM.cs">
+      <DependentUpon>SearchVM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\HolidaySearchVM.cs">
+      <DependentUpon>SearchVM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\OrganisationByTypeVM.cs" />
+    <Compile Include="ViewModels\OrganisationSearchVM.cs">
+      <DependentUpon>SearchVM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\SearchVM.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SearchVM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\StaffApplicationAdminVM.cs" />
+    <Compile Include="ViewModels\StaffSearchVM.cs">
+      <DependentUpon>SearchVM.tt</DependentUpon>
+    </Compile>
+    <None Include="TypeMappings.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TypeMappings1.cs</LastGenOutput>
+    </None>
+    <None Include="ViewModels\SearchVM.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SearchVM.cs</LastGenOutput>
+    </None>
+    <Content Include="Views\Admin\ApplicationStaffAdmin.cshtml" />
+    <Content Include="Views\Admin\OrganisationTypeRow.cshtml" />
+    <None Include="ViewModels\ViewModels.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ViewModels.cs</LastGenOutput>
+    </None>
+    <Content Include="Views\Admin\AdminMenu.cshtml" />
+    <Content Include="Views\AccuracyCheck\Edit.cshtml">
+      <DependentUpon>EditView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\ADRoleLookup\Edit.cshtml">
+      <DependentUpon>EditView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\ApplicationAttribute\Edit.cshtml">
+      <DependentUpon>EditView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\ApplicationOrganisationTypeGroup\Edit.cshtml">
+      <DependentUpon>EditView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\Application\Edit.cshtml">
+      <DependentUpon>EditView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\Audit\Edit.cshtml">
+      <DependentUpon>EditView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\BCSNumber\Edit.cshtml">
+      <DependentUpon>EditView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\Benefit\Edit.cshtml">
+      <DependentUpon>EditView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\AccuracyCheck\Search.cshtml">
+      <DependentUpon>SearchView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\ADRoleLookup\Search.cshtml">
+      <DependentUpon>SearchView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\ApplicationAttribute\Search.cshtml">
+      <DependentUpon>SearchView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\ApplicationOrganisationTypeGroup\Search.cshtml">
+      <DependentUpon>SearchView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\Application\Search.cshtml">
+      <DependentUpon>SearchView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\Audit\Search.cshtml">
+      <DependentUpon>SearchView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\BCSNumber\Search.cshtml">
+      <DependentUpon>SearchView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\Benefit\Search.cshtml">
+      <DependentUpon>SearchView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\EditView.cshtml">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\CheckSubType\Edit.cshtml">
+      <DependentUpon>EditView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\CheckType\Edit.cshtml">
+      <DependentUpon>EditView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\Commands\Edit.cshtml">
+      <DependentUpon>EditView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\Country\Edit.cshtml">
+      <DependentUpon>EditView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\Customer\Edit.cshtml">
+      <DependentUpon>EditView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\CheckSubType\Search.cshtml">
+      <DependentUpon>SearchView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\CheckType\Search.cshtml">
+      <DependentUpon>SearchView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\Commands\Search.cshtml">
+      <DependentUpon>SearchView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\Country\Search.cshtml">
+      <DependentUpon>SearchView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\Customer\Search.cshtml">
+      <DependentUpon>SearchView.tt</DependentUpon>
+    </Content>
+    <None Include="Views\EditView.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>EditView.cshtml</LastGenOutput>
+    </None>
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Date.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\LabelDateAlign.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\LabelFieldAlign.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\LabelFieldAlign.cshtml" />
+    <Content Include="Views\ErrorChoice\Edit.cshtml">
+      <DependentUpon>EditView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\ErrorSubChoice\Edit.cshtml">
+      <DependentUpon>EditView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\ErrorType\Edit.cshtml">
+      <DependentUpon>EditView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\Error\Edit.cshtml">
+      <DependentUpon>EditView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\Grade\Edit.cshtml">
+      <DependentUpon>EditView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\Holiday\Edit.cshtml">
+      <DependentUpon>EditView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\LastUpdate\Edit.cshtml">
+      <DependentUpon>EditView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\OrganisationHierarchy\Edit.cshtml">
+      <DependentUpon>EditView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\OrganisationTypeGroup\Edit.cshtml">
+      <DependentUpon>EditView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\OrganisationType\Edit.cshtml">
+      <DependentUpon>EditView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\Organisation\Edit.cshtml">
+      <DependentUpon>EditView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\ReasonForDelay\Edit.cshtml">
+      <DependentUpon>EditView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\Referred\Edit.cshtml">
+      <DependentUpon>EditView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\ReportType\Edit.cshtml">
+      <DependentUpon>EditView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\Role\Edit.cshtml">
+      <DependentUpon>EditView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\ScheduleNumber\Edit.cshtml">
+      <DependentUpon>EditView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\ErrorChoice\Search.cshtml">
+      <DependentUpon>SearchView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\ErrorSubChoice\Search.cshtml">
+      <DependentUpon>SearchView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\ErrorType\Search.cshtml">
+      <DependentUpon>SearchView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\Error\Search.cshtml">
+      <DependentUpon>SearchView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\Grade\Search.cshtml">
+      <DependentUpon>SearchView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\Holiday\Search.cshtml">
+      <DependentUpon>SearchView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\LastUpdate\Search.cshtml">
+      <DependentUpon>SearchView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\OrganisationHierarchy\Search.cshtml">
+      <DependentUpon>SearchView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\OrganisationTypeGroup\Search.cshtml">
+      <DependentUpon>SearchView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\OrganisationType\Search.cshtml">
+      <DependentUpon>SearchView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\Organisation\Search.cshtml">
+      <DependentUpon>SearchView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\ReasonForDelay\Search.cshtml">
+      <DependentUpon>SearchView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\Referred\Search.cshtml">
+      <DependentUpon>SearchView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\ReportType\Search.cshtml">
+      <DependentUpon>SearchView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\Role\Search.cshtml">
+      <DependentUpon>SearchView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\ScheduleNumber\Search.cshtml">
+      <DependentUpon>SearchView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\Staff\Search.cshtml">
+      <DependentUpon>SearchView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\Shared\UnAuthorized.cshtml" />
+    <Content Include="Views\Shared\UnAuthorized.cshtml" />
+    <Content Include="Views\SecurityCheck\Edit.cshtml">
+      <DependentUpon>EditView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\Server\Edit.cshtml">
+      <DependentUpon>EditView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\StaffAttributes\Edit.cshtml">
+      <DependentUpon>EditView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\StaffOrganisation\Edit.cshtml">
+      <DependentUpon>EditView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\Staff\Edit.cshtml">
+      <DependentUpon>EditView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\SecurityCheck\Search.cshtml">
+      <DependentUpon>SearchView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\Server\Search.cshtml">
+      <DependentUpon>SearchView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\Shared\EditorTemplates\LabelCheckBoxAlign.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\LabelCheckBoxAlign.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\LabelMultiLineTextAlign.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\LabelSmallFieldAlign.cshtml" />
+    <Content Include="Views\StaffAttributes\Search.cshtml">
+      <DependentUpon>SearchView.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\StaffOrganisation\Search.cshtml">
+      <DependentUpon>SearchView.tt</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="obj\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\AdminService\" />
+    <WCFMetadataStorage Include="Service References\AuthorisationService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Dwp.Adep.Framework.Management.Ioc\Dwp.Adep.Framework.Management.Ioc.csproj">
+      <Project>{E458F311-5A3E-469F-A985-F5E143196F9E}</Project>
+      <Name>Dwp.Adep.Framework.Management.Ioc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dwp.Adep.Framework.Management.ResourceLibrary\Dwp.Adep.Framework.Management.ResourceLibrary.csproj">
+      <Project>{C251FF75-75C8-4E11-839D-CFC1C05D00BD}</Project>
+      <Name>Dwp.Adep.Framework.Management.ResourceLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>10000</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

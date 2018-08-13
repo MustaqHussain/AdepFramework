@@ -1,0 +1,256 @@
+@model Dwp.Adep.Framework.Management.Web.ViewModels.SecurityCheckVM
+@{
+    ViewBag.Title = FixedResources.ENTITYNAME_SECURITYCHECK;
+}
+<h2>Maintain @FixedResources.ENTITYNAME_SECURITYCHECK</h2>
+<script type="text/javascript">
+    /// <reference path="jquery-1.7.1.js" />
+    /// <reference path="jquery-ui.js" />
+    $(document).ready(function () {
+
+        var isDirty = @(Model.IsViewDirty?Html.Raw("true"):Html.Raw("false"));
+
+        $(':input').change(function () {
+            if (!isDirty) {
+                isDirty = true;
+            }
+        });
+		
+		var $myDialogDelete = $('<div id=\'confirm\'></div>')
+        .html('Are you sure you want to delete?<br/>Click OK to confirm.  Click Cancel to stop this action.')
+        .dialog({
+            autoOpen: false,
+            modal: true,
+            title: 'Confirmation Required',
+            buttons: {
+                "OK": function () {
+                    $(this).dialog("close");
+                    if ($('#IsDeleteConfirmed').val() == "True") {
+                        var form = $('#mainForm')
+                        var input = $("<input>").attr("type", "hidden").attr("name", "Edit::DeleteSecurityCheck").val("");
+                        form.append($(input));
+                        $('#mainForm')[0].submit();
+                        return true;
+                    }
+                }
+                , "Cancel": function () {
+                    $(this).dialog("close");
+                    return false;
+                }
+            }
+
+        });
+		
+		var $myDialogExit = $('<div id=\'confirm\'></div>')
+        .html('Are you sure you want to exit?<br/>Click OK to confirm.  Click Cancel to stop this action.')
+        .dialog({
+            autoOpen: false,
+            modal: true,
+            title: 'Confirmation Required',
+            buttons: {
+                "OK": function () {
+                    $(this).dialog("close");
+                    if ($('#IsExitConfirmed').val() == "True") {
+                        var form = $('#mainForm')
+                        var input = $("<input>").attr("type", "hidden").attr("name", "Edit::ExitSecurityCheck").val("");
+                        form.append($(input));
+                        $('#mainForm')[0].submit();
+                        return true;
+                    }
+                }
+                , "Cancel": function () {
+                    $(this).dialog("close");
+                    return false;
+                }
+            }
+
+        });
+
+        $('#mainForm').submit(function (e) {
+
+            if ($('#mainForm').find('input[type="submit"]:focus').attr('name') == 'Edit::DeleteSecurityCheck') {
+                e.preventDefault();
+                $('#IsDeleteConfirmed').val("True");
+                var returnValue = $myDialogDelete.dialog('open');  //replace the div id with the id of the button/form
+                return returnValue;
+            }
+            else if ($('#mainForm').find('input[type="submit"]:focus').attr('name') == 'Edit::ExitSecurityCheck') {
+                if (isDirty == true) {
+                    e.preventDefault();
+                    $('#IsExitConfirmed').val("True");
+                    var returnValue = $myDialogExit.dialog('open');  //replace the div id with the id of the button/form
+                    return returnValue;
+                }
+                else {
+                    $('#IsExitConfirmed').val("True");
+                    return true;
+                }
+            }
+            else {
+                return true;
+            }
+        });
+	});
+	
+	//set the validator so that it hits (doesn't ignore) hidden fields NOTE:- This is outside the 'ready' function
+    $.validator.setDefaults({
+        ignore: ""
+    });
+</script>
+@using (Html.BeginForm("Edit", "SecurityCheck", FormMethod.Post, new { @id = "mainForm" }))
+{
+    @Html.ValidationSummary(true)
+    <div class='message'>@Model.Message</div>
+    @Html.HiddenFor(model => model.SecurityCheckItem.Code)
+    <input type='hidden' id='IsDeleteConfirmed' name='IsDeleteConfirmed' value='@Model.IsDeleteConfirmed' />
+    <input type='hidden' id='IsExitConfirmed' name='IsExitConfirmed' value='@Model.IsExitConfirmed' />
+    <div class="full-width clearfix">
+		    <fieldset class="ui-widget ui-widget-content ui-corner-all">
+                <legend class="ui-widget-header ui-corner-all">@FixedResources.ENTITYNAME_SECURITYCHECK</legend>
+				@Html.EditorFor(model => model.SecurityCheckItem.CheckID,"LabelFieldAlign")
+				@Html.EditorFor(model => model.SecurityCheckItem.SEF_ID,"LabelFieldAlign")
+				@Html.EditorFor(model => model.SecurityCheckItem.DateRaised,"LabelDateAlign") 
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.SecurityCheckItem.CheckerCode)
+					</div>
+					<div class="editor-field right-60" title='@Html.ToolTipFor(model => model.SecurityCheckItem.CheckerCode)'>
+						@Html.DropDownListFor(model => model.SecurityCheckItem.CheckerCode, new SelectList(Model.CheckerList, "Code", "StaffNumber"), @String.Format(FixedResources.DDL_GENERIC, @FixedResources.ENTITYNAME_STAFF))
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.SecurityCheckItem.CheckerCode)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.SecurityCheckItem.CustomerCode)
+					</div>
+					<div class="editor-field right-60" title='@Html.ToolTipFor(model => model.SecurityCheckItem.CustomerCode)'>
+						@Html.DropDownListFor(model => model.SecurityCheckItem.CustomerCode, new SelectList(Model.CustomerList, "Code", "DateRaised"), @String.Format(FixedResources.DDL_GENERIC, @FixedResources.ENTITYNAME_CUSTOMER))
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.SecurityCheckItem.CustomerCode)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.SecurityCheckItem.LiaisonCountryCode)
+					</div>
+					<div class="editor-field right-60" title='@Html.ToolTipFor(model => model.SecurityCheckItem.LiaisonCountryCode)'>
+						@Html.DropDownListFor(model => model.SecurityCheckItem.LiaisonCountryCode, new SelectList(Model.LiaisonCountryList, "Code", "Description"), @String.Format(FixedResources.DDL_GENERIC, @FixedResources.ENTITYNAME_COUNTRY))
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.SecurityCheckItem.LiaisonCountryCode)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.SecurityCheckItem.ReasonForDelayCode)
+					</div>
+					<div class="editor-field right-60" title='@Html.ToolTipFor(model => model.SecurityCheckItem.ReasonForDelayCode)'>
+						@Html.DropDownListFor(model => model.SecurityCheckItem.ReasonForDelayCode, new SelectList(Model.ReasonForDelayList, "Code", "Description"), @String.Format(FixedResources.DDL_GENERIC, @FixedResources.ENTITYNAME_REASONFORDELAY))
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.SecurityCheckItem.ReasonForDelayCode)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.SecurityCheckItem.BSCNumberCode)
+					</div>
+					<div class="editor-field right-60" title='@Html.ToolTipFor(model => model.SecurityCheckItem.BSCNumberCode)'>
+						@Html.DropDownListFor(model => model.SecurityCheckItem.BSCNumberCode, new SelectList(Model.BSCNumberList, "Code", "Description"), @String.Format(FixedResources.DDL_GENERIC, @FixedResources.ENTITYNAME_BCSNUMBER))
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.SecurityCheckItem.BSCNumberCode)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.SecurityCheckItem.ServerCode)
+					</div>
+					<div class="editor-field right-60" title='@Html.ToolTipFor(model => model.SecurityCheckItem.ServerCode)'>
+						@Html.DropDownListFor(model => model.SecurityCheckItem.ServerCode, new SelectList(Model.ServerList, "Code", "Number"), @String.Format(FixedResources.DDL_GENERIC, @FixedResources.ENTITYNAME_SERVER))
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.SecurityCheckItem.ServerCode)
+					</div>
+				</div>
+				@Html.EditorFor(model => model.SecurityCheckItem.DateAccountDeletion,"LabelDateAlign") 
+				@Html.EditorFor(model => model.SecurityCheckItem.DateBF,"LabelDateAlign") 
+				@Html.EditorFor(model => model.SecurityCheckItem.DateCheckGenerated,"LabelDateAlign") 
+				@Html.EditorFor(model => model.SecurityCheckItem.DateCheckCompleted,"LabelDateAlign") 
+				@Html.EditorFor(model => model.SecurityCheckItem.DaysToClear,"LabelFieldAlign")
+				@Html.EditorFor(model => model.SecurityCheckItem.DateCheckCompletedEntered,"LabelDateAlign") 
+				@Html.EditorFor(model => model.SecurityCheckItem.DateReminder,"LabelDateAlign") 
+				@Html.EditorFor(model => model.SecurityCheckItem.DateEvidenceRequested,"LabelDateAlign") 
+				@Html.EditorFor(model => model.SecurityCheckItem.DateSentToSAT,"LabelDateAlign") 
+				@Html.EditorFor(model => model.SecurityCheckItem.DateReceivedBySAT,"LabelDateAlign") 
+				@Html.EditorFor(model => model.SecurityCheckItem.DateReceivedInOPS,"LabelDateAlign") 
+				@Html.EditorFor(model => model.SecurityCheckItem.DateRequestReceivedByOps,"LabelDateAlign") 
+				@Html.EditorFor(model => model.SecurityCheckItem.DateReturnedBySAT,"LabelDateAlign") 
+				@Html.EditorFor(model => model.SecurityCheckItem.DateValidation,"LabelDateAlign") 
+				@Html.EditorFor(model => model.SecurityCheckItem.Notes,"LabelFieldAlign")
+				@Html.EditorFor(model => model.SecurityCheckItem.BF_Notes,"LabelFieldAlign")
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.SecurityCheckItem.StaffCode)
+					</div>
+					<div class="editor-field right-60" title='@Html.ToolTipFor(model => model.SecurityCheckItem.StaffCode)'>
+						@Html.DropDownListFor(model => model.SecurityCheckItem.StaffCode, new SelectList(Model.StaffList, "Code", "StaffNumber"), @String.Format(FixedResources.DDL_GENERIC, @FixedResources.ENTITYNAME_STAFF))
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.SecurityCheckItem.StaffCode)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.SecurityCheckItem.TeamCode)
+					</div>
+					<div class="editor-field right-60" title='@Html.ToolTipFor(model => model.SecurityCheckItem.TeamCode)'>
+						@Html.DropDownListFor(model => model.SecurityCheckItem.TeamCode, new SelectList(Model.TeamList, "Code", "Name"), @String.Format(FixedResources.DDL_GENERIC, @FixedResources.ENTITYNAME_ORGANISATION))
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.SecurityCheckItem.TeamCode)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.SecurityCheckItem.CommandCode)
+					</div>
+					<div class="editor-field right-60" title='@Html.ToolTipFor(model => model.SecurityCheckItem.CommandCode)'>
+						@Html.DropDownListFor(model => model.SecurityCheckItem.CommandCode, new SelectList(Model.CommandList, "Code", "Name"), @String.Format(FixedResources.DDL_GENERIC, @FixedResources.ENTITYNAME_ORGANISATION))
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.SecurityCheckItem.CommandCode)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.SecurityCheckItem.LocationCode)
+					</div>
+					<div class="editor-field right-60" title='@Html.ToolTipFor(model => model.SecurityCheckItem.LocationCode)'>
+						@Html.DropDownListFor(model => model.SecurityCheckItem.LocationCode, new SelectList(Model.LocationList, "Code", "Name"), @String.Format(FixedResources.DDL_GENERIC, @FixedResources.ENTITYNAME_ORGANISATION))
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.SecurityCheckItem.LocationCode)
+					</div>
+				</div>
+				@Html.EditorFor(model => model.SecurityCheckItem.DateGeneratedMonth,"LabelDateAlign") 
+				@Html.EditorFor(model => model.SecurityCheckItem.DateClearedMonth,"LabelDateAlign") 
+				@Html.EditorFor(model => model.SecurityCheckItem.IsActive,"LabelCheckBoxAlign")
+				<div class="full-width clearfix">
+		            @if (Model.AccessContext == Dwp.Adep.Framework.Management.Web.ViewModels.SecurityCheckAccessContext.Create)
+		            {
+		                <input id='CreateButton' type='submit' name='Edit::CreateSecurityCheck' value='@FixedResources.LABEL_CREATEBUTTON' title='@FixedResources.TOOLTIP_CREATEBUTTON @FixedResources.ENTITYNAME_SECURITYCHECK' />
+		            }
+		            else
+		            {
+		                <input id='SaveButton' type='submit' name='Edit::SaveSecurityCheck' value='@FixedResources.LABEL_SAVEBUTTON' title='@FixedResources.TOOLTIP_SAVEBUTTON @FixedResources.ENTITYNAME_SECURITYCHECK'/>
+						<input id='DeleteButton' class='cancel' type='submit' name='Edit::DeleteSecurityCheck' value='@FixedResources.LABEL_DELETEBUTTON' title='@FixedResources.TOOLTIP_DELETEBUTTON @FixedResources.ENTITYNAME_SECURITYCHECK'/>	            
+		            }    
+		            <input id='ExitButton' class='cancel' type='submit' name='Edit::ExitSecurityCheck' value='@FixedResources.LABEL_EXITBUTTON' title='@FixedResources.TOOLTIP_EXITBUTTON'/>
+		        </div>
+			</fieldset>
+	</div>
+}

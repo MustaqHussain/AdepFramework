@@ -1,0 +1,142 @@
+@model Dwp.Adep.Framework.Management.Web.ViewModels.StaffVM
+@{
+    ViewBag.Title = FixedResources.ENTITYNAME_STAFF;
+}
+<h2>Maintain @FixedResources.ENTITYNAME_STAFF</h2>
+<script type="text/javascript">
+    /// <reference path="jquery-1.7.1.js" />
+    /// <reference path="jquery-ui.js" />
+    $(document).ready(function () {
+
+        var isDirty = @(Model.IsViewDirty?Html.Raw("true"):Html.Raw("false"));
+
+        $(':input').change(function () {
+            if (!isDirty) {
+                isDirty = true;
+            }
+        });
+	
+		var $myDialogExit = $('<div id=\'confirm\'></div>')
+        .html('Are you sure you want to exit?<br/>Click OK to confirm.  Click Cancel to stop this action.')
+        .dialog({
+            autoOpen: false,
+            modal: true,
+            title: 'Confirmation Required',
+            buttons: {
+                "OK": function () {
+                    $(this).dialog("close");
+                    if ($('#IsExitConfirmed').val() == "True") {
+                        var form = $('#mainForm')
+                        var input = $("<input>").attr("type", "hidden").attr("name", "Edit::ExitStaff").val("");
+                        form.append($(input));
+                        $('#mainForm')[0].submit();
+                        return true;
+                    }
+                }
+                , "Cancel": function () {
+                    $(this).dialog("close");
+                    return false;
+                }
+            }
+
+        });
+
+        $('#mainForm').submit(function (e) {
+            if ($('#mainForm').find('input[type="submit"]:focus').attr('name') == 'Edit::ExitStaff') {
+                if (isDirty == true) {
+                    e.preventDefault();
+                    $('#IsExitConfirmed').val("True");
+                    var returnValue = $myDialogExit.dialog('open');  //replace the div id with the id of the button/form
+                    return returnValue;
+                }
+                else {
+                    $('#IsExitConfirmed').val("True");
+                    return true;
+                }
+            }
+        });
+	});
+	
+	//set the validator so that it hits (doesn't ignore) hidden fields NOTE:- This is outside the 'ready' function
+    $.validator.setDefaults({
+        ignore: ""
+    });
+</script>
+@using (Html.BeginForm("Edit", "Staff", FormMethod.Post, new { @id = "mainForm" }))
+{
+    @Html.ValidationSummary(true)
+    <div class='message'>@Model.Message</div>
+    @Html.HiddenFor(model => model.StaffItem.Code)    
+    <input type='hidden' id='IsExitConfirmed' name='IsExitConfirmed' value='@Model.IsExitConfirmed' />
+    <div class="full-width clearfix">
+		    <fieldset class="ui-widget ui-widget-content ui-corner-all">
+                <legend class="ui-widget-header ui-corner-all">@FixedResources.ENTITYNAME_STAFF</legend>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.StaffItem.StaffNumber)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.StaffItem.StaffNumber)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.StaffItem.StaffNumber)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.StaffItem.LastName)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.StaffItem.LastName)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.StaffItem.LastName)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.StaffItem.FirstName)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.StaffItem.FirstName)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.StaffItem.FirstName)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.StaffItem.GradeCode)
+					</div>
+					<div class="editor-field right-60">
+						@Html.DropDownListFor(model => model.StaffItem.GradeCode, new SelectList(Model.GradeList, "Code", "NameAndActiveFlag"), @String.Format(FixedResources.DDL_GENERIC, @FixedResources.ENTITYNAME_GRADE))
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.StaffItem.GradeCode)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.StaffItem.IsActive)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.StaffItem.IsActive)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.StaffItem.IsActive)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+		            @if (Model.AccessContext == Dwp.Adep.Framework.Management.Web.ViewModels.StaffAccessContext.Create)
+		            {
+		                <input id='CreateButton' type='submit' name='Edit::CreateStaff' value="@FixedResources.LABEL_CREATEBUTTON" title='@FixedResources.TOOLTIP_CREATEBUTTON @FixedResources.ENTITYNAME_STAFF'/>
+		            }
+		            else
+		            {
+		                <input id='SaveButton' type='submit' name='Edit::SaveStaff' value="@FixedResources.LABEL_SAVEBUTTON" title='@FixedResources.TOOLTIP_SAVEBUTTON @FixedResources.ENTITYNAME_STAFF'/>
+		            }    
+		            <input id='ExitButton' class='cancel' type='submit' name='Edit::ExitStaff' value="@FixedResources.LABEL_EXITBUTTON" title='@FixedResources.TOOLTIP_EXITBUTTON'/>
+		        </div>
+			</fieldset>
+	</div>
+}

@@ -1,0 +1,93 @@
+@model Dwp.Adep.Framework.Management.Web.ViewModels.StaffOfficesVM
+@{
+    ViewBag.Title = FixedResources.ENTITYNAME_STAFFOFFICES;
+}
+<h2>Maintain @FixedResources.ENTITYNAME_STAFFOFFICES</h2>
+<script type="text/javascript">
+    /// <reference path="jquery-1.7.1.js" />
+    /// <reference path="jquery-ui.js" />
+    $(document).ready(function () {
+
+        var isDirty = @(Model.IsViewDirty?Html.Raw("true"):Html.Raw("false"));
+
+        $(':input').change(function () {
+            if (!isDirty) {
+                isDirty = true;
+            }
+        });
+
+		var $myDialogExit = $('<div id=\'confirm\'></div>')
+        .html('Are you sure you want to exit?<br/>Click OK to confirm.  Click Cancel to stop this action.')
+        .dialog({
+            autoOpen: false,
+            modal: true,
+            title: 'Confirmation Required',
+            buttons: {
+                "OK": function () {
+                    $(this).dialog("close");
+                    if ($('#IsExitConfirmed').val() == "True") {
+                        var form = $('#mainForm')
+                        var input = $("<input>").attr("type", "hidden").attr("name", "Edit::ExitStaffOffices").val("");
+                        form.append($(input));
+                        $('#mainForm')[0].submit();
+                        return true;
+                    }
+                }
+                , "Cancel": function () {
+                    $(this).dialog("close");
+                    return false;
+                }
+            }
+
+        });
+
+        $('#mainForm').submit(function (e) {
+
+			if ($('#mainForm').find('input[type="submit"]:focus').attr('name') == 'Edit::ExitStaffOffices') {
+                if (isDirty == true) {
+                    e.preventDefault();
+                    $('#IsExitConfirmed').val("True");
+                    var returnValue = $myDialogExit.dialog('open');  //replace the div id with the id of the button/form
+                    return returnValue;
+                }
+                else {
+                    $('#IsExitConfirmed').val("True");
+                    return true;
+                }
+            }           
+        });
+	});
+	
+</script>
+@using (Html.BeginForm("Edit", "StaffOffices", FormMethod.Post, new { @id = "mainForm" }))
+{
+    @Html.ValidationSummary(true)
+    <div class='message'>@Model.Message</div>
+    @Html.HiddenFor(model => model.StaffOfficesItem.Code)    
+    <input type='hidden' id='IsExitConfirmed' name='IsExitConfirmed' value='@Model.IsExitConfirmed' />
+    <div class="full-width clearfix">
+		    <fieldset class="ui-widget ui-widget-content ui-corner-all">
+                <legend class="ui-widget-header ui-corner-all">@FixedResources.ENTITYNAME_STAFFOFFICES</legend>
+				@Html.EditorFor(model => model.StaffOfficesItem.Name,"LabelLargeFieldAlign")
+				@Html.EditorFor(model => model.StaffOfficesItem.Address1,"LabelFieldAlign")
+				@Html.EditorFor(model => model.StaffOfficesItem.Address2,"LabelFieldAlign")
+				@Html.EditorFor(model => model.StaffOfficesItem.Address3,"LabelFieldAlign")
+				@Html.EditorFor(model => model.StaffOfficesItem.Address4,"LabelFieldAlign")
+				@Html.EditorFor(model => model.StaffOfficesItem.Address5,"LabelFieldAlign")
+				@Html.EditorFor(model => model.StaffOfficesItem.Postcode,"LabelFieldAlign")
+				@Html.EditorFor(model => model.StaffOfficesItem.Telephone,"LabelFieldAlign")
+				@Html.EditorFor(model => model.StaffOfficesItem.OpeningTimes,"LabelFieldAlign")
+				<div class="full-width clearfix">
+		            @if (Model.AccessContext == Dwp.Adep.Framework.Management.Web.ViewModels.StaffOfficesAccessContext.Create)
+		            {
+		                <input id='CreateButton' type='submit' name='Edit::CreateStaffOffices' value='@FixedResources.LABEL_CREATEBUTTON' title='@FixedResources.TOOLTIP_CREATEBUTTON @FixedResources.ENTITYNAME_STAFFOFFICES' />
+		            }
+		            else
+		            {
+		                <input id='SaveButton' type='submit' name='Edit::SaveStaffOffices' value='@FixedResources.LABEL_SAVEBUTTON' title='@FixedResources.TOOLTIP_SAVEBUTTON @FixedResources.ENTITYNAME_STAFFOFFICES'/>						
+		            }    
+		            <input id='ExitButton' class='cancel' type='submit' name='Edit::ExitStaffOffices' value='@FixedResources.LABEL_EXITBUTTON' title='@FixedResources.TOOLTIP_EXITBUTTON'/>
+		        </div>
+			</fieldset>
+	</div>
+}

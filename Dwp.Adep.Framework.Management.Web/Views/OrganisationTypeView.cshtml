@@ -1,0 +1,45 @@
+@model IEnumerable<Dwp.Adep.Framework.Management.Web.Models.OrganisationTypeModel>
+
+@{
+    ViewBag.Title = "OrganisationTypeView";
+}
+
+<h2>OrganisationTypeView</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+      <th>
+            Code
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            RowIdentifier
+        </th>
+          <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+      <td>
+            @Html.DisplayFor(modelItem => item.Code)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RowIdentifier)
+        </td>
+          <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Code }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Code }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Code })
+        </td>
+    </tr>
+}
+
+</table>

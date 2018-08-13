@@ -1,0 +1,2347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:4444/ServiceContracts/AdminService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" />
+  <xs:import schemaLocation="http://localhost:4444/ServiceContracts/AdminService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:element name="UpdateStaff">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="dc" nillable="true" type="q1:StaffDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateStaffResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="UpdateStaffResult" nillable="true" type="q2:StaffVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteStaff">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dcCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="lockID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteStaffResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStaffApplicationAdministrationByStaffCodeAndApplicationCode">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="applicationCode" type="q3:guid" />
+        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="staffCode" type="q4:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStaffApplicationAdministrationByStaffCodeAndApplicationCodeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="GetStaffApplicationAdministrationByStaffCodeAndApplicationCodeResult" nillable="true" type="q5:StaffApplicationAdminVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApplicationOrganisationsByApplicationCode">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="applicationCode" type="q6:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApplicationOrganisationsByApplicationCodeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="GetApplicationOrganisationsByApplicationCodeResult" nillable="true" type="q7:ApplicationOrganisationSelectVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrganisationWithParent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="currentUser" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="organisationCode" type="q8:guid" />
+        <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="applicationCode" type="q9:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrganisationWithParentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="GetOrganisationWithParentResult" nillable="true" type="q10:ApplicationOrganisationAdminVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOrganisationForApplication">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="currentUser" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="dc" nillable="true" type="q11:OrganisationDC" />
+        <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="parentOrganisationCode" type="q12:guid" />
+        <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="applicationCode" type="q13:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOrganisationForApplicationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="UpdateOrganisationForApplicationResult" nillable="true" type="q14:ApplicationOrganisationAdminVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateOrganisationForApplication">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="currentUser" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="dc" nillable="true" type="q15:OrganisationDC" />
+        <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="parentOrganisationCode" type="q16:guid" />
+        <xs:element xmlns:q17="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="applicationCode" type="q17:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateOrganisationForApplicationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="CreateOrganisationForApplicationResult" nillable="true" type="q18:ApplicationOrganisationAdminVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteOrganisationForApplication">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="currentUser" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q19="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="code" type="q19:guid" />
+        <xs:element minOccurs="0" name="lockID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteOrganisationForApplicationResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateStaffApplicationAdministration">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q20="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="applicationCode" type="q20:guid" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="staffItem" nillable="true" type="q21:StaffDC" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="staffChangeSet" nillable="true" type="q22:StaffAdminChangeSetDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateStaffApplicationAdministrationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="UpdateStaffApplicationAdministrationResult" nillable="true" type="q23:StaffApplicationAdminVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateStaffCurrentOrganisation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="currentUser" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="applicationName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="organisationID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateStaffCurrentOrganisationResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateUploadErrorLog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="dc" nillable="true" type="q24:UploadErrorLogDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateUploadErrorLogResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="CreateUploadErrorLogResult" nillable="true" type="q25:UploadErrorLogVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUploadErrorLog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="code" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUploadErrorLogResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="GetUploadErrorLogResult" nillable="true" type="q26:UploadErrorLogVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllUploadErrorLog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="includeInActive" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllUploadErrorLogResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="GetAllUploadErrorLogResult" nillable="true" type="q27:ArrayOfUploadErrorLogDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchUploadErrorLog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="searchCriteria" nillable="true" type="q28:UploadErrorLogSearchCriteriaDC" />
+        <xs:element minOccurs="0" name="page" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="includeInActive" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchUploadErrorLogResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="SearchUploadErrorLogResult" nillable="true" type="q29:UploadErrorLogSearchVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateUploadErrorLog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="dc" nillable="true" type="q30:UploadErrorLogDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateUploadErrorLogResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="UpdateUploadErrorLogResult" nillable="true" type="q31:UploadErrorLogVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteUploadErrorLog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dcCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="lockID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteUploadErrorLogResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateCountry">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="dc" nillable="true" type="q32:CountryDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateCountryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="CreateCountryResult" nillable="true" type="q33:CountryVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCountry">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="code" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCountryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="GetCountryResult" nillable="true" type="q34:CountryVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCountry">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="includeInActive" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCountryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="GetAllCountryResult" nillable="true" type="q35:ArrayOfCountryDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchCountry">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="searchCriteria" nillable="true" type="q36:CountrySearchCriteriaDC" />
+        <xs:element minOccurs="0" name="page" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="includeInActive" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchCountryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="SearchCountryResult" nillable="true" type="q37:CountrySearchVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCountry">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="dc" nillable="true" type="q38:CountryDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCountryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="UpdateCountryResult" nillable="true" type="q39:CountryVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteCountry">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dcCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="lockID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteCountryResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateStaffAttributes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="dc" nillable="true" type="q40:StaffAttributesDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateStaffAttributesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="CreateStaffAttributesResult" nillable="true" type="q41:StaffAttributesVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStaffAttributes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="code" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStaffAttributesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="GetStaffAttributesResult" nillable="true" type="q42:StaffAttributesVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllStaffAttributes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="includeInActive" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllStaffAttributesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="GetAllStaffAttributesResult" nillable="true" type="q43:ArrayOfStaffAttributesDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchStaffAttributes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="searchCriteria" nillable="true" type="q44:StaffAttributesSearchCriteriaDC" />
+        <xs:element minOccurs="0" name="page" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="includeInActive" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchStaffAttributesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="SearchStaffAttributesResult" nillable="true" type="q45:StaffAttributesSearchVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateStaffAttributes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="dc" nillable="true" type="q46:StaffAttributesDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateStaffAttributesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="UpdateStaffAttributesResult" nillable="true" type="q47:StaffAttributesVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteStaffAttributes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dcCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="lockID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteStaffAttributesResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateAudit">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="dc" nillable="true" type="q48:AuditDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateAuditResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="CreateAuditResult" nillable="true" type="q49:AuditVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAudit">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="code" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAuditResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="GetAuditResult" nillable="true" type="q50:AuditVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllAudit">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllAuditResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="GetAllAuditResult" nillable="true" type="q51:ArrayOfAuditDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchAudit">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="searchCriteria" nillable="true" type="q52:AuditSearchCriteriaDC" />
+        <xs:element minOccurs="0" name="page" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchAuditResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="SearchAuditResult" nillable="true" type="q53:AuditSearchVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAudit">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="dc" nillable="true" type="q54:AuditDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAuditResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="UpdateAuditResult" nillable="true" type="q55:AuditVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteAudit">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dcCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="lockID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteAuditResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateStaffOffices">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="dc" nillable="true" type="q56:StaffOfficesDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateStaffOfficesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="CreateStaffOfficesResult" nillable="true" type="q57:StaffOfficesVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStaffOffices">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="code" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStaffOfficesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="GetStaffOfficesResult" nillable="true" type="q58:StaffOfficesVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllStaffOffices">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllStaffOfficesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="GetAllStaffOfficesResult" nillable="true" type="q59:ArrayOfStaffOfficesDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchStaffOffices">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="searchCriteria" nillable="true" type="q60:StaffOfficesSearchCriteriaDC" />
+        <xs:element minOccurs="0" name="page" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchStaffOfficesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="SearchStaffOfficesResult" nillable="true" type="q61:StaffOfficesSearchVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateStaffOffices">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="dc" nillable="true" type="q62:StaffOfficesDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateStaffOfficesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="UpdateStaffOfficesResult" nillable="true" type="q63:StaffOfficesVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteStaffOffices">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dcCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="lockID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteStaffOfficesResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateStaff">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="dc" nillable="true" type="q64:StaffDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateStaffResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="CreateStaffResult" nillable="true" type="q65:StaffVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStaff">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="code" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStaffResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="GetStaffResult" nillable="true" type="q66:StaffVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllStaff">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="includeInActive" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllStaffResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="GetAllStaffResult" nillable="true" type="q67:ArrayOfStaffDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchStaff">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="searchCriteria" nillable="true" type="q68:StaffSearchCriteriaDC" />
+        <xs:element minOccurs="0" name="page" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="includeInActive" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchStaffResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="SearchStaffResult" nillable="true" type="q69:StaffSearchVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllStaffOrganisation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllStaffOrganisationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="GetAllStaffOrganisationResult" nillable="true" type="q70:ArrayOfStaffOrganisationDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchStaffOrganisation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="searchCriteria" nillable="true" type="q71:StaffOrganisationSearchCriteriaDC" />
+        <xs:element minOccurs="0" name="page" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchStaffOrganisationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="SearchStaffOrganisationResult" nillable="true" type="q72:StaffOrganisationSearchVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateStaffOrganisation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q73="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="dc" nillable="true" type="q73:StaffOrganisationDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateStaffOrganisationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q74="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="UpdateStaffOrganisationResult" nillable="true" type="q74:StaffOrganisationVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteStaffOrganisation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dcCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="lockID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteStaffOrganisationResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateRole">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q75="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="dc" nillable="true" type="q75:RoleDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateRoleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q76="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="CreateRoleResult" nillable="true" type="q76:RoleVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRole">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="code" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRoleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q77="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="GetRoleResult" nillable="true" type="q77:RoleVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllRole">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="includeInActive" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllRoleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q78="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="GetAllRoleResult" nillable="true" type="q78:ArrayOfRoleDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchRole">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q79="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="searchCriteria" nillable="true" type="q79:RoleSearchCriteriaDC" />
+        <xs:element minOccurs="0" name="page" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="includeInActive" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchRoleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q80="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="SearchRoleResult" nillable="true" type="q80:RoleSearchVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRole">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q81="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="dc" nillable="true" type="q81:RoleDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRoleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q82="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="UpdateRoleResult" nillable="true" type="q82:RoleVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteRole">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dcCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="lockID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteRoleResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateGrade">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q83="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="dc" nillable="true" type="q83:GradeDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateGradeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q84="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="CreateGradeResult" nillable="true" type="q84:GradeVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGrade">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="code" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGradeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q85="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="GetGradeResult" nillable="true" type="q85:GradeVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllGrade">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="includeInActive" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllGradeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q86="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="GetAllGradeResult" nillable="true" type="q86:ArrayOfGradeDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchGrade">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q87="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="searchCriteria" nillable="true" type="q87:GradeSearchCriteriaDC" />
+        <xs:element minOccurs="0" name="page" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="includeInActive" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchGradeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q88="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="SearchGradeResult" nillable="true" type="q88:GradeSearchVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateGrade">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q89="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="dc" nillable="true" type="q89:GradeDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateGradeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q90="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="UpdateGradeResult" nillable="true" type="q90:GradeVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteGrade">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dcCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="lockID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteGradeResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateApplicationOrganisationTypeGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q91="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="dc" nillable="true" type="q91:ApplicationOrganisationTypeGroupDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateApplicationOrganisationTypeGroupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q92="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="CreateApplicationOrganisationTypeGroupResult" nillable="true" type="q92:ApplicationOrganisationTypeGroupVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApplicationOrganisationTypeGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="code" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApplicationOrganisationTypeGroupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q93="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="GetApplicationOrganisationTypeGroupResult" nillable="true" type="q93:ApplicationOrganisationTypeGroupVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllApplicationOrganisationTypeGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="includeInActive" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllApplicationOrganisationTypeGroupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q94="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="GetAllApplicationOrganisationTypeGroupResult" nillable="true" type="q94:ArrayOfApplicationOrganisationTypeGroupDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchApplicationOrganisationTypeGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q95="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="searchCriteria" nillable="true" type="q95:ApplicationOrganisationTypeGroupSearchCriteriaDC" />
+        <xs:element minOccurs="0" name="page" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="includeInActive" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchApplicationOrganisationTypeGroupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q96="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="SearchApplicationOrganisationTypeGroupResult" nillable="true" type="q96:ApplicationOrganisationTypeGroupSearchVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateApplicationOrganisationTypeGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q97="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="dc" nillable="true" type="q97:ApplicationOrganisationTypeGroupDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateApplicationOrganisationTypeGroupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q98="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="UpdateApplicationOrganisationTypeGroupResult" nillable="true" type="q98:ApplicationOrganisationTypeGroupVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteApplicationOrganisationTypeGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dcCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="lockID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteApplicationOrganisationTypeGroupResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateHoliday">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q99="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="dc" nillable="true" type="q99:HolidayDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateHolidayResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q100="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="CreateHolidayResult" nillable="true" type="q100:HolidayVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHoliday">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="code" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHolidayResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q101="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="GetHolidayResult" nillable="true" type="q101:HolidayVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllHoliday">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="includeInActive" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllHolidayResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q102="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="GetAllHolidayResult" nillable="true" type="q102:ArrayOfHolidayDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchHoliday">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q103="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="searchCriteria" nillable="true" type="q103:HolidaySearchCriteriaDC" />
+        <xs:element minOccurs="0" name="page" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="includeInActive" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchHolidayResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q104="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="SearchHolidayResult" nillable="true" type="q104:HolidaySearchVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateHoliday">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q105="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="dc" nillable="true" type="q105:HolidayDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateHolidayResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q106="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="UpdateHolidayResult" nillable="true" type="q106:HolidayVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteHoliday">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dcCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="lockID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteHolidayResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateADRoleLookup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q107="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="dc" nillable="true" type="q107:ADRoleLookupDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateADRoleLookupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q108="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="UpdateADRoleLookupResult" nillable="true" type="q108:ADRoleLookupVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteADRoleLookup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dcCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="lockID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteADRoleLookupResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateStaffDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q109="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="dc" nillable="true" type="q109:StaffDetailsDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateStaffDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q110="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="CreateStaffDetailsResult" nillable="true" type="q110:StaffDetailsVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStaffDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="code" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStaffDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q111="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="GetStaffDetailsResult" nillable="true" type="q111:StaffDetailsVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllStaffDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllStaffDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q112="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="GetAllStaffDetailsResult" nillable="true" type="q112:ArrayOfStaffDetailsDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchStaffDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q113="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="searchCriteria" nillable="true" type="q113:StaffDetailsSearchCriteriaDC" />
+        <xs:element minOccurs="0" name="page" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchStaffDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q114="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="SearchStaffDetailsResult" nillable="true" type="q114:StaffDetailsSearchVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateStaffDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q115="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="dc" nillable="true" type="q115:StaffDetailsDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateStaffDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q116="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="UpdateStaffDetailsResult" nillable="true" type="q116:StaffDetailsVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteStaffDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dcCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="lockID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteStaffDetailsResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateOrganisationType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q117="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="dc" nillable="true" type="q117:OrganisationTypeDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateOrganisationTypeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q118="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="CreateOrganisationTypeResult" nillable="true" type="q118:OrganisationTypeVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrganisationType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="code" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrganisationTypeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q119="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="GetOrganisationTypeResult" nillable="true" type="q119:OrganisationTypeVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllOrganisationType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="includeInActive" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllOrganisationTypeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q120="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="GetAllOrganisationTypeResult" nillable="true" type="q120:ArrayOfOrganisationTypeDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchOrganisationType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q121="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="searchCriteria" nillable="true" type="q121:OrganisationTypeSearchCriteriaDC" />
+        <xs:element minOccurs="0" name="page" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="includeInActive" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchOrganisationTypeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q122="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="SearchOrganisationTypeResult" nillable="true" type="q122:OrganisationTypeSearchVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOrganisationType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q123="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="dc" nillable="true" type="q123:OrganisationTypeDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOrganisationTypeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q124="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="UpdateOrganisationTypeResult" nillable="true" type="q124:OrganisationTypeVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteOrganisationType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dcCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="lockID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteOrganisationTypeResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateOrganisationHierarchy">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q125="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="dc" nillable="true" type="q125:OrganisationHierarchyDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateOrganisationHierarchyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q126="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="CreateOrganisationHierarchyResult" nillable="true" type="q126:OrganisationHierarchyVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrganisationHierarchy">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="code" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrganisationHierarchyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q127="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="GetOrganisationHierarchyResult" nillable="true" type="q127:OrganisationHierarchyVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllOrganisationHierarchy">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="includeInActive" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllOrganisationHierarchyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q128="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="GetAllOrganisationHierarchyResult" nillable="true" type="q128:ArrayOfOrganisationHierarchyDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchOrganisationHierarchy">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q129="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="searchCriteria" nillable="true" type="q129:OrganisationHierarchySearchCriteriaDC" />
+        <xs:element minOccurs="0" name="page" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="includeInActive" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchOrganisationHierarchyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q130="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="SearchOrganisationHierarchyResult" nillable="true" type="q130:OrganisationHierarchySearchVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOrganisationHierarchy">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q131="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="dc" nillable="true" type="q131:OrganisationHierarchyDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOrganisationHierarchyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q132="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="UpdateOrganisationHierarchyResult" nillable="true" type="q132:OrganisationHierarchyVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteOrganisationHierarchy">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dcCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="lockID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteOrganisationHierarchyResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateOrganisation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q133="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="dc" nillable="true" type="q133:OrganisationDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateOrganisationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q134="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="CreateOrganisationResult" nillable="true" type="q134:OrganisationVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrganisation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="code" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrganisationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q135="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="GetOrganisationResult" nillable="true" type="q135:OrganisationVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllOrganisation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="includeInActive" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllOrganisationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q136="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="GetAllOrganisationResult" nillable="true" type="q136:ArrayOfOrganisationDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchOrganisation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q137="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="searchCriteria" nillable="true" type="q137:OrganisationSearchCriteriaDC" />
+        <xs:element minOccurs="0" name="page" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="includeInActive" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchOrganisationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q138="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="SearchOrganisationResult" nillable="true" type="q138:OrganisationSearchVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOrganisation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q139="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="dc" nillable="true" type="q139:OrganisationDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOrganisationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q140="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="UpdateOrganisationResult" nillable="true" type="q140:OrganisationVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteOrganisation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dcCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="lockID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteOrganisationResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateStaffOrganisation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q141="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="dc" nillable="true" type="q141:StaffOrganisationDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateStaffOrganisationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q142="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="CreateStaffOrganisationResult" nillable="true" type="q142:StaffOrganisationVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStaffOrganisation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="code" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStaffOrganisationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q143="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="GetStaffOrganisationResult" nillable="true" type="q143:StaffOrganisationVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateOrganisationTypeGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q144="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="dc" nillable="true" type="q144:OrganisationTypeGroupDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateOrganisationTypeGroupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q145="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="CreateOrganisationTypeGroupResult" nillable="true" type="q145:OrganisationTypeGroupVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrganisationTypeGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="code" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrganisationTypeGroupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q146="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="GetOrganisationTypeGroupResult" nillable="true" type="q146:OrganisationTypeGroupVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllOrganisationTypeGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="includeInActive" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllOrganisationTypeGroupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q147="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="GetAllOrganisationTypeGroupResult" nillable="true" type="q147:ArrayOfOrganisationTypeGroupDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchOrganisationTypeGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q148="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="searchCriteria" nillable="true" type="q148:OrganisationTypeGroupSearchCriteriaDC" />
+        <xs:element minOccurs="0" name="page" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="includeInActive" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchOrganisationTypeGroupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q149="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="SearchOrganisationTypeGroupResult" nillable="true" type="q149:OrganisationTypeGroupSearchVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOrganisationTypeGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q150="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="dc" nillable="true" type="q150:OrganisationTypeGroupDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOrganisationTypeGroupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q151="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="UpdateOrganisationTypeGroupResult" nillable="true" type="q151:OrganisationTypeGroupVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteOrganisationTypeGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dcCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="lockID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteOrganisationTypeGroupResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateApplication">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q152="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="dc" nillable="true" type="q152:ApplicationDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateApplicationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q153="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="CreateApplicationResult" nillable="true" type="q153:ApplicationVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApplication">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="code" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApplicationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q154="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="GetApplicationResult" nillable="true" type="q154:ApplicationVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllApplication">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="includeInActive" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllApplicationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q155="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="GetAllApplicationResult" nillable="true" type="q155:ArrayOfApplicationDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchApplication">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q156="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="searchCriteria" nillable="true" type="q156:ApplicationSearchCriteriaDC" />
+        <xs:element minOccurs="0" name="page" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="includeInActive" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchApplicationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q157="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="SearchApplicationResult" nillable="true" type="q157:ApplicationSearchVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateApplication">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q158="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="dc" nillable="true" type="q158:ApplicationDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateApplicationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q159="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="UpdateApplicationResult" nillable="true" type="q159:ApplicationVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteApplication">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dcCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="lockID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteApplicationResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateApplicationAttribute">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q160="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="dc" nillable="true" type="q160:ApplicationAttributeDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateApplicationAttributeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q161="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="CreateApplicationAttributeResult" nillable="true" type="q161:ApplicationAttributeVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApplicationAttribute">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="code" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApplicationAttributeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q162="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="GetApplicationAttributeResult" nillable="true" type="q162:ApplicationAttributeVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllApplicationAttribute">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="includeInActive" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllApplicationAttributeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q163="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="GetAllApplicationAttributeResult" nillable="true" type="q163:ArrayOfApplicationAttributeDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchApplicationAttribute">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q164="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="searchCriteria" nillable="true" type="q164:ApplicationAttributeSearchCriteriaDC" />
+        <xs:element minOccurs="0" name="page" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="includeInActive" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchApplicationAttributeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q165="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="SearchApplicationAttributeResult" nillable="true" type="q165:ApplicationAttributeSearchVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateApplicationAttribute">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q166="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="dc" nillable="true" type="q166:ApplicationAttributeDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateApplicationAttributeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q167="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="UpdateApplicationAttributeResult" nillable="true" type="q167:ApplicationAttributeVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteApplicationAttribute">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dcCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="lockID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteApplicationAttributeResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateUploadQueue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q168="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="dc" nillable="true" type="q168:UploadQueueDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateUploadQueueResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q169="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="CreateUploadQueueResult" nillable="true" type="q169:UploadQueueVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUploadQueue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="code" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUploadQueueResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q170="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="GetUploadQueueResult" nillable="true" type="q170:UploadQueueVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllUploadQueue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="includeInActive" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllUploadQueueResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q171="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="GetAllUploadQueueResult" nillable="true" type="q171:ArrayOfUploadQueueDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchUploadQueue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q172="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="searchCriteria" nillable="true" type="q172:UploadQueueSearchCriteriaDC" />
+        <xs:element minOccurs="0" name="page" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="includeInActive" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchUploadQueueResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q173="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="SearchUploadQueueResult" nillable="true" type="q173:UploadQueueSearchVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateUploadQueue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q174="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="dc" nillable="true" type="q174:UploadQueueDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateUploadQueueResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q175="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="UpdateUploadQueueResult" nillable="true" type="q175:UploadQueueVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteUploadQueue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dcCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="lockID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteUploadQueueResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateADRoleLookup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q176="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="dc" nillable="true" type="q176:ADRoleLookupDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateADRoleLookupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q177="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="CreateADRoleLookupResult" nillable="true" type="q177:ADRoleLookupVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetADRoleLookup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="code" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetADRoleLookupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q178="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="GetADRoleLookupResult" nillable="true" type="q178:ADRoleLookupVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllADRoleLookup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="includeInActive" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllADRoleLookupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q179="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="GetAllADRoleLookupResult" nillable="true" type="q179:ArrayOfADRoleLookupDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchADRoleLookup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="overrideID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q180="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="searchCriteria" nillable="true" type="q180:ADRoleLookupSearchCriteriaDC" />
+        <xs:element minOccurs="0" name="page" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="includeInActive" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchADRoleLookupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q181="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" minOccurs="0" name="SearchADRoleLookupResult" nillable="true" type="q181:ADRoleLookupSearchVMDC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

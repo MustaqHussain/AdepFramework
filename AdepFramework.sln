@@ -1,0 +1,267 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dwp.Adep.Framework.DocumentService", "Dwp.Adep.Framework.DocumentService\Dwp.Adep.Framework.DocumentService.csproj", "{433186DD-7D64-4DDB-9AAC-5A206D051F08}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dwp.Adep.Framework.Resources", "Dwp.Adep.Framework.Resources\Dwp.Adep.Framework.Resources.csproj", "{71244980-0140-4168-BB9B-8BB12A9E3C5C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F198EFE5-B11D-4FE6-8250-3E5E7A5C42BC} = {F198EFE5-B11D-4FE6-8250-3E5E7A5C42BC}
+	EndProjectSection
+EndProject
+Project("{C8D11400-126E-41CD-887F-60BD40844F9E}") = "Dwp.Adep.Framework.Management.Database", "Dwp.Adep.Framework.Management.Database\Dwp.Adep.Framework.Management.Database.dbproj", "{304F1565-4869-4C26-B3EA-837CD31F9C8C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dwp.Adep.Framework.Management.DataServices", "Dwp.Adep.Framework.Management.DataServices\Dwp.Adep.Framework.Management.DataServices.csproj", "{E13D85C2-1A7B-4E96-9856-48A39DF8F9FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dwp.Adep.Framework.Management.Web", "Dwp.Adep.Framework.Management.Web\Dwp.Adep.Framework.Management.Web.csproj", "{7C6D3DC4-227F-4F13-9648-540361F76D8A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{71244980-0140-4168-BB9B-8BB12A9E3C5C} = {71244980-0140-4168-BB9B-8BB12A9E3C5C}
+		{F198EFE5-B11D-4FE6-8250-3E5E7A5C42BC} = {F198EFE5-B11D-4FE6-8250-3E5E7A5C42BC}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dwp.Adep.Framework.Management.WebServices", "Dwp.Adep.Framework.Management.WebServices\Dwp.Adep.Framework.Management.WebServices.csproj", "{F198EFE5-B11D-4FE6-8250-3E5E7A5C42BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dwp.Adep.Framework.Management.Web.Tests", "Dwp.Adep.Framework.Management.Web.Tests\Dwp.Adep.Framework.Management.Web.Tests.csproj", "{518A356E-02A3-4A84-9B6E-9C0FF3150A82}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dwp.Adep.Framework.Management.Ioc", "Dwp.Adep.Framework.Management.Ioc\Dwp.Adep.Framework.Management.Ioc.csproj", "{E458F311-5A3E-469F-A985-F5E143196F9E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dwp.Adep.Framework.Management.ServiceAgents", "Dwp.Adep.Framework.Management.ServiceAgents\Dwp.Adep.Framework.Management.ServiceAgents.csproj", "{E637556A-8E95-4610-8CC6-78EC7263B16E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dwp.Adep.Framework.Management.WebServices.Tests", "Dwp.Adep.Framework.Management.WebServices.Tests\Dwp.Adep.Framework.Management.WebServices.Tests.csproj", "{E1683348-9463-4B38-8112-9995D9226D4B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{95ABD307-1CD8-43DC-BF38-991C4451D733}"
+	ProjectSection(SolutionItems) = preProject
+		AdepFramework.vsmdi = AdepFramework.vsmdi
+		Local.testsettings = Local.testsettings
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dwp.Adep.Framework.Management.DataServices.Tests", "Dwp.Adep.Framework.Management.DataServices.Tests\Dwp.Adep.Framework.Management.DataServices.Tests.csproj", "{7A73823B-AC45-4C17-80A3-0BD8D090E888}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dwp.Adep.Framework.Management.ResourceLibrary", "Dwp.Adep.Framework.Management.ResourceLibrary\Dwp.Adep.Framework.Management.ResourceLibrary.csproj", "{C251FF75-75C8-4E11-839D-CFC1C05D00BD}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Dwp.Adep.Framework.Management.WebServices.Setup", "Dwp.Adep.Framework.Management.WebServices.Setup\Dwp.Adep.Framework.Management.WebServices.Setup.vdproj", "{316D3468-45E3-42C0-816E-65033B240150}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Dwp.Adep.Framework.Management.Web.Setup2", "Dwp.Adep.Framework.Management.Web.Setup2\Dwp.Adep.Framework.Management.Web.Setup2.vdproj", "{B61090D4-3DAA-4B34-929F-9B21D26921E3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "packages", "packages", "{D7CDB1B8-BC99-4E33-BEAA-D60AD955DDB8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dwp.Adep.Framework.Packages", "Dwp.Adep.Framework.Packages\Dwp.Adep.Framework.Packages.csproj", "{77685F6D-0044-43D7-9C6E-F5290AA8F4E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dwp.Adep.Framework.Resources.Tests", "Dwp.Adep.Framework.Resources.Tests\Dwp.Adep.Framework.Resources.Tests.csproj", "{6D11E31E-DFBA-42BD-A7F5-A90837C2C8F1}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Dwp.Adep.Framework.Resources.Setup", "Dwp.Adep.Framework.Resources.Setup\Dwp.Adep.Framework.Resources.Setup.vdproj", "{114A0634-1FE7-4E28-9F6E-3E82F87582AC}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 18
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://dwp-adep-tfs:8080/tfs/dwp_ad_web
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Dwp.Adep.Framework.DocumentService\\Dwp.Adep.Framework.DocumentService.csproj
+		SccProjectName1 = Dwp.Adep.Framework.DocumentService
+		SccLocalPath1 = Dwp.Adep.Framework.DocumentService
+		SccProjectUniqueName2 = Dwp.Adep.Framework.Management.Database\\Dwp.Adep.Framework.Management.Database.dbproj
+		SccProjectName2 = Dwp.Adep.Framework.Management.Database
+		SccLocalPath2 = Dwp.Adep.Framework.Management.Database
+		SccProjectUniqueName3 = Dwp.Adep.Framework.Management.DataServices\\Dwp.Adep.Framework.Management.DataServices.csproj
+		SccProjectName3 = Dwp.Adep.Framework.Management.DataServices
+		SccLocalPath3 = Dwp.Adep.Framework.Management.DataServices
+		SccProjectUniqueName4 = Dwp.Adep.Framework.Management.Web\\Dwp.Adep.Framework.Management.Web.csproj
+		SccProjectName4 = Dwp.Adep.Framework.Management.Web
+		SccLocalPath4 = Dwp.Adep.Framework.Management.Web
+		SccProjectUniqueName5 = Dwp.Adep.Framework.Management.WebServices\\Dwp.Adep.Framework.Management.WebServices.csproj
+		SccProjectName5 = Dwp.Adep.Framework.Management.WebServices
+		SccLocalPath5 = Dwp.Adep.Framework.Management.WebServices
+		SccProjectUniqueName6 = Dwp.Adep.Framework.Management.Web.Tests\\Dwp.Adep.Framework.Management.Web.Tests.csproj
+		SccProjectName6 = Dwp.Adep.Framework.Management.Web.Tests
+		SccLocalPath6 = Dwp.Adep.Framework.Management.Web.Tests
+		SccProjectUniqueName7 = Dwp.Adep.Framework.Management.Ioc\\Dwp.Adep.Framework.Management.Ioc.csproj
+		SccProjectName7 = Dwp.Adep.Framework.Management.Ioc
+		SccLocalPath7 = Dwp.Adep.Framework.Management.Ioc
+		SccProjectUniqueName8 = Dwp.Adep.Framework.Management.ServiceAgents\\Dwp.Adep.Framework.Management.ServiceAgents.csproj
+		SccProjectName8 = Dwp.Adep.Framework.Management.ServiceAgents
+		SccLocalPath8 = Dwp.Adep.Framework.Management.ServiceAgents
+		SccProjectUniqueName9 = Dwp.Adep.Framework.Management.WebServices.Tests\\Dwp.Adep.Framework.Management.WebServices.Tests.csproj
+		SccProjectName9 = Dwp.Adep.Framework.Management.WebServices.Tests
+		SccLocalPath9 = Dwp.Adep.Framework.Management.WebServices.Tests
+		SccProjectUniqueName10 = Dwp.Adep.Framework.Management.DataServices.Tests\\Dwp.Adep.Framework.Management.DataServices.Tests.csproj
+		SccProjectName10 = Dwp.Adep.Framework.Management.DataServices.Tests
+		SccLocalPath10 = Dwp.Adep.Framework.Management.DataServices.Tests
+		SccProjectUniqueName11 = Dwp.Adep.Framework.Management.ResourceLibrary\\Dwp.Adep.Framework.Management.ResourceLibrary.csproj
+		SccProjectName11 = Dwp.Adep.Framework.Management.ResourceLibrary
+		SccLocalPath11 = Dwp.Adep.Framework.Management.ResourceLibrary
+		SccProjectUniqueName12 = Dwp.Adep.Framework.Management.WebServices.Setup\\Dwp.Adep.Framework.Management.WebServices.Setup.vdproj
+		SccProjectName12 = Dwp.Adep.Framework.Management.WebServices.Setup
+		SccLocalPath12 = Dwp.Adep.Framework.Management.WebServices.Setup
+		SccProjectUniqueName13 = Dwp.Adep.Framework.Management.Web.Setup2\\Dwp.Adep.Framework.Management.Web.Setup2.vdproj
+		SccProjectName13 = Dwp.Adep.Framework.Management.Web.Setup2
+		SccLocalPath13 = Dwp.Adep.Framework.Management.Web.Setup2
+		SccProjectUniqueName14 = Dwp.Adep.Framework.Packages\\Dwp.Adep.Framework.Packages.csproj
+		SccProjectName14 = Dwp.Adep.Framework.Packages
+		SccLocalPath14 = Dwp.Adep.Framework.Packages
+		SccProjectUniqueName15 = Dwp.Adep.Framework.Resources.Setup\\Dwp.Adep.Framework.Resources.Setup.vdproj
+		SccProjectName15 = Dwp.Adep.Framework.Resources.Setup
+		SccLocalPath15 = Dwp.Adep.Framework.Resources.Setup
+		SccProjectUniqueName16 = Dwp.Adep.Framework.Resources\\Dwp.Adep.Framework.Resources.csproj
+		SccProjectName16 = Dwp.Adep.Framework.Resources
+		SccLocalPath16 = Dwp.Adep.Framework.Resources
+		SccProjectUniqueName17 = Dwp.Adep.Framework.Resources.Tests\\Dwp.Adep.Framework.Resources.Tests.csproj
+		SccProjectName17 = Dwp.Adep.Framework.Resources.Tests
+		SccLocalPath17 = Dwp.Adep.Framework.Resources.Tests
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = AdepFramework.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Accessibility|Any CPU = Accessibility|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Demo183|Any CPU = Demo183|Any CPU
+		Release|Any CPU = Release|Any CPU
+		SIT170|Any CPU = SIT170|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{433186DD-7D64-4DDB-9AAC-5A206D051F08}.Accessibility|Any CPU.ActiveCfg = Accessibility|Any CPU
+		{433186DD-7D64-4DDB-9AAC-5A206D051F08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{433186DD-7D64-4DDB-9AAC-5A206D051F08}.Demo183|Any CPU.ActiveCfg = Demo183|Any CPU
+		{433186DD-7D64-4DDB-9AAC-5A206D051F08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{433186DD-7D64-4DDB-9AAC-5A206D051F08}.SIT170|Any CPU.ActiveCfg = SIT170|Any CPU
+		{71244980-0140-4168-BB9B-8BB12A9E3C5C}.Accessibility|Any CPU.ActiveCfg = Accessibility|Any CPU
+		{71244980-0140-4168-BB9B-8BB12A9E3C5C}.Accessibility|Any CPU.Build.0 = Accessibility|Any CPU
+		{71244980-0140-4168-BB9B-8BB12A9E3C5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71244980-0140-4168-BB9B-8BB12A9E3C5C}.Demo183|Any CPU.ActiveCfg = Demo183|Any CPU
+		{71244980-0140-4168-BB9B-8BB12A9E3C5C}.Demo183|Any CPU.Build.0 = Demo183|Any CPU
+		{71244980-0140-4168-BB9B-8BB12A9E3C5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71244980-0140-4168-BB9B-8BB12A9E3C5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71244980-0140-4168-BB9B-8BB12A9E3C5C}.SIT170|Any CPU.ActiveCfg = SIT170|Any CPU
+		{71244980-0140-4168-BB9B-8BB12A9E3C5C}.SIT170|Any CPU.Build.0 = SIT170|Any CPU
+		{304F1565-4869-4C26-B3EA-837CD31F9C8C}.Accessibility|Any CPU.ActiveCfg = Accessibility|Any CPU
+		{304F1565-4869-4C26-B3EA-837CD31F9C8C}.Accessibility|Any CPU.Deploy.0 = Accessibility|Any CPU
+		{304F1565-4869-4C26-B3EA-837CD31F9C8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{304F1565-4869-4C26-B3EA-837CD31F9C8C}.Demo183|Any CPU.ActiveCfg = Demo183|Any CPU
+		{304F1565-4869-4C26-B3EA-837CD31F9C8C}.Demo183|Any CPU.Deploy.0 = Demo183|Any CPU
+		{304F1565-4869-4C26-B3EA-837CD31F9C8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{304F1565-4869-4C26-B3EA-837CD31F9C8C}.SIT170|Any CPU.ActiveCfg = SIT170|Any CPU
+		{304F1565-4869-4C26-B3EA-837CD31F9C8C}.SIT170|Any CPU.Deploy.0 = SIT170|Any CPU
+		{E13D85C2-1A7B-4E96-9856-48A39DF8F9FC}.Accessibility|Any CPU.ActiveCfg = Accessibility|Any CPU
+		{E13D85C2-1A7B-4E96-9856-48A39DF8F9FC}.Accessibility|Any CPU.Build.0 = Accessibility|Any CPU
+		{E13D85C2-1A7B-4E96-9856-48A39DF8F9FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E13D85C2-1A7B-4E96-9856-48A39DF8F9FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E13D85C2-1A7B-4E96-9856-48A39DF8F9FC}.Demo183|Any CPU.ActiveCfg = Demo183|Any CPU
+		{E13D85C2-1A7B-4E96-9856-48A39DF8F9FC}.Demo183|Any CPU.Build.0 = Demo183|Any CPU
+		{E13D85C2-1A7B-4E96-9856-48A39DF8F9FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E13D85C2-1A7B-4E96-9856-48A39DF8F9FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E13D85C2-1A7B-4E96-9856-48A39DF8F9FC}.SIT170|Any CPU.ActiveCfg = SIT170|Any CPU
+		{E13D85C2-1A7B-4E96-9856-48A39DF8F9FC}.SIT170|Any CPU.Build.0 = SIT170|Any CPU
+		{7C6D3DC4-227F-4F13-9648-540361F76D8A}.Accessibility|Any CPU.ActiveCfg = Accessibility|Any CPU
+		{7C6D3DC4-227F-4F13-9648-540361F76D8A}.Accessibility|Any CPU.Build.0 = Accessibility|Any CPU
+		{7C6D3DC4-227F-4F13-9648-540361F76D8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C6D3DC4-227F-4F13-9648-540361F76D8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C6D3DC4-227F-4F13-9648-540361F76D8A}.Demo183|Any CPU.ActiveCfg = Demo183|Any CPU
+		{7C6D3DC4-227F-4F13-9648-540361F76D8A}.Demo183|Any CPU.Build.0 = Demo183|Any CPU
+		{7C6D3DC4-227F-4F13-9648-540361F76D8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C6D3DC4-227F-4F13-9648-540361F76D8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C6D3DC4-227F-4F13-9648-540361F76D8A}.SIT170|Any CPU.ActiveCfg = SIT170|Any CPU
+		{7C6D3DC4-227F-4F13-9648-540361F76D8A}.SIT170|Any CPU.Build.0 = SIT170|Any CPU
+		{F198EFE5-B11D-4FE6-8250-3E5E7A5C42BC}.Accessibility|Any CPU.ActiveCfg = Accessibility|Any CPU
+		{F198EFE5-B11D-4FE6-8250-3E5E7A5C42BC}.Accessibility|Any CPU.Build.0 = Accessibility|Any CPU
+		{F198EFE5-B11D-4FE6-8250-3E5E7A5C42BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F198EFE5-B11D-4FE6-8250-3E5E7A5C42BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F198EFE5-B11D-4FE6-8250-3E5E7A5C42BC}.Demo183|Any CPU.ActiveCfg = Demo183|Any CPU
+		{F198EFE5-B11D-4FE6-8250-3E5E7A5C42BC}.Demo183|Any CPU.Build.0 = Demo183|Any CPU
+		{F198EFE5-B11D-4FE6-8250-3E5E7A5C42BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F198EFE5-B11D-4FE6-8250-3E5E7A5C42BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F198EFE5-B11D-4FE6-8250-3E5E7A5C42BC}.SIT170|Any CPU.ActiveCfg = SIT170|Any CPU
+		{F198EFE5-B11D-4FE6-8250-3E5E7A5C42BC}.SIT170|Any CPU.Build.0 = SIT170|Any CPU
+		{518A356E-02A3-4A84-9B6E-9C0FF3150A82}.Accessibility|Any CPU.ActiveCfg = Accessibility|Any CPU
+		{518A356E-02A3-4A84-9B6E-9C0FF3150A82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{518A356E-02A3-4A84-9B6E-9C0FF3150A82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{518A356E-02A3-4A84-9B6E-9C0FF3150A82}.Demo183|Any CPU.ActiveCfg = Demo183|Any CPU
+		{518A356E-02A3-4A84-9B6E-9C0FF3150A82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{518A356E-02A3-4A84-9B6E-9C0FF3150A82}.SIT170|Any CPU.ActiveCfg = SIT170|Any CPU
+		{E458F311-5A3E-469F-A985-F5E143196F9E}.Accessibility|Any CPU.ActiveCfg = Accessibility|Any CPU
+		{E458F311-5A3E-469F-A985-F5E143196F9E}.Accessibility|Any CPU.Build.0 = Accessibility|Any CPU
+		{E458F311-5A3E-469F-A985-F5E143196F9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E458F311-5A3E-469F-A985-F5E143196F9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E458F311-5A3E-469F-A985-F5E143196F9E}.Demo183|Any CPU.ActiveCfg = Demo183|Any CPU
+		{E458F311-5A3E-469F-A985-F5E143196F9E}.Demo183|Any CPU.Build.0 = Demo183|Any CPU
+		{E458F311-5A3E-469F-A985-F5E143196F9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E458F311-5A3E-469F-A985-F5E143196F9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E458F311-5A3E-469F-A985-F5E143196F9E}.SIT170|Any CPU.ActiveCfg = SIT170|Any CPU
+		{E458F311-5A3E-469F-A985-F5E143196F9E}.SIT170|Any CPU.Build.0 = SIT170|Any CPU
+		{E637556A-8E95-4610-8CC6-78EC7263B16E}.Accessibility|Any CPU.ActiveCfg = Accessibility|Any CPU
+		{E637556A-8E95-4610-8CC6-78EC7263B16E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E637556A-8E95-4610-8CC6-78EC7263B16E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E637556A-8E95-4610-8CC6-78EC7263B16E}.Demo183|Any CPU.ActiveCfg = Demo183|Any CPU
+		{E637556A-8E95-4610-8CC6-78EC7263B16E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E637556A-8E95-4610-8CC6-78EC7263B16E}.SIT170|Any CPU.ActiveCfg = SIT170|Any CPU
+		{E1683348-9463-4B38-8112-9995D9226D4B}.Accessibility|Any CPU.ActiveCfg = Accessibility|Any CPU
+		{E1683348-9463-4B38-8112-9995D9226D4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1683348-9463-4B38-8112-9995D9226D4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1683348-9463-4B38-8112-9995D9226D4B}.Demo183|Any CPU.ActiveCfg = Demo183|Any CPU
+		{E1683348-9463-4B38-8112-9995D9226D4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1683348-9463-4B38-8112-9995D9226D4B}.SIT170|Any CPU.ActiveCfg = SIT170|Any CPU
+		{7A73823B-AC45-4C17-80A3-0BD8D090E888}.Accessibility|Any CPU.ActiveCfg = Accessibility|Any CPU
+		{7A73823B-AC45-4C17-80A3-0BD8D090E888}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A73823B-AC45-4C17-80A3-0BD8D090E888}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A73823B-AC45-4C17-80A3-0BD8D090E888}.Demo183|Any CPU.ActiveCfg = Demo183|Any CPU
+		{7A73823B-AC45-4C17-80A3-0BD8D090E888}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A73823B-AC45-4C17-80A3-0BD8D090E888}.SIT170|Any CPU.ActiveCfg = SIT170|Any CPU
+		{C251FF75-75C8-4E11-839D-CFC1C05D00BD}.Accessibility|Any CPU.ActiveCfg = Accessibility|Any CPU
+		{C251FF75-75C8-4E11-839D-CFC1C05D00BD}.Accessibility|Any CPU.Build.0 = Accessibility|Any CPU
+		{C251FF75-75C8-4E11-839D-CFC1C05D00BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C251FF75-75C8-4E11-839D-CFC1C05D00BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C251FF75-75C8-4E11-839D-CFC1C05D00BD}.Demo183|Any CPU.ActiveCfg = Demo183|Any CPU
+		{C251FF75-75C8-4E11-839D-CFC1C05D00BD}.Demo183|Any CPU.Build.0 = Demo183|Any CPU
+		{C251FF75-75C8-4E11-839D-CFC1C05D00BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C251FF75-75C8-4E11-839D-CFC1C05D00BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C251FF75-75C8-4E11-839D-CFC1C05D00BD}.SIT170|Any CPU.ActiveCfg = SIT170|Any CPU
+		{C251FF75-75C8-4E11-839D-CFC1C05D00BD}.SIT170|Any CPU.Build.0 = SIT170|Any CPU
+		{316D3468-45E3-42C0-816E-65033B240150}.Accessibility|Any CPU.ActiveCfg = Accessibility
+		{316D3468-45E3-42C0-816E-65033B240150}.Accessibility|Any CPU.Build.0 = Accessibility
+		{316D3468-45E3-42C0-816E-65033B240150}.Debug|Any CPU.ActiveCfg = Debug
+		{316D3468-45E3-42C0-816E-65033B240150}.Demo183|Any CPU.ActiveCfg = Demo183
+		{316D3468-45E3-42C0-816E-65033B240150}.Demo183|Any CPU.Build.0 = Demo183
+		{316D3468-45E3-42C0-816E-65033B240150}.Release|Any CPU.ActiveCfg = Release
+		{316D3468-45E3-42C0-816E-65033B240150}.Release|Any CPU.Build.0 = Release
+		{316D3468-45E3-42C0-816E-65033B240150}.SIT170|Any CPU.ActiveCfg = SIT170
+		{316D3468-45E3-42C0-816E-65033B240150}.SIT170|Any CPU.Build.0 = SIT170
+		{B61090D4-3DAA-4B34-929F-9B21D26921E3}.Accessibility|Any CPU.ActiveCfg = Accessibility
+		{B61090D4-3DAA-4B34-929F-9B21D26921E3}.Accessibility|Any CPU.Build.0 = Accessibility
+		{B61090D4-3DAA-4B34-929F-9B21D26921E3}.Debug|Any CPU.ActiveCfg = Debug
+		{B61090D4-3DAA-4B34-929F-9B21D26921E3}.Demo183|Any CPU.ActiveCfg = Demo183
+		{B61090D4-3DAA-4B34-929F-9B21D26921E3}.Demo183|Any CPU.Build.0 = Demo183
+		{B61090D4-3DAA-4B34-929F-9B21D26921E3}.Release|Any CPU.ActiveCfg = Release
+		{B61090D4-3DAA-4B34-929F-9B21D26921E3}.Release|Any CPU.Build.0 = Release
+		{B61090D4-3DAA-4B34-929F-9B21D26921E3}.SIT170|Any CPU.ActiveCfg = SIT170
+		{B61090D4-3DAA-4B34-929F-9B21D26921E3}.SIT170|Any CPU.Build.0 = SIT170
+		{77685F6D-0044-43D7-9C6E-F5290AA8F4E9}.Accessibility|Any CPU.ActiveCfg = Accessibility|Any CPU
+		{77685F6D-0044-43D7-9C6E-F5290AA8F4E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77685F6D-0044-43D7-9C6E-F5290AA8F4E9}.Demo183|Any CPU.ActiveCfg = Demo183|Any CPU
+		{77685F6D-0044-43D7-9C6E-F5290AA8F4E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77685F6D-0044-43D7-9C6E-F5290AA8F4E9}.SIT170|Any CPU.ActiveCfg = SIT170|Any CPU
+		{6D11E31E-DFBA-42BD-A7F5-A90837C2C8F1}.Accessibility|Any CPU.ActiveCfg = Accessibility|Any CPU
+		{6D11E31E-DFBA-42BD-A7F5-A90837C2C8F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D11E31E-DFBA-42BD-A7F5-A90837C2C8F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D11E31E-DFBA-42BD-A7F5-A90837C2C8F1}.Demo183|Any CPU.ActiveCfg = Demo183|Any CPU
+		{6D11E31E-DFBA-42BD-A7F5-A90837C2C8F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D11E31E-DFBA-42BD-A7F5-A90837C2C8F1}.SIT170|Any CPU.ActiveCfg = SIT170|Any CPU
+		{114A0634-1FE7-4E28-9F6E-3E82F87582AC}.Accessibility|Any CPU.ActiveCfg = Accessibility
+		{114A0634-1FE7-4E28-9F6E-3E82F87582AC}.Accessibility|Any CPU.Build.0 = Accessibility
+		{114A0634-1FE7-4E28-9F6E-3E82F87582AC}.Debug|Any CPU.ActiveCfg = Debug
+		{114A0634-1FE7-4E28-9F6E-3E82F87582AC}.Demo183|Any CPU.ActiveCfg = Demo183
+		{114A0634-1FE7-4E28-9F6E-3E82F87582AC}.Demo183|Any CPU.Build.0 = Demo183
+		{114A0634-1FE7-4E28-9F6E-3E82F87582AC}.Release|Any CPU.ActiveCfg = Release
+		{114A0634-1FE7-4E28-9F6E-3E82F87582AC}.Release|Any CPU.Build.0 = Release
+		{114A0634-1FE7-4E28-9F6E-3E82F87582AC}.SIT170|Any CPU.ActiveCfg = SIT170
+		{114A0634-1FE7-4E28-9F6E-3E82F87582AC}.SIT170|Any CPU.Build.0 = SIT170
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D7CDB1B8-BC99-4E33-BEAA-D60AD955DDB8} = {95ABD307-1CD8-43DC-BF38-991C4451D733}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35;packages\Unity.Interception.2.1.505.0\lib\NET35;packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.ExceptionHandling.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Logging.5.0.505.1\lib\NET35;packages\EnterpriseLibrary.ExceptionHandling.Logging.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Data.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Logging.Database.5.0.505.0\lib\NET35
+	EndGlobalSection
+EndGlobal

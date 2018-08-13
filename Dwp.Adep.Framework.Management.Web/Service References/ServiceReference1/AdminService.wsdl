@@ -1,0 +1,2870 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="AdminService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:1213/ServiceContracts/AdminService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:1213/ServiceContracts/AdminService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:1213/ServiceContracts/AdminService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Dwp.Adep.Framework.Management.WebServices.DataContracts" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IAdminService_CreateChecker_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateChecker" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateChecker_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCheckerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetChecker_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetChecker" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetChecker_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCheckerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllChecker_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllChecker" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllChecker_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCheckerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateChecker_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateChecker" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateChecker_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCheckerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteChecker_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteChecker" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteChecker_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCheckerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateBCSNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateBCSNumber" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateBCSNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateBCSNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetBCSNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBCSNumber" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetBCSNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBCSNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllBCSNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBCSNumber" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllBCSNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBCSNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateBCSNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBCSNumber" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateBCSNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBCSNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteBCSNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBCSNumber" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteBCSNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBCSNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCustomer" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCustomer" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCustomer" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateAccuracyCheck_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateAccuracyCheck" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateAccuracyCheck_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateAccuracyCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAccuracyCheck_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccuracyCheck" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAccuracyCheck_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccuracyCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllAccuracyCheck_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAccuracyCheck" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllAccuracyCheck_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAccuracyCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateAccuracyCheck_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAccuracyCheck" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateAccuracyCheck_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAccuracyCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteAccuracyCheck_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAccuracyCheck" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteAccuracyCheck_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAccuracyCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateErrorType_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateErrorType" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateErrorType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateErrorTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetErrorType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetErrorType" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetErrorType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetErrorTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllErrorType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllErrorType" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllErrorType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllErrorTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateErrorType_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateErrorType" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateErrorType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateErrorTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteErrorType_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteErrorType" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteErrorType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteErrorTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateTitle_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateTitle" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateTitle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateTitleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetTitle_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTitle" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetTitle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTitleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllTitle_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTitle" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllTitle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTitleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateTitle_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTitle" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateTitle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTitleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteTitle_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTitle" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteTitle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTitleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateCommand_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCommand" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateCommand_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCommandResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetCommand_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCommand" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetCommand_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCommandResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllCommand_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCommand" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllCommand_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCommandResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateCommand_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCommand" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateCommand_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCommandResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteCommand_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCommand" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteCommand_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCommandResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateReportType_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateReportType" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateReportType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateReportTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetReportType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReportType" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetReportType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReportTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllReportType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllReportType" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllReportType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllReportTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateReportType_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateReportType" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateReportType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateReportTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteReportType_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteReportType" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteReportType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteReportTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteOrganisation_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteOrganisation" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteOrganisation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteOrganisationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateCheckSubType_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCheckSubType" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateCheckSubType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCheckSubTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetCheckSubType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCheckSubType" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetCheckSubType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCheckSubTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllCheckSubType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCheckSubType" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllCheckSubType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCheckSubTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateCheckSubType_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCheckSubType" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateCheckSubType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCheckSubTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteCheckSubType_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCheckSubType" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteCheckSubType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCheckSubTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateStaff_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateStaff" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateStaff_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateStaffResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetStaff_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStaff" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetStaff_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStaffResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllStaff_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllStaff" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllStaff_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllStaffResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateStaff_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateStaff" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateStaff_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateStaffResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteStaff_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteStaff" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteStaff_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteStaffResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateHoliday_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateHoliday" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateHoliday_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateHolidayResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetHoliday_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetHoliday" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetHoliday_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetHolidayResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllHoliday_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllHoliday" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllHoliday_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllHolidayResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateHoliday_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateHoliday" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateHoliday_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateHolidayResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteHoliday_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteHoliday" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteHoliday_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteHolidayResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateCountry_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCountry" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateCountry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCountryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetCountry_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountry" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetCountry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllCountry_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCountry" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllCountry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCountryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateCountry_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCountry" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateCountry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCountryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteCountry_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCountry" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteCountry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCountryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateCheckType_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCheckType" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateCheckType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCheckTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetCheckType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCheckType" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetCheckType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCheckTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllCheckType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCheckType" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllCheckType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCheckTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateCheckType_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCheckType" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateCheckType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCheckTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteCheckType_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCheckType" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteCheckType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCheckTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCustomer" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomer" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetError_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetError" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetError_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetErrorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllError_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllError" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllError_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllErrorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateError_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateError" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateError_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateErrorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteError_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteError" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteError_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteErrorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateOrganisationType_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateOrganisationType" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateOrganisationType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateOrganisationTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetOrganisationType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganisationType" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetOrganisationType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganisationTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllOrganisationType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllOrganisationType" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllOrganisationType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllOrganisationTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateOrganisationType_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateOrganisationType" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateOrganisationType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateOrganisationTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteOrganisationType_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteOrganisationType" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteOrganisationType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteOrganisationTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateAudit_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateAudit" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateAudit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateAuditResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAudit_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAudit" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAudit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuditResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllAudit_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAudit" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllAudit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAuditResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateAudit_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAudit" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateAudit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAuditResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteAudit_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAudit" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteAudit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAuditResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateServer_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateServer" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateServer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateServerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetServer_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetServer" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetServer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetServerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllServer_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllServer" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllServer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllServerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateServer_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateServer" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateServer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateServerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteServer_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteServer" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteServer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteServerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateReasonForDelay_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateReasonForDelay" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateReasonForDelay_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateReasonForDelayResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetReasonForDelay_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReasonForDelay" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetReasonForDelay_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReasonForDelayResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllReasonForDelay_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllReasonForDelay" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllReasonForDelay_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllReasonForDelayResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateReasonForDelay_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateReasonForDelay" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateReasonForDelay_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateReasonForDelayResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteReasonForDelay_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteReasonForDelay" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteReasonForDelay_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteReasonForDelayResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateOrganisation_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateOrganisation" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateOrganisation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateOrganisationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetOrganisation_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganisation" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetOrganisation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganisationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllOrganisation_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllOrganisation" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllOrganisation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllOrganisationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateOrganisation_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateOrganisation" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateOrganisation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateOrganisationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateLastUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateLastUpdate" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateLastUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateLastUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteLastUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteLastUpdate" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteLastUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteLastUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateGrade_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateGrade" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateGrade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateGradeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetGrade_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGrade" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetGrade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGradeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllGrade_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllGrade" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllGrade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllGradeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateGrade_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateGrade" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateGrade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateGradeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteGrade_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteGrade" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteGrade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteGradeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateValidator_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateValidator" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateValidator_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateValidatorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetValidator_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetValidator" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetValidator_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetValidatorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllValidator_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllValidator" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllValidator_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllValidatorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateValidator_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateValidator" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateValidator_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateValidatorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteValidator_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteValidator" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteValidator_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteValidatorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateOrganisationHierarchy_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateOrganisationHierarchy" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateOrganisationHierarchy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateOrganisationHierarchyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetOrganisationHierarchy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganisationHierarchy" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetOrganisationHierarchy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganisationHierarchyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllOrganisationHierarchy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllOrganisationHierarchy" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllOrganisationHierarchy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllOrganisationHierarchyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateOrganisationHierarchy_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateOrganisationHierarchy" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateOrganisationHierarchy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateOrganisationHierarchyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteOrganisationHierarchy_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteOrganisationHierarchy" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteOrganisationHierarchy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteOrganisationHierarchyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateScheduleNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateScheduleNumber" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateScheduleNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateScheduleNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetScheduleNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetScheduleNumber" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetScheduleNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetScheduleNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllScheduleNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllScheduleNumber" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllScheduleNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllScheduleNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateScheduleNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateScheduleNumber" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateScheduleNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateScheduleNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteScheduleNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteScheduleNumber" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteScheduleNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteScheduleNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateImportStaff_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateImportStaff" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateImportStaff_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateImportStaffResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetImportStaff_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetImportStaff" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetImportStaff_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetImportStaffResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllImportStaff_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllImportStaff" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllImportStaff_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllImportStaffResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateImportStaff_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateImportStaff" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateImportStaff_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateImportStaffResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteImportStaff_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteImportStaff" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteImportStaff_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteImportStaffResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateError_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateError" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateError_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateErrorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateReferred_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateReferred" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateReferred_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateReferredResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetReferred_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferred" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetReferred_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferredResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllReferred_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllReferred" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllReferred_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllReferredResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateReferred_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateReferred" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateReferred_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateReferredResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteReferred_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteReferred" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteReferred_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteReferredResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateErrorSubChoice_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateErrorSubChoice" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateErrorSubChoice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateErrorSubChoiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetErrorSubChoice_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetErrorSubChoice" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetErrorSubChoice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetErrorSubChoiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllErrorSubChoice_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllErrorSubChoice" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllErrorSubChoice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllErrorSubChoiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateErrorSubChoice_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateErrorSubChoice" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateErrorSubChoice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateErrorSubChoiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteErrorSubChoice_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteErrorSubChoice" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteErrorSubChoice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteErrorSubChoiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateBenefit_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateBenefit" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateBenefit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateBenefitResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetBenefit_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBenefit" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetBenefit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBenefitResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllBenefit_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBenefit" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllBenefit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBenefitResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateBenefit_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBenefit" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateBenefit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBenefitResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteBenefit_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBenefit" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteBenefit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBenefitResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateErrorChoice_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateErrorChoice" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateErrorChoice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateErrorChoiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetErrorChoice_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetErrorChoice" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetErrorChoice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetErrorChoiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllErrorChoice_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllErrorChoice" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllErrorChoice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllErrorChoiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateErrorChoice_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateErrorChoice" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateErrorChoice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateErrorChoiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteErrorChoice_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteErrorChoice" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteErrorChoice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteErrorChoiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateSecurityCheck_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateSecurityCheck" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateSecurityCheck_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateSecurityCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetSecurityCheck_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSecurityCheck" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetSecurityCheck_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSecurityCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllSecurityCheck_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllSecurityCheck" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllSecurityCheck_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllSecurityCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateSecurityCheck_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSecurityCheck" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateSecurityCheck_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSecurityCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteSecurityCheck_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSecurityCheck" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteSecurityCheck_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSecurityCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateLastUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateLastUpdate" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateLastUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateLastUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetLastUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLastUpdate" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetLastUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLastUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllLastUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllLastUpdate" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllLastUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllLastUpdateResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IAdminService">
+    <wsdl:operation name="CreateChecker">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/CreateChecker" message="tns:IAdminService_CreateChecker_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/CreateCheckerResponse" message="tns:IAdminService_CreateChecker_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChecker">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetChecker" message="tns:IAdminService_GetChecker_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetCheckerResponse" message="tns:IAdminService_GetChecker_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllChecker">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetAllChecker" message="tns:IAdminService_GetAllChecker_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetAllCheckerResponse" message="tns:IAdminService_GetAllChecker_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateChecker">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/UpdateChecker" message="tns:IAdminService_UpdateChecker_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/UpdateCheckerResponse" message="tns:IAdminService_UpdateChecker_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteChecker">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/DeleteChecker" message="tns:IAdminService_DeleteChecker_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/DeleteCheckerResponse" message="tns:IAdminService_DeleteChecker_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateBCSNumber">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/CreateBCSNumber" message="tns:IAdminService_CreateBCSNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/CreateBCSNumberResponse" message="tns:IAdminService_CreateBCSNumber_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBCSNumber">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetBCSNumber" message="tns:IAdminService_GetBCSNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetBCSNumberResponse" message="tns:IAdminService_GetBCSNumber_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBCSNumber">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetAllBCSNumber" message="tns:IAdminService_GetAllBCSNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetAllBCSNumberResponse" message="tns:IAdminService_GetAllBCSNumber_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBCSNumber">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/UpdateBCSNumber" message="tns:IAdminService_UpdateBCSNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/UpdateBCSNumberResponse" message="tns:IAdminService_UpdateBCSNumber_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBCSNumber">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/DeleteBCSNumber" message="tns:IAdminService_DeleteBCSNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/DeleteBCSNumberResponse" message="tns:IAdminService_DeleteBCSNumber_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCustomer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetAllCustomer" message="tns:IAdminService_GetAllCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetAllCustomerResponse" message="tns:IAdminService_GetAllCustomer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/UpdateCustomer" message="tns:IAdminService_UpdateCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/UpdateCustomerResponse" message="tns:IAdminService_UpdateCustomer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCustomer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/DeleteCustomer" message="tns:IAdminService_DeleteCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/DeleteCustomerResponse" message="tns:IAdminService_DeleteCustomer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateAccuracyCheck">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/CreateAccuracyCheck" message="tns:IAdminService_CreateAccuracyCheck_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/CreateAccuracyCheckResponse" message="tns:IAdminService_CreateAccuracyCheck_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccuracyCheck">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetAccuracyCheck" message="tns:IAdminService_GetAccuracyCheck_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetAccuracyCheckResponse" message="tns:IAdminService_GetAccuracyCheck_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAccuracyCheck">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetAllAccuracyCheck" message="tns:IAdminService_GetAllAccuracyCheck_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetAllAccuracyCheckResponse" message="tns:IAdminService_GetAllAccuracyCheck_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAccuracyCheck">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/UpdateAccuracyCheck" message="tns:IAdminService_UpdateAccuracyCheck_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/UpdateAccuracyCheckResponse" message="tns:IAdminService_UpdateAccuracyCheck_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAccuracyCheck">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/DeleteAccuracyCheck" message="tns:IAdminService_DeleteAccuracyCheck_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/DeleteAccuracyCheckResponse" message="tns:IAdminService_DeleteAccuracyCheck_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateErrorType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/CreateErrorType" message="tns:IAdminService_CreateErrorType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/CreateErrorTypeResponse" message="tns:IAdminService_CreateErrorType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetErrorType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetErrorType" message="tns:IAdminService_GetErrorType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetErrorTypeResponse" message="tns:IAdminService_GetErrorType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllErrorType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetAllErrorType" message="tns:IAdminService_GetAllErrorType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetAllErrorTypeResponse" message="tns:IAdminService_GetAllErrorType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateErrorType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/UpdateErrorType" message="tns:IAdminService_UpdateErrorType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/UpdateErrorTypeResponse" message="tns:IAdminService_UpdateErrorType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteErrorType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/DeleteErrorType" message="tns:IAdminService_DeleteErrorType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/DeleteErrorTypeResponse" message="tns:IAdminService_DeleteErrorType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateTitle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/CreateTitle" message="tns:IAdminService_CreateTitle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/CreateTitleResponse" message="tns:IAdminService_CreateTitle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTitle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetTitle" message="tns:IAdminService_GetTitle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetTitleResponse" message="tns:IAdminService_GetTitle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTitle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetAllTitle" message="tns:IAdminService_GetAllTitle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetAllTitleResponse" message="tns:IAdminService_GetAllTitle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTitle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/UpdateTitle" message="tns:IAdminService_UpdateTitle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/UpdateTitleResponse" message="tns:IAdminService_UpdateTitle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTitle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/DeleteTitle" message="tns:IAdminService_DeleteTitle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/DeleteTitleResponse" message="tns:IAdminService_DeleteTitle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateCommand">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/CreateCommand" message="tns:IAdminService_CreateCommand_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/CreateCommandResponse" message="tns:IAdminService_CreateCommand_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCommand">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetCommand" message="tns:IAdminService_GetCommand_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetCommandResponse" message="tns:IAdminService_GetCommand_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCommand">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetAllCommand" message="tns:IAdminService_GetAllCommand_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetAllCommandResponse" message="tns:IAdminService_GetAllCommand_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCommand">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/UpdateCommand" message="tns:IAdminService_UpdateCommand_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/UpdateCommandResponse" message="tns:IAdminService_UpdateCommand_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCommand">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/DeleteCommand" message="tns:IAdminService_DeleteCommand_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/DeleteCommandResponse" message="tns:IAdminService_DeleteCommand_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateReportType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/CreateReportType" message="tns:IAdminService_CreateReportType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/CreateReportTypeResponse" message="tns:IAdminService_CreateReportType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReportType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetReportType" message="tns:IAdminService_GetReportType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetReportTypeResponse" message="tns:IAdminService_GetReportType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllReportType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetAllReportType" message="tns:IAdminService_GetAllReportType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetAllReportTypeResponse" message="tns:IAdminService_GetAllReportType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReportType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/UpdateReportType" message="tns:IAdminService_UpdateReportType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/UpdateReportTypeResponse" message="tns:IAdminService_UpdateReportType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteReportType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/DeleteReportType" message="tns:IAdminService_DeleteReportType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/DeleteReportTypeResponse" message="tns:IAdminService_DeleteReportType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOrganisation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/DeleteOrganisation" message="tns:IAdminService_DeleteOrganisation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/DeleteOrganisationResponse" message="tns:IAdminService_DeleteOrganisation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateCheckSubType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/CreateCheckSubType" message="tns:IAdminService_CreateCheckSubType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/CreateCheckSubTypeResponse" message="tns:IAdminService_CreateCheckSubType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCheckSubType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetCheckSubType" message="tns:IAdminService_GetCheckSubType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetCheckSubTypeResponse" message="tns:IAdminService_GetCheckSubType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCheckSubType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetAllCheckSubType" message="tns:IAdminService_GetAllCheckSubType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetAllCheckSubTypeResponse" message="tns:IAdminService_GetAllCheckSubType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCheckSubType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/UpdateCheckSubType" message="tns:IAdminService_UpdateCheckSubType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/UpdateCheckSubTypeResponse" message="tns:IAdminService_UpdateCheckSubType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCheckSubType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/DeleteCheckSubType" message="tns:IAdminService_DeleteCheckSubType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/DeleteCheckSubTypeResponse" message="tns:IAdminService_DeleteCheckSubType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateStaff">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/CreateStaff" message="tns:IAdminService_CreateStaff_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/CreateStaffResponse" message="tns:IAdminService_CreateStaff_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStaff">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetStaff" message="tns:IAdminService_GetStaff_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetStaffResponse" message="tns:IAdminService_GetStaff_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllStaff">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetAllStaff" message="tns:IAdminService_GetAllStaff_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetAllStaffResponse" message="tns:IAdminService_GetAllStaff_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStaff">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/UpdateStaff" message="tns:IAdminService_UpdateStaff_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/UpdateStaffResponse" message="tns:IAdminService_UpdateStaff_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteStaff">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/DeleteStaff" message="tns:IAdminService_DeleteStaff_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/DeleteStaffResponse" message="tns:IAdminService_DeleteStaff_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateHoliday">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/CreateHoliday" message="tns:IAdminService_CreateHoliday_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/CreateHolidayResponse" message="tns:IAdminService_CreateHoliday_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHoliday">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetHoliday" message="tns:IAdminService_GetHoliday_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetHolidayResponse" message="tns:IAdminService_GetHoliday_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllHoliday">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetAllHoliday" message="tns:IAdminService_GetAllHoliday_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetAllHolidayResponse" message="tns:IAdminService_GetAllHoliday_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHoliday">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/UpdateHoliday" message="tns:IAdminService_UpdateHoliday_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/UpdateHolidayResponse" message="tns:IAdminService_UpdateHoliday_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteHoliday">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/DeleteHoliday" message="tns:IAdminService_DeleteHoliday_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/DeleteHolidayResponse" message="tns:IAdminService_DeleteHoliday_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateCountry">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/CreateCountry" message="tns:IAdminService_CreateCountry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/CreateCountryResponse" message="tns:IAdminService_CreateCountry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCountry">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetCountry" message="tns:IAdminService_GetCountry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetCountryResponse" message="tns:IAdminService_GetCountry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCountry">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetAllCountry" message="tns:IAdminService_GetAllCountry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetAllCountryResponse" message="tns:IAdminService_GetAllCountry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCountry">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/UpdateCountry" message="tns:IAdminService_UpdateCountry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/UpdateCountryResponse" message="tns:IAdminService_UpdateCountry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCountry">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/DeleteCountry" message="tns:IAdminService_DeleteCountry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/DeleteCountryResponse" message="tns:IAdminService_DeleteCountry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateCheckType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/CreateCheckType" message="tns:IAdminService_CreateCheckType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/CreateCheckTypeResponse" message="tns:IAdminService_CreateCheckType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCheckType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetCheckType" message="tns:IAdminService_GetCheckType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetCheckTypeResponse" message="tns:IAdminService_GetCheckType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCheckType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetAllCheckType" message="tns:IAdminService_GetAllCheckType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetAllCheckTypeResponse" message="tns:IAdminService_GetAllCheckType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCheckType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/UpdateCheckType" message="tns:IAdminService_UpdateCheckType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/UpdateCheckTypeResponse" message="tns:IAdminService_UpdateCheckType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCheckType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/DeleteCheckType" message="tns:IAdminService_DeleteCheckType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/DeleteCheckTypeResponse" message="tns:IAdminService_DeleteCheckType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateCustomer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/CreateCustomer" message="tns:IAdminService_CreateCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/CreateCustomerResponse" message="tns:IAdminService_CreateCustomer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetCustomer" message="tns:IAdminService_GetCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetCustomerResponse" message="tns:IAdminService_GetCustomer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetError">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetError" message="tns:IAdminService_GetError_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetErrorResponse" message="tns:IAdminService_GetError_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllError">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetAllError" message="tns:IAdminService_GetAllError_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetAllErrorResponse" message="tns:IAdminService_GetAllError_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateError">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/UpdateError" message="tns:IAdminService_UpdateError_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/UpdateErrorResponse" message="tns:IAdminService_UpdateError_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteError">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/DeleteError" message="tns:IAdminService_DeleteError_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/DeleteErrorResponse" message="tns:IAdminService_DeleteError_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateOrganisationType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/CreateOrganisationType" message="tns:IAdminService_CreateOrganisationType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/CreateOrganisationTypeResponse" message="tns:IAdminService_CreateOrganisationType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganisationType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetOrganisationType" message="tns:IAdminService_GetOrganisationType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetOrganisationTypeResponse" message="tns:IAdminService_GetOrganisationType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOrganisationType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetAllOrganisationType" message="tns:IAdminService_GetAllOrganisationType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetAllOrganisationTypeResponse" message="tns:IAdminService_GetAllOrganisationType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrganisationType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/UpdateOrganisationType" message="tns:IAdminService_UpdateOrganisationType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/UpdateOrganisationTypeResponse" message="tns:IAdminService_UpdateOrganisationType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOrganisationType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/DeleteOrganisationType" message="tns:IAdminService_DeleteOrganisationType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/DeleteOrganisationTypeResponse" message="tns:IAdminService_DeleteOrganisationType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateAudit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/CreateAudit" message="tns:IAdminService_CreateAudit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/CreateAuditResponse" message="tns:IAdminService_CreateAudit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAudit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetAudit" message="tns:IAdminService_GetAudit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetAuditResponse" message="tns:IAdminService_GetAudit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAudit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetAllAudit" message="tns:IAdminService_GetAllAudit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetAllAuditResponse" message="tns:IAdminService_GetAllAudit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAudit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/UpdateAudit" message="tns:IAdminService_UpdateAudit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/UpdateAuditResponse" message="tns:IAdminService_UpdateAudit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAudit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/DeleteAudit" message="tns:IAdminService_DeleteAudit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/DeleteAuditResponse" message="tns:IAdminService_DeleteAudit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateServer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/CreateServer" message="tns:IAdminService_CreateServer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/CreateServerResponse" message="tns:IAdminService_CreateServer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetServer" message="tns:IAdminService_GetServer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetServerResponse" message="tns:IAdminService_GetServer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllServer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetAllServer" message="tns:IAdminService_GetAllServer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetAllServerResponse" message="tns:IAdminService_GetAllServer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateServer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/UpdateServer" message="tns:IAdminService_UpdateServer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/UpdateServerResponse" message="tns:IAdminService_UpdateServer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteServer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/DeleteServer" message="tns:IAdminService_DeleteServer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/DeleteServerResponse" message="tns:IAdminService_DeleteServer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateReasonForDelay">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/CreateReasonForDelay" message="tns:IAdminService_CreateReasonForDelay_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/CreateReasonForDelayResponse" message="tns:IAdminService_CreateReasonForDelay_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReasonForDelay">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetReasonForDelay" message="tns:IAdminService_GetReasonForDelay_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetReasonForDelayResponse" message="tns:IAdminService_GetReasonForDelay_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllReasonForDelay">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetAllReasonForDelay" message="tns:IAdminService_GetAllReasonForDelay_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetAllReasonForDelayResponse" message="tns:IAdminService_GetAllReasonForDelay_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReasonForDelay">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/UpdateReasonForDelay" message="tns:IAdminService_UpdateReasonForDelay_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/UpdateReasonForDelayResponse" message="tns:IAdminService_UpdateReasonForDelay_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteReasonForDelay">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/DeleteReasonForDelay" message="tns:IAdminService_DeleteReasonForDelay_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/DeleteReasonForDelayResponse" message="tns:IAdminService_DeleteReasonForDelay_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateOrganisation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/CreateOrganisation" message="tns:IAdminService_CreateOrganisation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/CreateOrganisationResponse" message="tns:IAdminService_CreateOrganisation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganisation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetOrganisation" message="tns:IAdminService_GetOrganisation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetOrganisationResponse" message="tns:IAdminService_GetOrganisation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOrganisation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetAllOrganisation" message="tns:IAdminService_GetAllOrganisation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetAllOrganisationResponse" message="tns:IAdminService_GetAllOrganisation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrganisation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/UpdateOrganisation" message="tns:IAdminService_UpdateOrganisation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/UpdateOrganisationResponse" message="tns:IAdminService_UpdateOrganisation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLastUpdate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/UpdateLastUpdate" message="tns:IAdminService_UpdateLastUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/UpdateLastUpdateResponse" message="tns:IAdminService_UpdateLastUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteLastUpdate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/DeleteLastUpdate" message="tns:IAdminService_DeleteLastUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/DeleteLastUpdateResponse" message="tns:IAdminService_DeleteLastUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateGrade">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/CreateGrade" message="tns:IAdminService_CreateGrade_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/CreateGradeResponse" message="tns:IAdminService_CreateGrade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGrade">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetGrade" message="tns:IAdminService_GetGrade_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetGradeResponse" message="tns:IAdminService_GetGrade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllGrade">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetAllGrade" message="tns:IAdminService_GetAllGrade_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetAllGradeResponse" message="tns:IAdminService_GetAllGrade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGrade">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/UpdateGrade" message="tns:IAdminService_UpdateGrade_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/UpdateGradeResponse" message="tns:IAdminService_UpdateGrade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGrade">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/DeleteGrade" message="tns:IAdminService_DeleteGrade_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/DeleteGradeResponse" message="tns:IAdminService_DeleteGrade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateValidator">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/CreateValidator" message="tns:IAdminService_CreateValidator_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/CreateValidatorResponse" message="tns:IAdminService_CreateValidator_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetValidator">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetValidator" message="tns:IAdminService_GetValidator_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetValidatorResponse" message="tns:IAdminService_GetValidator_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllValidator">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetAllValidator" message="tns:IAdminService_GetAllValidator_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetAllValidatorResponse" message="tns:IAdminService_GetAllValidator_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateValidator">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/UpdateValidator" message="tns:IAdminService_UpdateValidator_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/UpdateValidatorResponse" message="tns:IAdminService_UpdateValidator_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteValidator">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/DeleteValidator" message="tns:IAdminService_DeleteValidator_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/DeleteValidatorResponse" message="tns:IAdminService_DeleteValidator_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateOrganisationHierarchy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/CreateOrganisationHierarchy" message="tns:IAdminService_CreateOrganisationHierarchy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/CreateOrganisationHierarchyResponse" message="tns:IAdminService_CreateOrganisationHierarchy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganisationHierarchy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetOrganisationHierarchy" message="tns:IAdminService_GetOrganisationHierarchy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetOrganisationHierarchyResponse" message="tns:IAdminService_GetOrganisationHierarchy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOrganisationHierarchy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetAllOrganisationHierarchy" message="tns:IAdminService_GetAllOrganisationHierarchy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetAllOrganisationHierarchyResponse" message="tns:IAdminService_GetAllOrganisationHierarchy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrganisationHierarchy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/UpdateOrganisationHierarchy" message="tns:IAdminService_UpdateOrganisationHierarchy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/UpdateOrganisationHierarchyResponse" message="tns:IAdminService_UpdateOrganisationHierarchy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOrganisationHierarchy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/DeleteOrganisationHierarchy" message="tns:IAdminService_DeleteOrganisationHierarchy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/DeleteOrganisationHierarchyResponse" message="tns:IAdminService_DeleteOrganisationHierarchy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateScheduleNumber">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/CreateScheduleNumber" message="tns:IAdminService_CreateScheduleNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/CreateScheduleNumberResponse" message="tns:IAdminService_CreateScheduleNumber_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetScheduleNumber">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetScheduleNumber" message="tns:IAdminService_GetScheduleNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetScheduleNumberResponse" message="tns:IAdminService_GetScheduleNumber_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllScheduleNumber">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetAllScheduleNumber" message="tns:IAdminService_GetAllScheduleNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetAllScheduleNumberResponse" message="tns:IAdminService_GetAllScheduleNumber_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateScheduleNumber">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/UpdateScheduleNumber" message="tns:IAdminService_UpdateScheduleNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/UpdateScheduleNumberResponse" message="tns:IAdminService_UpdateScheduleNumber_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteScheduleNumber">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/DeleteScheduleNumber" message="tns:IAdminService_DeleteScheduleNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/DeleteScheduleNumberResponse" message="tns:IAdminService_DeleteScheduleNumber_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateImportStaff">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/CreateImportStaff" message="tns:IAdminService_CreateImportStaff_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/CreateImportStaffResponse" message="tns:IAdminService_CreateImportStaff_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetImportStaff">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetImportStaff" message="tns:IAdminService_GetImportStaff_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetImportStaffResponse" message="tns:IAdminService_GetImportStaff_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllImportStaff">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetAllImportStaff" message="tns:IAdminService_GetAllImportStaff_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetAllImportStaffResponse" message="tns:IAdminService_GetAllImportStaff_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateImportStaff">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/UpdateImportStaff" message="tns:IAdminService_UpdateImportStaff_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/UpdateImportStaffResponse" message="tns:IAdminService_UpdateImportStaff_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteImportStaff">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/DeleteImportStaff" message="tns:IAdminService_DeleteImportStaff_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/DeleteImportStaffResponse" message="tns:IAdminService_DeleteImportStaff_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateError">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/CreateError" message="tns:IAdminService_CreateError_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/CreateErrorResponse" message="tns:IAdminService_CreateError_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateReferred">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/CreateReferred" message="tns:IAdminService_CreateReferred_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/CreateReferredResponse" message="tns:IAdminService_CreateReferred_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReferred">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetReferred" message="tns:IAdminService_GetReferred_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetReferredResponse" message="tns:IAdminService_GetReferred_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllReferred">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetAllReferred" message="tns:IAdminService_GetAllReferred_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetAllReferredResponse" message="tns:IAdminService_GetAllReferred_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReferred">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/UpdateReferred" message="tns:IAdminService_UpdateReferred_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/UpdateReferredResponse" message="tns:IAdminService_UpdateReferred_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteReferred">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/DeleteReferred" message="tns:IAdminService_DeleteReferred_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/DeleteReferredResponse" message="tns:IAdminService_DeleteReferred_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateErrorSubChoice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/CreateErrorSubChoice" message="tns:IAdminService_CreateErrorSubChoice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/CreateErrorSubChoiceResponse" message="tns:IAdminService_CreateErrorSubChoice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetErrorSubChoice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetErrorSubChoice" message="tns:IAdminService_GetErrorSubChoice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetErrorSubChoiceResponse" message="tns:IAdminService_GetErrorSubChoice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllErrorSubChoice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetAllErrorSubChoice" message="tns:IAdminService_GetAllErrorSubChoice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetAllErrorSubChoiceResponse" message="tns:IAdminService_GetAllErrorSubChoice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateErrorSubChoice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/UpdateErrorSubChoice" message="tns:IAdminService_UpdateErrorSubChoice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/UpdateErrorSubChoiceResponse" message="tns:IAdminService_UpdateErrorSubChoice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteErrorSubChoice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/DeleteErrorSubChoice" message="tns:IAdminService_DeleteErrorSubChoice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/DeleteErrorSubChoiceResponse" message="tns:IAdminService_DeleteErrorSubChoice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateBenefit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/CreateBenefit" message="tns:IAdminService_CreateBenefit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/CreateBenefitResponse" message="tns:IAdminService_CreateBenefit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBenefit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetBenefit" message="tns:IAdminService_GetBenefit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetBenefitResponse" message="tns:IAdminService_GetBenefit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBenefit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetAllBenefit" message="tns:IAdminService_GetAllBenefit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetAllBenefitResponse" message="tns:IAdminService_GetAllBenefit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBenefit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/UpdateBenefit" message="tns:IAdminService_UpdateBenefit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/UpdateBenefitResponse" message="tns:IAdminService_UpdateBenefit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBenefit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/DeleteBenefit" message="tns:IAdminService_DeleteBenefit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/DeleteBenefitResponse" message="tns:IAdminService_DeleteBenefit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateErrorChoice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/CreateErrorChoice" message="tns:IAdminService_CreateErrorChoice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/CreateErrorChoiceResponse" message="tns:IAdminService_CreateErrorChoice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetErrorChoice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetErrorChoice" message="tns:IAdminService_GetErrorChoice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetErrorChoiceResponse" message="tns:IAdminService_GetErrorChoice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllErrorChoice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetAllErrorChoice" message="tns:IAdminService_GetAllErrorChoice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetAllErrorChoiceResponse" message="tns:IAdminService_GetAllErrorChoice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateErrorChoice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/UpdateErrorChoice" message="tns:IAdminService_UpdateErrorChoice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/UpdateErrorChoiceResponse" message="tns:IAdminService_UpdateErrorChoice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteErrorChoice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/DeleteErrorChoice" message="tns:IAdminService_DeleteErrorChoice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/DeleteErrorChoiceResponse" message="tns:IAdminService_DeleteErrorChoice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateSecurityCheck">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/CreateSecurityCheck" message="tns:IAdminService_CreateSecurityCheck_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/CreateSecurityCheckResponse" message="tns:IAdminService_CreateSecurityCheck_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSecurityCheck">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetSecurityCheck" message="tns:IAdminService_GetSecurityCheck_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetSecurityCheckResponse" message="tns:IAdminService_GetSecurityCheck_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSecurityCheck">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetAllSecurityCheck" message="tns:IAdminService_GetAllSecurityCheck_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetAllSecurityCheckResponse" message="tns:IAdminService_GetAllSecurityCheck_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSecurityCheck">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/UpdateSecurityCheck" message="tns:IAdminService_UpdateSecurityCheck_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/UpdateSecurityCheckResponse" message="tns:IAdminService_UpdateSecurityCheck_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSecurityCheck">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/DeleteSecurityCheck" message="tns:IAdminService_DeleteSecurityCheck_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/DeleteSecurityCheckResponse" message="tns:IAdminService_DeleteSecurityCheck_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateLastUpdate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/CreateLastUpdate" message="tns:IAdminService_CreateLastUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/CreateLastUpdateResponse" message="tns:IAdminService_CreateLastUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLastUpdate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetLastUpdate" message="tns:IAdminService_GetLastUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetLastUpdateResponse" message="tns:IAdminService_GetLastUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllLastUpdate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetAllLastUpdate" message="tns:IAdminService_GetAllLastUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetAllLastUpdateResponse" message="tns:IAdminService_GetAllLastUpdate_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IAdminService" type="tns:IAdminService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateChecker">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/CreateChecker" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChecker">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetChecker" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllChecker">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetAllChecker" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateChecker">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/UpdateChecker" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteChecker">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/DeleteChecker" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateBCSNumber">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/CreateBCSNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBCSNumber">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetBCSNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBCSNumber">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetAllBCSNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBCSNumber">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/UpdateBCSNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBCSNumber">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/DeleteBCSNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCustomer">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetAllCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomer">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/UpdateCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCustomer">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/DeleteCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateAccuracyCheck">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/CreateAccuracyCheck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccuracyCheck">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetAccuracyCheck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAccuracyCheck">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetAllAccuracyCheck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAccuracyCheck">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/UpdateAccuracyCheck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAccuracyCheck">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/DeleteAccuracyCheck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateErrorType">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/CreateErrorType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetErrorType">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetErrorType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllErrorType">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetAllErrorType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateErrorType">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/UpdateErrorType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteErrorType">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/DeleteErrorType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTitle">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/CreateTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTitle">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTitle">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetAllTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTitle">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/UpdateTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTitle">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/DeleteTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCommand">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/CreateCommand" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCommand">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetCommand" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCommand">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetAllCommand" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCommand">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/UpdateCommand" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCommand">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/DeleteCommand" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateReportType">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/CreateReportType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportType">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetReportType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllReportType">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetAllReportType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReportType">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/UpdateReportType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteReportType">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/DeleteReportType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOrganisation">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/DeleteOrganisation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCheckSubType">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/CreateCheckSubType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCheckSubType">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetCheckSubType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCheckSubType">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetAllCheckSubType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCheckSubType">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/UpdateCheckSubType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCheckSubType">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/DeleteCheckSubType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateStaff">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/CreateStaff" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStaff">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetStaff" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllStaff">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetAllStaff" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStaff">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/UpdateStaff" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteStaff">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/DeleteStaff" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateHoliday">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/CreateHoliday" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHoliday">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetHoliday" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllHoliday">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetAllHoliday" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHoliday">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/UpdateHoliday" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteHoliday">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/DeleteHoliday" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCountry">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/CreateCountry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountry">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetCountry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCountry">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetAllCountry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCountry">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/UpdateCountry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCountry">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/DeleteCountry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCheckType">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/CreateCheckType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCheckType">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetCheckType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCheckType">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetAllCheckType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCheckType">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/UpdateCheckType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCheckType">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/DeleteCheckType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCustomer">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/CreateCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomer">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetError">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetError" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllError">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetAllError" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateError">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/UpdateError" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteError">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/DeleteError" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateOrganisationType">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/CreateOrganisationType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganisationType">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetOrganisationType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOrganisationType">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetAllOrganisationType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrganisationType">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/UpdateOrganisationType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOrganisationType">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/DeleteOrganisationType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateAudit">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/CreateAudit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAudit">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetAudit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAudit">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetAllAudit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAudit">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/UpdateAudit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAudit">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/DeleteAudit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateServer">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/CreateServer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServer">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetServer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllServer">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetAllServer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateServer">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/UpdateServer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteServer">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/DeleteServer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateReasonForDelay">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/CreateReasonForDelay" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReasonForDelay">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetReasonForDelay" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllReasonForDelay">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetAllReasonForDelay" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReasonForDelay">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/UpdateReasonForDelay" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteReasonForDelay">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/DeleteReasonForDelay" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateOrganisation">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/CreateOrganisation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganisation">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetOrganisation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOrganisation">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetAllOrganisation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrganisation">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/UpdateOrganisation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLastUpdate">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/UpdateLastUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteLastUpdate">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/DeleteLastUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateGrade">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/CreateGrade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGrade">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetGrade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllGrade">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetAllGrade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGrade">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/UpdateGrade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGrade">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/DeleteGrade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateValidator">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/CreateValidator" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetValidator">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetValidator" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllValidator">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetAllValidator" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateValidator">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/UpdateValidator" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteValidator">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/DeleteValidator" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateOrganisationHierarchy">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/CreateOrganisationHierarchy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganisationHierarchy">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetOrganisationHierarchy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOrganisationHierarchy">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetAllOrganisationHierarchy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrganisationHierarchy">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/UpdateOrganisationHierarchy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOrganisationHierarchy">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/DeleteOrganisationHierarchy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateScheduleNumber">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/CreateScheduleNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetScheduleNumber">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetScheduleNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllScheduleNumber">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetAllScheduleNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateScheduleNumber">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/UpdateScheduleNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteScheduleNumber">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/DeleteScheduleNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateImportStaff">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/CreateImportStaff" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImportStaff">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetImportStaff" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllImportStaff">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetAllImportStaff" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateImportStaff">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/UpdateImportStaff" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteImportStaff">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/DeleteImportStaff" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateError">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/CreateError" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateReferred">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/CreateReferred" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReferred">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetReferred" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllReferred">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetAllReferred" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReferred">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/UpdateReferred" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteReferred">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/DeleteReferred" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateErrorSubChoice">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/CreateErrorSubChoice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetErrorSubChoice">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetErrorSubChoice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllErrorSubChoice">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetAllErrorSubChoice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateErrorSubChoice">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/UpdateErrorSubChoice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteErrorSubChoice">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/DeleteErrorSubChoice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateBenefit">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/CreateBenefit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBenefit">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetBenefit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBenefit">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetAllBenefit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBenefit">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/UpdateBenefit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBenefit">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/DeleteBenefit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateErrorChoice">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/CreateErrorChoice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetErrorChoice">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetErrorChoice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllErrorChoice">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetAllErrorChoice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateErrorChoice">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/UpdateErrorChoice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteErrorChoice">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/DeleteErrorChoice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateSecurityCheck">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/CreateSecurityCheck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSecurityCheck">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetSecurityCheck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSecurityCheck">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetAllSecurityCheck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSecurityCheck">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/UpdateSecurityCheck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSecurityCheck">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/DeleteSecurityCheck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateLastUpdate">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/CreateLastUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLastUpdate">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetLastUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllLastUpdate">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetAllLastUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AdminService">
+    <wsdl:port name="BasicHttpBinding_IAdminService" binding="tns:BasicHttpBinding_IAdminService">
+      <soap:address location="http://localhost:1213/ServiceContracts/AdminService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

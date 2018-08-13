@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="@FixedResources.HTML_LANG">
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet"
+        type="text/css" />
+    <link href="@Url.Content("~/Content/Site.extension.css")" rel="stylesheet"
+        type="text/css" />
+    <link href="@Url.Content("~/Content/themes/start/jquery-ui-1.8.18.custom.css")" rel="stylesheet"
+        type="text/css" />
+    <link href="@Url.Content("~/Content/themes/base/selectmenu/jquery.ui.selectmenu.css")" rel="stylesheet"
+        type="text/css" />
+    <link href="@Url.Content("~/Content/JQueryOverwrite.css")" rel="stylesheet"
+        type="text/css" />
+    <!--[if IE 6]> 
+           <link href="@Url.Content("~/Content/IE6.css")" rel="stylesheet"
+        type="text/css" />
+         <![endif]-->
+    <script src="@Url.Content("~/Scripts/modernizr.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery-1.7.1.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery-ui-1.8.17.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/selectmenu/jquery.ui.core.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/selectmenu/jquery.ui.widget.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/selectmenu/jquery.ui.position.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/selectmenu/jquery.ui.selectmenu.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/validation/CompareDate.js")" type="text/javascript"></script>
+    <!--[if IE 6]>  <script src="@Url.Content("~/Scripts/custom/IE6.js")" type="text/javascript"></script><![endif]-->
+    <script src="@Url.Content("~/Scripts/custom/general.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/custom/general.extension.js")" type="text/javascript"></script>
+</head>
+<body>
+    <div class="page">
+        <header class="row">
+                        <a accesskey="s" href="#main" title="Skip navigation"></a>
+                        <div id="title" class="row">
+                                <div class="left">
+                                        <img src="@Url.Content("~/Content/images/dwp_logo.png")" width="393" height="35" alt="" />
+                                </div>
+                                
+                                <div id="logindisplay" class="right text-align-right">
+                                        @FixedResources.LABEL_WELCOME <strong>@((null == SessionManager.UserName) ? string.Empty : SessionManager.UserName)</strong>!
+                                </div>
+                        </div>
+                        <h1 class="row text-align-centre">@FixedResources.SYS_NAME</h1>
+                        <nav class="navbar">
+                                    <div class="clearfix navbar-inner">
+                                        <ul id="menu" class="nav">
+                                        <li>@Html.ActionLink(FixedResources.LINKTEXT_HOME, "Index", "Home", null, new { @accesskey = "1"})</li>
+                                        @if (HttpContext.Current.User.IsInRole(FrameworkRoles.ADMIN)){
+                                            <li>@Html.ActionLink(FixedResources.LINKTEXT_ADMIN, "AdminMenu", "Admin")</li>
+                                            }
+                                </ul>
+                                </div>
+                        </nav>
+                </header>
+        <section id="main">
+                        @RenderBody()
+                </section>
+        <div id="sitewidelinks" class="row text-align-right">
+            @Html.ActionLink(FixedResources.LINKTEXT_ABOUT, "About", "Home")
+        </div>
+        <footer>
+         @Html.Raw(FixedResources.LABEL_PAGECREATED) @DateTime.Now.ToString("dd/MM/yyyy") at @DateTime.Now.ToString("HH:mm:ss")
+        </footer>
+    </div>
+</body>
+</html>

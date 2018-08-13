@@ -1,0 +1,164 @@
+﻿@{
+    ViewBag.Title = "Accessibility";
+}
+<div class="ui-widget">
+    <h2 class="ui-widget-header">
+        Accessibility – help with viewing this site</h2>
+    <!-- content goes here -->
+    <div class="ui-widget-content">
+        <p>
+            We recognises the importance of providing a website that is accessible to all our
+            user groups, including those with disabilities. Our accessibility standards are
+            in place with the intention of making the content accessible to the widest range
+            of visitors, regardless of disability or impairment. This has been achieved by adhering
+            to best practices, such as compliance with W3C standards, and by careful reference
+            to the standards set out by the eGovernment Unit.</p>
+        <ul>
+            <li><a title="Accessibility features hyperlink within this document." href="#feature" class="ui-state-highlight">
+                Accessibility features on this website</a></li>
+            <li><a title="Changing the size of the text hyperlink within this document." href="#textsize" class="ui-state-highlight">
+                Changing the size of the text on this website</a></li>
+@*            <li><a title="Accessibility advice for Apple Mac users hyperlink within this document."
+                href="#mac" class="ui-state-highlight">Accessibility advice for Apple Mac users</a></li>*@
+            <li><a title="Help with PDF documents hyperlink within this document." href="#pdf" class="ui-state-highlight">Help
+                with PDF documents</a></li>
+        @*    <li><a title="Standards compliance hyperlink within this document." href="#compliance" class="ui-state-highlight">
+                Standards compliance</a> </li>*@
+        </ul>
+        <p>
+            If you want to change the colour of the text or background, change the font or remove
+            images read <a title="Change Site document hyperlink.">@Html.ActionLink("Changing the look of this web site", "ChangeSite", "Home", null, new { @class = "ui-state-highlight",  title = "Change Site document hyperlink." })</a> .</p>
+        <hr />
+        <a id="feature"></a>
+        <h2>
+            Accessibility features on this website</h2>
+        <p>
+            The following features improve navigation for screen reader users, keyboard navigation
+            and users of text only browsers.</p>
+        <ul>
+            <li>Access Keys
+                <p>
+                    Some browsers support jumping to specific links by typing keys defined on the web
+                    site. On Windows, you can press the 'alt' key and the access key; on Macintosh,
+                    you can press then 'ctrl' key and the access key.</p>
+                <p>
+                    The pages on this website adhere to the recommended UK Government access keys standard:</p>
+                <p>
+                    <strong>S</strong>. Skip Navigation<br />
+                    <strong>1</strong>. Home
+                    <br />
+                    @*<strong>2</strong>. What's new
+                    <br />*@
+                    <strong>3</strong>. Site Map
+                    <br />
+                    @*<strong>4</strong>. Search
+                    <br />*@
+                    @*<strong>5</strong>. Frequently Asked Questions (FAQ)
+                    <br />*@
+                    <strong>6</strong>. Help
+                    <br />
+                    @*<strong>7</strong>. Complaints procedure
+                    <br />*@
+                    @*<strong>8</strong>. Terms and Conditions
+                    <br />*@
+                    <strong>9</strong>. Feedback Form
+                    <br />
+                    <strong>0</strong>. Access Key Details<br />
+                </p>
+            </li>
+            <li>
+                <p>
+                    Navigation menus are marked up as HTML lists. This ensures that the number of links
+                    in the list is read out at the start and it can be skipped easily.</p>
+            </li>
+            <li>
+                <p>
+                    All images used on this site include descriptive attributes. Purely decorative graphics
+                    include empty alt attributes.</p>
+            </li>
+            <li>
+                <p>
+                    We have checked the site's font and background colour combination against the different
+                    colour blindness conditions and ensured that all information is still clear.</p>
+            </li>
+            <li>
+                <p>
+                    Cascading style sheets (CSS) are used to set the colour and size of the text within
+                    each page. The formatting can be overridden:</p>
+                <ul>
+                    <li>- in <strong>MS Explorer</strong> by selecting Tools - Internet Options - Accessibility</li>
+                    <li>- in <strong>Firefox</strong> by selecting Edit - Preferences - Appearance
+                        - Fonts</li>
+                    <li>- alternatively select '<strong>view</strong>' then '<strong>text size</strong>'
+                        in your browser to adjust the size of the text </li>
+                </ul>
+            </li>
+        </ul>
+        <a title="Return to the top of the page." href="#top" class="ui-state-highlight">top of page</a><hr />
+        <a id="textsize"></a>
+        <h2>
+            Changing the size of the text on this website</h2>
+        <p>
+            To change the text size:</p>
+        <ul>
+            <li>- Select <strong>Text Size</strong> from the <strong>View</strong> menu. (In some
+                browsers <strong>Text Size</strong> may be called <strong>Text Zoom</strong> or
+                <strong>Zoom</strong>)</li>
+            <li>- Choose the size that you want from the <strong>Text Size</strong> menu. </li>
+        </ul>
+        <a title="Return to the top of the page." href="#top" class="ui-state-highlight">top of page</a><hr />
+       @* <a id="mac"></a>
+        <h2>
+            Accessibility advice for Apple Mac users</h2>
+        <p>
+            The Apple Mac operating system includes many accessibility options, including resizing
+            text, text-to-speech and keyboard alternatives to mouse functions.</p>
+        <p>
+            Visit the <a title="Apple website on Accessibility." target="_blank" href="http://www.apple.com/accessibility/" class="ui-state-highlight">
+                Apple website's accessibility section</a>.</p>
+        <a title="Return to the top of the page." href="#top" class="ui-state-highlight">top of page</a><hr />*@
+        <a id="pdf"></a>
+        <h2>
+            Help with PDF documents</h2>
+        <p>
+            <a title="Get Adobe Reader software hyperlink" target="_blank" href="http://www.adobe.co.uk/products/acrobat/readstep2.html">
+                <img class="ImgGetAdobe" alt="Get Adobe Reader software" src=@Html.Raw(Url.Content("~/Images/getacro.gif")) />
+            </a>You can download Portable Document Format (PDF) documents using <a title="Get Adobe Reader PDF documents hyperlink." 
+                target="_blank" href="http://www.adobe.co.uk/products/acrobat/readstep2.html" class="ui-state-highlight">Adobe
+                Reader </a>– available free of charge.
+        </p>
+        <p>
+            PDF documents are sometimes marked with this icon
+            <img class="Img16X16" alt="PDF icon" src=@Html.Raw(Url.Content("~/Images/pdf_icon.gif")) />
+            .</p>
+        <p>
+            If your screen reader software (for example an audio-enabled web browser) is not
+            compatible with Adobe Reader, Adobe provide a <a title="Free online tool to convert the content of PDF files to text hyperlink."
+                target="_blank" href="http://www.adobe.com/products/acrobat/access_onlinetools.html" class="ui-state-highlight">
+                free online tool to convert the content of PDF files to text</a> – so they can
+            be understood by most screen reader applications.
+        </p>
+        <a title="Return to the top of the page." href="#top" class="ui-state-highlight">top of page</a><hr />
+        @*<a id="compliance"></a>
+                <h2>
+                    Standards compliance</h2>
+                <p>
+                    This website does not currently meet all priority 1 guidelines of the W3C Web Content
+                    Accessibility Guidelines, but we aim to achieve a minimum WCAG A standard.</p>
+                <ul>
+                    <li>- We strive to obey the spirit of the Disability Discrimination Act (DDA) of 1995
+                        with respect to the provision of services online, as required by the Disability
+                        Rights Commission (DRC).</li>
+                    <li>- While we use Bobby to test for accessibility, it is just one aspect of our testing
+                        procedure. As a computer programme, the Bobby test is not a reliable as expert evaluation.
+                    </li>
+                </ul>*@
+        <!--<H2>Feedback</H2>
+								<P>If you have any questions regarding the accessibility of this site, if you 
+								experience any difficulty using our site please use our <A 
+								href="http://www.hmrc.gov.uk/comment/index.htm">feedback form</A> giving details 
+								of your query.<BR></P>-->
+        @*<a title="Return to the top of the page." href="#top" class="ui-state-highlight">top of page</a>*@
+    </div>
+</div>
+<!-- content ends here -->

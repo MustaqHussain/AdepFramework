@@ -1,0 +1,357 @@
+﻿<#
+//*********************************************************
+//
+//    Copyright (c) Microsoft. All rights reserved.
+//    This code is licensed under the Microsoft Public License.
+//    THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF
+//    ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY
+//    IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR
+//    PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.
+//
+//*********************************************************
+#>
+<#@ template language="C#" debug="false" hostspecific="true"#>
+<#@ include file="EF.Utility.CS.ttinclude"#>
+<#@ include file="..\..\Dwp.Adep.Framework.Management.DataServices\Models\Global.t4"#><#@ 
+ output extension=".cshtml"#><#
+
+// List of entities not to generate code for
+string ignoreList = globalIgnoreList + noScreenList + ",Staff,StaffOrganisation,OrganisationHierarchy,Audit,StaffAttributes,NonStandardHoliday,Holiday,";
+
+CodeGenerationTools code = new CodeGenerationTools(this);
+MetadataLoader loader = new MetadataLoader(this);
+CodeRegion region = new CodeRegion(this, 1);
+MetadataTools ef = new MetadataTools(this);
+
+string inputFile = @"..\..\Dwp.Adep.Framework.Management.DataServices\Models\Model1.edmx";
+EdmItemCollection ItemCollection = loader.CreateEdmItemCollection(inputFile);
+string namespaceName = code.VsNamespaceSuggestion();
+
+EntityFrameworkTemplateFileManager fileManager = EntityFrameworkTemplateFileManager.Create(this);
+
+// Emit Entity Types
+foreach (EntityType entity in ItemCollection.GetItems<EntityType>().OrderBy(e => e.Name))
+{
+	// Do not generate code for entities in the ignore list
+	if (ignoreList.Contains("," + entity.Name + ",")) continue;
+
+	string outputDir = Path.Combine(Path.GetDirectoryName(Host.TemplateFile), entity.Name);
+
+	if(!Directory.Exists(outputDir))
+	{
+		Directory.CreateDirectory(outputDir);
+	}
+	string fileName = "Edit";
+	fileManager.StartNewFile(outputDir + @"\" + fileName + ".cshtml");
+	
+    bool entityHasNullableFKs = entity.NavigationProperties.Any(np => np.GetDependentProperties().Any(p=>ef.IsNullable(p)));
+#>
+@model <#=code.VsNamespaceSuggestion().Replace("Views", "ViewModels")#>.<#=entity.Name#>VM
+@{
+    ViewBag.Title = FixedResources.ENTITYNAME_<#=entity.Name.ToUpper()#>;
+}
+<h2>Maintain @FixedResources.ENTITYNAME_<#=entity.Name.ToUpper()#></h2>
+<script type="text/javascript">
+    /// <reference path="jquery-1.7.1.js" />
+    /// <reference path="jquery-ui.js" />
+    $(document).ready(function () {
+
+        var isDirty = @(Model.IsViewDirty?Html.Raw("true"):Html.Raw("false"));
+
+        $(':input').change(function () {
+            if (!isDirty) {
+                isDirty = true;
+            }
+        });
+
+		var $myDialogExit = $('<div id=\'confirm\'></div>')
+        .html('Are you sure you want to exit?<br/>Click OK to confirm.  Click Cancel to stop this action.')
+        .dialog({
+            autoOpen: false,
+            modal: true,
+            title: 'Confirmation Required',
+            buttons: {
+                "OK": function () {
+                    $(this).dialog("close");
+                    if ($('#IsExitConfirmed').val() == "True") {
+                        var form = $('#mainForm')
+                        var input = $("<input>").attr("type", "hidden").attr("name", "Edit::Exit<#=entity.Name#>").val("");
+                        form.append($(input));
+                        $('#mainForm')[0].submit();
+                        return true;
+                    }
+                }
+                , "Cancel": function () {
+                    $(this).dialog("close");
+                    return false;
+                }
+            }
+
+        });
+
+        $('#mainForm').submit(function (e) {
+
+			if ($('#mainForm').find('input[type="submit"]:focus').attr('name') == 'Edit::Exit<#=entity.Name#>') {
+                if (isDirty == true) {
+                    e.preventDefault();
+                    $('#IsExitConfirmed').val("True");
+                    var returnValue = $myDialogExit.dialog('open');  //replace the div id with the id of the button/form
+                    return returnValue;
+                }
+                else {
+                    $('#IsExitConfirmed').val("True");
+                    return true;
+                }
+            }           
+        });
+	});
+	
+</script>
+@using (Html.BeginForm("Edit", "<#=entity.Name#>", FormMethod.Post, new { @id = "mainForm" }))
+{
+    @Html.ValidationSummary(true)
+    <div class='message'>@Model.Message</div>
+    @Html.HiddenFor(model => model.<#=entity.Name#>Item.Code)    
+    <input type='hidden' id='IsExitConfirmed' name='IsExitConfirmed' value='@Model.IsExitConfirmed' />
+    <div class="full-width clearfix">
+		    <fieldset class="ui-widget ui-widget-content ui-corner-all">
+                <legend class="ui-widget-header ui-corner-all">@FixedResources.ENTITYNAME_<#=entity.Name.ToUpper()#></legend>
+<#
+    foreach (EdmProperty edmProperty in entity.Properties.Where(p => p.TypeUsage.EdmType is PrimitiveType && p.DeclaringType == entity))
+    {
+		if (edmProperty.Name == "SecurityLabel" || edmProperty.Name == "Code" || edmProperty.Name == "RowIdentifier") continue;
+
+        bool isForeignKey = entity.NavigationProperties.Any(np=>np.GetDependentProperties().Contains(edmProperty));
+        bool isDefaultValueDefinedInModel = (edmProperty.DefaultValue != null);
+        bool generateAutomaticProperty = false;
+		
+		if (!isForeignKey)
+		{
+			if(edmProperty.TypeUsage.ToString().ToLower().Contains("date")) 
+			{
+#>
+				@Html.EditorFor(model => model.<#=entity.Name#>Item.<#=edmProperty.Name#>,"LabelDateAlign") 
+<#
+			}
+			else if(edmProperty.TypeUsage.ToString().ToLower().Contains("bool"))
+			{
+#>
+				@Html.EditorFor(model => model.<#=entity.Name#>Item.<#=edmProperty.Name#>,"LabelCheckBoxAlign")
+<#
+			}
+			else if(edmProperty.ToString().ToLower() == "description")
+			{
+#>
+				@Html.EditorFor(model => model.<#=entity.Name#>Item.<#=edmProperty.Name#>,"LabelMultiLineTextAlign")
+<#
+			}
+			else if(edmProperty.ToString().ToLower() == "id")
+			{
+#>
+				@Html.EditorFor(model => model.<#=entity.Name#>Item.<#=edmProperty.Name#>,"LabelSmallFieldAlign")
+<#
+			}
+			else if(edmProperty.ToString().ToLower() == "name")
+			{
+#>
+				@Html.EditorFor(model => model.<#=entity.Name#>Item.<#=edmProperty.Name#>,"LabelLargeFieldAlign")
+<#
+			}
+			else
+			{
+#>
+				@Html.EditorFor(model => model.<#=entity.Name#>Item.<#=edmProperty.Name#>,"LabelFieldAlign")
+<#
+			}
+
+		
+		}
+		else
+		{
+#>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.<#=entity.Name#>Item.<#=edmProperty.Name#>)
+					</div>
+					<div class="editor-field right-60" title='@Html.ToolTipFor(model => model.<#=entity.Name#>Item.<#=edmProperty.Name#>)'>
+<#
+			EntityType fkEntityType;
+			string fkLookupfield = GetLookupField(entity, edmProperty, out fkEntityType);
+#>
+						@Html.DropDownListFor(model => model.<#=entity.Name#>Item.<#=edmProperty.Name#>, new SelectList(Model.<#=edmProperty.Name.Replace("Code", "")#>List, "Code", "<#=fkLookupfield#>"), @String.Format(FixedResources.DDL_GENERIC, @FixedResources.ENTITYNAME_<#=fkEntityType.Name.ToUpper()#>))
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.<#=entity.Name#>Item.<#=edmProperty.Name#>)
+					</div>
+				</div>
+<#
+		}
+	}
+#>
+				<div class="full-width clearfix">
+		            @if (Model.AccessContext == Dwp.Adep.Framework.Management.Web.ViewModels.<#=entity.Name#>AccessContext.Create)
+		            {
+		                <input id='CreateButton' type='submit' name='Edit::Create<#=entity.Name#>' value='@FixedResources.LABEL_CREATEBUTTON' title='@FixedResources.TOOLTIP_CREATEBUTTON @FixedResources.ENTITYNAME_<#=entity.Name.ToUpper()#>' />
+		            }
+		            else
+		            {
+		                <input id='SaveButton' type='submit' name='Edit::Save<#=entity.Name#>' value='@FixedResources.LABEL_SAVEBUTTON' title='@FixedResources.TOOLTIP_SAVEBUTTON @FixedResources.ENTITYNAME_<#=entity.Name.ToUpper()#>'/>						
+		            }    
+		            <input id='ExitButton' class='cancel' type='submit' name='Edit::Exit<#=entity.Name#>' value='@FixedResources.LABEL_EXITBUTTON' title='@FixedResources.TOOLTIP_EXITBUTTON'/>
+		        </div>
+			</fieldset>
+	</div>
+}
+<#
+}
+fileManager.Process();
+
+#>
+<#+
+void WriteHeader(EntityFrameworkTemplateFileManager thisFileManager, params string[] extraUsings)
+{
+    thisFileManager.StartHeader();
+#>
+//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated from a template.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
+<#=String.Join(String.Empty, extraUsings.Select(u => "using " + u + ";" + Environment.NewLine).ToArray())#>
+<#+
+    thisFileManager.EndBlock();
+}
+
+void BeginNamespace(string namespaceName, CodeGenerationTools code)
+{
+    CodeRegion region = new CodeRegion(this);
+    if (!String.IsNullOrEmpty(namespaceName))
+    {
+#>
+namespace <#=code.EscapeNamespace(namespaceName)#>
+{
+<#+
+        PushIndent(CodeRegion.GetIndent(1));
+    }
+}
+
+
+void EndNamespace(string namespaceName)
+{
+    if (!String.IsNullOrEmpty(namespaceName))
+    {
+        PopIndent();
+#>
+}
+<#+
+    }
+}
+
+bool IsReadWriteAccessibleProperty(EdmMember member)
+{
+    string setter = Accessibility.ForWriteOnlyProperty(member);
+    string getter = Accessibility.ForReadOnlyProperty(member);
+
+    return getter != "private" && getter != "protected" && setter != "private" && setter != "protected";
+}
+
+string PropertyVirtualModifier(string accessibility)
+{
+    return accessibility + (accessibility != "private" ? " virtual" : "");
+}
+
+void WriteCustomObservableCollection()
+{
+#>
+// An System.Collections.ObjectModel.ObservableCollection that raises
+// individual item removal notifications on clear and prevents adding duplicates.
+public class FixupCollection<T> : ObservableCollection<T>
+{
+    protected override void ClearItems()
+    {
+        new List<T>(this).ForEach(t => Remove(t));
+    }
+
+    protected override void InsertItem(int index, T item)
+    {
+        if (!this.Contains(item))
+        {
+            base.InsertItem(index, item);
+        }
+    }
+}
+<#+
+}
+
+bool VerifyTypesAreCaseInsensitiveUnique(EdmItemCollection itemCollection)
+{
+    Dictionary<string, bool> alreadySeen = new Dictionary<string, bool>(StringComparer.OrdinalIgnoreCase);
+    foreach(StructuralType type in itemCollection.GetItems<StructuralType>())
+    {
+        if (!(type is EntityType || type is ComplexType))
+        {
+            continue;
+        }
+
+        if (alreadySeen.ContainsKey(type.FullName))
+        {
+            Error(String.Format(CultureInfo.CurrentCulture, "This template does not support types that differ only by case, the types {0} are not supported", type.FullName));
+            return false;
+        }
+        else
+        {
+            alreadySeen.Add(type.FullName, true);
+        }
+
+    }
+
+    return true;
+
+}
+
+private bool IsNullable(TypeUsage usage)
+{
+	return (bool)usage.Facets.First(facet => facet.Name == "Nullable").Value;
+}
+
+private bool HasMaxLength(TypeUsage usage)
+{
+	return usage.Facets.Any(facet => facet.Name == "MaxLength");
+}
+
+private string MaxLength(TypeUsage usage)
+{
+	return (string)usage.Facets.First(facet => facet.Name == "MaxLength").Value.ToString();
+}
+
+private string GetLookupField(EntityType entity, EdmProperty edmProperty, out EntityType fkEntityType)
+{
+	NavigationProperty fkNavProp = entity.NavigationProperties.Single(np=>np.GetDependentProperties().Contains(edmProperty));
+	fkEntityType = fkNavProp.ToEndMember.GetEntityType();
+	string fkLookupfield = null;
+	if (fkEntityType.Properties.Any(x => x.Name == "Description"))
+	{
+		fkLookupfield = "Description";
+	}
+	else if (fkEntityType.Properties.Any(x => x.Name == "Name"))
+	{
+		fkLookupfield = "Name";
+	}
+	else
+	{
+		fkLookupfield = fkEntityType.Properties.First(x => !x.Name.Contains("Code") && x.Name != "SecurityLabel").Name;
+	}
+	
+	return fkLookupfield;
+}
+
+#>

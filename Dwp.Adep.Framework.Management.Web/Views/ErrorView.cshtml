@@ -1,0 +1,153 @@
+@model IEnumerable<Dwp.Adep.Framework.Management.Web.Models.ErrorModel>
+
+@{
+    ViewBag.Title = "ErrorView";
+}
+
+<h2>ErrorView</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+      <th>
+            Code
+        </th>
+        <th>
+            TableID
+        </th>
+        <th>
+            AccuracyCheckCode
+        </th>
+        <th>
+            RaisedDate
+        </th>
+        <th>
+            DateOccurred
+        </th>
+        <th>
+            DateFound
+        </th>
+        <th>
+            DaysToDetect
+        </th>
+        <th>
+            ErrorTypeCode
+        </th>
+        <th>
+            IsOverpayment
+        </th>
+        <th>
+            IsUnderpayment
+        </th>
+        <th>
+            ErrorChoiceCode
+        </th>
+        <th>
+            ErrorSubChoiceCode
+        </th>
+        <th>
+            WeeklyAmount
+        </th>
+        <th>
+            TotalOverpayment
+        </th>
+        <th>
+            StaffCode
+        </th>
+        <th>
+            TeamCode
+        </th>
+        <th>
+            CommandCode
+        </th>
+        <th>
+            LocationCode
+        </th>
+        <th>
+            IsEO_AgreeNo
+        </th>
+        <th>
+            Notes
+        </th>
+        <th>
+            RowIdentifier
+        </th>
+          <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+      <td>
+            @Html.DisplayFor(modelItem => item.Code)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TableID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AccuracyCheckCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RaisedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateOccurred)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateFound)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DaysToDetect)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ErrorTypeCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsOverpayment)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsUnderpayment)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ErrorChoiceCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ErrorSubChoiceCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WeeklyAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalOverpayment)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StaffCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TeamCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CommandCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LocationCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsEO_AgreeNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Notes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RowIdentifier)
+        </td>
+          <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Code }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Code }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Code })
+        </td>
+    </tr>
+}
+
+</table>

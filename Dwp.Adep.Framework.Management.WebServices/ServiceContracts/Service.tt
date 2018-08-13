@@ -1,0 +1,981 @@
+﻿<#
+//*********************************************************
+//
+//    Copyright (c) Microsoft. All rights reserved.
+//    This code is licensed under the Microsoft Public License.
+//    THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF
+//    ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY
+//    IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR
+//    PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.
+//
+//*********************************************************
+#>
+<#@ template language="C#" debug="false" hostspecific="true"#>
+<#@ include file="EF.Utility.CS.ttinclude"#>
+ <#@ include file="..\..\Dwp.Adep.Framework.Management.DataServices\Models\Global.t4"#><#@ 
+ output extension=".cs"#><#
+
+// List of entities not to generate code for
+string ignoreList = globalIgnoreList + ",SecurityCheck,Holiday,NonStandardHoliday,";
+
+CodeGenerationTools code = new CodeGenerationTools(this);
+MetadataLoader loader = new MetadataLoader(this);
+CodeRegion region = new CodeRegion(this, 1);
+MetadataTools ef = new MetadataTools(this);
+
+string inputFile = @"..\..\Dwp.Adep.Framework.Management.DataServices\Models\Model1.edmx";
+EdmItemCollection ItemCollection = loader.CreateEdmItemCollection(inputFile);
+string namespaceName = code.VsNamespaceSuggestion();
+string namespaceminusonelevelName = namespaceName.Replace("ServiceContracts", string.Empty);
+
+EntityFrameworkTemplateFileManager fileManager = EntityFrameworkTemplateFileManager.Create(this);
+
+// Write out support code to primary template output file
+WriteHeader(fileManager, "System.Linq",
+	"System.Runtime.Serialization",
+	"System.ServiceModel",
+	"AutoMapper",
+	namespaceminusonelevelName + "DataContracts",
+	namespaceminusonelevelName + "Exceptions",
+	namespaceminusonelevelName.Replace("WebServices.", "DataServices"),
+	namespaceminusonelevelName.Replace("WebServices.", "DataServices.Models"),
+	namespaceName);
+
+// Emit Entity Types
+foreach (EntityType entity in ItemCollection.GetItems<EntityType>().OrderBy(e => e.Name))
+{
+	// Do not generate code for entities in the ignore list
+	if (ignoreList.Contains("," + entity.Name + ",")) continue;
+
+    fileManager.StartNewFile("AdminService." + entity.Name + ".cs");
+	bool hasIsActiveField = entity.Properties.Any(p => p.Name == "IsActive");
+	string defaultSortField = GetDefaultSortField(entity);
+	
+    BeginNamespace(namespaceName, code);
+#>
+/// <summary>
+/// Admin service
+/// Class containing service behaviour for <#=entity.Name#>
+/// </summary>
+<#=Accessibility.ForType(entity)#> <#=code.SpaceAfter(code.AbstractOption(entity))#>partial class AdminService
+{
+<#
+    region.Begin("Behaviour for " + entity.Name);
+#>
+
+        #region Create
+
+		/// <summary>
+        /// Create a <#=entity.Name#>
+        /// </summary>
+        /// <param name="currentUser"></param>
+        /// <param name="user"></param>
+        /// <param name="appID"></param>
+        /// <param name="overrideID"></param>
+        /// <param name="dc"></param>
+        public <#=entity.Name#>VMDC Create<#=entity.Name#>(string currentUser, string user, string appID, string overrideID, <#=entity.Name#>DC dc)
+        {
+			// Create unit of work
+            IUnitOfWork uow = new UnitOfWork(currentUser);
+	
+			// Create repository
+            Repository<<#=entity.Name#>> dataRepository = new Repository<<#=entity.Name#>>(uow.ObjectContext, currentUser, user, appID, overrideID);
+
+			// Call overload with injected objects
+            return Create<#=entity.Name#>(currentUser, user, appID, overrideID, dc, dataRepository, uow);
+        }
+
+		/// <summary>
+        ///  Create a <#=entity.Name#>
+        /// </summary>
+        /// <param name="currentUser"></param>
+        /// <param name="user"></param>
+        /// <param name="appID"></param>
+        /// <param name="overrideID"></param>
+        /// <param name="dc"></param>
+        /// <param name="dataRepository"></param>
+        /// <param name="uow"></param>
+        public <#=entity.Name#>VMDC Create<#=entity.Name#>(string currentUser, string user, string appID, string overrideID, <#=entity.Name#>DC dc, IRepository<<#=entity.Name#>> dataRepository, IUnitOfWork uow)
+        {
+            try
+            {
+				#region Parameter validation
+
+				// Validate parameters
+				if (string.IsNullOrEmpty(currentUser)) throw new ArgumentOutOfRangeException("currentUser");
+				if (string.IsNullOrEmpty(user)) throw new ArgumentOutOfRangeException("user");
+				if (string.IsNullOrEmpty(appID)) throw new ArgumentOutOfRangeException("appID");
+				if (null == dc) throw new ArgumentOutOfRangeException("dc");
+				if (null == dataRepository) throw new ArgumentOutOfRangeException("dataRepository");
+				if (null == uow) throw new ArgumentOutOfRangeException("uow");
+
+				#endregion
+
+                using (uow)
+                {
+					// Create a new ID for the <#=entity.Name#> item
+					dc.Code = Guid.NewGuid();
+					
+					// Map data contract to model
+                    <#=entity.Name#> destination = Mapper.Map<<#=entity.Name#>DC, <#=entity.Name#>>(dc);
+
+					// Add the new item
+                    dataRepository.Add(destination);
+
+					// Commit unit of work
+                    uow.Commit();
+
+					dc = Mapper.Map<<#=entity.Name#>, <#=entity.Name#>DC>(destination);
+                }
+				
+				// Create aggregate data contract
+				<#=entity.Name#>VMDC returnObject = new <#=entity.Name#>VMDC();
+				
+				// Add new item to aggregate
+				returnObject.<#=entity.Name#>Item = dc;
+				
+				return returnObject;
+            }
+            catch (Exception e)
+            {
+                //Prevent exception from propogating across the service interface
+                ExceptionManager.ShieldException(e);
+				
+				return null;
+            }
+        }
+
+        #endregion
+
+        #region Get<#=entity.Name#>
+
+		/// <summary>
+    	/// Retrieve a <#=entity.Name#> with associated lookups
+    	/// </summary>
+    	/// <param name="currentUser"></param>
+    	/// <param name="user"></param>
+    	/// <param name="appID"></param>
+    	/// <param name="overrideID"></param>
+    	/// <param name="code"></param>
+    	/// <returns></returns>
+        public <#=entity.Name#>VMDC Get<#=entity.Name#>(string currentUser, string user, string appID, string overrideID, string code)
+        {
+			// Create unit of work
+            IUnitOfWork uow = new UnitOfWork(currentUser);
+
+			// Create repository
+            IRepository<<#=entity.Name#>> dataRepository = new Repository<<#=entity.Name#>>(uow.ObjectContext, currentUser, user, appID, overrideID);
+
+			// Create repositories for lookup data
+<#
+			foreach (EdmProperty edmProperty in entity.Properties.Where(p => p.TypeUsage.EdmType is PrimitiveType && p.DeclaringType == entity))
+			{
+				if (edmProperty.Name == "SecurityLabel") continue;
+
+				foreach (NavigationProperty nav in entity.NavigationProperties.Where(np=>np.GetDependentProperties().Contains(edmProperty)))
+				{
+#>
+			IRepository<<#=nav.ToEndMember#>> <#=Camelize(edmProperty.Name.Replace("Code", ""))#>Repository = new Repository<<#=nav.ToEndMember#>>(uow.ObjectContext, currentUser, user, appID, overrideID);
+<#
+				}
+			}
+#>
+
+			// Call overload with injected objects
+            return Get<#=entity.Name#>(currentUser, user, appID, overrideID, code, uow, dataRepository
+<#
+			foreach (EdmProperty edmProperty in entity.Properties.Where(p => p.TypeUsage.EdmType is PrimitiveType && p.DeclaringType == entity))
+			{
+				if (edmProperty.Name == "SecurityLabel") continue;
+
+				foreach (NavigationProperty nav in entity.NavigationProperties.Where(np=>np.GetDependentProperties().Contains(edmProperty)))
+				{
+#>
+			, <#=Camelize(edmProperty.Name.Replace("Code", ""))#>Repository
+<#
+				}
+			}
+#>
+			);
+        }
+
+		/// <summary>
+        /// Retrieve a <#=entity.Name#> with associated lookups
+        /// </summary>
+        /// <param name="currentUser"></param>
+        /// <param name="user"></param>
+        /// <param name="appID"></param>
+        /// <param name="overrideID"></param>
+        /// <param name="code"></param>
+        /// <param name="dataRepository"></param>
+        /// <param name="uow"></param>
+        /// <returns></returns>
+        public <#=entity.Name#>VMDC Get<#=entity.Name#>(string currentUser, string user, string appID, string overrideID, string code, IUnitOfWork uow, IRepository<<#=entity.Name#>> dataRepository
+<#
+			foreach (EdmProperty edmProperty in entity.Properties.Where(p => p.TypeUsage.EdmType is PrimitiveType && p.DeclaringType == entity))
+			{
+				if (edmProperty.Name == "SecurityLabel") continue;
+
+				foreach (NavigationProperty nav in entity.NavigationProperties.Where(np=>np.GetDependentProperties().Contains(edmProperty)))
+				{
+#>
+			,IRepository<<#=nav.ToEndMember#>> <#=Camelize(edmProperty.Name.Replace("Code", ""))#>Repository
+<#
+				}
+			}
+#>
+			)
+		
+        {
+            try
+            {
+				#region Parameter validation
+
+				// Validate parameters
+				if (string.IsNullOrEmpty(currentUser)) throw new ArgumentOutOfRangeException("currentUser");
+				if (string.IsNullOrEmpty(user)) throw new ArgumentOutOfRangeException("user");
+				if (string.IsNullOrEmpty(appID)) throw new ArgumentOutOfRangeException("appID");
+				if (null == dataRepository) throw new ArgumentOutOfRangeException("dataRepository");
+				if (null == uow) throw new ArgumentOutOfRangeException("uow");
+
+				#endregion
+
+                using (uow)
+                {
+				
+					<#=entity.Name#>DC destination = null;
+					
+					// If code is null then just return supporting lists
+					if (!string.IsNullOrEmpty(code))
+					{
+						// Convert code to Guid
+	                    Guid codeGuid = Guid.Parse(code);
+
+						// Retrieve specific <#=entity.Name#>
+	                    <#=entity.Name#> dataEntity = dataRepository.Single(x => x.Code == codeGuid);
+
+						// Convert to data contract for passing through service interface
+	                    destination = Mapper.Map<<#=entity.Name#>, <#=entity.Name#>DC>(dataEntity);
+					}
+
+<#
+			foreach (EdmProperty edmProperty in entity.Properties.Where(p => p.TypeUsage.EdmType is PrimitiveType && p.DeclaringType == entity))
+			{
+				if (edmProperty.Name == "SecurityLabel") continue;
+				foreach (NavigationProperty nav in entity.NavigationProperties.Where(np=>np.GetDependentProperties().Contains(edmProperty)))
+				{
+					string fkSortField = GetDefaultSortField(nav.ToEndMember.GetEntityType());
+#>
+					IEnumerable<<#=nav.ToEndMember#>> <#=Camelize(edmProperty.Name.Replace("Code", ""))#>List = <#=Camelize(edmProperty.Name.Replace("Code", ""))#>Repository.GetAll(x => new {x.<#=fkSortField#>});
+<#
+				}
+			}
+#>
+
+<#
+			foreach (EdmProperty edmProperty in entity.Properties.Where(p => p.TypeUsage.EdmType is PrimitiveType && p.DeclaringType == entity))
+			{
+				if (edmProperty.Name == "SecurityLabel") continue;
+
+				foreach (NavigationProperty nav in entity.NavigationProperties.Where(np=>np.GetDependentProperties().Contains(edmProperty)))
+				{
+#>
+					List<<#=nav.ToEndMember#>DC> <#=Camelize(edmProperty.Name.Replace("Code", ""))#>DestinationList = Mapper.Map<List<<#=nav.ToEndMember#>DC>>(<#=Camelize(edmProperty.Name.Replace("Code", ""))#>List);
+<#
+				}
+			}
+#>
+
+    				// Create aggregate contract
+                    <#=entity.Name#>VMDC returnObject = new <#=entity.Name#>VMDC();
+
+                    returnObject.<#=entity.Name#>Item = destination;
+<#
+			foreach (EdmProperty edmProperty in entity.Properties.Where(p => p.TypeUsage.EdmType is PrimitiveType && p.DeclaringType == entity))
+			{
+				if (edmProperty.Name == "SecurityLabel") continue;
+
+				foreach (NavigationProperty nav in entity.NavigationProperties.Where(np=>np.GetDependentProperties().Contains(edmProperty)))
+				{
+#>
+					returnObject.<#=edmProperty.Name.Replace("Code", "")#>List = <#=Camelize(edmProperty.Name.Replace("Code", ""))#>DestinationList;
+<#
+				}
+			}
+#>
+                    
+					return returnObject;
+                }
+            }
+            catch (Exception e)
+            {
+                //Prevent exception from propogating across the service interface
+                ExceptionManager.ShieldException(e);
+
+                return null;
+            }
+        }
+
+<#
+			if (hasIsActiveField)
+			{
+#>
+		/// <summary>
+        /// 
+        /// </summary>
+        /// <param name="currentUser"></param>
+        /// <param name="user"></param>
+        /// <param name="appID"></param>
+        /// <param name="overrideID"></param>
+		/// <param name="includeInActive"></param>
+        /// <returns></returns>
+        public List<<#=entity.Name#>DC> GetAll<#=entity.Name#>(string currentUser, string user, string appID, string overrideID, bool includeInActive)
+        {
+			// Create unit of work
+            IUnitOfWork uow = new UnitOfWork(currentUser);
+
+			// Create repository
+            Repository<<#=entity.Name#>> dataRepository = new Repository<<#=entity.Name#>>(uow.ObjectContext, currentUser, user, appID, overrideID);
+			
+			// Create specification for filtering
+			ISpecification<<#=entity.Name#>> specification = new Specification<<#=entity.Name#>>();
+
+			// Call overload with injected objects
+            return GetAll<#=entity.Name#>(currentUser, user, appID, overrideID, includeInActive, specification, dataRepository, uow);
+        }
+
+		/// <summary>
+        /// 
+        /// </summary>
+        /// <param name="currentUser"></param>
+        /// <param name="user"></param>
+        /// <param name="appID"></param>
+        /// <param name="overrideID"></param>
+		/// <param name="includeInActive"></param>
+		/// <param name="specification"></param>
+        /// <param name="dataRepository"></param>
+        /// <param name="uow"></param>
+        /// <returns></returns>
+        public List<<#=entity.Name#>DC> GetAll<#=entity.Name#>(string currentUser, string user, string appID, string overrideID,  bool includeInActive, ISpecification<<#=entity.Name#>> specification, IRepository<<#=entity.Name#>> dataRepository, IUnitOfWork uow)
+        {
+            try
+            {
+				#region Parameter validation
+
+				// Validate parameters
+				if (string.IsNullOrEmpty(currentUser)) throw new ArgumentOutOfRangeException("currentUser");
+				if (string.IsNullOrEmpty(user)) throw new ArgumentOutOfRangeException("user");
+				if (string.IsNullOrEmpty(appID)) throw new ArgumentOutOfRangeException("appID");
+				if (null == dataRepository) throw new ArgumentOutOfRangeException("dataRepository");
+				if (null == specification) throw new ArgumentOutOfRangeException("specification");
+				if (null == uow) throw new ArgumentOutOfRangeException("uow");
+
+				#endregion
+
+                using (uow)
+                {
+					// Build specification
+                    if (!includeInActive)
+                    {
+                        ISpecification<<#=entity.Name#>> isActiveSpecification = new Specification<<#=entity.Name#>>(x => x.IsActive == true);
+                        specification = specification.And(isActiveSpecification);
+                    }
+
+					// Set default sort expression
+					System.Linq.Expressions.Expression<Func<<#=entity.Name#>, Object>> sortExpression = x => x.<#=defaultSortField#>;
+					
+                    // Find all items that satisfy the specification created above.
+                    IEnumerable<<#=entity.Name#>> dataEntities = dataRepository.Find(specification, sortExpression);
+					
+					// Convert to data contracts
+                    List<<#=entity.Name#>DC> destinations = Mapper.Map<IEnumerable<<#=entity.Name#>>, List<<#=entity.Name#>DC>>(dataEntities);
+
+                    return destinations;
+                }
+            }
+            catch (Exception e)
+            {
+                //Prevent exception from propogating across the service interface
+                ExceptionManager.ShieldException(e);
+
+                return null;
+            }
+        }
+		
+		#endregion
+		
+		#region Search
+
+		/// <summary>
+        /// Search for <#=entity.Name#> items
+        /// </summary>
+        /// <param name="currentUser"></param>
+        /// <param name="user"></param>
+        /// <param name="appID"></param>
+        /// <param name="overrideID"></param>
+        /// <param name="searchCriteria"></param>
+        /// <param name="page"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="includeInActive"></param>
+        /// <returns></returns>
+		public <#=entity.Name#>SearchVMDC Search<#=entity.Name#>(string currentUser, string user, string appID, string overrideID, <#=entity.Name#>SearchCriteriaDC searchCriteria, int page, int pageSize, bool includeInActive)
+        {
+			// Create unit of work
+		    IUnitOfWork uow = new UnitOfWork(currentUser);
+
+			// Create repository
+            IRepository<<#=entity.Name#>> dataRepository = new Repository<<#=entity.Name#>>(uow.ObjectContext, currentUser, user, appID, overrideID);
+			
+			// Create specification for filtering
+			ISpecification<<#=entity.Name#>> specification = new Specification<<#=entity.Name#>>();
+
+			// Call overload with injected objects
+            return Search<#=entity.Name#>(currentUser, user, appID, overrideID, searchCriteria, page, pageSize, includeInActive, specification, dataRepository, uow);
+		}
+
+		/// <summary>
+        /// Search for <#=entity.Name#> items
+        /// </summary>
+        /// <param name="currentUser"></param>
+        /// <param name="user"></param>
+        /// <param name="appID"></param>
+        /// <param name="overrideID"></param>
+        /// <param name="searchCriteria"></param>
+        /// <param name="page"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="includeInActive"></param>
+		/// <param name="specification"></param>
+        /// <param name="dataRepository"></param>
+        /// <param name="uow"></param>
+        /// <returns></returns>
+		public <#=entity.Name#>SearchVMDC Search<#=entity.Name#>(string currentUser, string user, string appID, string overrideID, <#=entity.Name#>SearchCriteriaDC searchCriteria, int page, int pageSize, bool includeInActive,
+		ISpecification<<#=entity.Name#>> specification, IRepository<<#=entity.Name#>> dataRepository, IUnitOfWork uow)
+        {
+		    try
+            {
+				#region Parameter validation
+
+				// Validate parameters
+				if (string.IsNullOrEmpty(currentUser)) throw new ArgumentOutOfRangeException("currentUser");
+				if (string.IsNullOrEmpty(user)) throw new ArgumentOutOfRangeException("user");
+				if (string.IsNullOrEmpty(appID)) throw new ArgumentOutOfRangeException("appID");
+				if (null == dataRepository) throw new ArgumentOutOfRangeException("dataRepository");
+				if (null == specification) throw new ArgumentOutOfRangeException("specification");
+				if (null == uow) throw new ArgumentOutOfRangeException("uow");
+
+				#endregion
+
+                using (uow)
+                {
+					// Evaluate search criteria if supplied
+                    if (null != searchCriteria)
+                    {
+                        Evaluate<#=entity.Name#>SearchCriteria(searchCriteria, ref specification);
+                    }
+
+                    if (!includeInActive)
+                    {
+                        ISpecification<<#=entity.Name#>> isActiveSpecification = new Specification<<#=entity.Name#>>(x => x.IsActive == true);
+                        specification = specification.And(isActiveSpecification);
+                    }
+
+					// Set default sort expression
+					System.Linq.Expressions.Expression<Func<<#=entity.Name#>, Object>> sortExpression = x => x.<#=defaultSortField#>;
+					
+				    // Find all items that satisfy the specification created above.
+                    IEnumerable<<#=entity.Name#>> dataEntities = dataRepository.Find(specification, sortExpression, page, pageSize);
+					
+					// Get total count of items for search critera
+					int itemCount = dataRepository.Count(specification);
+
+					<#=entity.Name#>SearchVMDC results = new <#=entity.Name#>SearchVMDC();
+
+					// Convert to data contracts
+                    List<<#=entity.Name#>SearchMatchDC> destinations = Mapper.Map<IEnumerable<<#=entity.Name#>>, List<<#=entity.Name#>SearchMatchDC>>(dataEntities);
+
+					results.MatchList = destinations;
+					results.SearchCriteria = searchCriteria;
+					results.RecordCount = itemCount;
+
+                    return results;
+                }
+            }
+            catch (Exception e)
+            {
+                //Prevent exception from propogating across the service interface
+                ExceptionManager.ShieldException(e);
+
+                return null;
+            }
+		}
+		
+		// Partial method for evaluation of <#=entity.Name#> search criteria
+        partial void Evaluate<#=entity.Name#>SearchCriteria(<#=entity.Name#>SearchCriteriaDC searchCriteria, ref ISpecification<<#=entity.Name#>> specification);
+<#
+			}
+			else
+			{
+#>
+		/// <summary>
+        /// 
+        /// </summary>
+        /// <param name="currentUser"></param>
+        /// <param name="user"></param>
+        /// <param name="appID"></param>
+        /// <param name="overrideID"></param>
+        /// <returns></returns>
+        public List<<#=entity.Name#>DC> GetAll<#=entity.Name#>(string currentUser, string user, string appID, string overrideID)
+        {
+			// Create unit of work
+            IUnitOfWork uow = new UnitOfWork(currentUser);
+	
+			// Create repository
+            IRepository<<#=entity.Name#>> dataRepository = new Repository<<#=entity.Name#>>(uow.ObjectContext, currentUser, user, appID, overrideID);
+			
+			// Create specification for filtering
+			ISpecification<<#=entity.Name#>> specification = new Specification<<#=entity.Name#>>();
+
+            return GetAll<#=entity.Name#>(currentUser, user, appID, overrideID, specification, dataRepository, uow);
+        }
+
+
+
+		/// <summary>
+        /// 
+        /// </summary>
+        /// <param name="currentUser"></param>
+        /// <param name="user"></param>
+        /// <param name="appID"></param>
+        /// <param name="overrideID"></param>
+		/// <param name="specification"></param>
+        /// <param name="dataRepository"></param>
+        /// <param name="uow"></param>
+        /// <returns></returns>
+        public List<<#=entity.Name#>DC> GetAll<#=entity.Name#>(string currentUser, string user, string appID, string overrideID, ISpecification<<#=entity.Name#>> specification, IRepository<<#=entity.Name#>> dataRepository, IUnitOfWork uow)
+        {
+            try
+            {
+				#region Parameter validation
+
+				// Validate parameters
+				if (string.IsNullOrEmpty(currentUser)) throw new ArgumentOutOfRangeException("currentUser");
+				if (string.IsNullOrEmpty(user)) throw new ArgumentOutOfRangeException("user");
+				if (string.IsNullOrEmpty(appID)) throw new ArgumentOutOfRangeException("appID");
+				if (null == dataRepository) throw new ArgumentOutOfRangeException("dataRepository");
+				if (null == specification) throw new ArgumentOutOfRangeException("specification");
+				if (null == uow) throw new ArgumentOutOfRangeException("uow");
+
+				#endregion
+
+                using (uow)
+                {
+					// Set default sort expression
+					System.Linq.Expressions.Expression<Func<<#=entity.Name#>, Object>> sortExpression = x => x.<#=defaultSortField#>;
+
+                    // Find all items that satisfy the specification created above.
+                    IEnumerable<<#=entity.Name#>> dataEntities = dataRepository.Find(specification, sortExpression);
+					
+					// Convert to data contracts
+                    List<<#=entity.Name#>DC> destinations = Mapper.Map<IEnumerable<<#=entity.Name#>>, List<<#=entity.Name#>DC>>(dataEntities);
+
+                    return destinations;
+                }
+            }
+            catch (Exception e)
+            {
+                //Prevent exception from propogating across the service interface
+                ExceptionManager.ShieldException(e);
+
+                return null;
+            }
+        }
+
+		#endregion
+
+		#region Search
+
+		/// <summary>
+        /// 
+        /// </summary>
+        /// <param name="currentUser"></param>
+        /// <param name="user"></param>
+        /// <param name="appID"></param>
+        /// <param name="overrideID"></param>
+        /// <param name="searchCriteria"></param>
+        /// <param name="page"></param>
+        /// <param name="pageSize"></param>
+        /// <returns></returns>
+		public <#=entity.Name#>SearchVMDC Search<#=entity.Name#>(string currentUser, string user, string appID, string overrideID, <#=entity.Name#>SearchCriteriaDC searchCriteria, int page, int pageSize)
+        {
+			// Create unit of work
+		    IUnitOfWork uow = new UnitOfWork(currentUser);
+
+			// Create repository
+            IRepository<<#=entity.Name#>> dataRepository = new Repository<<#=entity.Name#>>(uow.ObjectContext, currentUser, user, appID, overrideID);
+			
+			// Create specification for filtering
+			ISpecification<<#=entity.Name#>> specification = new Specification<<#=entity.Name#>>();
+
+			// Call overload with injected objects
+            return Search<#=entity.Name#>(currentUser, user, appID, overrideID, searchCriteria, page, pageSize, specification, dataRepository, uow);
+		}
+
+		/// <summary>
+        /// 
+        /// </summary>
+        /// <param name="currentUser"></param>
+        /// <param name="user"></param>
+        /// <param name="appID"></param>
+        /// <param name="overrideID"></param>
+        /// <param name="searchCriteria"></param>
+        /// <param name="page"></param>
+        /// <param name="pageSize"></param>
+		/// <param name="specification"></param>
+        /// <param name="dataRepository"></param>
+        /// <param name="uow"></param>
+        /// <returns></returns>
+		public <#=entity.Name#>SearchVMDC Search<#=entity.Name#>(string currentUser, string user, string appID, string overrideID, <#=entity.Name#>SearchCriteriaDC searchCriteria, int page, int pageSize, 
+		ISpecification<<#=entity.Name#>> specification, IRepository<<#=entity.Name#>> dataRepository, IUnitOfWork uow)
+        {
+		    try
+            {
+				#region Parameter validation
+
+				// Validate parameters
+				if (string.IsNullOrEmpty(currentUser)) throw new ArgumentOutOfRangeException("currentUser");
+				if (string.IsNullOrEmpty(user)) throw new ArgumentOutOfRangeException("user");
+				if (string.IsNullOrEmpty(appID)) throw new ArgumentOutOfRangeException("appID");
+				if (null == dataRepository) throw new ArgumentOutOfRangeException("dataRepository");
+				if (null == specification) throw new ArgumentOutOfRangeException("specification");
+				if (null == uow) throw new ArgumentOutOfRangeException("uow");
+
+				#endregion
+
+                using (uow)
+                {
+                    // Evaluate search criteria if supplied
+                    if (null != searchCriteria)
+                    {
+                        EvaluateSearchCriteria(searchCriteria, ref specification);
+                    }
+					
+					// Set default sort expression
+					System.Linq.Expressions.Expression<Func<<#=entity.Name#>, Object>> sortExpression = x => x.<#=defaultSortField#>;
+
+				    // Find all items that satisfy the specification created above.
+                    IEnumerable<<#=entity.Name#>> dataEntities = dataRepository.Find(specification, sortExpression, page, pageSize);
+					
+					// Get total count of items for search critera
+					int itemCount = dataRepository.Find(specification).Count();
+
+					<#=entity.Name#>SearchVMDC results = new <#=entity.Name#>SearchVMDC();
+
+					// Convert to data contracts
+                    List<<#=entity.Name#>SearchMatchDC> destinations = Mapper.Map<IEnumerable<<#=entity.Name#>>, List<<#=entity.Name#>SearchMatchDC>>(dataEntities);
+
+					results.MatchList = destinations;
+					results.SearchCriteria = searchCriteria;
+					results.RecordCount = itemCount;
+
+                    return results;
+                }
+            }
+            catch (Exception e)
+            {
+                //Prevent exception from propogating across the service interface
+                ExceptionManager.ShieldException(e);
+
+                return null;
+            }
+		}
+		
+		// Partial method for evaluation of search criteria
+        partial void EvaluateSearchCriteria(<#=entity.Name#>SearchCriteriaDC searchCriteria, ref ISpecification<<#=entity.Name#>> specification);
+<#
+			}
+#>
+        #endregion
+
+        #region Update
+
+		/// <summary>
+        /// Update a <#=entity.Name#>
+        /// </summary>
+        /// <param name="currentUser"></param>
+        /// <param name="user"></param>
+        /// <param name="appID"></param>
+        /// <param name="overrideID"></param>
+        /// <param name="dc"></param>
+        public <#=entity.Name#>VMDC Update<#=entity.Name#>(string currentUser, string user, string appID, string overrideID, <#=entity.Name#>DC dc)
+        {
+			// Create unit of work
+            IUnitOfWork uow = new UnitOfWork(currentUser);
+			
+			// Create repository
+            IRepository<<#=entity.Name#>> dataRepository = new Repository<<#=entity.Name#>>(uow.ObjectContext, currentUser, user, appID, overrideID);
+
+			// Call overload with injected objects
+            return Update<#=entity.Name#>(currentUser, user, appID, overrideID, dc, dataRepository, uow);
+        }
+
+		/// <summary>
+        /// Update a <#=entity.Name#>
+        /// </summary>
+        /// <param name="currentUser"></param>
+        /// <param name="user"></param>
+        /// <param name="appID"></param>
+        /// <param name="overrideID"></param>
+        /// <param name="dc"></param>
+        /// <param name="dataRepository"></param>
+        /// <param name="uow"></param>
+        public <#=entity.Name#>VMDC Update<#=entity.Name#>(string currentUser, string user, string appID, string overrideID, <#=entity.Name#>DC dc, IRepository<<#=entity.Name#>> dataRepository, IUnitOfWork uow)
+        {
+            try
+            {
+				#region Parameter validation
+
+				// Validate parameters
+				if (string.IsNullOrEmpty(currentUser)) throw new ArgumentOutOfRangeException("currentUser");
+				if (string.IsNullOrEmpty(user)) throw new ArgumentOutOfRangeException("user");
+				if (string.IsNullOrEmpty(appID)) throw new ArgumentOutOfRangeException("appID");
+				if (null == dc) throw new ArgumentOutOfRangeException("dc");
+				if (null == dataRepository) throw new ArgumentOutOfRangeException("dataRepository");
+				if (null == uow) throw new ArgumentOutOfRangeException("uow");
+
+				#endregion
+
+                using (uow)
+                {
+					// Map data contract to model
+                    <#=entity.Name#> destination = Mapper.Map<<#=entity.Name#>DC, <#=entity.Name#>>(dc);
+
+					// Add the new item
+                    dataRepository.Update(destination);
+
+					// Commit unit of work
+                    uow.Commit();
+
+					dc = Mapper.Map<<#=entity.Name#>, <#=entity.Name#>DC>(destination);
+                }
+				
+				// Create new data contract to return
+				<#=entity.Name#>VMDC returnObject = new <#=entity.Name#>VMDC();
+				
+				// Add new item to datacontract
+				returnObject.<#=entity.Name#>Item = dc;
+				
+				// Commit unit of work
+				return returnObject;
+				
+            }
+            catch (Exception e)
+            {
+                //Prevent exception from propogating across the service interface
+                ExceptionManager.ShieldException(e);
+				
+				return null;
+            }
+        }
+
+        #endregion
+
+        #region Delete
+
+		/// <summary>
+        /// Delete a <#=entity.Name#>
+        /// </summary>
+        /// <param name="currentUser"></param>
+        /// <param name="user"></param>
+        /// <param name="appID"></param>
+        /// <param name="overrideID"></param>
+        /// <param name="code"></param>
+        /// <param name="lockID"></param>
+        public void Delete<#=entity.Name#>(string currentUser, string user, string appID, string overrideID, string code, string lockID)
+        {
+			// Create unit of work
+            IUnitOfWork uow = new UnitOfWork(currentUser);
+
+			// Create repository
+            IRepository<<#=entity.Name#>> dataRepository = new Repository<<#=entity.Name#>>(uow.ObjectContext, currentUser, user, appID, overrideID);
+
+			// Call overload with injected objects
+            Delete<#=entity.Name#>(currentUser, user, appID, overrideID, code, lockID, dataRepository, uow);
+        }
+
+		/// <summary>
+        /// Update a <#=entity.Name#>
+        /// </summary>
+        /// <param name="currentUser"></param>
+        /// <param name="user"></param>
+        /// <param name="appID"></param>
+        /// <param name="overrideID"></param>
+        /// <param name="code"></param>
+        /// <param name="lockID"></param>
+        /// <param name="dataRepository"></param>
+        /// <param name="uow"></param>
+        public void Delete<#=entity.Name#>(string currentUser, string user, string appID, string overrideID, string code, string lockID, IRepository<<#=entity.Name#>> dataRepository, IUnitOfWork uow)
+        {
+            try
+            {
+				#region Parameter validation
+
+				// Validate parameters
+				if (string.IsNullOrEmpty(currentUser)) throw new ArgumentOutOfRangeException("currentUser");
+				if (string.IsNullOrEmpty(user)) throw new ArgumentOutOfRangeException("user");
+				if (string.IsNullOrEmpty(appID)) throw new ArgumentOutOfRangeException("appID");
+				if (string.IsNullOrEmpty(code)) throw new ArgumentOutOfRangeException("code");
+				if (string.IsNullOrEmpty(lockID)) throw new ArgumentOutOfRangeException("lockID");
+				if (null == dataRepository) throw new ArgumentOutOfRangeException("dataRepository");
+				if (null == uow) throw new ArgumentOutOfRangeException("uow");
+
+				#endregion
+
+                using (uow)
+                {
+					// Convert string to guid
+                    Guid codeGuid = Guid.Parse(code);	
+					
+					// Find item based on ID
+                    <#=entity.Name#> dataEntity = dataRepository.Single(x => x.Code == codeGuid);
+					
+					// Delete the item
+                    dataRepository.Delete(dataEntity);
+
+					// Commit unit of work
+                    uow.Commit();
+                }
+            }
+            catch (Exception e)
+            {
+                //Prevent exception from propogating across the service interface
+                ExceptionManager.ShieldException(e);
+            }
+        }
+
+        #endregion
+<#    
+    region.End();
+#>
+}
+<#
+EndNamespace(namespaceName);
+}
+fileManager.Process();
+
+#>
+
+
+
+<#/**** Methods ****/#>
+<#+
+void WriteHeader(EntityFrameworkTemplateFileManager fileManager, params string[] extraUsings)
+{
+    fileManager.StartHeader();
+#>
+//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated from a template.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
+<#=String.Join(String.Empty, extraUsings.Select(u => "using " + u + ";" + Environment.NewLine).ToArray())#>
+<#+
+    fileManager.EndBlock();
+}
+
+void BeginNamespace(string namespaceName, CodeGenerationTools code)
+{
+    CodeRegion region = new CodeRegion(this);
+    if (!String.IsNullOrEmpty(namespaceName))
+    {
+#>
+namespace <#=code.EscapeNamespace(namespaceName)#>
+{
+<#+
+        PushIndent(CodeRegion.GetIndent(1));
+    }
+}
+
+
+void EndNamespace(string namespaceName)
+{
+    if (!String.IsNullOrEmpty(namespaceName))
+    {
+        PopIndent();
+#>
+}
+<#+
+    }
+}
+
+bool IsReadWriteAccessibleProperty(EdmMember member)
+{
+    string setter = Accessibility.ForWriteOnlyProperty(member);
+    string getter = Accessibility.ForReadOnlyProperty(member);
+
+    return getter != "private" && getter != "protected" && setter != "private" && setter != "protected";
+}
+
+string PropertyVirtualModifier(string accessibility)
+{
+    return accessibility + (accessibility != "private" ? " virtual" : "");
+}
+
+bool VerifyTypesAreCaseInsensitiveUnique(EdmItemCollection itemCollection)
+{
+    Dictionary<string, bool> alreadySeen = new Dictionary<string, bool>(StringComparer.OrdinalIgnoreCase);
+    foreach(StructuralType type in itemCollection.GetItems<StructuralType>())
+    {
+        if (!(type is EntityType || type is ComplexType))
+        {
+            continue;
+        }
+
+        if (alreadySeen.ContainsKey(type.FullName))
+        {
+            Error(String.Format(CultureInfo.CurrentCulture, "This template does not support types that differ only by case, the types {0} are not supported", type.FullName));
+            return false;
+        }
+        else
+        {
+            alreadySeen.Add(type.FullName, true);
+        }
+
+    }
+
+    return true;
+}
+
+string Camelize(string input)
+{
+	return input.Substring(0,1).ToLower() + input.Substring(1);
+}
+
+string GetDefaultSortField(EntityType entity)
+{
+	string lookupfield = null;
+	if (entity.Properties.Any(x => x.Name == "Description"))
+	{
+		lookupfield = "Description";
+	}
+	else if (entity.Properties.Any(x => x.Name == "Name"))
+	{
+		lookupfield = "Name";
+	}
+	else
+	{
+		lookupfield = entity.Properties.First(x => !x.Name.Contains("Code") && x.Name != "SecurityLabel").Name;
+	}
+	
+	return lookupfield;
+}
+
+#>

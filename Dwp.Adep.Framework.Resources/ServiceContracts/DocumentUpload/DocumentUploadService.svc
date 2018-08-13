@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Dwp.Adep.Framework.Resources.ServiceContracts.DocumentUpload.DocumentUploadService" CodeBehind="DocumentUploadService.svc.cs" %>

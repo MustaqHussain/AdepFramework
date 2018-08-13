@@ -1,0 +1,314 @@
+@model Dwp.Adep.Framework.Management.Web.ViewModels.CustomerVM
+@{
+    ViewBag.Title = "";
+}
+<h2>test</h2>
+<script type="text/javascript">
+    /// <reference path="jquery-1.7.1.js" />
+    /// <reference path="jquery-ui.js" />
+    $(document).ready(function () {
+
+        $.validator.setDefaults({
+            ignore: ""
+        });
+
+        var isDirty = false;
+
+        $(':input').change(function () {
+            if (!isDirty) {
+                isDirty = true;
+            }
+        });
+	});
+</script>
+@using (Html.BeginForm("EditCustomer", "Customer", FormMethod.Post, new { @id = "mainForm" }))
+{
+    @Html.ValidationSummary(true)
+    <div class='message'>@Model.Message</div>
+    @Html.HiddenFor(model => model.CustomerItem.Code)
+    <input type='hidden' id='IsDeleteConfirmed' name='IsDeleteConfirmed' value='@Model.IsDeleteConfirmed' />
+    <input type='hidden' id='IsExitConfirmed' name='IsExitConfirmed' value='@Model.IsExitConfirmed' />
+    <input type='hidden' id='IsNewConfirmed' name='IsNewConfirmed' value='@Model.IsNewConfirmed' />
+    <div class="full-width clearfix">
+        <div class="left-50">
+		    <fieldset class="ui-widget ui-widget-content ui-corner-all">
+                <legend class="ui-widget-header ui-corner-all">@Resources.LEGEND_DETAILS_OF_CUSTOMER</legend>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.CustomerItem.DateRaised)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.CustomerItem.DateRaised)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.CustomerItem.DateRaised)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.CustomerItem.TitleCode)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.CustomerItem.TitleCode)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.CustomerItem.TitleCode)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.CustomerItem.Surname)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.CustomerItem.Surname)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.CustomerItem.Surname)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.CustomerItem.Forenames)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.CustomerItem.Forenames)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.CustomerItem.Forenames)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.CustomerItem.RequestedSurname)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.CustomerItem.RequestedSurname)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.CustomerItem.RequestedSurname)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.CustomerItem.MaidenName)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.CustomerItem.MaidenName)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.CustomerItem.MaidenName)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.CustomerItem.DOB)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.CustomerItem.DOB)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.CustomerItem.DOB)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.CustomerItem.NI_Number)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.CustomerItem.NI_Number)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.CustomerItem.NI_Number)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.CustomerItem.Stagger)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.CustomerItem.Stagger)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.CustomerItem.Stagger)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.CustomerItem.Address1)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.CustomerItem.Address1)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.CustomerItem.Address1)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.CustomerItem.Address2)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.CustomerItem.Address2)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.CustomerItem.Address2)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.CustomerItem.Address3)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.CustomerItem.Address3)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.CustomerItem.Address3)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.CustomerItem.Address4)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.CustomerItem.Address4)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.CustomerItem.Address4)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.CustomerItem.Address5)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.CustomerItem.Address5)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.CustomerItem.Address5)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.CustomerItem.PostCode)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.CustomerItem.PostCode)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.CustomerItem.PostCode)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.CustomerItem.CountryOfResidenceCode)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.CustomerItem.CountryOfResidenceCode)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.CustomerItem.CountryOfResidenceCode)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.CustomerItem.Telephone)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.CustomerItem.Telephone)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.CustomerItem.Telephone)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.CustomerItem.DateLastSaved)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.CustomerItem.DateLastSaved)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.CustomerItem.DateLastSaved)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.CustomerItem.Notes)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.CustomerItem.Notes)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.CustomerItem.Notes)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.CustomerItem.DateWeed)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.CustomerItem.DateWeed)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.CustomerItem.DateWeed)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.CustomerItem.LinkedCustomerCode)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.CustomerItem.LinkedCustomerCode)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.CustomerItem.LinkedCustomerCode)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.CustomerItem.UserTableID)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.CustomerItem.UserTableID)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.CustomerItem.UserTableID)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.CustomerItem.IsDeleted)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.CustomerItem.IsDeleted)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.CustomerItem.IsDeleted)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.CustomerItem.IsActive)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.CustomerItem.IsActive)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.CustomerItem.IsActive)
+					</div>
+				</div>
+				<div class="full-width clearfix">
+					<div class="editor-label left-40">
+						@Html.LabelFor(model => model.CustomerItem.RowIdentifier)
+					</div>
+					<div class="editor-field right-60">
+						@Html.EditorFor(model => model.CustomerItem.RowIdentifier)
+					</div>
+					<div class="full-width clearfix">
+						@Html.ValidationMessageFor(model => model.CustomerItem.RowIdentifier)
+					</div>
+				</div>
+			</fieldset>
+		</div>
+	</div>
+}

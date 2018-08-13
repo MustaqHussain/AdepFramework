@@ -1,0 +1,273 @@
+@model IEnumerable<Dwp.Adep.Framework.Management.Web.Models.SecurityCheckModel>
+
+@{
+    ViewBag.Title = "SecurityCheckView";
+}
+
+<h2>SecurityCheckView</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+      <th>
+            Code
+        </th>
+        <th>
+            SEF_ID
+        </th>
+        <th>
+            DateRaised
+        </th>
+        <th>
+            CheckerCode
+        </th>
+        <th>
+            CustomerCode
+        </th>
+        <th>
+            LiaisonCountryCode
+        </th>
+        <th>
+            ReasonForDelayCode
+        </th>
+        <th>
+            ReferredCode
+        </th>
+        <th>
+            VAT2000NumberCode
+        </th>
+        <th>
+            ServerCode
+        </th>
+        <th>
+            IsPOD1274
+        </th>
+        <th>
+            DateAccountDeletion
+        </th>
+        <th>
+            DateBF
+        </th>
+        <th>
+            DateCheckGenerated
+        </th>
+        <th>
+            DateCheckCompleted
+        </th>
+        <th>
+            DaysToClear
+        </th>
+        <th>
+            DateCheckCompletedEntered
+        </th>
+        <th>
+            DateEO_Reminder
+        </th>
+        <th>
+            DateEvidenceRequested
+        </th>
+        <th>
+            DateHEO_Reminder
+        </th>
+        <th>
+            DateSentToSAT
+        </th>
+        <th>
+            DateReceivedBySAT
+        </th>
+        <th>
+            DateSentToIST
+        </th>
+        <th>
+            DateReceivedByIST
+        </th>
+        <th>
+            DateReceivedInOPS
+        </th>
+        <th>
+            DateReferred
+        </th>
+        <th>
+            DateRequestReceivedByOps
+        </th>
+        <th>
+            DateReturnedBySAT
+        </th>
+        <th>
+            DateValidation
+        </th>
+        <th>
+            Notes
+        </th>
+        <th>
+            BF_Notes
+        </th>
+        <th>
+            UserStaffNumber
+        </th>
+        <th>
+            UserSurname
+        </th>
+        <th>
+            UserForename
+        </th>
+        <th>
+            UserGrade
+        </th>
+        <th>
+            Team1
+        </th>
+        <th>
+            Command
+        </th>
+        <th>
+            Location
+        </th>
+        <th>
+            DateGeneratedMonth
+        </th>
+        <th>
+            DateClearedMonth
+        </th>
+        <th>
+            RowIdentifier
+        </th>
+          <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+      <td>
+            @Html.DisplayFor(modelItem => item.Code)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SEF_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateRaised)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CheckerCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomerCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LiaisonCountryCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReasonForDelayCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReferredCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VAT2000NumberCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ServerCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsPOD1274)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateAccountDeletion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateBF)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateCheckGenerated)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateCheckCompleted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DaysToClear)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateCheckCompletedEntered)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateEO_Reminder)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateEvidenceRequested)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateHEO_Reminder)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateSentToSAT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateReceivedBySAT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateSentToIST)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateReceivedByIST)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateReceivedInOPS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateReferred)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateRequestReceivedByOps)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateReturnedBySAT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateValidation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Notes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BF_Notes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserStaffNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserSurname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserForename)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserGrade)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Team1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Command)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateGeneratedMonth)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateClearedMonth)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RowIdentifier)
+        </td>
+          <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Code }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Code }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Code })
+        </td>
+    </tr>
+}
+
+</table>

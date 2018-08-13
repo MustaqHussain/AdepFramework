@@ -1,0 +1,60 @@
+@model Dwp.Adep.Framework.Management.Web.ViewModels.ApplicationAttributeSearchVM
+
+@{
+    ViewBag.Title = FixedResources.ENTITYNAME_APPLICATIONATTRIBUTE + " " + FixedResources.LABEL_LISTNAME;
+}
+<h2>
+    @FixedResources.ENTITYNAME_APPLICATIONATTRIBUTE @FixedResources.LABEL_LISTNAME</h2>
+<script type="text/javascript">
+    $(document).ready(function () {
+        function updateGrid(e) {
+            e.preventDefault();
+            var url = $(this).attr('href');
+            var grid = $(this).parents('.ajaxGrid');
+            var id = grid.attr('id');
+            grid.load(url + ' #' + id, function (response, status, xhr) {
+                jQueryUIStyling();
+            })
+        }
+        $('.ajaxGrid table thead tr a').live('click', updateGrid);
+        $('.ajaxGrid table tfoot tr a').live('click', updateGrid);
+
+
+    });
+
+</script>
+
+@using (Html.BeginForm("Search", "ApplicationAttribute", FormMethod.Post, new { @id = "mainForm" }))
+{
+    @Html.ValidationSummary(true)
+
+    <div class="webgrid-wrapper">
+        <div class="webgrid-title">
+            @FixedResources.LABEL_GRIDTITLE</div>
+        <div id="grid" class='ajaxGrid'>
+            @{
+                var grid = new WebGrid(null, canPage: true, rowsPerPage: Model.PageSize, defaultSort: "Code", canSort: false);
+                grid.Bind(Model.MatchList, rowCount: Model.TotalRows, autoSortAndPage: false);
+           
+                @grid.GetHtml(
+                    tableStyle: "webgrid",
+                    headerStyle: "webgrid-header",
+                    footerStyle: "webgrid-footer",
+                    mode: WebGridPagerModes.All, firstText: FixedResources.PAGING_FIRSTPAGE, previousText: FixedResources.PAGING_PREVIOUS, nextText: FixedResources.PAGING_NEXT, lastText: FixedResources.PAGING_LASTPAGE, numericLinksCount: 5,
+                    alternatingRowStyle: "webgrid-alternating-rows",
+                    columns: grid.Columns(
+                    grid.Column("Code", header: "", format: @<text>@Html.Raw("<input id='SelectButton_")@item.Code@Html.Raw("' type='submit' name='Search::SearchPost_")@item.Code@Html.Raw("' value='")@Html.Raw(FixedResources.LABEL_SELECTBUTTON)@Html.Raw("' title='")@FixedResources.TOOLTIP_SELECTTOEDITBUTTON @Html.Raw("' />")</text>)
+                    ,grid.Column("AttributeName", header: @Resources.LABEL_APPLICATIONATTRIBUTE_ATTRIBUTENAME)
+                    ,grid.Column("AttributeType", header: @Resources.LABEL_APPLICATIONATTRIBUTE_ATTRIBUTETYPE)
+                    ,grid.Column("IsDataSecurity", header: @Resources.LABEL_APPLICATIONATTRIBUTE_ISDATASECURITY)
+                    ,grid.Column("IsActive", header: @Resources.LABEL_APPLICATIONATTRIBUTE_ISACTIVE)
+                    ,grid.Column("IsRole", header: @Resources.LABEL_APPLICATIONATTRIBUTE_ISROLE)
+                    )
+                    
+                )
+            }
+            Records Returned: @grid.TotalRowCount
+        </div>
+		<input id='NewButton' type='submit' name='Search::NewApplicationAttribute' value="@FixedResources.LABEL_NEWBUTTON" title='@FixedResources.LABEL_NEWBUTTON @FixedResources.ENTITYNAME_APPLICATIONATTRIBUTE' />
+    </div>
+}
